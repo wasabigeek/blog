@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `wasabigeek`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Nick`,
+      summary: `who is a indie-hacker wannabe, living in sunny Singapore.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `A blog about my foray into tech and the world of indie hacking.`,
+    siteUrl: `https://www.wasabigeek.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `wasabigeek`,
     },
   },
   plugins: [
