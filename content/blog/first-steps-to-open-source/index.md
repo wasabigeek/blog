@@ -23,9 +23,9 @@ And waited.
 
 ## Good things...
 
-In hindsight, that issue was not a great first pick. It already had some attempts, with the most recent just over a week from when I made the PR. I think I was just so unsure of myself, I wanted to try it anyway to see if I could actually do this thing. If I screwed it up, there were already a few attempts anyhow.
+In hindsight, that issue was not a great first pick. It already had some attempts, with the most recent just a week before my PR. I think I was so unsure of myself, I figured this would be a super low-risk issue to try. After all, if I screwed it up, there were other attempts that could be picked up.
 
-In the end, one of the maintainers took it upon himself to close the issue and credited all the contributors. His PR was really a lot better, so I guess it was a way of navigating this long-drawn issue without stepping on any toes.
+In the end, one of the maintainers took it upon himself to close the issue and credited all the contributors. His PR was better, but I guess it was mainly a way of navigating this long-drawn issue without stepping on any toes.
 
 While waiting, I decided to try again. We were using a [tool](https://github.com/99designs/iamy) written in Go to manage our AWS IAM at work, but there was a good-to-have feature we wanted and an issue for it. So I spent a few week nights and weekends learning Go, doing up the [PR](https://github.com/99designs/iamy/pull/69) and submitting it.
 
@@ -39,9 +39,9 @@ Then he requested a second opinion from another maintainer.
 
 It’s still there, open.
 
-At this point I was starting to get disheartened. No hate to open source maintainers, it’s pretty thankless work and the world is better for your contributions.
+At this point I was starting to get disheartened. (No hate to open source maintainers, it’s pretty thankless work and the world is better for your contributions.)
 
-## ...who wait.
+## ...who ~~wait~~ keep trying.
 
 I flapped around a bit, and one day decided to look at another gem our company had been using. I saw a pretty steady stream of merges, neatly labelled issues, plus it just felt less intimidating than Rails.
 
