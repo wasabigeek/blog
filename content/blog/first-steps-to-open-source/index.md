@@ -54,18 +54,13 @@ Huge props to [dblock](https://github.com/dblock), who somehow manages to turnar
 
 ## Closing Thoughts
 
-My takeaways (sample size of 1, take with a pinch of salt):
+For "first timers" looking to contribute, my takeaways (sample size of 1, take with a pinch of salt):
 
-**Would-Be-Maintainers**:
-- Labelled issues were very helpful to me, I think it would make it a lot easier to get new contributors when issues are triaged and labelled (especially with a `first-timers-only` type label).
-- Have a `CONTRIBUTING.md` documentation. For example, Rails was pretty amazing for this, I was kinda worried going in but it was really smooth, they even had instructions on how to use Vagrant to get started. It helps newbies!
-- In the absence of timely review, any comment helps, a lot. I know it's unfair to expect you to be devoting loads of time as a maintainer, especially if it's a project you don't use anymore. I can only speak from my experience as a contributor - it made a huge difference in motivation.
-- Keep an eye out for new maintainers to share your burden. Easier said than done, so maybe I'd best refer you to [dblock](https://github.com/dblock). I feel he does this well - after contributing for a few months, he reached out and asked if I would like to be a contributor on one repo, to reduce the bus factor.
-
-**Would-Be-Contributors**
+- Labels on recent issues seemed like a good sign that a project is well-maintained. Search for a `first-timers-only` type label - for example, in Rails it was `good first issue`.
+- Check the `CONTRIBUTING.md` documentation first before starting on your PR! There's usually a lot of helpful setup stuff there. For example, Rails was pretty amazing for this, I was kinda worried going in but it was really smooth, they even had instructions on how to use Vagrant to get started.
 - Expect a little trial-and-error to getting your first PR merged, but stick with it! I found the experience super rewarding, and indeed got exposure to different codebases and languages.
 - Make life as easy for maintainers as possible - try to figure out as much as you can first, whether it's looking at previous PRs, making GitHub checks pass.
 
-I hope that was helpful! Feel free to drop a note to discuss / disagree :)
+I hope that was helpful! Feel free to drop a note on Twitter to discuss / disagree :)
 
 
