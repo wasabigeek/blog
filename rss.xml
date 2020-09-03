@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog about my foray into tech and the world of indie hacking.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 22 Aug 2020 05:41:49 GMT</lastBuildDate><item><title><![CDATA[First Steps into Open Source]]></title><description><![CDATA[At start of the year, I set a rather nebulous goal: “become a regular open source contributor” The motivation was to experience different…]]></description><link>https://www.wasabigeek.com/first-steps-to-open-source/</link><guid isPermaLink="false">https://www.wasabigeek.com/first-steps-to-open-source/</guid><pubDate>Wed, 06 May 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;At start of the year, I set a rather nebulous goal:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog about my foray into tech and the world of indie hacking.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 03 Sep 2020 15:00:47 GMT</lastBuildDate><item><title><![CDATA[First Steps into Open Source]]></title><description><![CDATA[At start of the year, I set a rather nebulous goal: “become a regular open source contributor” The motivation was to experience different…]]></description><link>https://www.wasabigeek.com/first-steps-to-open-source/</link><guid isPermaLink="false">https://www.wasabigeek.com/first-steps-to-open-source/</guid><pubDate>Wed, 06 May 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;At start of the year, I set a rather nebulous goal:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“become a regular open source contributor”&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -53,17 +53,11 @@
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Huge props to &lt;a href=&quot;https://github.com/dblock&quot;&gt;dblock&lt;/a&gt;, who somehow manages to turnaround and reply quickly, often within a day or two. Rubyists, if you would love to contribute but don’t know where to, might I humbly suggest anyone of dblock’s projects - it’s a great place to start.&lt;/p&gt;
 &lt;h2&gt;Closing Thoughts&lt;/h2&gt;
-&lt;p&gt;My takeaways (sample size of 1, take with a pinch of salt):&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Would-Be-Maintainers&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;For “first timers” looking to contribute, my takeaways (sample size of 1, take with a pinch of salt):&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Labelled issues were very helpful to me, I think it would make it a lot easier to get new contributors when issues are triaged and labelled (especially with a &lt;code class=&quot;language-text&quot;&gt;first-timers-only&lt;/code&gt; type label).&lt;/li&gt;
-&lt;li&gt;Have a &lt;code class=&quot;language-text&quot;&gt;CONTRIBUTING.md&lt;/code&gt; documentation. For example, Rails was pretty amazing for this, I was kinda worried going in but it was really smooth, they even had instructions on how to use Vagrant to get started. It helps newbies!&lt;/li&gt;
-&lt;li&gt;In the absence of timely review, any comment helps, a lot. I know it’s unfair to expect you to be devoting loads of time as a maintainer, especially if it’s a project you don’t use anymore. I can only speak from my experience as a contributor - it made a huge difference in motivation.&lt;/li&gt;
-&lt;li&gt;Keep an eye out for new maintainers to share your burden. Easier said than done, so maybe I’d best refer you to &lt;a href=&quot;https://github.com/dblock&quot;&gt;dblock&lt;/a&gt;. I feel he does this well - after contributing for a few months, he reached out and asked if I would like to be a contributor on one repo, to reduce the bus factor.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Would-Be-Contributors&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
+&lt;li&gt;Labels on recent issues seemed like a good sign that a project is well-maintained. Search for a &lt;code class=&quot;language-text&quot;&gt;first-timers-only&lt;/code&gt; type label - for example, in Rails it was &lt;code class=&quot;language-text&quot;&gt;good first issue&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Check the &lt;code class=&quot;language-text&quot;&gt;CONTRIBUTING.md&lt;/code&gt; documentation first before starting on your PR! There’s usually a lot of helpful setup stuff there. For example, Rails was pretty amazing for this, I was kinda worried going in but it was really smooth, they even had instructions on how to use Vagrant to get started.&lt;/li&gt;
 &lt;li&gt;Expect a little trial-and-error to getting your first PR merged, but stick with it! I found the experience super rewarding, and indeed got exposure to different codebases and languages.&lt;/li&gt;
 &lt;li&gt;Make life as easy for maintainers as possible - try to figure out as much as you can first, whether it’s looking at previous PRs, making GitHub checks pass.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I hope that was helpful! Feel free to drop a note to discuss / disagree :)&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;I hope that was helpful! Feel free to drop a note on Twitter to discuss / disagree :)&lt;/p&gt;</content:encoded></item></channel></rss>
