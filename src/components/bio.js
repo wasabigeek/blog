@@ -63,7 +63,7 @@ const Bio = () => {
           Twitter
         </a>
         {` | `}
-        <a href={`https://github.com/${social.github}`}>
+        <a href={`https://github.com/${social.twitter}`}>
           GitHub
         </a>
       </p>

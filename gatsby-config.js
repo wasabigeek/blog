@@ -9,7 +9,6 @@ module.exports = {
     siteUrl: `https://www.wasabigeek.com`,
     social: {
       twitter: `wasabigeek`,
-      github: `wasabigeek`,
     },
   },
   plugins: [
