@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog about my foray into tech and the world of indie hacking.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 03 Sep 2020 15:03:34 GMT</lastBuildDate><item><title><![CDATA[First Steps into Open Source]]></title><description><![CDATA[At start of the year, I set a rather nebulous goal: “become a regular open source contributor” The motivation was to experience different…]]></description><link>https://www.wasabigeek.com/first-steps-to-open-source/</link><guid isPermaLink="false">https://www.wasabigeek.com/first-steps-to-open-source/</guid><pubDate>Wed, 06 May 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;At start of the year, I set a rather nebulous goal:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog about my foray into tech and the world of indie hacking.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 07 Nov 2020 14:57:05 GMT</lastBuildDate><item><title><![CDATA[Customising Rails Templates]]></title><description><![CDATA[Rails’ generators are a great boon to the Indie HackerTM or Solo DeveloperTM. Running  will quickly bootstrap the full stack for a model…]]></description><link>https://www.wasabigeek.com/customising-rails-templates/</link><guid isPermaLink="false">https://www.wasabigeek.com/customising-rails-templates/</guid><pubDate>Sat, 07 Nov 2020 20:32:03 GMT</pubDate><content:encoded>&lt;p&gt;Rails’ generators are a great boon to the Indie Hacker&lt;sup&gt;TM&lt;/sup&gt; or Solo Developer&lt;sup&gt;TM&lt;/sup&gt;. Running &lt;code class=&quot;language-text&quot;&gt;rails g scaffold ...&lt;/code&gt; will quickly bootstrap the full stack for a model, creating the routes, controllers, views and even tests.&lt;/p&gt;
+&lt;p&gt;As you start customising and standardising your interface though, the default templates get less and less useful - most of the generated code doesn’t fit your layout or setup, and you end up deleting most of it or skipping them.&lt;/p&gt;
+&lt;h2&gt;What if we could change the… templates?&lt;/h2&gt;
+&lt;p&gt;Rails actually gives you a lot of &lt;a href=&quot;https://guides.rubyonrails.org/generators.html&quot;&gt;control&lt;/a&gt; over the generators, but early on in a project, perhaps the most impactful &lt;em&gt;and&lt;/em&gt; simple thing to do is to override the &lt;a href=&quot;https://guides.rubyonrails.org/generators.html#customizing-your-workflow-by-changing-generators-templates&quot;&gt;templates&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s look at an example. Normally Rails would generate a &lt;code class=&quot;language-text&quot;&gt;show.html&lt;/code&gt; that looks something like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;p id=&amp;quot;notice&amp;quot;&amp;gt;&amp;lt;%= notice %&amp;gt;&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;
+  &amp;lt;strong&amp;gt;Attribute:&amp;lt;/strong&amp;gt;
+  &amp;lt;%= @object.attribute %&amp;gt;
+&amp;lt;/p&amp;gt;
+
+&amp;lt;%= link_to &amp;#39;Edit&amp;#39;, edit_object_path(@object) %&amp;gt; |
+&amp;lt;%= link_to &amp;#39;Back&amp;#39;, object_path %&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For a personal project, I’ve made mine generate something like:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;% content_for :breadcrumbs do %&amp;gt;
+  &amp;lt;div class=&amp;quot;...&amp;quot;&amp;gt;
+    Home &amp;gt; &amp;lt;%= @object.attribute %&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;% end %&amp;gt;
+
+&amp;lt;% content_for :heading do %&amp;gt;
+  &amp;lt;div class=&amp;quot;...&amp;quot;&amp;gt;
+    &amp;lt;h1 class=&amp;quot;...&amp;quot;&amp;gt;
+      &amp;lt;%= @object.name %&amp;gt;
+    &amp;lt;/h1&amp;gt;
+    &amp;lt;div&amp;gt;
+      &amp;lt;%= link_to &amp;#39;Edit object&amp;#39;, edit_object_path(@object), { class: &amp;#39;...&amp;#39; } %&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;% end %&amp;gt;
+
+&amp;lt;% content_for :main_content do %&amp;gt;
+  &amp;lt;div class=&amp;quot;...&amp;quot;&amp;gt;
+    &amp;lt;%= @object.attribute %&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;% end %&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It’s saved me a lot of time!&lt;/p&gt;
+&lt;p&gt;To do so, simply add a template to your Rails project in &lt;code class=&quot;language-text&quot;&gt;lib/templates/erb/scaffold/show.html.erb&lt;/code&gt;. You can use the &lt;a href=&quot;https://github.com/rails/rails/blob/master/railties/lib/rails/generators/erb/scaffold/templates/show.html.erb.tt&quot;&gt;original&lt;/a&gt; as a starting point. Note the double percentages (&lt;code class=&quot;language-text&quot;&gt;%%&lt;/code&gt;) used to escape ERB tags.&lt;/p&gt;
+&lt;h2&gt;Bonus: Gems too!&lt;/h2&gt;
+&lt;p&gt;This also works for your gems that have generators (e.g. &lt;a href=&quot;https://github.com/rspec/rspec-rails&quot;&gt;rspec-rails&lt;/a&gt; or &lt;a href=&quot;https://github.com/reactjs/react-rails&quot;&gt;react-rails&lt;/a&gt;). It’s not obvious where to place the templates so that Rails would find and use them instead.&lt;/p&gt;
+&lt;p&gt;Our answer lies in &lt;a href=&quot;https://github.com/rails/rails/blob/master/railties/lib/rails/generators/base.rb&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Rails::Generators::Base.inherited&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;def self.inherited(base) #:nodoc:
+  ...
+  Rails::Generators.templates_path.each do |path|
+    if base.name.include?(&amp;quot;::&amp;quot;)
+      base.source_paths &amp;lt;&amp;lt; File.join(path, base.base_name, base.generator_name)
+    else
+      base.source_paths &amp;lt;&amp;lt; File.join(path, base.generator_name)
+    end
+  end
+  ...
+end&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So, in addition to the &lt;code class=&quot;language-text&quot;&gt;source_root&lt;/code&gt; that most Generators would define, Rails will also search a few extra paths. In general, you should place the template in &lt;code class=&quot;language-text&quot;&gt;lib/templates/&amp;lt;top_level_module&amp;gt;/&amp;lt;generator_class_prefix&amp;gt;/&amp;lt;template_name&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For example, &lt;code class=&quot;language-text&quot;&gt;react-rails&lt;/code&gt; has &lt;a href=&quot;https://github.com/reactjs/react-rails/blob/master/lib/generators/react/component_generator.rb&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;React::Generators::ComponentGenerator&lt;/code&gt;&lt;/a&gt;, so if I wanted to replace &lt;a href=&quot;https://github.com/reactjs/react-rails/blob/master/lib/generators/templates/component.es6.jsx&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;component.es6.jsx&lt;/code&gt;&lt;/a&gt;, I would place it in &lt;code class=&quot;language-text&quot;&gt;lib/templates/react/component/component.es6.jsx&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I hope that helps!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[First Steps into Open Source]]></title><description><![CDATA[At start of the year, I set a rather nebulous goal: “become a regular open source contributor” The motivation was to experience different…]]></description><link>https://www.wasabigeek.com/first-steps-to-open-source/</link><guid isPermaLink="false">https://www.wasabigeek.com/first-steps-to-open-source/</guid><pubDate>Wed, 06 May 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;At start of the year, I set a rather nebulous goal:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“become a regular open source contributor”&lt;/p&gt;
 &lt;/blockquote&gt;
