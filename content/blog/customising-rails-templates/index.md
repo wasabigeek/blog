@@ -1,7 +1,7 @@
 ---
 title: Customising Rails Templates
 date: "2020-11-07T20:32:03.284Z"
-description: ""
+description: "Overriding the default Rails templates is simple and impactful early on in a project. Find out how."
 ---
 
 Rails' generators are a great boon to the Indie Hacker<sup>TM</sup> or Solo Developer<sup>TM</sup>. Running `rails g scaffold ...` will quickly bootstrap the full stack for a model, creating the routes, controllers, views and even tests.
@@ -51,11 +51,11 @@ For a personal project, I've made mine generate something like:
 ```
 It's saved me a lot of time!
 
-To do so, simply add a template to your Rails project in `lib/templates/erb/scaffold/show.html.erb`. You can use the [original](https://github.com/rails/rails/blob/master/railties/lib/rails/generators/erb/scaffold/templates/show.html.erb.tt) as a starting point. Note the double percentages (`%%`) used to escape ERB tags.
+To do so, simply add a template to your Rails project in `lib/templates/erb/scaffold/show.html.erb`. You can use the [original](https://github.com/rails/rails/blob/master/railties/lib/rails/generators/erb/scaffold/templates/show.html.erb.tt) as a starting point. The other templates can also be easily changed following a similar path. Note the double percentages (`%%`) used to escape ERB tags!
 
 ## Bonus: Gems too!
 
-This also works for your gems that have generators (e.g. [rspec-rails](https://github.com/rspec/rspec-rails) or [react-rails](https://github.com/reactjs/react-rails)). It's not obvious where to place the templates so that Rails would find and use them instead.
+This also works for your gems that have generators (e.g. [rspec-rails](https://github.com/rspec/rspec-rails) or [react-rails](https://github.com/reactjs/react-rails)), though it's not obvious where to place the templates.
 
 Our answer lies in [`Rails::Generators::Base.inherited`](https://github.com/rails/rails/blob/master/railties/lib/rails/generators/base.rb):
 ```
