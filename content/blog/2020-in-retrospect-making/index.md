@@ -20,7 +20,7 @@ Reflections on side projects this year.
 ### A "self-hosted" Kahoot! clone
 ![Cahoots](./cahoots_screenshot.png)
 
-- In March, I helped out at a church event where we found out Kahoot had unexpectedly restricted the free plan. I thought it'd be cool if there could be a "self-hosted" version for non-profits, and made a really non-user-friendly-but-free [prototype](https://github.com/wasabigeek/cahoots/tree/8347ad081ad1e0fb5c49626204504f07a6beeb68) with GitHub Pages / React / Airtable
+- In March, I helped out at a church event where we found out Kahoot had unexpectedly restricted the free plan. I thought it'd be cool if there could be a "self-hosted" version for non-profits, and made a really non-user-friendly-but-free prototype with GitHub Pages / React / Airtable
 - It had some real UX deficiencies to make it free for me to host, so I wanted to have some testers to see if the tradeoffs were ok before deciding to promote it
 - I asked a friend to try it but didn't really follow-up, and also made a post on Reddit (r/react), more a technical post (not much interaction there though)
 - Reflections:
@@ -57,7 +57,6 @@ Reflections on side projects this year.
 - I also decided against pursuing it further in it's current form:
     - Competing with Kahoot! on price was probably not going to work, their plans were still pretty affordable (and it seems, even cheaper now)
     - They were focusing on education, so I thought another angle was a casual party game, which incidentally was how I was introduced to Kahoot. Something like an [MMO bishi-bashi](https://en.wikipedia.org/wiki/Bishi_Bashi). I shelved this for a future date because I felt like I didn't have the expertise for building web games, so it would be a long-build.
-    - how then could we be different? Perhaps quizzes are only one option, we could have it a bit more like a variety show (bishi-bashi, ) for which the stack was probably not ideal (React)
 - Reflections
     - Even if it wasn't exactly what I initially wanted to learn (Firebase abstracted a lot of the real-time aspects), I did walk away with some more knowledge of NoSQL databases, plus some Firebase-specific knowledge (e.g. security rules), which was great.
     - Again, didn't really push on the validation front, possibly because I felt it needed more polish, plus I wasn't sure if I was going to stick with Firebase if moving to the variety-game idea
