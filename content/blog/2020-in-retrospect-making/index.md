@@ -124,7 +124,7 @@ Reflections on side projects this year.
 
 ### PeekPalette
 
-The unfinished [landing page](https://wasabigeek.github.io/peekpalette/) is still up
+> The unfinished [landing page](https://wasabigeek.github.io/peekpalette/) is still up
 
 - While doing the Figma prototype, I spent quite a bit of time figuring out colour variations and thought, there must be an opportunity here - an app that would generate and let you preview colour combinations against a UI (something like Headlime, but for UI colour palettes)
 - I decided to try starting from a landing page and validate that first. After spending a week on an interactive hero section, I realised I didn’t know what else to put in the “marketing” section of the site that would be convincing >_<
