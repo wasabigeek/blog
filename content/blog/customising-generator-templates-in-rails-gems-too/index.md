@@ -1,7 +1,7 @@
 ---
-title: Customising Rails Templates
+title: Customising Generator Templates in Rails (Gems too!)
 date: "2020-11-07T20:32:03.284Z"
-description: "Overriding the default Rails templates is simple and impactful early on in a project. Find out how."
+description: "Overriding the default templates in Rails and gems is simple and impactful early on in a project. Find out how."
 ---
 
 Rails' generators are a great boon to the Indie Hacker<sup>TM</sup> or Solo Developer<sup>TM</sup>. Running `rails g scaffold ...` will quickly bootstrap the full stack for a model, creating the routes, controllers, views and even tests.
