@@ -43,7 +43,7 @@ Although we have some new syntax to understand (which we'll get into later), tha
 
 Let's try to visualise. For each row, Postgres calculates the average cost of the rest of the table, which is the default **window frame**:
 
-![Calculating average cost over the default window frames](./avg_cost_whole_table.png)
+![Calculating average cost over the default window frame](./avg_cost_whole_table.png)
 
 Now if that was all you could do with window function calls, I'd be disappointed too. Thankfully, it's not! Aside from being shorter, there are some key features that are harder to replicate with subqueries:
 
@@ -73,11 +73,9 @@ And this is the result we'll get:
 
 Now the averages are calculated per category - cool! Let's visualise that again:
 
-<picture>
+![Calculating average cost over each category](./avg_cost_category.png)
 
 This is also a good time to take a brief look at the syntax we've used so far:
-
-<picture>
 
 ```sql
 ..., avg(cost) OVER(PARTITION BY category), ...
@@ -118,7 +116,7 @@ Notice the additional syntax in our window function call:
 
 A quick visual of how that looks:
 
-<picture>
+![Calculating rank over each category and date](./rank_category_data.png)
 
 The query gives us a result like:
 
@@ -156,7 +154,6 @@ Which leaves us with exactly what we want - nice!
 |  8 |         lunch | food & drinks | 2020-01-02 |   15 |    1 |
 |  5 |  taxi to home |     transport | 2020-01-01 |   20 |    1 |
 | 10 | bus ride home |     transport | 2020-01-02 |    4 |    1 |
-
 
 
 I hoped that helped you grok window functions! If you want to play around with the data in this example, there's an [sqlfiddle](http://sqlfiddle.com/#!17/f33e78/3) - in case that doesn't exist at the time of reading, you can also get the SQL to create the table and query the data from this [gist](https://gist.github.com/wasabigeek/2b9fb05eba5c26928bab85bcf408511f).
