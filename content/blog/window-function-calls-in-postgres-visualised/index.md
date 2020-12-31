@@ -43,7 +43,7 @@ Although we have some new syntax to understand (which we'll get into later), tha
 
 Let's try to visualise. For each row, Postgres calculates the average cost of the rest of the table, which is the default **window frame**:
 
-<picture showing the "window">
+![Calculating average cost over the default window frames](./avg_cost_whole_table.png)
 
 Now if that was all you could do with window function calls, I'd be disappointed too. Thankfully, it's not! Aside from being shorter, there are some key features that are harder to replicate with subqueries:
 
