@@ -116,7 +116,7 @@ Notice the additional syntax in our window function call:
 
 A quick visual of how that looks:
 
-![Calculating rank over each category and date](./rank_category_data.png)
+![Calculating rank over each category and date](./rank_category_date.png)
 
 The query gives us a result like:
 
