@@ -2,6 +2,7 @@
 title: Finding New Indie Hacking Ideas (WIP)
 date: "2020-12-13T20:32:03.284Z"
 description: "My curated list of articles and resources to get started on finding your next Indie Hacking project. A work-in-progress."
+published: false
 ---
 
 A curated list of articles and resources for finding Indie Hacking ideas.

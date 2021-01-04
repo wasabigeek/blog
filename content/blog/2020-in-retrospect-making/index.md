@@ -2,6 +2,7 @@
 title: "2020 in Retrospect: Making"
 date: "2020-12-11T20:48:03.284Z"
 description: "My reflections on side projects and indie hacking attempts this year."
+published: true
 ---
 
 Reflections on side projects this year.
