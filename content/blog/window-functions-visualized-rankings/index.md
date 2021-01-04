@@ -13,7 +13,7 @@ Leading from an [introduction to Window Function Calls](/blog/window-function-ca
 | ...         |      |
 
 In the following examples, our window frame will be the whole expenses table, ordered by highest to lowest cost:
-```
+```sql
 SELECT
   [ window function ] OVER(ORDER BY cost DESC),
   expenses.description,
@@ -27,7 +27,7 @@ FROM expenses
 
 # row_number
 Let's start with `row_number`:
-```
+```sql
 ... ROW_NUMBER() OVER(ORDER BY cost DESC), ...
 ```
 
