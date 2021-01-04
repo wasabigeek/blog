@@ -2,6 +2,7 @@
 title: Window Functions, Visualized - Rankings
 date: "2021-01-04"
 description: "Picturing the differences between row_number, rank and dense_rank."
+published: false
 ---
 
 Leading from an [introduction to Window Function Calls](/blog/window-function-calls-an-introduction/), let's dive deeper into the different Window Functions that are available. Today, we'll look at `row_number`, `rank` and `dense_rank`. We'll be using the same expenses table from the previous post, which looks something like:

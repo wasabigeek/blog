@@ -2,6 +2,7 @@
 title: Window Function Calls - An Introduction
 date: "2020-12-31T21:56:03.284Z"
 description: "Grok the basics of window function calls with pictures!"
+published: true
 ---
 
 What is a **window function call**? My explanation:
