@@ -16,70 +16,331 @@
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', 'G-1J86VZ2B2D', options);
-  </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><title data-react-helmet="true">First Steps into Open Source | wasabigeek</title><meta data-react-helmet="true" name="description" content="Charting my first few open source contributions. If you&#x27;re looking to contribute, I hope this helps!"/><meta data-react-helmet="true" property="og:title" content="First Steps into Open Source"/><meta data-react-helmet="true" property="og:description" content="Charting my first few open source contributions. If you&#x27;re looking to contribute, I hope this helps!"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="wasabigeek"/><meta data-react-helmet="true" name="twitter:title" content="First Steps into Open Source"/><meta data-react-helmet="true" name="twitter:description" content="Charting my first few open source contributions. If you&#x27;re looking to contribute, I hope this helps!"/><link as="script" rel="preload" href="/webpack-runtime-2435139541bb18da99ad.js"/><link as="script" rel="preload" href="/styles-755093da0c07f4b49226.js"/><link as="script" rel="preload" href="/framework-8e528b732ab2eaadb7b7.js"/><link as="script" rel="preload" href="/app-3640cc1922046cedbe29.js"/><link as="script" rel="preload" href="/commons-2ad3801b6e0cd5107cd0.js"/><link as="script" rel="preload" href="/1c179074856b004b1e84ffe63e80ef73adc67c91-80d32a548a255c31daef.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js"/><link as="fetch" rel="preload" href="/page-data/blog/first-steps-to-open-source/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1003244115.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:34.56rem;padding:2.16rem 1.08rem"><header><h3 style="font-family:Montserrat, sans-serif;margin-top:0"><a style="box-shadow:none;color:inherit" href="/">wasabigeek</a></h3></header><main><article><header><h1 style="margin-top:1.44rem;margin-bottom:0">First Steps into Open Source</h1><p style="font-size:0.85805rem;line-height:1.44rem;display:block;margin-bottom:1.44rem">May 06, 2020</p></header><section><p>At start of the year, I set a rather nebulous goal:</p>
-<blockquote>
-<p>“become a regular open source contributor”</p>
-</blockquote>
-<p>The motivation was to experience different codebases to gain more experience and (hopefully) improve my employability. 5 months on, I feel reasonably comfortable stating that I’m an open source contributor, and hope to continue doing so.</p>
-<p>This is a summary of my journey so far, I hope it’ll be useful for you, especially if you’re thinking of contributing!</p>
-<h2>First Timers Only</h2>
-<p>To start, I remembered reading about a <a href="https://kentcdodds.com/blog/first-timers-only">first timers “movement”</a> and quickly found a compilation of participating <a href="https://github.com/MunGell/awesome-for-beginners">projects</a>. Ruby was what we used at work, so I jumped to that section.</p>
-<p>The first <a href="https://github.com/rails/rails/pull/38220">PR</a> I tried to submit was for Rails (seemed like it would be something nice on the resume). Rails uses the label <a href="https://github.com/rails/rails/labels/good%20first%20issue">good first issue</a>, so I picked an issue near the top, spent a Saturday working and submitted it!</p>
-<p>Then I waited.</p>
-<p>And waited.</p>
-<h2>Good things…</h2>
-<p>In hindsight, that issue was not a great first pick. It already had some attempts, with the most recent just a week before my PR. I think I was so unsure of myself, I figured this would be a super low-risk issue to try. After all, if I screwed it up, there were other attempts that could be picked up.</p>
-<p>In the end, one of the maintainers took it upon himself to close the issue and credited all the contributors. His PR was better, but I guess it was mainly a way of navigating this long-drawn issue without stepping on any toes.</p>
-<p>While waiting, I decided to try again. We were using a <a href="https://github.com/99designs/iamy">tool</a> written in Go to manage our AWS IAM at work, but there was a good-to-have feature we wanted and an issue for it. So I spent a few week nights and weekends learning Go, doing up the <a href="https://github.com/99designs/iamy/pull/69">PR</a> and submitting it.</p>
-<p>Then I waited.</p>
-<h2>…come to those…</h2>
-<p>And someone reviewed! I was energised. I made some changes.</p>
-<p>Then he requested a second opinion from another maintainer.</p>
-<p>It’s still there, open.</p>
-<p>At this point I was starting to get disheartened. (No hate to open source maintainers, it’s pretty thankless work and the world is better for your contributions.)</p>
-<h2>…who <del>wait</del> keep trying.</h2>
-<p>I flapped around a bit, and one day decided to look at another gem our company had been using. I saw a pretty steady stream of merges, neatly labelled issues, plus it just felt less intimidating than Rails.</p>
-<p>A few days later, my <a href="https://github.com/slack-ruby/slack-ruby-bot/pull/244">first merge</a>! I was elated.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 518px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/a6a8e9110ff40b0c37628a8d0267e82e/6b9fd/slackrubymerge.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 14.18918918918919%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsSAAALEgHS3X78AAAAkUlEQVQI16WOWw6CMBRE2f8a3IUr8UtDwASVd0l4FNrbAseCS3CSmZN7Mx8TVZnGi8EYgxXBe48EirjzNsayLAvGWpxfsW5F3EF/0offry/s+050vSSk9xvxIyZJnxRlRV03tKo7XRQlWfairGq6XvNRM3nwuxnJ24lx0qhWoUJ33TaiI+awYBgn+n5A65l/9AUqoudHHa/43AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="First Merge!"
-        title="First Merge!"
-        src="/static/a6a8e9110ff40b0c37628a8d0267e82e/6b9fd/slackrubymerge.png"
-        srcset="/static/a6a8e9110ff40b0c37628a8d0267e82e/12f09/slackrubymerge.png 148w,
-/static/a6a8e9110ff40b0c37628a8d0267e82e/e4a3f/slackrubymerge.png 295w,
-/static/a6a8e9110ff40b0c37628a8d0267e82e/6b9fd/slackrubymerge.png 518w"
-        sizes="(max-width: 518px) 100vw, 518px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Huge props to <a href="https://github.com/dblock">dblock</a>, who somehow manages to turnaround and reply quickly, often within a day or two. Rubyists, if you would love to contribute but don’t know where to, might I humbly suggest anyone of dblock’s projects - it’s a great place to start.</p>
-<h2>Closing Thoughts</h2>
-<p>For “first timers” looking to contribute, my takeaways (sample size of 1, take with a pinch of salt):</p>
-<ul>
-<li>Labels on recent issues seemed like a good sign that a project is well-maintained. Search for a <code class="language-text">first-timers-only</code> type label - for example, in Rails it was <code class="language-text">good first issue</code>.</li>
-<li>Check the <code class="language-text">CONTRIBUTING.md</code> documentation first before starting on your PR! There’s usually a lot of helpful setup stuff there. For example, Rails was pretty amazing for this, I was kinda worried going in but it was really smooth, they even had instructions on how to use Vagrant to get started.</li>
-<li>Expect a little trial-and-error to getting your first PR merged, but stick with it! I found the experience super rewarding, and indeed got exposure to different codebases and languages.</li>
-<li>Make life as easy for maintainers as possible - try to figure out as much as you can first, whether it’s looking at previous PRs, making GitHub checks pass.</li>
-</ul>
-<p>I hope that was helpful! Feel free to drop a note on Twitter to discuss / disagree :)</p></section><hr style="margin-bottom:1.44rem"/><footer><div style="display:flex;margin-bottom:3.6rem"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:50px;height:50px;margin-right:0.72rem;margin-bottom:0;min-width:50px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAC4jAAAuIwF4pT92AAADm0lEQVQ4y41UXShkcRSfuXcWMRiMb0WTHbS1JbxoaH3kYRgrRc3KA/mIonmgRTG7HiQp7QOxxXphUSvxYNdHakvaLe0DWbt42nwUSUZp5977P3vOnbljJnbbU7f7///vOb/7O+d3/kelesBCQ0NVubm58jo4ONjnGwCoKyoqOG/ff1pERIT8DgkJITCe1gEBAY/w9RQfneLnDUq+cXFxvkApKSn3QL1YvGltbQWDwfC9pKTkW3Z2djOd22w27kFWTU1NnnVQUBA58UVFRZxWq7Xq9fpParX698nJCRweHoLD4YCMjIwD9DGo/sPUXmsuKyvr8uDgAFJTU6WdnR0J6ydtbW0JaWlpYltbGyQkJIyQ4/z8PBFxRSELVWFhoQcM62b29/f/GBYWZkSn0pWVFaivrxenpqbYxcUF6+zshLGxMSeCQ3R09CzFNDQ08A+x49wFfo1AXyMjIyml5/n5+dLa2hrY7XaGe2Y0Gtn+/r5ktVohPT19Lz4+/jHFob8ru5iYGG/QJ/iYSCNU9t3MzAwRgZubG3Z8fAxLS0uwuroKZ2dn0NPTI6DSgL4v3Jm6WGJ6CpgGhfhJIFVVVVBcXAzt7e0Spsu6u7thZGSE4QMTExNMQqMflZWVOTAukYKxzi6GOp1OEULX1dV1BS6TNjc3xZycHNbc3Ex75j6HgoICqKysZH19feLs7CzwPF9OwUlJSbzSJgqgoaWlRSIRqEbDw8NsenoaRkdHZTBKc3d3F3p7e+X16empgIoDluwlBWM9XYColAwYHh6uTUxM/IJ/h/HxcbG6upohS8DmBVQXjo6OYGFhAerq6tjVlZyIgMoDx3E2H4Zkfn5+ysZCNwJVFdfX12Vmi4uLQDXs7+8nIQBrrKQvdHR0kCgW923iPX0YGBioXKH8oaEhchapblh7T+3c5gEj1haL5Qfp6jMk5ubmVNjESh3jzWazgyKcTicTRZEASF1WU1PDrq+vaS+QaI2NjcSuxH0ZfBs7MzNThddIOXy7sbFBmLfIkJiKtbW1gslkEm5vb+V2GRwcBI1G84qckQznbmzfa4KNrLDU4yz8RYNAEAQ5v/Pzc9je3pabGsH3cFhUkePl5aUn3quffdCVWqbiCPuAY+pzXl7eamlp6Xv8iR3Pn9EkIoeBgQHPIElOTvZlFxsbezct7kD/alFRUfyDzLyNAFFtzxgrLy/nMFsa+arl5WUO+1ODPcvRdFZscnLyHs4fRNbwe3bau0MAAAAASUVORK5CYII=" alt="Nick" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms;border-radius:50%"/><noscript><picture><source srcset="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png 1x,
+  </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><title data-react-helmet="true">Window Functions, Visualized - Rankings | wasabigeek</title><meta data-react-helmet="true" name="description" content="Picturing the differences between row_number, rank and dense_rank."/><meta data-react-helmet="true" property="og:title" content="Window Functions, Visualized - Rankings"/><meta data-react-helmet="true" property="og:description" content="Picturing the differences between row_number, rank and dense_rank."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="wasabigeek"/><meta data-react-helmet="true" name="twitter:title" content="Window Functions, Visualized - Rankings"/><meta data-react-helmet="true" name="twitter:description" content="Picturing the differences between row_number, rank and dense_rank."/><link as="script" rel="preload" href="/webpack-runtime-2435139541bb18da99ad.js"/><link as="script" rel="preload" href="/styles-755093da0c07f4b49226.js"/><link as="script" rel="preload" href="/framework-8e528b732ab2eaadb7b7.js"/><link as="script" rel="preload" href="/app-3640cc1922046cedbe29.js"/><link as="script" rel="preload" href="/commons-2ad3801b6e0cd5107cd0.js"/><link as="script" rel="preload" href="/1c179074856b004b1e84ffe63e80ef73adc67c91-80d32a548a255c31daef.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js"/><link as="fetch" rel="preload" href="/page-data/blog/window-functions-visualized-rankings/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1003244115.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:34.56rem;padding:2.16rem 1.08rem"><header><h3 style="font-family:Montserrat, sans-serif;margin-top:0"><a style="box-shadow:none;color:inherit" href="/">wasabigeek</a></h3></header><main><article><header><h1 style="margin-top:1.44rem;margin-bottom:0">Window Functions, Visualized - Rankings</h1><p style="font-size:0.85805rem;line-height:1.44rem;display:block;margin-bottom:1.44rem">January 04, 2021</p></header><section><p>Leading from an <a href="/blog/window-function-calls-an-introduction/">introduction to Window Function Calls</a>, let’s dive deeper into the different Window Functions that are available. Today, we’ll look at <code class="language-text">row_number</code>, <code class="language-text">rank</code> and <code class="language-text">dense_rank</code>. We’ll be using the same expenses table from the previous post, which looks something like:</p>
+<table>
+<thead>
+<tr>
+<th>description</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bus ride</td>
+<td>3</td>
+</tr>
+<tr>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>…</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>In the following examples, our window frame will be the whole expenses table, ordered by highest to lowest cost:</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+  <span class="token punctuation">[</span> window <span class="token keyword">function</span> <span class="token punctuation">]</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cost <span class="token keyword">DESC</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  expenses<span class="token punctuation">.</span>description<span class="token punctuation">,</span>
+  expenses<span class="token punctuation">.</span>cost
+<span class="token keyword">FROM</span> expenses</code></pre></div>
+<p>![picture]</p>
+<h1>row_number</h1>
+<p>Let’s start with <code class="language-text">row_number</code>:</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cost <span class="token keyword">DESC</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
+<p>All <code class="language-text">row_number</code> does is add a running number for each row in the frame, starting from 1:</p>
+<table>
+<thead>
+<tr>
+<th>row_number</th>
+<th>description</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>groceries</td>
+<td>60</td>
+</tr>
+<tr>
+<td>2</td>
+<td>dinner</td>
+<td>35</td>
+</tr>
+<tr>
+<td>3</td>
+<td>taxi</td>
+<td>20</td>
+</tr>
+<tr>
+<td>4</td>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>supper</td>
+<td>15</td>
+</tr>
+<tr>
+<td>7</td>
+<td>tea break</td>
+<td>5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>bus ride</td>
+<td>4</td>
+</tr>
+<tr>
+<td>9</td>
+<td>bus ride</td>
+<td>3</td>
+</tr>
+<tr>
+<td>10</td>
+<td>bus ride</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h1>dense_rank</h1>
+<p><code class="language-text">dense_rank</code> is more interesting. Reviewing the previous example, we can see that there were a few entries that “tie” for the same level. The Postgres documentation refers to these as <strong>peer groups</strong>:</p>
+<p>![picture]</p>
+<p>What <code class="language-text">dense_rank</code> does is add a running number for each <em>peer group</em> in the frame, starting from 1:</p>
+<table>
+<thead>
+<tr>
+<th>dense_rank</th>
+<th>description</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>groceries</td>
+<td>60</td>
+</tr>
+<tr>
+<td>2</td>
+<td>dinner</td>
+<td>35</td>
+</tr>
+<tr>
+<td>3</td>
+<td>taxi to home</td>
+<td>20</td>
+</tr>
+<tr>
+<td>4</td>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>supper</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>tea break</td>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>bus ride home</td>
+<td>4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>bus ride to work</td>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>bus ride to work</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: I’m actually not sure how Postgres “breaks the tie” within a peer group - in my small example, it looks like an implicit <code class="language-text">ORDER BY ID DESC</code> was added, but the Postgres <a href="https://www.postgresql.org/docs/current/queries-order.html">docs</a> also say <em>if sorting is not chosen, the rows will be returned in an unspecified order</em> 🤷‍♂️.</p>
+<h1>rank</h1>
+<p><code class="language-text">rank</code> has one big difference from <code class="language-text">dense_rank</code> - instead of a running number, it considers “gaps”:</p>
+<p>![picture]</p>
+<p>Comparing the results of each function makes the difference clearer:</p>
+<table>
+<thead>
+<tr>
+<th>dense_rank</th>
+<th>rank</th>
+<th>description</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>5</td>
+<td>7</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>6</td>
+<td>8</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>7</td>
+<td>9</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>7</td>
+<td>9</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<h1>Side by side</h1>
+<p>Finally, let’s look at results side by side:</p>
+<table>
+<thead>
+<tr>
+<th>row_number</th>
+<th>dense_rank</th>
+<th>rank</th>
+<th>description</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>groceries</td>
+<td>60</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>dinner</td>
+<td>35</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>taxi</td>
+<td>20</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>4</td>
+<td>4</td>
+<td>supper</td>
+<td>15</td>
+</tr>
+<tr>
+<td>7</td>
+<td>5</td>
+<td>7</td>
+<td>tea break</td>
+<td>5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>6</td>
+<td>8</td>
+<td>bus ride</td>
+<td>4</td>
+</tr>
+<tr>
+<td>9</td>
+<td>7</td>
+<td>9</td>
+<td>bus ride</td>
+<td>3</td>
+</tr>
+<tr>
+<td>10</td>
+<td>7</td>
+<td>9</td>
+<td>bus ride</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>I hope that helped! Here’s an <a href="http://sqlfiddle.com/#!17/e9ac4/6">sqlfiddle</a> you can play around with.</p>
+<p>For further reading, take a look at the Postgres docs on <a href="https://www.postgresql.org/docs/13/functions-window.html">Window Functions</a>.</p></section><hr style="margin-bottom:1.44rem"/><footer><div style="display:flex;margin-bottom:3.6rem"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:50px;height:50px;margin-right:0.72rem;margin-bottom:0;min-width:50px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAC4jAAAuIwF4pT92AAADm0lEQVQ4y41UXShkcRSfuXcWMRiMb0WTHbS1JbxoaH3kYRgrRc3KA/mIonmgRTG7HiQp7QOxxXphUSvxYNdHakvaLe0DWbt42nwUSUZp5977P3vOnbljJnbbU7f7///vOb/7O+d3/kelesBCQ0NVubm58jo4ONjnGwCoKyoqOG/ff1pERIT8DgkJITCe1gEBAY/w9RQfneLnDUq+cXFxvkApKSn3QL1YvGltbQWDwfC9pKTkW3Z2djOd22w27kFWTU1NnnVQUBA58UVFRZxWq7Xq9fpParX698nJCRweHoLD4YCMjIwD9DGo/sPUXmsuKyvr8uDgAFJTU6WdnR0J6ydtbW0JaWlpYltbGyQkJIyQ4/z8PBFxRSELVWFhoQcM62b29/f/GBYWZkSn0pWVFaivrxenpqbYxcUF6+zshLGxMSeCQ3R09CzFNDQ08A+x49wFfo1AXyMjIyml5/n5+dLa2hrY7XaGe2Y0Gtn+/r5ktVohPT19Lz4+/jHFob8ru5iYGG/QJ/iYSCNU9t3MzAwRgZubG3Z8fAxLS0uwuroKZ2dn0NPTI6DSgL4v3Jm6WGJ6CpgGhfhJIFVVVVBcXAzt7e0Spsu6u7thZGSE4QMTExNMQqMflZWVOTAukYKxzi6GOp1OEULX1dV1BS6TNjc3xZycHNbc3Ex75j6HgoICqKysZH19feLs7CzwPF9OwUlJSbzSJgqgoaWlRSIRqEbDw8NsenoaRkdHZTBKc3d3F3p7e+X16empgIoDluwlBWM9XYColAwYHh6uTUxM/IJ/h/HxcbG6upohS8DmBVQXjo6OYGFhAerq6tjVlZyIgMoDx3E2H4Zkfn5+ysZCNwJVFdfX12Vmi4uLQDXs7+8nIQBrrKQvdHR0kCgW923iPX0YGBioXKH8oaEhchapblh7T+3c5gEj1haL5Qfp6jMk5ubmVNjESh3jzWazgyKcTicTRZEASF1WU1PDrq+vaS+QaI2NjcSuxH0ZfBs7MzNThddIOXy7sbFBmLfIkJiKtbW1gslkEm5vb+V2GRwcBI1G84qckQznbmzfa4KNrLDU4yz8RYNAEAQ5v/Pzc9je3pabGsH3cFhUkePl5aUn3quffdCVWqbiCPuAY+pzXl7eamlp6Xv8iR3Pn9EkIoeBgQHPIElOTvZlFxsbezct7kD/alFRUfyDzLyNAFFtzxgrLy/nMFsa+arl5WUO+1ODPcvRdFZscnLyHs4fRNbwe3bau0MAAAAASUVORK5CYII=" alt="Nick" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms;border-radius:50%"/><noscript><picture><source srcset="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png 1x,
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/f937a/wasabigeek-logo.png 1.5x,
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" /><img loading="lazy" width="50" height="50" srcset="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png 1x,
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/f937a/wasabigeek-logo.png 1.5x,
-/static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" src="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png" alt="Nick" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><p>Written by <strong>Nick</strong> <!-- -->who is a indie-hacker wannabe, living in sunny Singapore.<!-- --> <a href="https://twitter.com/wasabigeek">Twitter</a> | <a href="https://github.com/wasabigeek">GitHub</a></p></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li></li><li><a rel="next" href="/blog/customising-generator-templates-in-rails-gems-too/">Customising Generator Templates in Rails (Gems too!)<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2021<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.org">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/first-steps-to-open-source/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-0ca925a8c2baff429a22.js"],"app":["/app-3640cc1922046cedbe29.js"],"component---src-pages-404-js":["/component---src-pages-404-js-00ca0359d36b3a5442f5.js"],"component---src-pages-blog-index-js":["/component---src-pages-blog-index-js-31e26b5819c4efd6979d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-2a626d481d7e457efc2e.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js"]};/*]]>*/</script><script src="/polyfill-0ca925a8c2baff429a22.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js" async=""></script><script src="/1c179074856b004b1e84ffe63e80ef73adc67c91-80d32a548a255c31daef.js" async=""></script><script src="/commons-2ad3801b6e0cd5107cd0.js" async=""></script><script src="/app-3640cc1922046cedbe29.js" async=""></script><script src="/framework-8e528b732ab2eaadb7b7.js" async=""></script><script src="/styles-755093da0c07f4b49226.js" async=""></script><script src="/webpack-runtime-2435139541bb18da99ad.js" async=""></script></body></html>
+/static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" src="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png" alt="Nick" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><p>Written by <strong>Nick</strong> <!-- -->who is a indie-hacker wannabe, living in sunny Singapore.<!-- --> <a href="https://twitter.com/wasabigeek">Twitter</a> | <a href="https://github.com/wasabigeek">GitHub</a></p></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/blog/window-function-calls-an-introduction/">← <!-- -->Window Function Calls - An Introduction</a></li><li></li></ul></nav></main><footer>© <!-- -->2021<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.org">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/window-functions-visualized-rankings/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-0ca925a8c2baff429a22.js"],"app":["/app-3640cc1922046cedbe29.js"],"component---src-pages-404-js":["/component---src-pages-404-js-00ca0359d36b3a5442f5.js"],"component---src-pages-blog-index-js":["/component---src-pages-blog-index-js-31e26b5819c4efd6979d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-2a626d481d7e457efc2e.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js"]};/*]]>*/</script><script src="/polyfill-0ca925a8c2baff429a22.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js" async=""></script><script src="/1c179074856b004b1e84ffe63e80ef73adc67c91-80d32a548a255c31daef.js" async=""></script><script src="/commons-2ad3801b6e0cd5107cd0.js" async=""></script><script src="/app-3640cc1922046cedbe29.js" async=""></script><script src="/framework-8e528b732ab2eaadb7b7.js" async=""></script><script src="/styles-755093da0c07f4b49226.js" async=""></script><script src="/webpack-runtime-2435139541bb18da99ad.js" async=""></script></body></html>
