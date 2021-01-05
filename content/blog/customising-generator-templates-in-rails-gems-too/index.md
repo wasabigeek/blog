@@ -14,7 +14,7 @@ As you start customising and standardising your interface though, the default te
 Rails actually gives you a lot of [control](https://guides.rubyonrails.org/generators.html) over the generators, but early on in a project, perhaps the most impactful _and_ simple thing to do is to override the [templates](https://guides.rubyonrails.org/generators.html#customizing-your-workflow-by-changing-generators-templates).
 
 Let's look at an example. Normally Rails would generate a `show.html` that looks something like this:
-```
+```erb
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -26,7 +26,7 @@ Let's look at an example. Normally Rails would generate a `show.html` that looks
 <%= link_to 'Back', object_path %>
 ```
 For a personal project, I've made mine generate something like:
-```
+```erb
 <% content_for :breadcrumbs do %>
   <div class="...">
     Home > <%= @object.attribute %>
@@ -59,7 +59,7 @@ To do so, simply add a template to your Rails project in `lib/templates/erb/scaf
 This also works for your gems that have generators (e.g. [rspec-rails](https://github.com/rspec/rspec-rails) or [react-rails](https://github.com/reactjs/react-rails)), though it's not obvious where to place the templates.
 
 Our answer lies in [`Rails::Generators::Base.inherited`](https://github.com/rails/rails/blob/master/railties/lib/rails/generators/base.rb):
-```
+```ruby
 def self.inherited(base) #:nodoc:
   ...
   Rails::Generators.templates_path.each do |path|
