@@ -1,7 +1,7 @@
 ---
-title: Window Function Calls - An Introduction
+title: Window Function Calls in Postgres - A Visual Introduction
 date: "2020-12-31T21:56:03.284Z"
-description: "Grok the basics of window function calls with pictures!"
+description: "What is a Window Function Calls? The why and the how, explained with pictures for maximum grok-ability."
 published: true
 ---
 
@@ -17,7 +17,7 @@ Ok, that's probably still not immediately understandable, so let's walk through 
 | lunch       | food & drinks | 2020-01-01 | 15   |
 | ...         |               |            |      |
 
-Now, as a contrived example\*, say you wanted to see how much each expense compares to the average:
+Now, say you wanted to see how much each expense compares to the average:
 
 | description | category | created_at | cost | avg  |
 | ----------- | -------- | ---------- | ---- | ---- |
@@ -51,7 +51,7 @@ Let's try to visualise the window function call. For each row, Postgres calculat
 Now if that was all you could do with window function calls, I'd be disappointed too. Thankfully, it's not! Aside from being shorter, there are some key features that are harder to replicate with subqueries:
 
 - calculations can be done over a subset of the table (i.e. a smaller **window frame**) instead of the whole table
-- in addition to the usual aggregation functions like `avg` or `max`, there are window functions, which can only be used in window function calls
+- in addition to the usual aggregation functions like `avg` or `max`, there are **window functions**, which can only be used as part of a window function call
 
 ## Reframing the Window
 
@@ -69,8 +69,8 @@ Our result now looks something like:
 | tea break     | food & drinks | ...        | 5    | 24              |
 | lunch         | food & drinks | ...        | 15   | 24              |
 | ...           |               |            |      |                 |
-| taxi to home  | transport     | ...        | 20   | 9               |
-| bus ride home | transport     | ...        | 3    | 9               |
+| taxi to home  | transport     | ...        | 20   | 7.5             |
+| bus ride home | transport     | ...        | 3    | 7.5             |
 | ...           |               |            |      |                 |
 
 
@@ -98,7 +98,7 @@ Now that we know a little more about the syntax, let's look at the other hidden 
 
 It's coming to the end of the month, and you want to know the biggest expense in each category, for each day. There's a window function for that - `rank`!
 
-With `rank`, we can calculate the order of each row in it's window frame. Note we'll still be returning every row in the table, not just the top expenses - we'll fix that later:
+With `rank`, we can calculate the order of each row in it's window frame (Note that the following query still returns every row in the table, not just the top expenses - we'll fix that later):
 
 ```sql
 select
