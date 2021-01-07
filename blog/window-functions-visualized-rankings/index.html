@@ -351,19 +351,68 @@
 <h2>percent_rank</h2>
 <p>This is an interesting one - how it’s derived is a bit of a mouthful, so let’s show by example, starting with the query:</p>
 <div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> PERCENT_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cost <span class="token keyword">DESC</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
-<p>And the result:
-| percent_rank | description | cost |
-| ------------ | ----------- | ---- |
-| 0            | groceries   | 60   |
-| 0.11…      | dinner      | 35   |
-| 0.22…      | taxi        | 20   |
-| 0.33…      | lunch       | 15   |
-| 0.33…      | lunch       | 15   |
-| 0.33…      | supper      | 15   |
-| 0.66…      | tea break   | 5    |
-| 0.77…      | bus ride    | 4    |
-| 0.88…      | bus ride    | 3    |
-| 0.88…      | bus ride    | 3    |</p>
+<p>And the result:</p>
+<table>
+<thead>
+<tr>
+<th>percent_rank</th>
+<th>description</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>groceries</td>
+<td>60</td>
+</tr>
+<tr>
+<td>0.11…</td>
+<td>dinner</td>
+<td>35</td>
+</tr>
+<tr>
+<td>0.22…</td>
+<td>taxi</td>
+<td>20</td>
+</tr>
+<tr>
+<td>0.33…</td>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>0.33…</td>
+<td>lunch</td>
+<td>15</td>
+</tr>
+<tr>
+<td>0.33…</td>
+<td>supper</td>
+<td>15</td>
+</tr>
+<tr>
+<td>0.66…</td>
+<td>tea break</td>
+<td>5</td>
+</tr>
+<tr>
+<td>0.77…</td>
+<td>bus ride</td>
+<td>4</td>
+</tr>
+<tr>
+<td>0.88…</td>
+<td>bus ride</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0.88…</td>
+<td>bus ride</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
 <p>Instead of a running number, we get the “relative rank” from 0 to 1 inclusive. This is useful if you need to know how close something is to the highest rank - though, as the above example shows, it may not end with 1 if there are ties for the highest rank (a deeper explanation <a href="https://dba.stackexchange.com/a/144015">here</a>).</p>
 <h2>side-by-side</h2>
 <p>Finally, let’s look at results side by side:</p>
@@ -373,6 +422,7 @@
 <th>row_number</th>
 <th>dense_rank</th>
 <th>rank</th>
+<th>percent_rank</th>
 <th>description</th>
 <th>cost</th>
 </tr>
@@ -382,6 +432,7 @@
 <td>1</td>
 <td>1</td>
 <td>1</td>
+<td>0</td>
 <td>groceries</td>
 <td>60</td>
 </tr>
@@ -389,6 +440,7 @@
 <td>2</td>
 <td>2</td>
 <td>2</td>
+<td>0.11…</td>
 <td>dinner</td>
 <td>35</td>
 </tr>
@@ -396,6 +448,7 @@
 <td>3</td>
 <td>3</td>
 <td>3</td>
+<td>0.22…</td>
 <td>taxi</td>
 <td>20</td>
 </tr>
@@ -403,6 +456,7 @@
 <td>4</td>
 <td>4</td>
 <td>4</td>
+<td>0.33…</td>
 <td>lunch</td>
 <td>15</td>
 </tr>
@@ -410,6 +464,7 @@
 <td>5</td>
 <td>4</td>
 <td>4</td>
+<td>0.33…</td>
 <td>lunch</td>
 <td>15</td>
 </tr>
@@ -417,6 +472,7 @@
 <td>6</td>
 <td>4</td>
 <td>4</td>
+<td>0.33…</td>
 <td>supper</td>
 <td>15</td>
 </tr>
@@ -424,6 +480,7 @@
 <td>7</td>
 <td>5</td>
 <td>7</td>
+<td>0.66…</td>
 <td>tea break</td>
 <td>5</td>
 </tr>
@@ -431,6 +488,7 @@
 <td>8</td>
 <td>6</td>
 <td>8</td>
+<td>0.77…</td>
 <td>bus ride</td>
 <td>4</td>
 </tr>
@@ -438,6 +496,7 @@
 <td>9</td>
 <td>7</td>
 <td>9</td>
+<td>0.88…</td>
 <td>bus ride</td>
 <td>3</td>
 </tr>
@@ -445,6 +504,7 @@
 <td>10</td>
 <td>7</td>
 <td>9</td>
+<td>0.88…</td>
 <td>bus ride</td>
 <td>3</td>
 </tr>

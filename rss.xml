@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog about my foray into tech and the world of indie hacking.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Jan 2021 15:27:12 GMT</lastBuildDate><item><title><![CDATA[Window Functions, Visualized - Rankings]]></title><description><![CDATA[Leading from an introduction to Window Function Calls, let’s dive deeper into the different Window Functions that are available. Today, we…]]></description><link>https://www.wasabigeek.com/blog/window-functions-visualized-rankings/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/window-functions-visualized-rankings/</guid><pubDate>Mon, 04 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Leading from an &lt;a href=&quot;/blog/window-function-calls-an-introduction/&quot;&gt;introduction to Window Function Calls&lt;/a&gt;, let’s dive deeper into the different Window Functions that are available. Today, we’ll look at &lt;code class=&quot;language-text&quot;&gt;row_number&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;rank&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;dense_rank&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;percent_rank&lt;/code&gt;. We’ll be using the same expenses table from the previous post, which had entries like:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog about my foray into tech and the world of indie hacking.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Jan 2021 15:38:03 GMT</lastBuildDate><item><title><![CDATA[Window Functions, Visualized - Rankings]]></title><description><![CDATA[Leading from an introduction to Window Function Calls, let’s dive deeper into the different Window Functions that are available. Today, we…]]></description><link>https://www.wasabigeek.com/blog/window-functions-visualized-rankings/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/window-functions-visualized-rankings/</guid><pubDate>Mon, 04 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Leading from an &lt;a href=&quot;/blog/window-function-calls-an-introduction/&quot;&gt;introduction to Window Function Calls&lt;/a&gt;, let’s dive deeper into the different Window Functions that are available. Today, we’ll look at &lt;code class=&quot;language-text&quot;&gt;row_number&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;rank&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;dense_rank&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;percent_rank&lt;/code&gt;. We’ll be using the same expenses table from the previous post, which had entries like:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -333,19 +333,68 @@
 &lt;h2&gt;percent_rank&lt;/h2&gt;
 &lt;p&gt;This is an interesting one - how it’s derived is a bit of a mouthful, so let’s show by example, starting with the query:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt; PERCENT_RANK&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;OVER&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; cost &lt;span class=&quot;token keyword&quot;&gt;DESC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;And the result:
-| percent_rank | description | cost |
-| ------------ | ----------- | ---- |
-| 0            | groceries   | 60   |
-| 0.11…      | dinner      | 35   |
-| 0.22…      | taxi        | 20   |
-| 0.33…      | lunch       | 15   |
-| 0.33…      | lunch       | 15   |
-| 0.33…      | supper      | 15   |
-| 0.66…      | tea break   | 5    |
-| 0.77…      | bus ride    | 4    |
-| 0.88…      | bus ride    | 3    |
-| 0.88…      | bus ride    | 3    |&lt;/p&gt;
+&lt;p&gt;And the result:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;percent_rank&lt;/th&gt;
+&lt;th&gt;description&lt;/th&gt;
+&lt;th&gt;cost&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;groceries&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.11…&lt;/td&gt;
+&lt;td&gt;dinner&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.22…&lt;/td&gt;
+&lt;td&gt;taxi&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.33…&lt;/td&gt;
+&lt;td&gt;lunch&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.33…&lt;/td&gt;
+&lt;td&gt;lunch&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.33…&lt;/td&gt;
+&lt;td&gt;supper&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.66…&lt;/td&gt;
+&lt;td&gt;tea break&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.77…&lt;/td&gt;
+&lt;td&gt;bus ride&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.88…&lt;/td&gt;
+&lt;td&gt;bus ride&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.88…&lt;/td&gt;
+&lt;td&gt;bus ride&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;Instead of a running number, we get the “relative rank” from 0 to 1 inclusive. This is useful if you need to know how close something is to the highest rank - though, as the above example shows, it may not end with 1 if there are ties for the highest rank (a deeper explanation &lt;a href=&quot;https://dba.stackexchange.com/a/144015&quot;&gt;here&lt;/a&gt;).&lt;/p&gt;
 &lt;h2&gt;side-by-side&lt;/h2&gt;
 &lt;p&gt;Finally, let’s look at results side by side:&lt;/p&gt;
@@ -355,6 +404,7 @@
 &lt;th&gt;row_number&lt;/th&gt;
 &lt;th&gt;dense_rank&lt;/th&gt;
 &lt;th&gt;rank&lt;/th&gt;
+&lt;th&gt;percent_rank&lt;/th&gt;
 &lt;th&gt;description&lt;/th&gt;
 &lt;th&gt;cost&lt;/th&gt;
 &lt;/tr&gt;
@@ -364,6 +414,7 @@
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;groceries&lt;/td&gt;
 &lt;td&gt;60&lt;/td&gt;
 &lt;/tr&gt;
@@ -371,6 +422,7 @@
 &lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0.11…&lt;/td&gt;
 &lt;td&gt;dinner&lt;/td&gt;
 &lt;td&gt;35&lt;/td&gt;
 &lt;/tr&gt;
@@ -378,6 +430,7 @@
 &lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;0.22…&lt;/td&gt;
 &lt;td&gt;taxi&lt;/td&gt;
 &lt;td&gt;20&lt;/td&gt;
 &lt;/tr&gt;
@@ -385,6 +438,7 @@
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;0.33…&lt;/td&gt;
 &lt;td&gt;lunch&lt;/td&gt;
 &lt;td&gt;15&lt;/td&gt;
 &lt;/tr&gt;
@@ -392,6 +446,7 @@
 &lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;0.33…&lt;/td&gt;
 &lt;td&gt;lunch&lt;/td&gt;
 &lt;td&gt;15&lt;/td&gt;
 &lt;/tr&gt;
@@ -399,6 +454,7 @@
 &lt;td&gt;6&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;0.33…&lt;/td&gt;
 &lt;td&gt;supper&lt;/td&gt;
 &lt;td&gt;15&lt;/td&gt;
 &lt;/tr&gt;
@@ -406,6 +462,7 @@
 &lt;td&gt;7&lt;/td&gt;
 &lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;0.66…&lt;/td&gt;
 &lt;td&gt;tea break&lt;/td&gt;
 &lt;td&gt;5&lt;/td&gt;
 &lt;/tr&gt;
@@ -413,6 +470,7 @@
 &lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;6&lt;/td&gt;
 &lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;0.77…&lt;/td&gt;
 &lt;td&gt;bus ride&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
 &lt;/tr&gt;
@@ -420,6 +478,7 @@
 &lt;td&gt;9&lt;/td&gt;
 &lt;td&gt;7&lt;/td&gt;
 &lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;0.88…&lt;/td&gt;
 &lt;td&gt;bus ride&lt;/td&gt;
 &lt;td&gt;3&lt;/td&gt;
 &lt;/tr&gt;
@@ -427,6 +486,7 @@
 &lt;td&gt;10&lt;/td&gt;
 &lt;td&gt;7&lt;/td&gt;
 &lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;0.88…&lt;/td&gt;
 &lt;td&gt;bus ride&lt;/td&gt;
 &lt;td&gt;3&lt;/td&gt;
 &lt;/tr&gt;
