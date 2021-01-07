@@ -5,7 +5,7 @@ description: "Picturing the differences between row_number, rank and dense_rank.
 published: false
 ---
 
-Leading from an [introduction to Window Function Calls](/blog/window-function-calls-an-introduction/), let's dive deeper into the different Window Functions that are available. Today, we'll look at `row_number`, `rank` and `dense_rank`. We'll be using the same expenses table from the previous post, which looks something like:
+Leading from an [introduction to Window Function Calls](/blog/window-function-calls-an-introduction/), let's dive deeper into the different Window Functions that are available. Today, we'll look at `row_number`, `rank` and `dense_rank`. We'll be using the same expenses table from the previous post, which had entries like:
 
 | description | cost |
 | ----------- | ---- |
@@ -13,7 +13,7 @@ Leading from an [introduction to Window Function Calls](/blog/window-function-ca
 | lunch       | 15   |
 | ...         |      |
 
-In the following examples, our window frame will be the whole expenses table, ordered by highest to lowest cost:
+In the following examples, our **window frame** will be the whole expenses table, ordered by highest to lowest cost:
 ```sql
 SELECT
   [ window function ] OVER(ORDER BY cost DESC),
@@ -22,11 +22,10 @@ SELECT
 FROM expenses
 ```
 
-![picture]
+![Original table to window frame](./window_frame.png)
 
 
-
-# row_number
+## row_number
 Let's start with `row_number`:
 ```sql
 ... ROW_NUMBER() OVER(ORDER BY cost DESC), ...
@@ -48,53 +47,58 @@ All `row_number` does is add a running number for each row in the frame, startin
 | 10         | bus ride    | 3    |
 
 
-# dense_rank
-`dense_rank` is more interesting. Reviewing the previous example, we can see that there were a few entries that "tie" for the same level. The Postgres documentation refers to these as **peer groups**:
+## dense_rank
+`dense_rank` is more interesting. Reviewing the previous example, we can see that there were a few entries that have the same cost. The Postgres documentation refers to these as **peer groups**, and `dense_rank` adds a running number counting by the groups instead of rows:
 
-![picture]
+![Dense Rank Peer Groups](./dense_rank.png)
 
+So changing the SQL to this:
+```sql
+... DENSE_RANK() OVER(ORDER BY cost DESC), ...
+```
 
-What `dense_rank` does is add a running number for each _peer group_ in the frame, starting from 1:
+Gives us this:
 
-| dense_rank |      description | cost |
-|------------|------------------|------|
-|          1 |        groceries |   60 |
-|          2 |           dinner |   35 |
-|          3 |     taxi to home |   20 |
-|          4 |            lunch |   15 |
-|          4 |            lunch |   15 |
-|          4 |           supper |   15 |
-|          5 |        tea break |    5 |
-|          6 |    bus ride home |    4 |
-|          7 | bus ride to work |    3 |
-|          7 | bus ride to work |    3 |
+| dense_rank | description | cost |
+| ---------- | ----------- | ---- |
+| 1          | groceries   | 60   |
+| 2          | dinner      | 35   |
+| 3          | taxi        | 20   |
+| 4          | lunch       | 15   |
+| 4          | lunch       | 15   |
+| 4          | supper      | 15   |
+| 5          | tea break   | 5    |
+| 6          | bus ride    | 4    |
+| 7          | bus ride    | 3    |
+| 7          | bus ride    | 3    |
 
-**Note**: I'm actually not sure how Postgres "breaks the tie" within a peer group - in my small example, it looks like an implicit `ORDER BY ID DESC` was added, but the Postgres [docs](https://www.postgresql.org/docs/current/queries-order.html) also say _if sorting is not chosen, the rows will be returned in an unspecified order_ 🤷‍♂️.
-
-
-# rank
-`rank` has one big difference from `dense_rank` - instead of a running number, it considers "gaps":
-
-![picture]
-
-Comparing the results of each function makes the difference clearer:
-
-| dense_rank | rank |      description | cost |
-|------------|------|------------------|------|
-|          1 |    1 | ... |  ... |
-|          2 |    2 | ... |  ... |
-|          3 |    3 | ... |  ... |
-|          4 |    4 | ... |  ... |
-|          4 |    4 | ... |  ... |
-|          4 |    4 | ... |  ... |
-|          5 |    7 | ... |  ... |
-|          6 |    8 | ... |  ... |
-|          7 |    9 | ... |  ... |
-|          7 |    9 | ... |  ... |
+**Note**: I'm actually not sure how Postgres orders the rows _within_ a peer group - in my small example, it looks like an implicit `ORDER BY ID DESC` was added, but the Postgres [docs](https://www.postgresql.org/docs/current/queries-order.html) also say for general ordering, _if sorting is not chosen, the rows will be returned in an unspecified order_ 🤷‍♂️.
 
 
+## rank
+`rank` has one big difference from `dense_rank` - it counts the "gaps" in the previous peer group:
 
-# Side by side
+![Rank Peer Groups](./rank.png)
+
+Let's compare the results of each function to show the difference:
+
+| dense_rank | rank | description | cost |
+| ---------- | ---- | ----------- | ---- |
+| 1          | 1    | ...         | ...  |
+| 2          | 2    | ...         | ...  |
+| 3          | 3    | ...         | ...  |
+| 4          | 4    | ...         | ...  |
+| 4          | 4    | ...         | ...  |
+| 4          | 4    | ...         | ...  |
+| 5          | 7    | ...         | ...  |
+| 6          | 8    | ...         | ...  |
+| 7          | 9    | ...         | ...  |
+| 7          | 9    | ...         | ...  |
+
+
+## percent_rank
+
+## side-by-side
 
 Finally, let's look at results side by side:
 
