@@ -1,11 +1,11 @@
 ---
 title: Window Functions, Visualized - Rankings
 date: "2021-01-04"
-description: "Picturing the differences between row_number, rank and dense_rank."
-published: false
+description: "Picturing the differences between row_number, rank, dense_rank and percent_rank."
+published: true
 ---
 
-Leading from an [introduction to Window Function Calls](/blog/window-function-calls-an-introduction/), let's dive deeper into the different Window Functions that are available. Today, we'll look at `row_number`, `rank` and `dense_rank`. We'll be using the same expenses table from the previous post, which had entries like:
+Leading from an [introduction to Window Function Calls](/blog/window-function-calls-an-introduction/), let's dive deeper into the different Window Functions that are available. Today, we'll look at `row_number`, `rank`, `dense_rank` and `percent_rank`. We'll be using the same expenses table from the previous post, which had entries like:
 
 | description | cost |
 | ----------- | ---- |
@@ -98,6 +98,27 @@ Let's compare the results of each function to show the difference:
 
 ## percent_rank
 
+This is an interesting one - how it's derived is a bit of a mouthful, so let's show by example, starting with the query:
+```sql
+... PERCENT_RANK() OVER(ORDER BY cost DESC), ...
+```
+
+And the result:
+| percent_rank | description | cost |
+| ------------ | ----------- | ---- |
+| 0            | groceries   | 60   |
+| 0.11...      | dinner      | 35   |
+| 0.22...      | taxi        | 20   |
+| 0.33...      | lunch       | 15   |
+| 0.33...      | lunch       | 15   |
+| 0.33...      | supper      | 15   |
+| 0.66...      | tea break   | 5    |
+| 0.77...      | bus ride    | 4    |
+| 0.88...      | bus ride    | 3    |
+| 0.88...      | bus ride    | 3    |
+
+Instead of a running number, we get the "relative rank" from 0 to 1 inclusive. This is useful if you need to know how close something is to the highest rank - though, as the above example shows, it may not end with 1 if there are ties for the highest rank (a deeper explanation [here](https://dba.stackexchange.com/a/144015)).
+
 ## side-by-side
 
 Finally, let's look at results side by side:
@@ -116,7 +137,7 @@ Finally, let's look at results side by side:
 | 10         | 7          | 9    | bus ride    | 3    |
 
 
-I hope that helped! Here's an [sqlfiddle](http://sqlfiddle.com/#!17/e9ac4/6) you can play around with.
+I hope that helped! Here's an [sqlfiddle](http://sqlfiddle.com/#!17/d3ff0a/8) you can play around with.
 
-For further reading, take a look at the Postgres docs on [Window Functions](https://www.postgresql.org/docs/13/functions-window.html).
+In future articles, we'll look into more window functions. Follow me on Twitter to be informed of the next one!
 
