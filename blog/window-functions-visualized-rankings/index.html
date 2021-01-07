@@ -16,7 +16,7 @@
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', 'G-1J86VZ2B2D', options);
-  </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><title data-react-helmet="true">Window Functions, Visualized - Rankings | wasabigeek</title><meta data-react-helmet="true" name="description" content="Picturing the differences between row_number, rank and dense_rank."/><meta data-react-helmet="true" property="og:title" content="Window Functions, Visualized - Rankings"/><meta data-react-helmet="true" property="og:description" content="Picturing the differences between row_number, rank and dense_rank."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="wasabigeek"/><meta data-react-helmet="true" name="twitter:title" content="Window Functions, Visualized - Rankings"/><meta data-react-helmet="true" name="twitter:description" content="Picturing the differences between row_number, rank and dense_rank."/><link as="script" rel="preload" href="/webpack-runtime-2435139541bb18da99ad.js"/><link as="script" rel="preload" href="/styles-755093da0c07f4b49226.js"/><link as="script" rel="preload" href="/framework-8e528b732ab2eaadb7b7.js"/><link as="script" rel="preload" href="/app-3640cc1922046cedbe29.js"/><link as="script" rel="preload" href="/commons-2ad3801b6e0cd5107cd0.js"/><link as="script" rel="preload" href="/1c179074856b004b1e84ffe63e80ef73adc67c91-80d32a548a255c31daef.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js"/><link as="fetch" rel="preload" href="/page-data/blog/window-functions-visualized-rankings/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1003244115.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:34.56rem;padding:2.16rem 1.08rem"><header><h3 style="font-family:Montserrat, sans-serif;margin-top:0"><a style="box-shadow:none;color:inherit" href="/">wasabigeek</a></h3></header><main><article><header><h1 style="margin-top:1.44rem;margin-bottom:0">Window Functions, Visualized - Rankings</h1><p style="font-size:0.85805rem;line-height:1.44rem;display:block;margin-bottom:1.44rem">January 04, 2021</p></header><section><p>Leading from an <a href="/blog/window-function-calls-an-introduction/">introduction to Window Function Calls</a>, let’s dive deeper into the different Window Functions that are available. Today, we’ll look at <code class="language-text">row_number</code>, <code class="language-text">rank</code> and <code class="language-text">dense_rank</code>. We’ll be using the same expenses table from the previous post, which looks something like:</p>
+  </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><title data-react-helmet="true">Window Functions, Visualized - Rankings | wasabigeek</title><meta data-react-helmet="true" name="description" content="Picturing the differences between row_number, rank and dense_rank."/><meta data-react-helmet="true" property="og:title" content="Window Functions, Visualized - Rankings"/><meta data-react-helmet="true" property="og:description" content="Picturing the differences between row_number, rank and dense_rank."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="wasabigeek"/><meta data-react-helmet="true" name="twitter:title" content="Window Functions, Visualized - Rankings"/><meta data-react-helmet="true" name="twitter:description" content="Picturing the differences between row_number, rank and dense_rank."/><link as="script" rel="preload" href="/webpack-runtime-2435139541bb18da99ad.js"/><link as="script" rel="preload" href="/styles-755093da0c07f4b49226.js"/><link as="script" rel="preload" href="/framework-8e528b732ab2eaadb7b7.js"/><link as="script" rel="preload" href="/app-3640cc1922046cedbe29.js"/><link as="script" rel="preload" href="/commons-2ad3801b6e0cd5107cd0.js"/><link as="script" rel="preload" href="/1c179074856b004b1e84ffe63e80ef73adc67c91-80d32a548a255c31daef.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js"/><link as="fetch" rel="preload" href="/page-data/blog/window-functions-visualized-rankings/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1003244115.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:34.56rem;padding:2.16rem 1.08rem"><header><h3 style="font-family:Montserrat, sans-serif;margin-top:0"><a style="box-shadow:none;color:inherit" href="/">wasabigeek</a></h3></header><main><article><header><h1 style="margin-top:1.44rem;margin-bottom:0">Window Functions, Visualized - Rankings</h1><p style="font-size:0.85805rem;line-height:1.44rem;display:block;margin-bottom:1.44rem">January 04, 2021</p></header><section><p>Leading from an <a href="/blog/window-function-calls-an-introduction/">introduction to Window Function Calls</a>, let’s dive deeper into the different Window Functions that are available. Today, we’ll look at <code class="language-text">row_number</code>, <code class="language-text">rank</code> and <code class="language-text">dense_rank</code>. We’ll be using the same expenses table from the previous post, which had entries like:</p>
 <table>
 <thead>
 <tr>
@@ -39,14 +39,45 @@
 </tr>
 </tbody>
 </table>
-<p>In the following examples, our window frame will be the whole expenses table, ordered by highest to lowest cost:</p>
+<p>In the following examples, our <strong>window frame</strong> will be the whole expenses table, ordered by highest to lowest cost:</p>
 <div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span>
   <span class="token punctuation">[</span> window <span class="token keyword">function</span> <span class="token punctuation">]</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cost <span class="token keyword">DESC</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   expenses<span class="token punctuation">.</span>description<span class="token punctuation">,</span>
   expenses<span class="token punctuation">.</span>cost
 <span class="token keyword">FROM</span> expenses</code></pre></div>
-<p>![picture]</p>
-<h1>row_number</h1>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/116c3063fe1adc7cbe60400693705952/17d12/window_frame.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.16216216216216%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAAB+UlEQVQoz3VS7ZKaQBDk/R8rdfmhd15ZeKeYKKiIigrCgnxDZ3qiqVRSN1XLFjuzPT3da0GiG4BGPlxl06NoBnwVg6TqrtdaU/X4t9Lq2hamqLE4ZHAvBfy4xLsXI8kr9F2LqpK9HwRIGjaN5j8POYJLitdlgLl3Qp5luN1umrculws818VqtcJsNsPPpYM0SeDv9wiCAMwbY9BKY9a9vk3w8vId75MJurZBXddwHAeJAEZRBIufxWIhYDZGoxHG4zHO5zOm0ymWzlIB0zTVi9udr7WfHx9wBTyKYlyvV9i2rc0PhwOsOI7BtdvusBdWvMA4Ho/KiuyMEcCmRRxu8MNh89+AXdehLEtst1sURaHNLc7OS77v43Q6KRPqxWTf93rBmAxtccPt5GEm7BbzuWrLyPNcpWCQrQJmIup6vUYYhg8nBx2BIpdVDRMdUWZXJKlROSgTa/SFCMv7/a7/CkgxqdFY9KMxDDLbbDYqepGGSNxvuB9tJCb/7xmxlusPIBlyfurgeZ4esmsgAtf3WADPSHYTFMGbmsA6mkD2DN6l9jryU8PnyBR6I6AE5Pg6ct0iDWYori5SYTg82Dyl+ZupMqQedPOrSORN0iiaw1rKc5ZmNO0ZTyMVkA6HjwIKzp0J7gSj8wy6yjOOTK05jU4gjQIZmcaw4S/pG47q6zyzvgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Original table to window frame"
+        title="Original table to window frame"
+        src="/static/116c3063fe1adc7cbe60400693705952/fcda8/window_frame.png"
+        srcset="/static/116c3063fe1adc7cbe60400693705952/12f09/window_frame.png 148w,
+/static/116c3063fe1adc7cbe60400693705952/e4a3f/window_frame.png 295w,
+/static/116c3063fe1adc7cbe60400693705952/fcda8/window_frame.png 590w,
+/static/116c3063fe1adc7cbe60400693705952/efc66/window_frame.png 885w,
+/static/116c3063fe1adc7cbe60400693705952/c83ae/window_frame.png 1180w,
+/static/116c3063fe1adc7cbe60400693705952/17d12/window_frame.png 1666w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h2>row_number</h2>
 <p>Let’s start with <code class="language-text">row_number</code>:</p>
 <div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cost <span class="token keyword">DESC</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
 <p>All <code class="language-text">row_number</code> does is add a running number for each row in the frame, starting from 1:</p>
@@ -111,10 +142,43 @@
 </tr>
 </tbody>
 </table>
-<h1>dense_rank</h1>
-<p><code class="language-text">dense_rank</code> is more interesting. Reviewing the previous example, we can see that there were a few entries that “tie” for the same level. The Postgres documentation refers to these as <strong>peer groups</strong>:</p>
-<p>![picture]</p>
-<p>What <code class="language-text">dense_rank</code> does is add a running number for each <em>peer group</em> in the frame, starting from 1:</p>
+<h2>dense_rank</h2>
+<p><code class="language-text">dense_rank</code> is more interesting. Reviewing the previous example, we can see that there were a few entries that have the same cost. The Postgres documentation refers to these as <strong>peer groups</strong>, and <code class="language-text">dense_rank</code> adds a running number counting by the groups instead of rows:</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5ebdb9248832051f5d8c653f55af4d0e/ce92a/dense_rank.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 77.02702702702703%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAACUElEQVQ4y3WU23KbMBCG+/5Pk9teZJKbpq7bTNxJnY4PcQBDAAHGHGRxEn93hU3scaqZ9Y7R6tO/u5K+gEbf9+yQ5zmCIECSJEjTlHyMOB5MCIEwDLHb7RBFEXzfH7/zGv7P48s5kAMZNp1OMZ/PcXd/B8uy0HUtVqsVJpMJqqqCbdu4ubnBbDbDw8M3M8ebMecK6Loutq6HN8uGZTsUKEhVSnOxMVbIyljVyRjGG18p5JQ5GH2DrpFkB7S1hG4VhtEf7Xow2CjkH30EVnWNRHgI7Tk2yz9AkwN1Bq0SuOsZ8nCNPl2Cw7vCha6yYQv6cJHyaWSywqvjoQwXiLZ/ASWgZUBGaQcWVEHq670B9rolr0e9I7BuNZ6cAnHZYl8oRIGDXGzwNLlF6BC02UMfEoTbJeo8NKrPkz6V60Khm1bYxApS1XDtJaQsEYgYeSnHhWm6Q9NU6KVvlGm1o1LLEc7NUkoNQDtR+O2WKChlx/OQChuLxZJ2DUag77+j4A0OBNQd+opSr4sRyA3NsmwAeqTw+1uOdZBDpgFULggcwg8jE6x5QSFB1SEQKeu7s5T1NfDQdJC1xvtOUvt9qHiNpx/3WL/8JFqGdm/Bf32EFNTh0h06y03RDY4l/ACeimrAbQ/LecP7+pHsF54nX/E8veUzgu1mbpT3uW2AXENd+p+nbM6iHqQngY3IW8GzFwi2a7ibF0ozRZG4aGRMHRcm3hwd4/trhecTQkTo2ubyGhzr9L9b8qnCE5CvkEed5nMVsJm7Orw0H/7S+A3gB4OB/wB973xhjtMeBQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Dense Rank Peer Groups"
+        title="Dense Rank Peer Groups"
+        src="/static/5ebdb9248832051f5d8c653f55af4d0e/fcda8/dense_rank.png"
+        srcset="/static/5ebdb9248832051f5d8c653f55af4d0e/12f09/dense_rank.png 148w,
+/static/5ebdb9248832051f5d8c653f55af4d0e/e4a3f/dense_rank.png 295w,
+/static/5ebdb9248832051f5d8c653f55af4d0e/fcda8/dense_rank.png 590w,
+/static/5ebdb9248832051f5d8c653f55af4d0e/efc66/dense_rank.png 885w,
+/static/5ebdb9248832051f5d8c653f55af4d0e/c83ae/dense_rank.png 1180w,
+/static/5ebdb9248832051f5d8c653f55af4d0e/ce92a/dense_rank.png 1459w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>So changing the SQL to this:</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> DENSE_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cost <span class="token keyword">DESC</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
+<p>Gives us this:</p>
 <table>
 <thead>
 <tr>
@@ -136,7 +200,7 @@
 </tr>
 <tr>
 <td>3</td>
-<td>taxi to home</td>
+<td>taxi</td>
 <td>20</td>
 </tr>
 <tr>
@@ -161,26 +225,57 @@
 </tr>
 <tr>
 <td>6</td>
-<td>bus ride home</td>
+<td>bus ride</td>
 <td>4</td>
 </tr>
 <tr>
 <td>7</td>
-<td>bus ride to work</td>
+<td>bus ride</td>
 <td>3</td>
 </tr>
 <tr>
 <td>7</td>
-<td>bus ride to work</td>
+<td>bus ride</td>
 <td>3</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong>: I’m actually not sure how Postgres “breaks the tie” within a peer group - in my small example, it looks like an implicit <code class="language-text">ORDER BY ID DESC</code> was added, but the Postgres <a href="https://www.postgresql.org/docs/current/queries-order.html">docs</a> also say <em>if sorting is not chosen, the rows will be returned in an unspecified order</em> 🤷‍♂️.</p>
-<h1>rank</h1>
-<p><code class="language-text">rank</code> has one big difference from <code class="language-text">dense_rank</code> - instead of a running number, it considers “gaps”:</p>
-<p>![picture]</p>
-<p>Comparing the results of each function makes the difference clearer:</p>
+<p><strong>Note</strong>: I’m actually not sure how Postgres orders the rows <em>within</em> a peer group - in my small example, it looks like an implicit <code class="language-text">ORDER BY ID DESC</code> was added, but the Postgres <a href="https://www.postgresql.org/docs/current/queries-order.html">docs</a> also say for general ordering, <em>if sorting is not chosen, the rows will be returned in an unspecified order</em> 🤷‍♂️.</p>
+<h2>rank</h2>
+<p><code class="language-text">rank</code> has one big difference from <code class="language-text">dense_rank</code> - it counts the “gaps” in the previous peer group:</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/16828e5d43e47a6d721fa4d21f043acd/c1b63/rank.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 90.54054054054053%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsSAAALEgHS3X78AAAC+klEQVQ4y6VU227aQBDl/3+lD3lpHlqkViklUUiiQBrAIcGAsY1v+IJje9e305mFIFDUp640mp31zPHcO77vwzAMeJ6H7XYLlpmzbFmWos1mA9u2jzKT4zjqjblpmtB1HVVVocOPDNLv96FpGnq9Hi4vL5UynzAMMRgMFAifIAhwcXGB29tb9dbtfkdRFEovz3N0DGOFxWKBlxcN4/EzhsNHTCZjGKsVXNdVRvp8jjVHQTJ7wz+ezWbKbjqdKp3X11dIKdFhIU4SNC2QFQJl1aCmuyxrFKJUJMvqKEshUNUNhVcrAA6Tab1eQ9C3DudASgGUEVDHgNiiLQLFURDVCdCkaHOXdFIVNmqxp5PDOBx6x3E9yDzBevaA6+s+Ascg5Qx1QeBNhtXbGLPJEG3mog5flHHz7qDeGft70yjOhVOAHG4UBijjFSJnjibfe6e4jJH4BtLQRlslRJkybtuGqD3c23PAQkg41hKZ/4bV9BbaqA+REACHKyNsHR3+YoxmOUb9npyFyWCfAWWJzeIPSgp7RZU1lnOUIqdYSiKJNCVQY4Hix1fI5fMeqC6Vl//00LWXiL0lNq5P7fOCXZoevYjiBK7johzdQ2i/93lLLarffA94kkNVZRWybUAmFkxrQ33G5S+OgMkuwcayUT4/QL7dHzysKJ/izEMejpQcIUBBgGvqCEd5OJ5o8IPwCBjvMiTxO+TdDaT+dJK78xxmWabGtVMUOVxvS1Wmrh/20fv5DXFAY9ZSRd8teMsRzNkdxNUXFI9X1EkFeVifFYYP5497kQDJQ1NH7k2Rmg+IVgMsR99hTn6RloPQmiKyNSCnvKUmxNMIlU33baDy9wHIaeI8dnjkHKqyZczRv75RM9ntdqnJr5Wi59C2sdY0JQkVQt8XhYyl/vbJQwWoKkR/LCIyktzUPmlRv1UhKpqIlkdQhDQ5EZpKHvJGnh3APiblDJBjr+oW/3N4QRwBLcvEghbkhpcorSdT0frAzZM3c79gT+9ky7uTVxnzv0qZVWn3oEPSAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Rank Peer Groups"
+        title="Rank Peer Groups"
+        src="/static/16828e5d43e47a6d721fa4d21f043acd/fcda8/rank.png"
+        srcset="/static/16828e5d43e47a6d721fa4d21f043acd/12f09/rank.png 148w,
+/static/16828e5d43e47a6d721fa4d21f043acd/e4a3f/rank.png 295w,
+/static/16828e5d43e47a6d721fa4d21f043acd/fcda8/rank.png 590w,
+/static/16828e5d43e47a6d721fa4d21f043acd/efc66/rank.png 885w,
+/static/16828e5d43e47a6d721fa4d21f043acd/c83ae/rank.png 1180w,
+/static/16828e5d43e47a6d721fa4d21f043acd/c1b63/rank.png 1200w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Let’s compare the results of each function to show the difference:</p>
 <table>
 <thead>
 <tr>
@@ -253,7 +348,9 @@
 </tr>
 </tbody>
 </table>
-<h1>Side by side</h1>
+<h2>percent_rank</h2>
+<p>TODO</p>
+<h2>side-by-side</h2>
 <p>Finally, let’s look at results side by side:</p>
 <table>
 <thead>
@@ -343,4 +440,4 @@
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/f937a/wasabigeek-logo.png 1.5x,
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" /><img loading="lazy" width="50" height="50" srcset="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png 1x,
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/f937a/wasabigeek-logo.png 1.5x,
-/static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" src="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png" alt="Nick" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><p>Written by <strong>Nick</strong> <!-- -->who is a indie-hacker wannabe, living in sunny Singapore.<!-- --> <a href="https://twitter.com/wasabigeek">Twitter</a> | <a href="https://github.com/wasabigeek">GitHub</a></p></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/blog/window-function-calls-an-introduction/">← <!-- -->Window Function Calls - An Introduction</a></li><li></li></ul></nav></main><footer>© <!-- -->2021<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.org">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/window-functions-visualized-rankings/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-0ca925a8c2baff429a22.js"],"app":["/app-3640cc1922046cedbe29.js"],"component---src-pages-404-js":["/component---src-pages-404-js-00ca0359d36b3a5442f5.js"],"component---src-pages-blog-index-js":["/component---src-pages-blog-index-js-31e26b5819c4efd6979d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-2a626d481d7e457efc2e.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js"]};/*]]>*/</script><script src="/polyfill-0ca925a8c2baff429a22.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js" async=""></script><script src="/1c179074856b004b1e84ffe63e80ef73adc67c91-80d32a548a255c31daef.js" async=""></script><script src="/commons-2ad3801b6e0cd5107cd0.js" async=""></script><script src="/app-3640cc1922046cedbe29.js" async=""></script><script src="/framework-8e528b732ab2eaadb7b7.js" async=""></script><script src="/styles-755093da0c07f4b49226.js" async=""></script><script src="/webpack-runtime-2435139541bb18da99ad.js" async=""></script></body></html>
+/static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" src="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png" alt="Nick" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><p>Written by <strong>Nick</strong> <!-- -->who is a indie-hacker wannabe, living in sunny Singapore.<!-- --> <a href="https://twitter.com/wasabigeek">Twitter</a> | <a href="https://github.com/wasabigeek">GitHub</a></p></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/blog/window-function-calls-an-introduction/">← <!-- -->Window Function Calls in Postgres - A Visual Introduction</a></li><li></li></ul></nav></main><footer>© <!-- -->2021<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.org">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/window-functions-visualized-rankings/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-0ca925a8c2baff429a22.js"],"app":["/app-3640cc1922046cedbe29.js"],"component---src-pages-404-js":["/component---src-pages-404-js-00ca0359d36b3a5442f5.js"],"component---src-pages-blog-index-js":["/component---src-pages-blog-index-js-31e26b5819c4efd6979d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-2a626d481d7e457efc2e.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js"]};/*]]>*/</script><script src="/polyfill-0ca925a8c2baff429a22.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-1e9f48d3ba6d27527a59.js" async=""></script><script src="/1c179074856b004b1e84ffe63e80ef73adc67c91-80d32a548a255c31daef.js" async=""></script><script src="/commons-2ad3801b6e0cd5107cd0.js" async=""></script><script src="/app-3640cc1922046cedbe29.js" async=""></script><script src="/framework-8e528b732ab2eaadb7b7.js" async=""></script><script src="/styles-755093da0c07f4b49226.js" async=""></script><script src="/webpack-runtime-2435139541bb18da99ad.js" async=""></script></body></html>
