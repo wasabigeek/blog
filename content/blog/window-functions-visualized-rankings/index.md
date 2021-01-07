@@ -104,6 +104,7 @@ This is an interesting one - how it's derived is a bit of a mouthful, so let's s
 ```
 
 And the result:
+
 | percent_rank | description | cost |
 | ------------ | ----------- | ---- |
 | 0            | groceries   | 60   |
@@ -123,18 +124,18 @@ Instead of a running number, we get the "relative rank" from 0 to 1 inclusive. T
 
 Finally, let's look at results side by side:
 
-| row_number | dense_rank | rank | description | cost |
-| ---------- | ---------- | ---- | ----------- | ---- |
-| 1          | 1          | 1    | groceries   | 60   |
-| 2          | 2          | 2    | dinner      | 35   |
-| 3          | 3          | 3    | taxi        | 20   |
-| 4          | 4          | 4    | lunch       | 15   |
-| 5          | 4          | 4    | lunch       | 15   |
-| 6          | 4          | 4    | supper      | 15   |
-| 7          | 5          | 7    | tea break   | 5    |
-| 8          | 6          | 8    | bus ride    | 4    |
-| 9          | 7          | 9    | bus ride    | 3    |
-| 10         | 7          | 9    | bus ride    | 3    |
+| row_number | dense_rank | rank | percent_rank | description | cost |
+| ---------- | ---------- | ---- | ------------ | ----------- | ---- |
+| 1          | 1          | 1    | 0            | groceries   | 60   |
+| 2          | 2          | 2    | 0.11...      | dinner      | 35   |
+| 3          | 3          | 3    | 0.22...      | taxi        | 20   |
+| 4          | 4          | 4    | 0.33...      | lunch       | 15   |
+| 5          | 4          | 4    | 0.33...      | lunch       | 15   |
+| 6          | 4          | 4    | 0.33...      | supper      | 15   |
+| 7          | 5          | 7    | 0.66...      | tea break   | 5    |
+| 8          | 6          | 8    | 0.77...      | bus ride    | 4    |
+| 9          | 7          | 9    | 0.88...      | bus ride    | 3    |
+| 10         | 7          | 9    | 0.88...      | bus ride    | 3    |
 
 
 I hope that helped! Here's an [sqlfiddle](http://sqlfiddle.com/#!17/d3ff0a/8) you can play around with.
