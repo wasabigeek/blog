@@ -164,6 +164,4 @@ Which leaves us with exactly what we want - nice!
 
 I hoped that helped you grok window functions! If you want to play around with the data in this example, there's an [sqlfiddle](http://sqlfiddle.com/#!17/f33e78/3) - in case that doesn't exist at the time of reading, you can also get the SQL to create the table and query the data from this [gist](https://gist.github.com/wasabigeek/2b9fb05eba5c26928bab85bcf408511f).
 
-To dig deeper, check out the Postgres docs:
-- [window functions tutorial](https://www.postgresql.org/docs/current/tutorial-window.html)
-- [the list of window functions](https://www.postgresql.org/docs/current/functions-window.html).
+In the next few articles, we'll look into the individual window functions, starting with those for [ranking rows](/blog/window-function-visualized-rankings/).
