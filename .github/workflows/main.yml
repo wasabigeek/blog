@@ -31,8 +31,12 @@ jobs:
       - name: Install JS dependencies
         run: yarn install
         
-      - name: Deploy
-        run: |
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config --global user.name "${GITHUB_ACTOR}"
-          yarn deploy
+      - name: Build
+        run: yarn build
+          
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: public
