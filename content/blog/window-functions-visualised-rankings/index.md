@@ -1,5 +1,5 @@
 ---
-title: Window Functions, Visualized - Rankings
+title: Window Functions, Visualised - Rankings
 date: "2021-01-04"
 description: "Picturing the differences between row_number, rank, dense_rank and percent_rank."
 published: true
