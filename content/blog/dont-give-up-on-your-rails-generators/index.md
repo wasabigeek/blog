@@ -5,7 +5,9 @@ description: "Most devs quickly stop using Rail's built-in generators. This is a
 published: true
 ---
 
-From personal observation, most Rails devs quickly stop using the built-in generators (save for a few like `model` or `migration`). A common reason is that the created files are no longer suited to a project, so it’s easier to start from scratch rather generate and then modify them. This is a pity, as generators can help improve team productivity and encourage consistency - we just need to tweak them.
+From personal observation, most Rails devs quickly stop using the built-in generators (save for a few like `model` or `migration`). A common reason - the created files are no longer suited to a project, so it’s easier to start from scratch rather generate and then modify them. What a pity! To paraphrase DHH, generators can help improve **team productivity** and **encourage consistency** - we just need to tweak them.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">A good way to get more people to do the right thing: Generate the pattern by default via built-in generators. Like we do with tests etc.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/176466771698659328?ref_src=twsrc%5Etfw">March 5, 2012</a></blockquote>
 
 In this post, I look at one approach for customising generators, based on one we customised recently at work: the rake task generator.
 
