@@ -71,6 +71,7 @@ pre[class*="language-"] {
   border: 1px solid rgba(0, 0, 0, 0.1);
   display: inline;
   white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .token.comment,
