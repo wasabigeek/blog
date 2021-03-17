@@ -7,6 +7,9 @@ published: true
 
 While trying to help someone debug an `ActiveRecord::UnknownPrimaryKey` error, I went down a rabbit-hole trying to figure out how Rails determines the primary key. Hopefully this provides a tiny bit more insight on how Rails works!
 
+## TLDR;
+If you're using Postgres, ActiveRecord searches for a primary key index on the table. If you're using a different database, the answer probably lies in the respective `SchemaStatements` of the adapter, e.g. `ActiveRecord::ConnectionAdapters::MySQL::SchemaStatements` ([source](https://github.com/rails/rails/blob/main/activerecord/lib/active_record/connection_adapters/mysql/schema_statements.rb)).
+
 ## Finding the Primary Key
 
 `ActiveRecord::Base` includes the `AttributeMethods` module, which in turn includes `PrimaryKey`. The module has a `#primary_key` [method](https://github.com/rails/rails/blob/main/activerecord/lib/active_record/attribute_methods/primary_key.rb#L70):
