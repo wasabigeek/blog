@@ -33,6 +33,7 @@ jobs:
 
       - name: Build
         run: yarn build
+        environment: github_pages
         env:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
 
