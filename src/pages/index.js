@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons"
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -50,7 +51,7 @@ const Index = ({ data, location }) => {
           )
         })}
         <Link to="/blog" style={{ display: "block", marginTop: rhythm(1.5) }}>
-          <FontAwesomeIcon icon={faAngleDoubleRight} style={{ marginRight: "0.5rem" }} />more posts
+          <FontAwesomeIcon icon={faAngleDoubleRight} style={{ marginRight: "0.5rem" }} size="xs" />more posts
         </Link>
       </section>
 
