@@ -8,7 +8,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-import WasabiQuiz from "../components/wasabi_quiz"
+import WasabiQuiz from "../components/WasabiQuiz"
 
 const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
