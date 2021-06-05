@@ -28,7 +28,11 @@ That would give you a result like:
 |---|
 |```CHECK ((description <> ''::text))```|
 
-Follow-up Questions:
+## Appendix
+### Pro-Tips
+Twitter user [ascherbaum](https://twitter.com/ascherbaum) has pointed out that when using `psql`, you can use `-e -E` arguments to show the underlying SQL which Postgres uses. Pretty neat!
+
+### Follow-up Questions
 
 - Are the catalogs stored like any other table, or is there some magic that makes them table-like?
 - Does pg\_get\_constraintdef work with other types of constraints? The docs suggest not.
