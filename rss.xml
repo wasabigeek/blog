@@ -1,4 +1,264 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog about my foray into tech and the world of indie hacking.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 07 Nov 2021 02:54:36 GMT</lastBuildDate><item><title><![CDATA[TIL: Extending a Ruby Struct]]></title><description><![CDATA[Last week I had a head-scratching moment looking at the following code (from the google-api-ruby-client): My initial confusion stemmed from…]]></description><link>https://www.wasabigeek.com/blog/til-extending-a-ruby-struct/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/til-extending-a-ruby-struct/</guid><pubDate>Sun, 07 Nov 2021 10:48:03 GMT</pubDate><content:encoded>&lt;p&gt;Last week I had a head-scratching moment looking at the following code (from the &lt;a href=&quot;https://github.com/googleapis/google-api-ruby-client/blob/google-apis-core/v0.4.1/google-apis-core/lib/google/apis/options.rb&quot;&gt;google-api-ruby-client&lt;/a&gt;):&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog about my foray into tech and the world of indie hacking.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Dec 2021 04:23:09 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[I’ve been working through a Data Structures and Algorithms course on Coursera recently, and it’s been a great opportunity to reflect on…]]></description><link>https://www.wasabigeek.com/blog/my-learning-workflow-2021/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/my-learning-workflow-2021/</guid><content:encoded>&lt;p&gt;I’ve been working through a Data Structures and Algorithms course on Coursera recently, and it’s been a great opportunity to reflect on where I am in the “meta” of learning. I’ll first talk about various resources and frameworks which I’ve found helpful, before walking through an example workflow.&lt;/p&gt;
+&lt;h2&gt;tl;dr&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;take notes in Obsidian, breaking out into small, atomic ideas and concepts a la Zettelkasten&lt;/li&gt;
+&lt;li&gt;write questions and add to Anki via an Obsidian plugin&lt;/li&gt;
+&lt;li&gt;(try to) test myself with spaced repetition via Anki&lt;/li&gt;
+&lt;li&gt;remind myself to have a growth mindset&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Zettelkasten&lt;/h2&gt;
+&lt;p&gt;This is a &lt;a href=&quot;https://en.wikipedia.org/wiki/Zettelkasten&quot;&gt;system of note-taking&lt;/a&gt; that is often mentioned together with Niklas Luhmann, who had a massive knowledge base (&lt;a href=&quot;https://en.wikipedia.org/wiki/Niklas_Luhmann#Note-taking_system_(Zettelkasten)&quot;&gt;90,000 index cards&lt;/a&gt;) and credited the system for helping him write profilically. He wrote more than 70 books and nearly 400 scholarly articles!&lt;/p&gt;
+&lt;p&gt;After multiple failed attempts at starting a hierarchical knowledge base, I’ve found this approach &lt;em&gt;freeing&lt;/em&gt;. Previously, I often got stymied by categorisation - what title should I give this note so it’s searchable? Which folder should it go into? Should I be using a tag instead?&lt;/p&gt;
+&lt;p&gt;Zettelkasten obviates much of that pain by eschewing hierarchical knowledge bases, favouring small, “atomic” notes with connections between them i.e. think graphs, not folders. When you need to research something for writing, you can follow your trail of connections to find related info or unusual connections. I think this model maps a lot closer to the brain - after all, we draw metaphors or parallels from other disciplines, and may find ourselves often having to recategorise information (especially when learning something new).&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3b4b71819c4c1d09454e7c3a197bfc74/11a8f/ObsidianGraphView.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.4054054054054%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABSUlEQVQoz21R7W7DIAzkKdrmCwwkaaM1msr+dN3U938rjzNxRqX+ONn4jrMxpm17XtdP/nn88v3+4GX54OOxYdTbpitoKzT/aDZ0Wdv3lofBsnE28OW88nJZOYYzB39mT1PGzOSmPQ++ADlqyIt+3u4U3nRdyyndOH0lPhwPeYqGiRw753gcI8cYJZKnXLNSd5knIqlB63MEQgxshmHg2y3x8/nMZm0evc9kEKNpylPEcYuxmDgqpg5GXrSoEXk5i2FKib+/H3w6ncRwHEcBBDDSGEIQI8TScBIU46Ix0pVICtbaPVfTZVl2A0RAuXfGpuzolUSOiDoaoA7odMrVgBm0RnfzToyzCmsNONy7Xq88z7NoEMHtE+o0SsBYJ1bD+hXQKWqtqZ+EXLv7am96AfmLZtu1csiN7gakXlSogYr1w/Rz9He1KfAHgWMz4aBXBe0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ObsidianGraphView.png&quot;
+        title=&quot;ObsidianGraphView.png&quot;
+        src=&quot;/static/3b4b71819c4c1d09454e7c3a197bfc74/fcda8/ObsidianGraphView.png&quot;
+        srcset=&quot;/static/3b4b71819c4c1d09454e7c3a197bfc74/12f09/ObsidianGraphView.png 148w,
+/static/3b4b71819c4c1d09454e7c3a197bfc74/e4a3f/ObsidianGraphView.png 295w,
+/static/3b4b71819c4c1d09454e7c3a197bfc74/fcda8/ObsidianGraphView.png 590w,
+/static/3b4b71819c4c1d09454e7c3a197bfc74/efc66/ObsidianGraphView.png 885w,
+/static/3b4b71819c4c1d09454e7c3a197bfc74/c83ae/ObsidianGraphView.png 1180w,
+/static/3b4b71819c4c1d09454e7c3a197bfc74/11a8f/ObsidianGraphView.png 1272w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;A related workflow I’ve adopted is a “pre-processing” step of first taking “literature” notes before converting to “permanent” notes. I think this is from How to take Smart Notes Summary - Fortelabs, though I first heard of this while watching a video by &lt;a href=&quot;https://www.youtube.com/watch?v=rOSZOCoqOo8&quot;&gt;Shu Omi&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Resources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Shu Omi has good &lt;a href=&quot;https://www.youtube.com/watch?v=rOSZOCoqOo8&quot;&gt;introduction&lt;/a&gt; videos&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://luhmann.surge.sh/communicating-with-slip-boxes&quot;&gt;Luhmann’s writeup&lt;/a&gt; on Zettelkasten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Tool of Choice: Obsidian&lt;/h2&gt;
+&lt;p&gt;I first attempted to maintain a Zettelkasten knowledge base in &lt;a href=&quot;https://www.notion.com&quot;&gt;Notion&lt;/a&gt;, because:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;one-app-to-rule-them-all: I was already using it as a goal setting and project management tool&lt;/li&gt;
+&lt;li&gt;it had a mobile app, web clipper and a pleasant UX&lt;/li&gt;
+&lt;li&gt;you could (tediously) link various pages together, and they later introduced backlinks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ultimately, I moved over to &lt;a href=&quot;https://obsidian.md/&quot;&gt;Obsidian&lt;/a&gt;, which had less polish but was better in one crucial aspect; I was able to work &lt;em&gt;faster&lt;/em&gt; in it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;building connections between notes was trivial (two square brackets), while it took a few seconds to search for or create a new note in Notion&lt;/li&gt;
+&lt;li&gt;searching for a note was much faster, because it’s local first and there is a keyboard shortcut to search by title (Notion defaulted to including page text, which&lt;/li&gt;
+&lt;li&gt;slowed down search considerably)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What Obsidian also had going for it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;notes are stored as markdown files; which I thought might be easier to work with if I ever wanted my knowledge base to be public (i.e. a digital garden). There’s also Obsidian Publish to consider.&lt;/li&gt;
+&lt;li&gt;has a burgeoning plugin system, in particular I wanted to be able to do spaced repetition (see next section)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Other tools I’ve tried:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://roamresearch.com/&quot;&gt;Roam&lt;/a&gt; - arguably one of the first movers in “graph” knowledge bases, but was clunky when I first tried it plus it got expensive.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.remnote.com/&quot;&gt;Remnote&lt;/a&gt; - has built in spaced repetition (see next section) but I found setting up repetition to be a bit unintuitive, and it had no mobile app.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Fun aside, this post was brewed 🍺 in Obsidian!)&lt;/p&gt;
+&lt;h2&gt;Learning How to Learn (Coursera)&lt;/h2&gt;
+&lt;p&gt;This was a &lt;a href=&quot;https://www.coursera.org/learn/learning-how-to-learn&quot;&gt;Coursera course&lt;/a&gt; I audited last year, and while it felt a bit disjointed, I had a lot of useful takeaways, in particular:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;not&lt;/em&gt; actively thinking about a problem can actually help you come up with solutions (diffuse thinking)&lt;/li&gt;
+&lt;li&gt;testing yourself + space repetition is &lt;strong&gt;super effective&lt;/strong&gt;, better than blindly re-reading notes etc.&lt;/li&gt;
+&lt;li&gt;memory techniques: chunking, analogies and metaphors&lt;/li&gt;
+&lt;li&gt;exercise and sleep help you think better&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;How I’ve tried to apply this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;learnt to appreciate doing “nothing”, especially when working on a problem requiring creative thinking&lt;/li&gt;
+&lt;li&gt;wrote questions and used an Obsidian plugin to sync them to Anki, so I could test myself with spaced repetition. (The “tried” qualifier is important, as in practice this has required quite a lot of effort and discipline 😊)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Mindset&lt;/h2&gt;
+&lt;p&gt;I had a surface understanding of what a “growth mindset” was, but learnt this year that I hadn’t applied it in my daily life. Self-doubt has been a constant struggle for me the past few years, and it sometimes manifests as bouts of “why bother if I’m not cut out for it”, i.e. a fixed mindset. Reading &lt;a href=&quot;https://play.google.com/store/books/details/Mindset_The_New_Psychology_of_Success?id=fdjqz0TPL2wC&quot;&gt;Carol Dweck’s book&lt;/a&gt; has helped me become more aware of when I’ve been having a fixed mindset, and take steps to shift to a growth mindset. I regret not reading it earlier.&lt;/p&gt;
+&lt;p&gt;The fixed mindset reared it’s head a few times over the course. At the beginning, I had contemplated giving up after struggling to understand some big-Oh proofs. Most recently, I struggled with self-confidence after failing the weekly problem assignment. Thankfully, I stuck with it, mostly on the thinking of “well, at least I’ll learn something”. Personal vindication came was when I was able to understand how to solve all of the questions in the final exam (albeit I still had to take it twice, due to some misreading and miscalculation).&lt;/p&gt;
+&lt;p&gt;It’s not a perfect book by any means - I’ve found it repetitive and generalising at times - but it’s been more effective at helping me apply the concepts than watching explainer videos or reading articles.&lt;/p&gt;
+&lt;h2&gt;An Example Workflow&lt;/h2&gt;
+&lt;p&gt;My current (~6 months old) Obsidian knowledge base looks mostly like this, with a few top level folders:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aa9cafa6bf9fc3f058d98289674c84eb/c4842/ObsidianDirectoryStructure2021.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.91891891891892%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsSAAALEgHS3X78AAACR0lEQVQ4y4WT527bQBCECduBbQQSTIpNhSLFLvaqwAoCJ+//UJPZU4FhIMiPD7d74I1mizTD+g7DNPHt6QkPDw94fHxUSPz6+grfD5DnBSzThmla/8S2HYW2WCzh2DYc18V6s4GzXsNkbqxWWLsbzNM75vkdxbFGU/eoyu5OXfXkEvt+hEOQQNtQZLfbKdE9xRQU3zD39h7GccD5/I6+58OqQl3XPEs0TYO2bRVyL0RRCM3mwziOlVDsuMjdNcrNFiFFg8MBwzDgdDqh4cObSNNc4q7rFHUt9x0O/F4zDIPKEd3s4dLtPgigs6emZSHwfZRlqVwVRaFicVLwlPziuFH3kicJS16xVyIYM7Glj9stbIoJ0opxmljymX08YWIs+TzPbMXIXM5Jxbc7zaSbMAwR7jzEFIyI9NOi4JbiUto8T3RRIIpDuogJDcTRpzNFlmVXhxRM6DDhY99xEHwR7Loe0/iBrj1j6H5iGj44+T/omUs8Duf7sI7H46WHUq7Hfq2uvbOuSMlJUiKNW/5oiywZuBocoBdgvz9cCdR3gud50HRDV9ORC5n4Z+SuyDnh6jfKold7V5YVFz2nm/x6Hu9I2drLy4t6uFgs1D9DkLvn52c4bEHX/sDY/+IeDhRIkaQJUpJlEsdIs0ucZTnvU2jL5VI59Fnynqsjpwzq7U2HLH1ZFQoZTlnWyNNRlX6hZz4hiY/qraDpuq6sin1BGiw/cOuh2oBPHA7RF2ISIuD+CkpQ9tDldIU1/zFy3gTlI3H9f0TQx19vvIY3JDQF2wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ObsidianDirectoryStructure2021.png&quot;
+        title=&quot;ObsidianDirectoryStructure2021.png&quot;
+        src=&quot;/static/aa9cafa6bf9fc3f058d98289674c84eb/fcda8/ObsidianDirectoryStructure2021.png&quot;
+        srcset=&quot;/static/aa9cafa6bf9fc3f058d98289674c84eb/12f09/ObsidianDirectoryStructure2021.png 148w,
+/static/aa9cafa6bf9fc3f058d98289674c84eb/e4a3f/ObsidianDirectoryStructure2021.png 295w,
+/static/aa9cafa6bf9fc3f058d98289674c84eb/fcda8/ObsidianDirectoryStructure2021.png 590w,
+/static/aa9cafa6bf9fc3f058d98289674c84eb/efc66/ObsidianDirectoryStructure2021.png 885w,
+/static/aa9cafa6bf9fc3f058d98289674c84eb/c83ae/ObsidianDirectoryStructure2021.png 1180w,
+/static/aa9cafa6bf9fc3f058d98289674c84eb/c4842/ObsidianDirectoryStructure2021.png 1634w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Articles&lt;/strong&gt; - where I store my literature notes. I named it “articles” since it was shorter, which makes it easier to add a note via Obsidian’s quick switcher:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d27c69581be3221624c949cbd556b840/6b95e/ObsidianQuickSwitcherCreateFile.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.027027027027025%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAAA10lEQVQY031OW46DMBDjBl2pKXmQkgQSIBB2kZD2/jfzzgRtpf70w7I98YzTiPsDWncwxkIpA80g37YKd3oTov0MynDuISRuty80Uhrs5cB5/uJ7P7ATjp8TU8pQkoq0pQL7Yv3yzzqzncPTusoxJjRCCDjnkPNakVLCsuSqjelo2byxMRcrpSGlhPcB0zRhGAaM44hGa11NCIE4UMDTwQWlbNi2C6UUKshVr+tamZf5I5z33qHv+3q44ZYYI+Z5rkscZM2zhTxrDvLbVXQd58P/njUf5uwfd/aJXB7VTlAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ObsidianQuickSwitcherCreateFile.png&quot;
+        title=&quot;ObsidianQuickSwitcherCreateFile.png&quot;
+        src=&quot;/static/d27c69581be3221624c949cbd556b840/fcda8/ObsidianQuickSwitcherCreateFile.png&quot;
+        srcset=&quot;/static/d27c69581be3221624c949cbd556b840/12f09/ObsidianQuickSwitcherCreateFile.png 148w,
+/static/d27c69581be3221624c949cbd556b840/e4a3f/ObsidianQuickSwitcherCreateFile.png 295w,
+/static/d27c69581be3221624c949cbd556b840/fcda8/ObsidianQuickSwitcherCreateFile.png 590w,
+/static/d27c69581be3221624c949cbd556b840/efc66/ObsidianQuickSwitcherCreateFile.png 885w,
+/static/d27c69581be3221624c949cbd556b840/c83ae/ObsidianQuickSwitcherCreateFile.png 1180w,
+/static/d27c69581be3221624c949cbd556b840/6b95e/ObsidianQuickSwitcherCreateFile.png 1458w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Files&lt;/strong&gt; - let me state the obvious that files go here, it just makes my root directory cleaner. I don’t bother with subfolders, relying on the backlinks (connections) to find stuff. There’s a useful setting to automatically add all pasted files to this folder:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/38874544e3fb9c1f337cf46159c3b101/2d86d/ObsidianAttachmentFolderSetting.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 11.486486486486488%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsSAAALEgHS3X78AAAAVUlEQVQI122OQQoAIQhFO0RGtTDEmur+B/yTQpthFg/9og+D9o5nTowxsNaGiCDGCCL6JaXkWF9KQWvNYeZzRwgm6Eeqqr6Qc/Z6+eYrvNRafW5PGC9wYDQGDAOYrQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ObsidianAttachmentFolderSetting.png&quot;
+        title=&quot;ObsidianAttachmentFolderSetting.png&quot;
+        src=&quot;/static/38874544e3fb9c1f337cf46159c3b101/fcda8/ObsidianAttachmentFolderSetting.png&quot;
+        srcset=&quot;/static/38874544e3fb9c1f337cf46159c3b101/12f09/ObsidianAttachmentFolderSetting.png 148w,
+/static/38874544e3fb9c1f337cf46159c3b101/e4a3f/ObsidianAttachmentFolderSetting.png 295w,
+/static/38874544e3fb9c1f337cf46159c3b101/fcda8/ObsidianAttachmentFolderSetting.png 590w,
+/static/38874544e3fb9c1f337cf46159c3b101/efc66/ObsidianAttachmentFolderSetting.png 885w,
+/static/38874544e3fb9c1f337cf46159c3b101/c83ae/ObsidianAttachmentFolderSetting.png 1180w,
+/static/38874544e3fb9c1f337cf46159c3b101/2d86d/ObsidianAttachmentFolderSetting.png 2578w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blog&lt;/strong&gt; - is where I record ideas for posts and start drawing connections with the rest of the knowledge base.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Templates&lt;/strong&gt; and &lt;strong&gt;Daily Notes&lt;/strong&gt; are plugin-related, and mostly for what they say (though I still ended up doing most of my journalling in Notion)&lt;/li&gt;
+&lt;li&gt;The rest of the folders are mostly there from earlier experiments, I will move the stuff out of there… &lt;em&gt;someday&lt;/em&gt; 🏃.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;All&lt;/em&gt; other notes (“permanent” notes) go into the root directory, yay!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So the workflow for this course was:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create an Article for my “literature notes” in the course&lt;/li&gt;
+&lt;li&gt;While taking literature notes, create placeholder notes (or link to existing notes) for individual concepts that seem useful or I want to go deeper into:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c2ba60165a03a5cc5115b844be25c43b/0d0e4/ObsidianLiteratureNoteExample.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.13513513513513%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAACS0lEQVQoz21SWXLaQBDlErETCNqQhBZGC8hoZ7MLMGKHwnbsj7jiI+QCqcq9X3qmDHGq8vHUPW+6n3qZmtTU4DoBbidzlMUESVwKFPkYWTpEno2QJgNhbcsT3HBwh44b4vqqgfpnCVzja0OFIhuoWZaNJMnAmAfHdhEEIW5uYkRRH74fXrjzmXU8Ac5zLgy7Ip4xH6qioeY4Do7HI6plRYk+yrLAcrXEw8MDNtsNqqrC4XDAdDbDZrMR/PPLCyaTCebzOVarFU7Evb29wbZt1HRdx/39PRaLBSVshc8Dd7sd1us1iqIQotvtDvv9QYju93u622C5XIk43/fRaDSgqipq7XabLpYYj8eYzeZYUPJ0OsVwOCRuIgTzPEeapsKWZSmQkZ9lGQaDARzXhSRJUBSFz9DC99dXvBJ4a6fTCY9PjyLp+uoKTfpzo14XFdTJfsSZO4vJsowa//Bh6rpJhApZom0pLbQ0HTK18ImCZQrmCQrFyv8BF7xUqGkaba1PTycm0CZZDuYk1EaMlLb5bDuwWi1IBI3mbZomDMO4WA4+Nr4LUSFXjaIIcRyj1+uJ2XC/S9wtzej3YIQfZHeEMd0FQYBOpwOfLGNM+EEYig3zKoWg5zEwQhT1xNPh6HZDhCSqvCesPQ8VvdURVfSNqr4zTHxpNmlE0r8tq6pG5dsEB4ZuQW+1YRqWOKstE7/iBD/7MQoSCUnE4m3TbHVF/Tvbd4iWVUWHY6Ww232yCVwC9107J/8GFVWZUHsWtcfIevTmJL4Iwlnko+gfTgZ59kiPlD0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ObsidianLiteratureNoteExample.png&quot;
+        title=&quot;ObsidianLiteratureNoteExample.png&quot;
+        src=&quot;/static/c2ba60165a03a5cc5115b844be25c43b/fcda8/ObsidianLiteratureNoteExample.png&quot;
+        srcset=&quot;/static/c2ba60165a03a5cc5115b844be25c43b/12f09/ObsidianLiteratureNoteExample.png 148w,
+/static/c2ba60165a03a5cc5115b844be25c43b/e4a3f/ObsidianLiteratureNoteExample.png 295w,
+/static/c2ba60165a03a5cc5115b844be25c43b/fcda8/ObsidianLiteratureNoteExample.png 590w,
+/static/c2ba60165a03a5cc5115b844be25c43b/efc66/ObsidianLiteratureNoteExample.png 885w,
+/static/c2ba60165a03a5cc5115b844be25c43b/c83ae/ObsidianLiteratureNoteExample.png 1180w,
+/static/c2ba60165a03a5cc5115b844be25c43b/0d0e4/ObsidianLiteratureNoteExample.png 1230w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Where relevant (or when I realise I don’t know something after failing a weekly assignment), I create a question and sync Anki flashcards via this &lt;a href=&quot;https://github.com/debanjandhar12/Obsidian-Anki-Sync&quot;&gt;plugin&lt;/a&gt;:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.16216216216216%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAA3ElEQVQoz4VRSQ6DMBDjIS37ElZBEsLy/39NsaupUFWpB8tD4hg7ifI8l7IsxRhDNE0jdV0TmIG2bYm+76XrOurAgO5BnySJRCoCj+NIBoZhIPTAHWoGY4TJskzSNH0bWmtlXVdRDtsmznnZ953faADh/ZDyr5kJvfeyLAvZOSfzPMs0TbJd5iEEMtaxjx/hh6rTfVSO41gi1MQiBEgEY61qreOMlEBRFFJWFRnQNQANWBlJzvOk6XGcNO4vE2NaXgPu6vl8fGohhc7fYGVE1QcB9DH01fUOIf4H6F5QVs4/nVg2+QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ObsidianAnkiExample.png&quot;
+        title=&quot;ObsidianAnkiExample.png&quot;
+        src=&quot;/static/6e582424c5d98fdc34fe53ae98d5d83e/fcda8/ObsidianAnkiExample.png&quot;
+        srcset=&quot;/static/6e582424c5d98fdc34fe53ae98d5d83e/12f09/ObsidianAnkiExample.png 148w,
+/static/6e582424c5d98fdc34fe53ae98d5d83e/e4a3f/ObsidianAnkiExample.png 295w,
+/static/6e582424c5d98fdc34fe53ae98d5d83e/fcda8/ObsidianAnkiExample.png 590w,
+/static/6e582424c5d98fdc34fe53ae98d5d83e/efc66/ObsidianAnkiExample.png 885w,
+/static/6e582424c5d98fdc34fe53ae98d5d83e/fbf08/ObsidianAnkiExample.png 962w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Occasionally I’ll revise the flashcards, either via the Anki desktop app or the web app on mobile (good enough 🤷‍♂️ there are other options)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;My knowledge base is still pretty small, it will be interesting to see whether this still holds up over time. I’m also not very disciplined with regularly going through the base to build connections, but I think that’s also part of it’s beauty - minimal process and mental overheads.&lt;/p&gt;
+&lt;p&gt;What is your learning workflow?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[TIL: Extending a Ruby Struct]]></title><description><![CDATA[Last week I had a head-scratching moment looking at the following code (from the google-api-ruby-client): My initial confusion stemmed from…]]></description><link>https://www.wasabigeek.com/blog/til-extending-a-ruby-struct/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/til-extending-a-ruby-struct/</guid><pubDate>Sun, 07 Nov 2021 10:48:03 GMT</pubDate><content:encoded>&lt;p&gt;Last week I had a head-scratching moment looking at the following code (from the &lt;a href=&quot;https://github.com/googleapis/google-api-ruby-client/blob/google-apis-core/v0.4.1/google-apis-core/lib/google/apis/options.rb&quot;&gt;google-api-ruby-client&lt;/a&gt;):&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;ClientOptions&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Struct&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;token symbol&quot;&gt;:application_name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token symbol&quot;&gt;:application_version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
