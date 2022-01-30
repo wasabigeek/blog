@@ -52,8 +52,7 @@ def method_missing sym, *args, &block
   # ...
   expected_call = @expected_calls[sym][index]
   # ...
-  expected_args, retval, val_block =
-expected_call.values_at(:args, :retval, :block)
+  expected_args, retval, val_block = expected_call.values_at(:args, :retval, :block)
   # ...
   @actual_calls[sym] << {
     :retval => retval,
@@ -186,4 +185,7 @@ For further reading on various topics touched in this article, check these out:
 
 - [Mocks aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) by Martin Fowler
 - Notes on [Metaprogramming](https://cs.lmu.edu/~ray/notes/metaprogramming/) by Ray Toal
-- Ruby metaclasses: - [Ruby Metaprogramming Is Even Cooler Than It Sounds](https://www.toptal.com/ruby/ruby-metaprogramming-cooler-than-it-sounds) by Nikola Todorovic - [Diving into Ruby Singleton Classes](https://medium.com/@leo_hetsch/demystifying-singleton-classes-in-ruby-caf3fa4c9d91) by Léonard Hetsch - [Metaprogramming in Ruby: It's All About the Self](https://yehudakatz.com/2009/11/15/metaprogramming-in-ruby-its-all-about-the-self/) by Yehuda Katz
+- Ruby metaclasses:
+  - [Ruby Metaprogramming Is Even Cooler Than It Sounds](https://www.toptal.com/ruby/ruby-metaprogramming-cooler-than-it-sounds) by Nikola Todorovic
+  - [Diving into Ruby Singleton Classes](https://medium.com/@leo_hetsch/demystifying-singleton-classes-in-ruby-caf3fa4c9d91) by Léonard Hetsch
+  - [Metaprogramming in Ruby: It's All About the Self](https://yehudakatz.com/2009/11/15/metaprogramming-in-ruby-its-all-about-the-self/) by Yehuda Katz
