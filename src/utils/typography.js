@@ -1,8 +1,7 @@
 import Typography from "typography"
-import Kirkham from "typography-theme-kirkham"
+import Theme from "typography-theme-doelger"
 
-delete Kirkham.googleFonts
-Kirkham.overrideThemeStyles = ({ rhythm }, options, styles) => ({
+Theme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
   'h2,h3': {
     marginBottom: rhythm(1 / 2),
     marginTop: rhythm(2),
@@ -25,7 +24,7 @@ Kirkham.overrideThemeStyles = ({ rhythm }, options, styles) => ({
 })
 
 
-const typography = new Typography(Kirkham)
+const typography = new Typography(Theme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
