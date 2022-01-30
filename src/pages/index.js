@@ -31,6 +31,7 @@ const Index = ({ data, location }) => {
               <header>
                 <h3
                   style={{
+                    marginTop: rhythm(1 / 4),
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
