@@ -1,0 +1,8 @@
+.secondary-link {
+  color: #9ca3af;
+  background-image: none;
+  margin-right: 0.8rem;
+}
+.secondary-link:hover {
+  color: #111827;
+}

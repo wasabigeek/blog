@@ -17,7 +17,6 @@ const Index = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
       <section
         style={{
           marginBottom: rhythm(2),
@@ -57,6 +56,7 @@ const Index = ({ data, location }) => {
       </section>
 
       <WasabiQuiz />
+      <Bio />
     </Layout>
   )
 }

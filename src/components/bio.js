@@ -6,10 +6,13 @@
  */
 
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
+import "./bio.css"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -56,17 +59,19 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
-        Written by <strong>{author.name}</strong> {author.summary}
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          Twitter
-        </a>
-        {` | `}
-        <a href={`https://github.com/${social.twitter}`}>
-          GitHub
-        </a>
-      </p>
+      <div>
+        <p>
+          By <strong>{author.name}</strong>, a {author.summary}
+        </p>
+        <div>
+          <a className="secondary-link" href={`https://twitter.com/${social.twitter}`} title="Twitter">
+            <FontAwesomeIcon icon={faTwitter} size="lg" />
+          </a>
+          <a className="secondary-link" href={`https://github.com/${social.twitter}`} title="GitHub">
+            <FontAwesomeIcon icon={faGithub} size="lg" />
+          </a>
+        </div>
+      </div>
     </div>
   )
 }
