@@ -8,11 +8,10 @@ const Layout = ({ location, title, children }) => {
   let header
 
   console.log(location.pathname)
-  if (location.pathname.includes('/blog')) {
+  if (location.pathname.includes('/blog/')) {
     header = (
       <h3
         style={{
-          fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
         }}
       >
@@ -21,9 +20,9 @@ const Layout = ({ location, title, children }) => {
             boxShadow: `none`,
             color: `inherit`,
           }}
-          to={`/`}
+          to={`/blog`}
         >
-          {title}
+          {`wasabigeek`}
         </Link>
       </h3>
     )
@@ -50,9 +49,9 @@ const Layout = ({ location, title, children }) => {
           </Link>
         </h1>
         <div>
-          <a href="/blog">Blog</a>
+          <Link to="/blog" activeStyle={{ backgroundImage: 'none', color: '#111827' }}>Blog</Link>
           {` | `}
-          <a href="/projects">Projects</a>
+          <Link to="/projects" activeStyle={{ backgroundImage: 'none', color: '#111827' }}>Projects</Link>
         </div>
       </div>
     )
