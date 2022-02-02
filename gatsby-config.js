@@ -7,9 +7,9 @@ module.exports = {
     title: `wasabigeek`,
     author: {
       name: `Nick`,
-      summary: `who is a indie-hacker wannabe, living in sunny Singapore.`,
+      summary: `Business grad turned Software Engineer, living in sunny 🇸🇬. I write mostly about Ruby and Rails, not wasabi (sorry!).`,
     },
-    description: `A blog about my foray into tech and the world of indie hacking.`,
+    description: `A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.`,
     siteUrl: `https://www.wasabigeek.com`,
     social: {
       twitter: `wasabigeek`,

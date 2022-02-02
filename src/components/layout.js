@@ -7,27 +7,8 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
+  console.log(location.pathname)
+  if (location.pathname.includes('/blog')) {
     header = (
       <h3
         style={{
@@ -45,6 +26,35 @@ const Layout = ({ location, title, children }) => {
           {title}
         </Link>
       </h3>
+    )
+  } else {
+    header = (
+      <div style={{
+        marginBottom: rhythm(1.5),
+      }}>
+        <h1
+          style={{
+            ...scale(1.5),
+            marginBottom: rhythm(0.5),
+            marginTop: 0,
+          }}
+        >
+          <Link
+            style={{
+              boxShadow: `none`,
+              color: `inherit`,
+            }}
+            to={`/`}
+          >
+            {title}
+          </Link>
+        </h1>
+        <div>
+          <a href="/blog">Blog</a>
+          {` | `}
+          <a href="/projects">Projects</a>
+        </div>
+      </div>
     )
   }
   return (
