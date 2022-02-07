@@ -80,7 +80,7 @@ mock.nil? # => false (this is the default for Object!)
 mock.verify # raises MockExpectationError, because the original `#nil?` method is called instead of `method_missing`!
 ```
 
-So what the library does here is to undefine them when the class is interpreted. `instance_methods` is used to introspect the class for any instance_methods, which are removed via `undef_method`:
+So what the library does here is to undefine them when the class is interpreted. `instance_methods` is used to introspect the class for any instance methods, which are removed via `undef_method`:
 
 ```ruby
 # lib/minitest/mock.rb#L26
@@ -100,9 +100,9 @@ In the code above, we saw that not all `instance_methods` were removed, there ar
 overridden_methods.map(&:to_sym).each do |method_id|
   define_method method_id do |*args, &b|
     if @expected_calls.key? method_id then
-	  method_missing(method_id, *args, &b)
+      method_missing(method_id, *args, &b)
     else
-	  super(*args, &b)
+      super(*args, &b)
     end
   end
 end
@@ -138,15 +138,15 @@ Since `Object` is the ancestor of all almost everything in Ruby (including Class
 class Object
   # lib/minitest/mock.rb#L214
   def stub name, val_or_callable, *block_args
-	new_name = "__minitest_stub__#{name}"
+    new_name = "__minitest_stub__#{name}"
 
-	metaclass = class << self; self; end
-	# ...
+    metaclass = class << self; self; end
+    # ...
     metaclass.send :alias_method, new_name, name
 
-	metaclass.send :define_method, name do |*args, &blk|
-	  # return or execute val_or_callable
-	end
+    metaclass.send :define_method, name do |*args, &blk|
+      # return or execute val_or_callable
+    end
 
     # ...
     yield self
