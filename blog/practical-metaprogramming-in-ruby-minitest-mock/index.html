@@ -70,7 +70,7 @@ mock_foo<span class="token punctuation">.</span>verify</code></pre></div>
 <div class="gatsby-highlight" data-language="ruby"><pre class="language-ruby"><code class="language-ruby">mock<span class="token punctuation">.</span>expects<span class="token punctuation">(</span><span class="token symbol">:nil?</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
 mock<span class="token punctuation">.</span><span class="token keyword">nil</span><span class="token operator">?</span> <span class="token comment"># => false (this is the default for Object!)</span>
 mock<span class="token punctuation">.</span>verify <span class="token comment"># raises MockExpectationError, because the original `#nil?` method is called instead of `method_missing`!</span></code></pre></div>
-<p>So what the library does here is to undefine them when the class is interpreted. <code class="language-text">instance_methods</code> is used to introspect the class for any instance<em>methods, which are removed via `undef</em>method`:</p>
+<p>So what the library does here is to undefine them when the class is interpreted. <code class="language-text">instance_methods</code> is used to introspect the class for any instance methods, which are removed via <code class="language-text">undef_method</code>:</p>
 <div class="gatsby-highlight" data-language="ruby"><pre class="language-ruby"><code class="language-ruby"><span class="token comment"># lib/minitest/mock.rb#L26</span>
 instance_methods<span class="token punctuation">.</span><span class="token keyword">each</span> <span class="token keyword">do</span> <span class="token operator">|</span>m<span class="token operator">|</span>
   undef_method m <span class="token keyword">unless</span> overridden_methods<span class="token punctuation">.</span><span class="token keyword">include</span><span class="token operator">?</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span>to_s<span class="token punctuation">)</span> <span class="token operator">||</span> m <span class="token operator">=</span><span class="token operator">~</span> <span class="token regex">/^__/</span>
@@ -82,9 +82,9 @@ instance_methods<span class="token punctuation">.</span><span class="token keywo
 overridden_methods<span class="token punctuation">.</span>map<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token symbol">:to_sym</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">each</span> <span class="token keyword">do</span> <span class="token operator">|</span>method_id<span class="token operator">|</span>
   <span class="token keyword">define_method</span> method_id <span class="token keyword">do</span> <span class="token operator">|</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token operator">|</span>
     <span class="token keyword">if</span> <span class="token variable">@expected_calls</span><span class="token punctuation">.</span>key<span class="token operator">?</span> method_id <span class="token keyword">then</span>
-	  method_missing<span class="token punctuation">(</span>method_id<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span>
+      method_missing<span class="token punctuation">(</span>method_id<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span>
     <span class="token keyword">else</span>
-	  <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span>
     <span class="token keyword">end</span>
   <span class="token keyword">end</span>
 <span class="token keyword">end</span></code></pre></div>
@@ -106,15 +106,15 @@ overridden_methods<span class="token punctuation">.</span>map<span class="token 
 <div class="gatsby-highlight" data-language="ruby"><pre class="language-ruby"><code class="language-ruby"><span class="token keyword">class</span> <span class="token class-name">Object</span>
   <span class="token comment"># lib/minitest/mock.rb#L214</span>
   <span class="token keyword">def</span> <span class="token method-definition"><span class="token function">stub</span></span> name<span class="token punctuation">,</span> val_or_callable<span class="token punctuation">,</span> <span class="token operator">*</span>block_args
-	new_name <span class="token operator">=</span> <span class="token string">"__minitest_stub__<span class="token interpolation"><span class="token delimiter tag">#{</span>name<span class="token delimiter tag">}</span></span>"</span>
+    new_name <span class="token operator">=</span> <span class="token string">"__minitest_stub__<span class="token interpolation"><span class="token delimiter tag">#{</span>name<span class="token delimiter tag">}</span></span>"</span>
 
-	metaclass <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token keyword">self</span><span class="token punctuation">;</span> <span class="token keyword">self</span><span class="token punctuation">;</span> <span class="token keyword">end</span>
-	<span class="token comment"># ...</span>
+    metaclass <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token keyword">self</span><span class="token punctuation">;</span> <span class="token keyword">self</span><span class="token punctuation">;</span> <span class="token keyword">end</span>
+    <span class="token comment"># ...</span>
     metaclass<span class="token punctuation">.</span>send <span class="token symbol">:alias_method</span><span class="token punctuation">,</span> new_name<span class="token punctuation">,</span> name
 
-	metaclass<span class="token punctuation">.</span>send <span class="token symbol">:define_method</span><span class="token punctuation">,</span> name <span class="token keyword">do</span> <span class="token operator">|</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">&amp;</span>blk<span class="token operator">|</span>
-	  <span class="token comment"># return or execute val_or_callable</span>
-	<span class="token keyword">end</span>
+    metaclass<span class="token punctuation">.</span>send <span class="token symbol">:define_method</span><span class="token punctuation">,</span> name <span class="token keyword">do</span> <span class="token operator">|</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">&amp;</span>blk<span class="token operator">|</span>
+      <span class="token comment"># return or execute val_or_callable</span>
+    <span class="token keyword">end</span>
 
     <span class="token comment"># ...</span>
     <span class="token keyword">yield</span> <span class="token keyword">self</span>
