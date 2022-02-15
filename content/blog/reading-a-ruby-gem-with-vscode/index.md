@@ -23,14 +23,17 @@ Following this are steps you can try when investigating a gem. I'd love to say t
 Assuming the gem is installed, `gem open <gemname>` (or `bundle open <gemname>` if installed in a project via Bundler) will open it's source code with the command set in the `$EDITOR` environment variable.
 
 For example `EDITOR=code bundle open mocha` from my project opens the gem in VSCode:
-![Pasted image 20220213172326.png](./Pasted image 20220213172326.png)
+
+![Mocha opened in VSCode.png](./Mocha opened in VSCode.png)
 
 If the gem isn't installed, you could also look up the source code online ([rubygems.org](https://rubygems.org/)) and if the code is on GitHub, there's a handy [shortcut](https://twitter.com/github/status/1425505817827151872?s=21) to open it in a browser version of VSCode.
 
 ## Find your Target
 
 Now that we have our gem's source code, we can easily search for the method declaration across all files. This is a good time to make use of search filters:
-![Pasted image 20220213174714.png](./Pasted image 20220213174714.png)
+
+![Searching Mocha in VSCode.png](./Searching Mocha in VSCode.png)
+
 Some ideas to try if the results list is really long:
 
 - prefixing the search term with the declaration syntax (e.g. `class <ClassName>` for a class, `def <method_name>` for an instance method) generally works well, but not always, given the many ways to metaprogram in Ruby. For example, it's not obvious that `any_instance` would have been defined as an instance method.
@@ -42,7 +45,9 @@ Some ideas to try if the results list is really long:
 While we found the method, it didn't answer our initial question, which was how `any_instance` becomes callable on any class. We could probably try a "top-down" or "bottom-up" search here.
 
 For **"bottom-up" search**, since this is plain Ruby as opposed to Rails, we could try to follow the `require` trail. But if we have an extension like [solargraph](https://marketplace.visualstudio.com/items?itemName=castwide.solargraph), a simpler way is to make use of VSCode's **Go to References**:
-![Pasted image 20220215003727.png](./Pasted image 20220215003727.png)
+
+![VSCode Go To References in Mocha.png](./VSCode Go To References in Mocha.png)
+
 Above, we find that `Mocha::ClassMethods` is included into Class in `Mocha::API`:
 
 ```ruby
