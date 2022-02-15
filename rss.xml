@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 15 Feb 2022 13:21:49 GMT</lastBuildDate><item><title><![CDATA[Reading a Ruby gem with VSCode]]></title><description><![CDATA[Whether out of curiosity or trying to understand a method for debugging, it’s helpful to know how to dig into a Ruby gem. Recently I was…]]></description><link>https://www.wasabigeek.com/blog/reading-a-ruby-gem-with-vscode/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/reading-a-ruby-gem-with-vscode/</guid><pubDate>Tue, 15 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Whether out of curiosity or trying to understand a method for debugging, it’s helpful to know how to dig into a Ruby gem. Recently I was curious over how &lt;a href=&quot;https://github.com/freerange/mocha/&quot;&gt;mocha&lt;/a&gt;, a mocking library for minitest, allowed stubbing on &lt;code class=&quot;language-text&quot;&gt;any_instance&lt;/code&gt; of a Class (as opposed to injecting a stubbed object), for example:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 15 Feb 2022 14:23:40 GMT</lastBuildDate><item><title><![CDATA[Reading a Ruby gem with VSCode]]></title><description><![CDATA[Whether out of curiosity or trying to understand a method for debugging, it’s helpful to know how to dig into a Ruby gem. Recently I was…]]></description><link>https://www.wasabigeek.com/blog/reading-a-ruby-gem-with-vscode/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/reading-a-ruby-gem-with-vscode/</guid><pubDate>Tue, 15 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Whether out of curiosity or trying to understand a method for debugging, it’s helpful to know how to dig into a Ruby gem. Recently I was curious over how &lt;a href=&quot;https://github.com/freerange/mocha/&quot;&gt;mocha&lt;/a&gt;, a mocking library for minitest, allowed stubbing on &lt;code class=&quot;language-text&quot;&gt;any_instance&lt;/code&gt; of a Class (as opposed to injecting a stubbed object), for example:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token method-definition&quot;&gt;&lt;span class=&quot;token function&quot;&gt;test_stubbing_an_instance_method_on_all_instances_of_a_class&lt;/span&gt;&lt;/span&gt;
   &lt;span class=&quot;token constant&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;any_instance&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stubs&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token symbol&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;returns&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;stubbed_name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
   product &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt;
@@ -7,14 +7,14 @@
 &lt;p&gt;Following this are steps you can try when investigating a gem. I’d love to say these were the exact steps I took while investigating &lt;code class=&quot;language-text&quot;&gt;any_instance&lt;/code&gt;, but truth is some steps I discovered only while writing this post 😅. The steps are specific to using VSCode.&lt;/p&gt;
 &lt;h2&gt;Open the Source Code&lt;/h2&gt;
 &lt;p&gt;Assuming the gem is installed, &lt;code class=&quot;language-text&quot;&gt;gem open &amp;lt;gemname&amp;gt;&lt;/code&gt; (or &lt;code class=&quot;language-text&quot;&gt;bundle open &amp;lt;gemname&amp;gt;&lt;/code&gt; if installed in a project via Bundler) will open it’s source code with the command set in the &lt;code class=&quot;language-text&quot;&gt;$EDITOR&lt;/code&gt; environment variable.&lt;/p&gt;
-&lt;p&gt;For example &lt;code class=&quot;language-text&quot;&gt;EDITOR=code bundle open mocha&lt;/code&gt; from my project opens the gem in VSCode:
-&lt;span
+&lt;p&gt;For example &lt;code class=&quot;language-text&quot;&gt;EDITOR=code bundle open mocha&lt;/code&gt; from my project opens the gem in VSCode:&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/69d6b/Pasted%20image%2020220213172326.png&quot;
+    href=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/69d6b/Mocha%20opened%20in%20VSCode.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -25,15 +25,15 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Pasted image 20220213172326.png&quot;
-        title=&quot;Pasted image 20220213172326.png&quot;
-        src=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/fcda8/Pasted%20image%2020220213172326.png&quot;
-        srcset=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/12f09/Pasted%20image%2020220213172326.png 148w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/e4a3f/Pasted%20image%2020220213172326.png 295w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/fcda8/Pasted%20image%2020220213172326.png 590w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/efc66/Pasted%20image%2020220213172326.png 885w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/c83ae/Pasted%20image%2020220213172326.png 1180w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/69d6b/Pasted%20image%2020220213172326.png 1912w&quot;
+        alt=&quot;Mocha opened in VSCode.png&quot;
+        title=&quot;Mocha opened in VSCode.png&quot;
+        src=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/fcda8/Mocha%20opened%20in%20VSCode.png&quot;
+        srcset=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/12f09/Mocha%20opened%20in%20VSCode.png 148w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/e4a3f/Mocha%20opened%20in%20VSCode.png 295w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/fcda8/Mocha%20opened%20in%20VSCode.png 590w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/efc66/Mocha%20opened%20in%20VSCode.png 885w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/c83ae/Mocha%20opened%20in%20VSCode.png 1180w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/69d6b/Mocha%20opened%20in%20VSCode.png 1912w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -42,14 +42,14 @@
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;If the gem isn’t installed, you could also look up the source code online (&lt;a href=&quot;https://rubygems.org/&quot;&gt;rubygems.org&lt;/a&gt;) and if the code is on GitHub, there’s a handy &lt;a href=&quot;https://twitter.com/github/status/1425505817827151872?s=21&quot;&gt;shortcut&lt;/a&gt; to open it in a browser version of VSCode.&lt;/p&gt;
 &lt;h2&gt;Find your Target&lt;/h2&gt;
-&lt;p&gt;Now that we have our gem’s source code, we can easily search for the method declaration across all files. This is a good time to make use of search filters:
-&lt;span
+&lt;p&gt;Now that we have our gem’s source code, we can easily search for the method declaration across all files. This is a good time to make use of search filters:&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/486ed4d7639cc618d193928c541391cc/dcb79/Pasted%20image%2020220213174714.png&quot;
+    href=&quot;/static/486ed4d7639cc618d193928c541391cc/dcb79/Searching%20Mocha%20in%20VSCode.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -60,22 +60,22 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Pasted image 20220213174714.png&quot;
-        title=&quot;Pasted image 20220213174714.png&quot;
-        src=&quot;/static/486ed4d7639cc618d193928c541391cc/fcda8/Pasted%20image%2020220213174714.png&quot;
-        srcset=&quot;/static/486ed4d7639cc618d193928c541391cc/12f09/Pasted%20image%2020220213174714.png 148w,
-/static/486ed4d7639cc618d193928c541391cc/e4a3f/Pasted%20image%2020220213174714.png 295w,
-/static/486ed4d7639cc618d193928c541391cc/fcda8/Pasted%20image%2020220213174714.png 590w,
-/static/486ed4d7639cc618d193928c541391cc/efc66/Pasted%20image%2020220213174714.png 885w,
-/static/486ed4d7639cc618d193928c541391cc/c83ae/Pasted%20image%2020220213174714.png 1180w,
-/static/486ed4d7639cc618d193928c541391cc/dcb79/Pasted%20image%2020220213174714.png 1700w&quot;
+        alt=&quot;Searching Mocha in VSCode.png&quot;
+        title=&quot;Searching Mocha in VSCode.png&quot;
+        src=&quot;/static/486ed4d7639cc618d193928c541391cc/fcda8/Searching%20Mocha%20in%20VSCode.png&quot;
+        srcset=&quot;/static/486ed4d7639cc618d193928c541391cc/12f09/Searching%20Mocha%20in%20VSCode.png 148w,
+/static/486ed4d7639cc618d193928c541391cc/e4a3f/Searching%20Mocha%20in%20VSCode.png 295w,
+/static/486ed4d7639cc618d193928c541391cc/fcda8/Searching%20Mocha%20in%20VSCode.png 590w,
+/static/486ed4d7639cc618d193928c541391cc/efc66/Searching%20Mocha%20in%20VSCode.png 885w,
+/static/486ed4d7639cc618d193928c541391cc/c83ae/Searching%20Mocha%20in%20VSCode.png 1180w,
+/static/486ed4d7639cc618d193928c541391cc/dcb79/Searching%20Mocha%20in%20VSCode.png 1700w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;
-Some ideas to try if the results list is really long:&lt;/p&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Some ideas to try if the results list is really long:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;prefixing the search term with the declaration syntax (e.g. &lt;code class=&quot;language-text&quot;&gt;class &amp;lt;ClassName&amp;gt;&lt;/code&gt; for a class, &lt;code class=&quot;language-text&quot;&gt;def &amp;lt;method_name&amp;gt;&lt;/code&gt; for an instance method) generally works well, but not always, given the many ways to metaprogram in Ruby. For example, it’s not obvious that &lt;code class=&quot;language-text&quot;&gt;any_instance&lt;/code&gt; would have been defined as an instance method.&lt;/li&gt;
 &lt;li&gt;”&lt;strong&gt;Match Whole Word&lt;/strong&gt;” (ab) helps exclude classes / methods with the search term as a substring (e.g. it would have excluded &lt;code class=&quot;language-text&quot;&gt;any_instance_method&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;mock_impersonating_any_instance_of&lt;/code&gt; in the results above)&lt;/li&gt;
@@ -83,32 +83,40 @@ Some ideas to try if the results list is really long:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Trace the Callers&lt;/h2&gt;
 &lt;p&gt;While we found the method, it didn’t answer our initial question, which was how &lt;code class=&quot;language-text&quot;&gt;any_instance&lt;/code&gt; becomes callable on any class. We could probably try a “top-down” or “bottom-up” search here.&lt;/p&gt;
-&lt;p&gt;For &lt;strong&gt;“bottom-up” search&lt;/strong&gt;, since this is plain Ruby as opposed to Rails, we could try to follow the &lt;code class=&quot;language-text&quot;&gt;require&lt;/code&gt; trail. But if we have an extension like &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=castwide.solargraph&quot;&gt;solargraph&lt;/a&gt;, a simpler way is to make use of VSCode’s &lt;strong&gt;Go to References&lt;/strong&gt;:
-&lt;span
+&lt;p&gt;For &lt;strong&gt;“bottom-up” search&lt;/strong&gt;, since this is plain Ruby as opposed to Rails, we could try to follow the &lt;code class=&quot;language-text&quot;&gt;require&lt;/code&gt; trail. But if we have an extension like &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=castwide.solargraph&quot;&gt;solargraph&lt;/a&gt;, a simpler way is to make use of VSCode’s &lt;strong&gt;Go to References&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;span
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/034c60797b097c8776c230f2742c0a7b/bb543/VSCode%20Go%20To%20References%20in%20Mocha.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 54.72972972972974%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACGklEQVQoz42SW0/bQBBGHUhApNAS1CJVEF/W61sITmwnthOwE0II1wYqIfWl//9vnK5Nito3Hj7N7M7u0dw0XdeRtmQQhvhJH+ELTKuLKQxs10JIE8s2a9/2hDpvrGNhbWKVhGMiXYlmGCaGYdALPPqDkLMspZ+n6pGt7nVM06hV+bp+yunpCV1lq3N9Z3Q3sS5CCDQnuWJYPDKav3BerJUeCYsHvPE1djxHDGc4yrrjJYPymfHylcH8J1ayQh9cYUXXtczhgl6+QtsWKe2gZD/5Qac/wxgU6MOSb/1LOr0LDoMpDXNcxyZ3ryxefvPw8oub+2eS8g43u8HPb/CUTcpbNM1I2LUzvngFewqy46VsmbFSQkskNK0ETU/YN8+JoyFlWfK0uOR5MWE+TfF8H8dxcJWiKHoDNq0RB/2Mz/GUvXDC7llO+zzjk1L7LGVbjhVQ9bfXY5SMmKUx13nEKOwjpYujJKVDEPTQGuaIHaFKCi7xJjn364jVU8xRENHQY1qbbA9FqD5KLGGrLVADUxJqOxzHrVUBfT9A26qA9pgDb8qJan63KPmeFbT9CQ0jrlVVcWCFdVnVZ3ejv6B/rdZUQ9mVGS1V9tfBLcfTNcf5A0fJkk44U/2L33q4Acq6PPc9s/+hag9bdsqOTNUAVJ/ci9rfEhlNOaElc6otqDL8GNB5A9YZKuChX2BN7xDlmk68eodq5seBfwDTr0IE/XzIeAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Pasted image 20220215003727.png&quot;
-        title=&quot;Pasted image 20220215003727.png&quot;
-        src=&quot;/static/034c60797b097c8776c230f2742c0a7b/fcda8/Pasted%20image%2020220215003727.png&quot;
-        srcset=&quot;/static/034c60797b097c8776c230f2742c0a7b/12f09/Pasted%20image%2020220215003727.png 148w,
-/static/034c60797b097c8776c230f2742c0a7b/e4a3f/Pasted%20image%2020220215003727.png 295w,
-/static/034c60797b097c8776c230f2742c0a7b/fcda8/Pasted%20image%2020220215003727.png 590w,
-/static/034c60797b097c8776c230f2742c0a7b/efc66/Pasted%20image%2020220215003727.png 885w,
-/static/034c60797b097c8776c230f2742c0a7b/c83ae/Pasted%20image%2020220215003727.png 1180w,
-/static/034c60797b097c8776c230f2742c0a7b/bb543/Pasted%20image%2020220215003727.png 1418w&quot;
+        alt=&quot;VSCode Go To References in Mocha.png&quot;
+        title=&quot;VSCode Go To References in Mocha.png&quot;
+        src=&quot;/static/034c60797b097c8776c230f2742c0a7b/fcda8/VSCode%20Go%20To%20References%20in%20Mocha.png&quot;
+        srcset=&quot;/static/034c60797b097c8776c230f2742c0a7b/12f09/VSCode%20Go%20To%20References%20in%20Mocha.png 148w,
+/static/034c60797b097c8776c230f2742c0a7b/e4a3f/VSCode%20Go%20To%20References%20in%20Mocha.png 295w,
+/static/034c60797b097c8776c230f2742c0a7b/fcda8/VSCode%20Go%20To%20References%20in%20Mocha.png 590w,
+/static/034c60797b097c8776c230f2742c0a7b/efc66/VSCode%20Go%20To%20References%20in%20Mocha.png 885w,
+/static/034c60797b097c8776c230f2742c0a7b/c83ae/VSCode%20Go%20To%20References%20in%20Mocha.png 1180w,
+/static/034c60797b097c8776c230f2742c0a7b/bb543/VSCode%20Go%20To%20References%20in%20Mocha.png 1418w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-    &lt;/span&gt;
-Above, we find that &lt;code class=&quot;language-text&quot;&gt;Mocha::ClassMethods&lt;/code&gt; is included into Class in &lt;code class=&quot;language-text&quot;&gt;Mocha::API&lt;/code&gt;:&lt;/p&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Above, we find that &lt;code class=&quot;language-text&quot;&gt;Mocha::ClassMethods&lt;/code&gt; is included into Class in &lt;code class=&quot;language-text&quot;&gt;Mocha::API&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token builtin&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;send&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token symbol&quot;&gt;:include&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;ClassMethods&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We can continue doing the same approach, but at some point the “search tree” got quite unwieldy so I switched to a more &lt;strong&gt;“top-down” approach&lt;/strong&gt;, checking the README to see how the gem was &lt;code class=&quot;language-text&quot;&gt;require&lt;/code&gt;-d.&lt;/p&gt;
 &lt;h2&gt;Know the Structure of a Gem&lt;/h2&gt;
