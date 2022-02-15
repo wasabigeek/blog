@@ -25,8 +25,7 @@ Assuming the gem is installed, `gem open <gemname>` (or `bundle open <gemname>` 
 For example `EDITOR=code bundle open mocha` from my project opens the gem in VSCode:
 ![Pasted image 20220213172326.png](./Pasted image 20220213172326.png)
 
-If the gem isn't installed, you could also look up the source code online ([rubygems.org](https://rubygems.org/)) and if the code is on GitHub, there's a handy shortcut to open it in a browser version of VSCode:
-https://twitter.com/github/status/1425505817827151872?s=21
+If the gem isn't installed, you could also look up the source code online ([rubygems.org](https://rubygems.org/)) and if the code is on GitHub, there's a handy [shortcut](https://twitter.com/github/status/1425505817827151872?s=21) to open it in a browser version of VSCode.
 
 ## Find your Target
 
