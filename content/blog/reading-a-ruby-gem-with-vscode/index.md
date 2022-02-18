@@ -2,7 +2,7 @@
 title: "Reading a Ruby gem with VSCode"
 date: "2022-02-15"
 description: "Steps to try when investigating a gem's implementation in VSCode, using mocha's any_instance as an example."
-published: false
+published: true
 tags: ["ruby", "vscode"]
 ---
 
