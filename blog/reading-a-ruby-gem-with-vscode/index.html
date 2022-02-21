@@ -60,7 +60,12 @@
     </span></p>
 <p>If the gem isn’t installed, you could also look up the source code online (<a href="https://rubygems.org/">rubygems.org</a>) and if the code is on GitHub, there’s a handy <a href="https://twitter.com/github/status/1425505817827151872?s=21">shortcut</a> to open it in a browser version of VSCode.</p>
 <h2>Find your Target</h2>
-<p>Now that we have our gem’s source code, we can easily search for the method declaration across all files. This is a good time to make use of search filters:</p>
+<p>One of the easiest ways to find the method definition is to use <code class="language-text">#source_location</code>. Fire up an irb console:</p>
+<div class="gatsby-highlight" data-language="ruby"><pre class="language-ruby"><code class="language-ruby"><span class="token keyword">require</span> <span class="token string">'minitest'</span>
+<span class="token keyword">require</span> <span class="token string">'mocha/minitest'</span>
+<span class="token builtin">Object</span><span class="token punctuation">.</span>method<span class="token punctuation">(</span><span class="token symbol">:any_instance</span><span class="token punctuation">)</span><span class="token punctuation">.</span>source_location
+<span class="token comment"># => ["/.../ruby/3.0.3/gems/mocha-1.13.0/lib/mocha/class_methods.rb", 45]</span></code></pre></div>
+<p>In case that doesn’t work, since we have the source code open, we can make use of VSCode’s search:</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
