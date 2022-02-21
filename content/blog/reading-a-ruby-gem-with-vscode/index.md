@@ -30,7 +30,16 @@ If the gem isn't installed, you could also look up the source code online ([ruby
 
 ## Find your Target
 
-Now that we have our gem's source code, we can easily search for the method declaration across all files. This is a good time to make use of search filters:
+One of the easiest ways to find the method definition is to use `#source_location`. Fire up an irb console:
+
+```ruby
+require 'minitest'
+require 'mocha/minitest'
+Object.method(:any_instance).source_location
+# => ["/.../ruby/3.0.3/gems/mocha-1.13.0/lib/mocha/class_methods.rb", 45]
+```
+
+In case that doesn't work, since we have the source code open, we can make use of VSCode's search:
 
 ![Searching Mocha in VSCode.png](./Searching Mocha in VSCode.png)
 
