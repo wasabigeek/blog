@@ -44,4 +44,13 @@ class ObsidianBlogPostTest < Minitest::Test
       }
     )
   end
+
+  def test_to_devto_markdown
+    blog_post = parse_blog_post
+    assert_includes(
+      blog_post.to_devto_markdown,
+      # original: '![Mocha opened in VSCode.png](./Mocha opened in VSCode.png)'
+      '![Mocha opened in VSCode.png](https://raw.githubusercontent.com/wasabigeek/blog/main/content/blog/reading-a-ruby-gem-with-vscode/Mocha%20opened%20in%20VSCode.png)'
+    )
+  end
 end

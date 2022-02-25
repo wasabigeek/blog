@@ -1,3 +1,7 @@
+require 'active_support/inflector/methods'
+require 'active_support/inflector/transliterate'
+require 'erb'
+
 class ObsidianBlogPost
   FILE_REGEX = /!\[\[(?<file>.+)\]\]/.freeze
 
@@ -34,7 +38,25 @@ class ObsidianBlogPost
       .gsub(FILE_REGEX, '![\k<file>](./\k<file>)')
   end
 
+  def to_devto_markdown
+    @original_markdown
+      .split('<!--REJECTED IDEAS-->')
+      .first
+      .gsub(/(?<!\!)\[\[(?<linktitle>.+)\]\]/, '\k<linktitle>')
+      .gsub(FILE_REGEX) do |match|
+        # eww
+        filename = match.match(FILE_REGEX).named_captures['file']
+
+        # this logic is somewhat tied to how the Blog is uploaded >_<
+        "![#{filename}](https://raw.githubusercontent.com/wasabigeek/blog/main/content/blog/#{slugified_title}/#{ERB::Util.url_encode(filename)})"
+      end
+  end
+
   private
+
+  def slugified_title
+    ActiveSupport::Inflector.parameterize(title, separator: '-')
+  end
 
   def frontmatter_hash
     return @frontmatter_hash unless @frontmatter_hash.nil?
