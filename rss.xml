@@ -1,4 +1,288 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 25 Feb 2022 14:53:49 GMT</lastBuildDate><item><title><![CDATA[Polymorphism, with fries please]]></title><description><![CDATA[Imagine you’re the chef-owner of a new food truck. You’re the only staff for now, so you do everything, from taking the order and making it…]]></description><link>https://www.wasabigeek.com/blog/polymorphism-with-fries-please/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/polymorphism-with-fries-please/</guid><pubDate>Sat, 19 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Imagine you’re the chef-owner of a new food truck. You’re the only staff for now, so you do everything, from taking the order and making it:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 01 Mar 2022 16:37:47 GMT</lastBuildDate><item><title><![CDATA[The 1972 paper which influenced the Single Responsibility Principle]]></title><description><![CDATA[Robert Martin, who popularised SOLID, specifically mentions a 1972 paper as a major influence for the Single Responsibility Principle (SRP…]]></description><link>https://www.wasabigeek.com/blog/the-1972-paper-which-influenced-the-single-responsibility-principle/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/the-1972-paper-which-influenced-the-single-responsibility-principle/</guid><pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Robert Martin, who popularised SOLID, &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html&quot;&gt;specifically mentions&lt;/a&gt; a 1972 paper as a major influence for the Single Responsibility Principle (SRP). That paper was the mouthful ”&lt;strong&gt;On the Criteria To Be Used in Decomposing Systems into Modules&lt;/strong&gt;”, in which David Parnas compared two approaches for modularising (breaking code up into modules) a “KWIC Index” system. This is an attempt to explain the paper, which I had trouble understanding till I came across a video explanation by Diego Ongaro (start from &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1036&quot;&gt;about 17:16&lt;/a&gt;). We’ll look at the system, approaches and conclusions.&lt;/p&gt;
+&lt;h2&gt;The System: &lt;del&gt;KWIC&lt;/del&gt; KWAC Index&lt;/h2&gt;
+&lt;p&gt;KWIC (KeyWord In Context) and the demonstrated variant, KWAC (KeyWord Alongside Context), were indexing systems suited for technical manuals. KWAC “circularly shifts” the keyword such that it’s the first word. For example, &lt;code class=&quot;language-text&quot;&gt;Office 2003 Timesaving Techniques for Dummies.&lt;/code&gt; would become &lt;code class=&quot;language-text&quot;&gt;Dummies. Office 2003 Timesaving Techniques for&lt;/code&gt;, as below:
+&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/6/61/KWAC.png&quot; alt=&quot;KWAC Index&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;Modularization 1: “Flowchart”&lt;/h2&gt;
+&lt;p&gt;In the first modularization, Parnas took a “flowchart approach” for breaking apart the modules:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7cc57c53645e068fa9b40a66b9321b0a/3fca6/Criteria%20for%20Decomposition%20of%20Modules%201.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 79.05405405405406%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAADbUlEQVQ4y42UX2xTdRTHGxI2YjRGzRwSTYDokBkl0ZQFo3HC0yYg8qhE3uEBUDGCkahZ9MGNBxXi/ywRdMk2DcNB6Vx7t9b9UdFQGdVtXem6de3Wbuva0t723n48997WlTd/v5ycc8+5v+89398559r8f/sJBAOEwiFmIzOEpkOEZ8LMzUWYDEwQEZ1YjJNILDAj/onJceYXYiwnlwiFbsq706bosjW9gG1o6BeUATeK4sbrHcTlcjEyOiK2F2ef07RN4FiEicA4Ax4FZVDhxj9j/Hp1FIfzMn/6/qAgW9VUbJRWUbbxFcsWq6jdFvm/y1aQNA3RSrpsG4B5XUXVc+aL15f8dIR+oCvcQ+f0BboiPSKiDVt8HaFufAmfBahVAGoVgJIa5eSOjL2H7cpdVLsepMq5gapvaln7tciVDaxzP4TNcQeHrh3BphUFQA4bWi9aYBR1coUcJ/wfcuz6CbR8loHEKC2Tp2kNnqF16lM+GvvElNapM7SJr2Wyjf55twGoUShaGem6ZgFKaiv5NFu9jWxUniB+K4paUImszBHNxIjl5pnJzDKbjoi9QOzWPNFUjLSaNihrFlUjy5JNUQD1DDsczdR32eWDWd72t7Gmr5aan+q497vN3HN+M3d3buK+9k3UdG9hzc/387rvrRJl3aJsSBkwqadpcDRR32knq6doD3ez6+p+9o+8yj73Afb2vcIe5WX29R/gpeGDZuyz4FcCWKJpZGjQ/g9QS7Pd1czjF3cQV6NmgQpq3mIjOyvVz4kYtnlelXN60bpDq7K3U04K5e3OJpOyKhmeDZ7jyaFdPO/ZS+PlPTx76QWeudTMc47dNHpelNhOTo9/LHdYSVlfpbxSzNDQ28TW83byZPhg4iw1nnq2OBuoO2fnkQ47D3//lCl14qvxPMop//vlOyy3TkVRNClK/2629TzNohqTDtBZyi2znE9K9ikS6iKJfEJsec6LX2KqtNoq5ZIulNomKS3w2PBONnq2kcou0ht1c8h3nONj7/LGX+9w9PeTHPvtpFT2lOk77HuTH8MXKhq7BFooj52W59twF1/ebDcn5bUbLTIpd7JOkUnpXU/V57VUf7GetRcfoFqxJuXwtaNWhsaEmE1dom3c6erPwVrB9DTKggdPfJjB+BCexLApXnk2fG6JBVJT/AuQ5DSTfYZPlAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Criteria for Decomposition of Modules 1.png&quot;
+        title=&quot;Criteria for Decomposition of Modules 1.png&quot;
+        src=&quot;/static/7cc57c53645e068fa9b40a66b9321b0a/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png&quot;
+        srcset=&quot;/static/7cc57c53645e068fa9b40a66b9321b0a/12f09/Criteria%20for%20Decomposition%20of%20Modules%201.png 148w,
+/static/7cc57c53645e068fa9b40a66b9321b0a/e4a3f/Criteria%20for%20Decomposition%20of%20Modules%201.png 295w,
+/static/7cc57c53645e068fa9b40a66b9321b0a/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png 590w,
+/static/7cc57c53645e068fa9b40a66b9321b0a/efc66/Criteria%20for%20Decomposition%20of%20Modules%201.png 885w,
+/static/7cc57c53645e068fa9b40a66b9321b0a/3fca6/Criteria%20for%20Decomposition%20of%20Modules%201.png 1112w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+In addition, there was a significant design decision to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;have all modules share a common data structure for storing and accessing the input (this is not obvious from the above chart)&lt;/li&gt;
+&lt;li&gt;the data structure requires all modules to have a low-level understanding of how it stores data (e.g. groups of characters in memory, with specific line breaks represented by spaces &lt;em&gt;and&lt;/em&gt; a separate “line index”).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here’s what each module does - feel free to skip ahead to “Modularization 2” and the “Comparison: Changeability” sections if you just want the bits relevant to SRP:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt; &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Parses the input text file into something like an array, with 4 characters per element (explained around &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1415&quot;&gt;23:36 in the video&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;The above would be stored in memory.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For example, given the file:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# cat input.txt&lt;/span&gt;
+Program Development
+On The Criteria&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;This would be parsed and stored as:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/fa60d/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 12.837837837837837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsSAAALEgHS3X78AAAAlElEQVQI1z2P2xKEIAxD/f8PlYsiVxUQzabuzj5kWk7TaZhar8gl4cGNlCPkLYop4H4GZxG1naj9/LOYf4wKyWMI46xybyp7gV0MrtFhrEbZMzKlzYx2tS87ysu1URj3BcUqLDGIsgqdu0rPL5t82LCs9k3p3IIQPTYy6eWq4TFJLlrJjnN/mfg9vc47BkiwK338zQfBU+YNLIkDVQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Criteria for Modularization - Approach 1 Input Storage.png&quot;
+        title=&quot;Criteria for Modularization - Approach 1 Input Storage.png&quot;
+        src=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png&quot;
+        srcset=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/12f09/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 148w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/e4a3f/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 295w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 590w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/efc66/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 885w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/c83ae/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 1180w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/fa60d/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 1792w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Module also outputs “Lines”, which is an array stating the start of each line (e.g. 1, 21 above)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Circular Shifter&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Given “Characters” and “Lines”, it outputs an array of “Shifts”&lt;/li&gt;
+&lt;li&gt;“Shifts” store the line number, as well as the starting index of each word&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Alphabetizer&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Given “Characters” and “Shifts”, it sorts the “Shifts” alphabetically and outputs them as “Alphabetized”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Given the “Characters” and “Alphabetized” shifts, output the KWAC index, something like:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Using Diego&apos;s example&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# go run m1/main.go input.txt&lt;/span&gt;
+Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On The &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+Development &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; Program &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+On The Criteria &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+Program Development &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A helpful visual summary of all the different data structures:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/97755/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.37837837837838%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACT0lEQVQoz3WSy2tTURDGb4Va6UqqG6sVFCKU2o0IPiLWWCRNaktVgmBEwYXgwpo0ttqFaa2KIIiopEkRJH+BKEUEFyKKS/curMU81JrHfeS+X59zTtIsROfyMWfmzP3dmeEKXUMJdAQT6Aql0Hd6HrvO3sXO2AL6ztzGjol59I6nsY3UyzX3l9JUk8b2iVv83BO5CaFzKAXh4CQCBKpKMqpinSShUhfJi2joOlTD4Gr8RwrVOK6Dpy/eQ9jIgAeuYg8Ba/UaVle/4uevMgrF7yiXC/B8B4D3T/ktub4LZtmXHwg4fB3C0QQC8XvQLROGSR1pKjSdpDW4JFmEokhQVQUyea6GTF5Gg3ISeZ8+vMiAnSemIYSSCFwgoGlwQK1W4YUqAxK4+ZKEuljjORazPMutVdZQrVd5x0uvPkLoHk6h48g17D1/hwNdz0al+humbbbH8ehhXRVLBZrAaI3qc+DKtxUUf5T4yDnW4abwDDaEbmDw4iMqAS3XgkLj6IZGY7j0AYeLdcbW0c6TdIo1ikUCt3fY0x9D9+7j2Nx/DG/evuMXbCSLOvQI5LWA6zAG8VjXJMMyOFCmemZ8h1u3DOJc7BQOHQ5iduEBv9AMHbZjcxD7HRzXhsp2SV0y73rNzhmcxQrlQfM9WybgvoFL+PylhLmHeTx+kkHT3Jb3295xDFiWBtvWsW6eb1PehEl5Zs9ff4Jwcv8V5PLLmLycQDAax+hsHtGpDCKpLNfYzBLGSWPTOUSmsggnFzFCfpTiETqHkxmEExlEqXYgfh9/AA6jzTJuFj/WAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png&quot;
+        title=&quot;Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png&quot;
+        src=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png&quot;
+        srcset=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/12f09/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 148w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/e4a3f/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 295w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 590w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/efc66/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 885w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/c83ae/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 1180w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/97755/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 2536w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Modularization 2: “Information Hiding”&lt;/h2&gt;
+&lt;p&gt;In this modularization, Parnas abstracts how the input is stored via “Line Storage”, and changes the dependency of subsequent modules so there’s less global reliance on Line Storage:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5ec2630668bb8897c5864246f64495fe/85e74/Criteria%20for%20Decomposing%20Modules%202.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.4054054054054%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACYElEQVQoz4WTXUhTYRjHd91dlEEXEZRO66IgSzQE68YyizAJywsxSCWKbF4E1mUfNyOkLOimKC2sSRqKkTZMl6WopMWmiU5k6OYoJ25uOztfv95z5vogpOfw53m/+L3Px3ssqqai6AqakKrJLMdDhGJLhCQh2fAhlsQ8LK2g6yqyOCNrib+UWJOiKVg0cUjXNAzzrEyzuXcXm/qtpHVmkvZc+J4sNvRup2DwOJK0yv/Mgg43Z+5ya9pOVI7hCHTgCHbQ6u+k1Sd8sJOWxXbefX+PIiW4MdVA5dglaobrqB62UT1ko+qzjRp3HbNhrwAKK/5UQbGrlLAcwe59gH3yHnZ3I/aJRu58vc/tyQYezzUjC+A5t419rsPkvzlGXtcRDrYJOYvIHy1mYtmTBJ52VVHurGQuNk/6QC4Z3fuxvjrAzrZsMltz2Nazl9LxClD19XMVW5qurQEHqynpO2uuK6psFl4RX0SKEFNixBIxAquLzMf8zEt+FgzFxTi6QCAaMM+roheq0ZRUhCVvz5jAVNdkAY5KUXGzhi/sZ/dAARu7drC1KYu05gy2PLOKeTrW/myC8WAyGAE2gWUfazjlLP83DS2ZiuG7f/TxxNfCsxkHTbMvafY6eOp7gcPfTlSJmukqqQhPjFZycqSMpfgyte7r1HrquTJ2jQsf6rg8Xs9Fz1Uezj5at3wpmJG2Rdd1vqx4+BaZwhvxkTN0lJyRQnKdQq8LyXMVsWfoEOXj55HkVbNeCVX69ZiNEqlrMMUAGuTfN4nCqgqykmyMrMtmkxQxN9aN/VQkqvln/TE2vcpPVhTqrKDxnxgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Criteria for Decomposing Modules 2.png&quot;
+        title=&quot;Criteria for Decomposing Modules 2.png&quot;
+        src=&quot;/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria%20for%20Decomposing%20Modules%202.png&quot;
+        srcset=&quot;/static/5ec2630668bb8897c5864246f64495fe/12f09/Criteria%20for%20Decomposing%20Modules%202.png 148w,
+/static/5ec2630668bb8897c5864246f64495fe/e4a3f/Criteria%20for%20Decomposing%20Modules%202.png 295w,
+/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria%20for%20Decomposing%20Modules%202.png 590w,
+/static/5ec2630668bb8897c5864246f64495fe/efc66/Criteria%20for%20Decomposing%20Modules%202.png 885w,
+/static/5ec2630668bb8897c5864246f64495fe/c83ae/Criteria%20for%20Decomposing%20Modules%202.png 1180w,
+/static/5ec2630668bb8897c5864246f64495fe/85e74/Criteria%20for%20Decomposing%20Modules%202.png 1436w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+The criteria for this decomposition was called “Information Hiding”:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Every module in the second decomposition is characterized by its knowledge of a design decision which it hides from all others. Its interface or definition was chosen to reveal as little as possible about its inner workings.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What each module does - again, feel free to skip ahead:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Input&lt;/strong&gt; - parses the input, but this time inserts it into a Line Storage&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Line Storage&lt;/strong&gt; - think of it like an Object that has methods for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inserting characters by line, word and character-in-word number (e.g. insert “A” into Line 1, Word 2, Character 5)&lt;/li&gt;
+&lt;li&gt;retrieving characters by line, word and character-in-word number (e.g. get Character 5 of Line 1, Word 2)&lt;/li&gt;
+&lt;li&gt;other convenience methods e.g. count of words&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Circular Shifter&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;generates the circular shifts from Line Storage, like Modularization 1&lt;/li&gt;
+&lt;li&gt;instead of outputting “Shifts”, the module itself provides an interface similar to Line Storage, but operating by &lt;em&gt;shifts&lt;/em&gt; instead of lines &lt;/li&gt;
+&lt;li&gt;e.g.  for retrieving characters, get Character 5 of &lt;em&gt;Shift&lt;/em&gt; 1 (instead of Line), Word 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Alphabetizer&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;From Circular Shifter, sorts and remembers the shifts, like Modularization 1&lt;/li&gt;
+&lt;li&gt;Instead of outputting the “Alphabetized” shifts, the module provides a method to get Circular Shifts in order (e.g. tell me the shift that’s in the 2nd sorted position)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Uses Alphabetizer and Circular Shifter to generate the KWAC Index&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Comparison: Changeability&lt;/h2&gt;
+&lt;p&gt;This is probably the part that interested Robert Martin the most, as it speaks directly to the Single Responsibility Principle. For Modularization 1,  Parnas suggests some “likely” scenarios which would require many modules to be updated, but much less in Modularization 2:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Scenario&lt;/th&gt;
+&lt;th&gt;Modularization 1&lt;/th&gt;
+&lt;th&gt;Modularization 2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Deciding to store “Characters” in a different medium instead of memory&lt;/td&gt;
+&lt;td&gt;All modules&lt;/td&gt;
+&lt;td&gt;Line Storage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deciding on a different way to store the “Characters” (e.g. instead of grouping by 4 characters, group by words)&lt;/td&gt;
+&lt;td&gt;All Modules&lt;/td&gt;
+&lt;td&gt;Line Storage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deciding to store the circular shifts as the full sentence instead of an index of “Shifts”&lt;/td&gt;
+&lt;td&gt;Circular Shifter, Alphabetizer, Output&lt;/td&gt;
+&lt;td&gt;Circular Shifter&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deciding not to pre/fully-generate “Alphabetized”, possibly distribute computation (due to a large dataset?)&lt;/td&gt;
+&lt;td&gt;Difficult to achieve as computation must be completed before output&lt;/td&gt;
+&lt;td&gt;Achievable as Output doesn’t need pre-generation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The conclusion is that choosing to split by “information hiding” results in code that is easier to change.&lt;/p&gt;
+&lt;h2&gt;Comparison: Independent Development&lt;/h2&gt;
+&lt;p&gt;Because of the dependency of all modules on the data structures used for storage in Modularization 1, developing and agreeing on them would be require a joint effort. This repeats when the structures need to be changed.&lt;/p&gt;
+&lt;p&gt;In Modularization 2 though, each module generally only has a dependency on 1 - 2 other modules, so changing a module’s interface would have a much smaller impact than the Modularization 1.&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Quoting directly from Parnas:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. We propose instead that one begins with a list of difficult design decisions or design decisions which are likely to change. Each module is then designed to hide such a decision from the others. Since, in most cases, design decisions transcend time of execution, modules will not correspond to steps in the processing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The paper does show a more concrete example of how splitting a decomposition along lines of change, results in a system that is easier-to-change 👍. In practice though, I find the criteria of “information hiding” somewhat abstract (similar to the SRP itself). Figuring out those lines of change is still more art than science.&lt;/p&gt;
+&lt;h2&gt;Afterword&lt;/h2&gt;
+&lt;p&gt;There are some parts of the paper which I deliberately left out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Comparisons: correctness and comprehensibility were deemed similar for both Modularizations, so I left it out.&lt;/li&gt;
+&lt;li&gt;Efficiency: I read this as Modularization 2, if implemented poorly, could lead to a lot calls between modules and be slower. There was also bits here which I didn’t understand, please point me in the direction of somewhere that helps!&lt;/li&gt;
+&lt;li&gt;An anecdotal example of building a translator was given in further support of “Information Hiding”&lt;/li&gt;
+&lt;li&gt;There’s a critique of the Modularization 2’s Circular Shifter based on a somewhat arbitrary definition - the shifts were ordered corresponding to their line numbers in the original input, which encoded that assumption into other modules that interacted with it. It felt like an arbitrarily bad decision made to illustrate a point, and felt hard to fit in the flow of this post.&lt;/li&gt;
+&lt;li&gt;The critique also included some “generalisable” decomposition criteria, but they seemed somewhat low level (there’s mention of assembly) and I found it difficult to draw parallels in today’s higher-level programming languages.&lt;/li&gt;
+&lt;li&gt;There’s a distinction made between a “hierarchical structure” (seems like a separate paper, which I’d need to understand) and “information hiding”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I apologise for the mix of American and British english.&lt;/p&gt;
+&lt;p&gt;Further Reading:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Key_Word_in_Context&quot;&gt;KWIC Indexes in Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Parnas’ Original Papers: &lt;a href=&quot;https://www.win.tue.nl/~wstomv/edu/2ip30/references/criteria_for_modularization.pdf&quot;&gt;1972&lt;/a&gt; (which references an earlier paper written in &lt;a href=&quot;https://prl.ccs.neu.edu/img/p-tr-1971.pdf&quot;&gt;1971&lt;/a&gt; with more implementation details)&lt;/li&gt;
+&lt;li&gt;Diego Ontaro’s &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1036&quot;&gt;talk&lt;/a&gt; and his example &lt;a href=&quot;https://github.com/ongardie/kwic&quot;&gt;code&lt;/a&gt; in Go&lt;/li&gt;
+&lt;li&gt;Adrian Colyer’s elegant and higher-level &lt;a href=&quot;https://blog.acolyer.org/2016/09/05/on-the-criteria-to-be-used-in-decomposing-systems-into-modules/&quot;&gt;summary&lt;/a&gt; of the same paper&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Polymorphism, with fries please]]></title><description><![CDATA[Imagine you’re the chef-owner of a new food truck. You’re the only staff for now, so you do everything, from taking the order and making it…]]></description><link>https://www.wasabigeek.com/blog/polymorphism-with-fries-please/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/polymorphism-with-fries-please/</guid><pubDate>Sat, 19 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Imagine you’re the chef-owner of a new food truck. You’re the only staff for now, so you do everything, from taking the order and making it:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token method-definition&quot;&gt;&lt;span class=&quot;token function&quot;&gt;handle_order&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item_name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; item_name &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;burger&quot;&lt;/span&gt;
     toast_buns
