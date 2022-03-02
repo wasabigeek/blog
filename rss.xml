@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 02 Mar 2022 15:44:30 GMT</lastBuildDate><item><title><![CDATA[What does a 1972 paper have to do with the Single Responsibility Principle?]]></title><description><![CDATA[”A class should only have one reason to change” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single…]]></description><link>https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</guid><pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;”&lt;em&gt;A class should only have one reason to change&lt;/em&gt;” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough that Robert Martin, who coined the term, tried to explain the SRP again in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html&quot;&gt;2014 blog post&lt;/a&gt; - 14 years after he first wrote about it!&lt;/p&gt;
-&lt;p&gt;That blog post begins by referencing and quoting a 1972 paper, ”&lt;strong&gt;On the Criteria To Be Used in Decomposing Systems into Modules&lt;/strong&gt;” (what a mouthful) by David Parnas:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 02 Mar 2022 18:10:21 GMT</lastBuildDate><item><title><![CDATA[What does a 1972 paper have to do with the Single Responsibility Principle?]]></title><description><![CDATA[”A class should only have one reason to change” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single…]]></description><link>https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</guid><pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;”&lt;em&gt;A class should only have one reason to change&lt;/em&gt;” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough, in fact, that it’s originator (Robert Martin) felt it worthwhile to explain again in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html&quot;&gt;blog post&lt;/a&gt; - 14 years after he first wrote about it!&lt;/p&gt;
+&lt;p&gt;That blog post begins by referencing and quoting a 1972 paper, ”&lt;strong&gt;On the Criteria To Be Used in Decomposing Systems into Modules&lt;/strong&gt;” by David Parnas:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. &lt;/p&gt;
 &lt;p&gt;We propose instead that one begins with a list of difficult design decisions or design decisions &lt;em&gt;which are likely to change&lt;/em&gt;. Each module is then designed to hide such a decision from the others.”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The paper seemed significant, as Martin wrote that the SRP appeared “to align with Parnas’ formulation”. Could it demystify the SRP? What exactly was this paper about?&lt;/p&gt;
 &lt;h2&gt;The System: KWAC Index&lt;/h2&gt;
-&lt;p&gt;In the paper, Parnas sets the stage - he would compare two approaches (“criteria”) for modularizing a system, showing that one provided superior flexibility. That system was a KWAC (KeyWord Alongside Context) index.&lt;/p&gt;
-&lt;p&gt;KWAC was one of many indexing systems used for technical manuals. Important words in sentences were emphasised by “rotating” or “circularly shifting” the word such that it was the first. For example, &lt;code class=&quot;language-text&quot;&gt;Office 2003 Timesaving Techniques for Dummies.&lt;/code&gt; would become &lt;code class=&quot;language-text&quot;&gt;Dummies. Office 2003 Timesaving Techniques for&lt;/code&gt;, as below:
+&lt;p&gt;First, Parnas sets the stage - he would compare two approaches (“criteria”) for modularizing a system, showing that one provided superior flexibility. That system was a KWAC (KeyWord Alongside Context) index.&lt;/p&gt;
+&lt;p&gt;KWAC was one of many indexing systems used for technical manuals. Important words in sentences were emphasised by “rotating” or “circularly shifting” the word such that it was the first. For example, given the title ”&lt;strong&gt;Office 2003 Timesaving Techniques for Dummies.&lt;/strong&gt;” and the keyword ”&lt;strong&gt;Dummies&lt;/strong&gt;”, we’d get ”&lt;strong&gt;Dummies. Office 2003 Timesaving Techniques for&lt;/strong&gt;”, as below:
 &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/6/61/KWAC.png&quot; alt=&quot;KWAC Index&quot;&gt;&lt;/p&gt;
 &lt;p&gt;The next sections explain Parnas’ modularizations. This &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1036&quot;&gt;video explanation&lt;/a&gt; (starting from 17:16) helped me visualise and understand them, and I’ll borrow liberally from it 🙇‍♂️.&lt;/p&gt;
 &lt;h2&gt;Modularization 1: “Flowchart”&lt;/h2&gt;
-&lt;p&gt;In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I’m guilty of taking!):
+&lt;p&gt;In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I’m guilty of applying at face value):
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
@@ -44,13 +44,13 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-It’s worth highlighting a significant design decision not obvious above, which was to have all modules share a common data structure to store the input. All modules would use this structure, which has implications that become clearer later.&lt;/p&gt;
+It’s worth highlighting a significant design decision not obvious above, which was to have all modules share a common data structure to store the input. The implications of this become clearer later.&lt;/p&gt;
 &lt;p&gt;Here’s what each module did:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt; &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Parses the input text file and stores in memory with an array-like structure we’ll call “Characters”, with 4 characters per element (explained around &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1415&quot;&gt;23:36 in the video&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Parsed the input text file and stores in memory with an array-like structure we’ll call “Characters”, with 4 characters per element (explained around &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1415&quot;&gt;23:36 in the video&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;For example, given the file:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# cat input.txt&lt;/span&gt;
@@ -230,7 +230,7 @@ What each module does:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Comparison: Changeability&lt;/h2&gt;
-&lt;p&gt;While other comparisons were made (see the Afterword section), the section on changeability speaks most to the SRP. Parnas begins by suggesting some “likely” change scenarios. Most require many modules to be updated in Modularization 1, but have a much smaller blast radius in Modularization 2:&lt;/p&gt;
+&lt;p&gt;While other comparisons were made (listed in the Afterword), the analysis of changeability speaks most to the SRP. Parnas begins by suggesting some “likely” change scenarios. Most require many modules to be updated in Modularization 1, but have a much smaller blast radius in Modularization 2:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -262,7 +262,7 @@ What each module does:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The conclusion is that choosing to split by “information hiding” results in code that is easier to change!&lt;/p&gt;
+&lt;p&gt;This shows that choosing to split by “information hiding” results in code that is easier to change.&lt;/p&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of &lt;em&gt;why&lt;/em&gt; it was important - it should result in code that is easier to change. However, even with the (helpful) example, it seems applying the SRP remains hyper-contextual, and more an art than science.&lt;/p&gt;
 &lt;p&gt;What’s your framework for beginning “with a list of difficult design decisions or design decisions which are likely to change”?&lt;/p&gt;
