@@ -16,55 +16,59 @@
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', 'G-1J86VZ2B2D', options);
-  </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><title data-react-helmet="true">The 1972 paper which influenced the Single Responsibility Principle | wasabigeek</title><meta data-react-helmet="true" name="description" content="Robert Martin, who popularised the Single Responsibility Principle, mentions a 1972 paper, &#x27;On the Criteria To Be Used in Decomposing Systems into Modules&#x27; as a major influence for SRP. Let&#x27;s understand it!"/><meta data-react-helmet="true" property="og:title" content="The 1972 paper which influenced the Single Responsibility Principle"/><meta data-react-helmet="true" property="og:description" content="Robert Martin, who popularised the Single Responsibility Principle, mentions a 1972 paper, &#x27;On the Criteria To Be Used in Decomposing Systems into Modules&#x27; as a major influence for SRP. Let&#x27;s understand it!"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="wasabigeek"/><meta data-react-helmet="true" name="twitter:title" content="The 1972 paper which influenced the Single Responsibility Principle"/><meta data-react-helmet="true" name="twitter:description" content="Robert Martin, who popularised the Single Responsibility Principle, mentions a 1972 paper, &#x27;On the Criteria To Be Used in Decomposing Systems into Modules&#x27; as a major influence for SRP. Let&#x27;s understand it!"/><link href="//fonts.googleapis.com/css?family=Arvo:700|Cabin:400,400i,700" rel="stylesheet" type="text/css"/><link as="script" rel="preload" href="/webpack-runtime-9b522474d6c718721c56.js"/><link as="script" rel="preload" href="/framework-cd3e1e804d552fa282ef.js"/><link as="script" rel="preload" href="/app-e38cfc43ef3b7c75fa8c.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/a9a7754c-6dde0b8ef106210f7c4e.js"/><link as="script" rel="preload" href="/commons-48a332a65198d59f1f51.js"/><link as="script" rel="preload" href="/789f7d7b6ffc49f28e70e7c9aef0b26f21ecb947-39d4daffcc3a462077dd.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7e6ca54a46209395118f.js"/><link as="fetch" rel="preload" href="/page-data/blog/the-1972-paper-which-influenced-the-single-responsibility-principle/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1003244115.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:34.8rem;padding:2.175rem 1.0875rem"><header><h3 style="margin-top:0"><a style="box-shadow:none;color:inherit" href="/blog">wasabigeek</a></h3></header><main><article><header><h1 style="margin-top:1.45rem;margin-bottom:0">The 1972 paper which influenced the Single Responsibility Principle</h1><p style="font-size:0.87055rem;line-height:1.45rem;display:block;margin-bottom:1.45rem">February 28, 2022</p></header><section><p>Robert Martin, who popularised SOLID, <a href="https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html">specifically mentions</a> a 1972 paper as a major influence for the Single Responsibility Principle (SRP). That paper was the mouthful ”<strong>On the Criteria To Be Used in Decomposing Systems into Modules</strong>”, in which David Parnas compared two approaches for modularising (breaking code up into modules) a “KWIC Index” system. This is an attempt to explain the paper, which I had trouble understanding till I came across a video explanation by Diego Ongaro (start from <a href="https://youtu.be/R7X4B3-k7g4?t=1036">about 17:16</a>). We’ll look at the system, approaches and conclusions.</p>
-<h2>The System: <del>KWIC</del> KWAC Index</h2>
-<p>KWIC (KeyWord In Context) and the demonstrated variant, KWAC (KeyWord Alongside Context), were indexing systems suited for technical manuals. KWAC “circularly shifts” the keyword such that it’s the first word. For example, <code class="language-text">Office 2003 Timesaving Techniques for Dummies.</code> would become <code class="language-text">Dummies. Office 2003 Timesaving Techniques for</code>, as below:
+  </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><title data-react-helmet="true">What does a 1972 paper have to do with the Single Responsibility Principle? | wasabigeek</title><meta data-react-helmet="true" name="description" content="While trying to explain the Single Responsibility Principle, it&#x27;s originator calls attention to a paper written in the last decade. Why was this paper so significant? Let&#x27;s find out!"/><meta data-react-helmet="true" property="og:title" content="What does a 1972 paper have to do with the Single Responsibility Principle?"/><meta data-react-helmet="true" property="og:description" content="While trying to explain the Single Responsibility Principle, it&#x27;s originator calls attention to a paper written in the last decade. Why was this paper so significant? Let&#x27;s find out!"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="wasabigeek"/><meta data-react-helmet="true" name="twitter:title" content="What does a 1972 paper have to do with the Single Responsibility Principle?"/><meta data-react-helmet="true" name="twitter:description" content="While trying to explain the Single Responsibility Principle, it&#x27;s originator calls attention to a paper written in the last decade. Why was this paper so significant? Let&#x27;s find out!"/><link href="//fonts.googleapis.com/css?family=Arvo:700|Cabin:400,400i,700" rel="stylesheet" type="text/css"/><link as="script" rel="preload" href="/webpack-runtime-9b522474d6c718721c56.js"/><link as="script" rel="preload" href="/framework-cd3e1e804d552fa282ef.js"/><link as="script" rel="preload" href="/app-e38cfc43ef3b7c75fa8c.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/a9a7754c-6dde0b8ef106210f7c4e.js"/><link as="script" rel="preload" href="/commons-48a332a65198d59f1f51.js"/><link as="script" rel="preload" href="/789f7d7b6ffc49f28e70e7c9aef0b26f21ecb947-39d4daffcc3a462077dd.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7e6ca54a46209395118f.js"/><link as="fetch" rel="preload" href="/page-data/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1003244115.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:34.8rem;padding:2.175rem 1.0875rem"><header><h3 style="margin-top:0"><a style="box-shadow:none;color:inherit" href="/blog">wasabigeek</a></h3></header><main><article><header><h1 style="margin-top:1.45rem;margin-bottom:0">What does a 1972 paper have to do with the Single Responsibility Principle?</h1><p style="font-size:0.87055rem;line-height:1.45rem;display:block;margin-bottom:1.45rem">February 28, 2022</p></header><section><p>”<em>A class should only have one reason to change</em>” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough that Robert Martin, who coined the term, tried to explain the SRP again in a <a href="https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html">2014 blog post</a> - 14 years after he first wrote about it!</p>
+<p>That blog post begins by referencing and quoting a 1972 paper, ”<strong>On the Criteria To Be Used in Decomposing Systems into Modules</strong>” (what a mouthful) by David Parnas:</p>
+<blockquote>
+<p>“We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. </p>
+<p>We propose instead that one begins with a list of difficult design decisions or design decisions <em>which are likely to change</em>. Each module is then designed to hide such a decision from the others.”</p>
+</blockquote>
+<p>The paper seemed significant, as Martin wrote that the SRP appeared “to align with Parnas’ formulation”. Could it demystify the SRP? What exactly was this paper about?</p>
+<h2>The System: KWAC Index</h2>
+<p>In the paper, Parnas sets the stage - he would compare two approaches (“criteria”) for modularizing a system, showing that one provided superior flexibility. That system was a KWAC (KeyWord Alongside Context) index.</p>
+<p>KWAC was one of many indexing systems used for technical manuals. Important words in sentences were emphasised by “rotating” or “circularly shifting” the word such that it was the first. For example, <code class="language-text">Office 2003 Timesaving Techniques for Dummies.</code> would become <code class="language-text">Dummies. Office 2003 Timesaving Techniques for</code>, as below:
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/KWAC.png" alt="KWAC Index"></p>
+<p>The next sections explain Parnas’ modularizations. This <a href="https://youtu.be/R7X4B3-k7g4?t=1036">video explanation</a> (starting from 17:16) helped me visualise and understand them, and I’ll borrow liberally from it 🙇‍♂️.</p>
 <h2>Modularization 1: “Flowchart”</h2>
-<p>In the first modularization, Parnas took a “flowchart approach” for breaking apart the modules:
+<p>In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I’m guilty of taking!):
 <span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/7cc57c53645e068fa9b40a66b9321b0a/3fca6/Criteria%20for%20Decomposition%20of%20Modules%201.png"
+    href="/static/1afa3be2a535182b9280816c458ea9a8/dd507/Criteria%20for%20Decomposition%20of%20Modules%201.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 79.05405405405406%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAADbUlEQVQ4y42UX2xTdRTHGxI2YjRGzRwSTYDokBkl0ZQFo3HC0yYg8qhE3uEBUDGCkahZ9MGNBxXi/ywRdMk2DcNB6Vx7t9b9UdFQGdVtXem6de3Wbuva0t723n48997WlTd/v5ycc8+5v+89398559r8f/sJBAOEwiFmIzOEpkOEZ8LMzUWYDEwQEZ1YjJNILDAj/onJceYXYiwnlwiFbsq706bosjW9gG1o6BeUATeK4sbrHcTlcjEyOiK2F2ef07RN4FiEicA4Ax4FZVDhxj9j/Hp1FIfzMn/6/qAgW9VUbJRWUbbxFcsWq6jdFvm/y1aQNA3RSrpsG4B5XUXVc+aL15f8dIR+oCvcQ+f0BboiPSKiDVt8HaFufAmfBahVAGoVgJIa5eSOjL2H7cpdVLsepMq5gapvaln7tciVDaxzP4TNcQeHrh3BphUFQA4bWi9aYBR1coUcJ/wfcuz6CbR8loHEKC2Tp2kNnqF16lM+GvvElNapM7SJr2Wyjf55twGoUShaGem6ZgFKaiv5NFu9jWxUniB+K4paUImszBHNxIjl5pnJzDKbjoi9QOzWPNFUjLSaNihrFlUjy5JNUQD1DDsczdR32eWDWd72t7Gmr5aan+q497vN3HN+M3d3buK+9k3UdG9hzc/387rvrRJl3aJsSBkwqadpcDRR32knq6doD3ez6+p+9o+8yj73Afb2vcIe5WX29R/gpeGDZuyz4FcCWKJpZGjQ/g9QS7Pd1czjF3cQV6NmgQpq3mIjOyvVz4kYtnlelXN60bpDq7K3U04K5e3OJpOyKhmeDZ7jyaFdPO/ZS+PlPTx76QWeudTMc47dNHpelNhOTo9/LHdYSVlfpbxSzNDQ28TW83byZPhg4iw1nnq2OBuoO2fnkQ47D3//lCl14qvxPMop//vlOyy3TkVRNClK/2629TzNohqTDtBZyi2znE9K9ikS6iKJfEJsec6LX2KqtNoq5ZIulNomKS3w2PBONnq2kcou0ht1c8h3nONj7/LGX+9w9PeTHPvtpFT2lOk77HuTH8MXKhq7BFooj52W59twF1/ebDcn5bUbLTIpd7JOkUnpXU/V57VUf7GetRcfoFqxJuXwtaNWhsaEmE1dom3c6erPwVrB9DTKggdPfJjB+BCexLApXnk2fG6JBVJT/AuQ5DSTfYZPlAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 53.37837837837838%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACLklEQVQoz31TS2sTURjNP3BhF0opEaWgUBOKgguxoC4UpIKCYNWFSLNRKEGookigUKwuBVeCS0kRKSa0pQ3NpC19pGkaW0gmlVjqcyYTm6TNs/O4c7zzji68cPjux3z3zPleLkVVoBAK3cq6JSZ2mkX8rHLgajx+NXlwdWqpL9QFyGasbbX3qgyXbDkmqRYgKxIIIbiW6seB2WPoiHrQPtqF9ikP2uZPwLvYg8p+GSpgxKsGNA6XroxCIhK0s1Rcw9XkbXyrfkWyvI4PXAhhYQpj2+MIcZMYEyYwLUQhKfuOQqLZFoXaB5GIOmGYn0FbuBOZchpvvr+Db90Pf+IpHiQGMRB/jPurg3j2eRh1sUbLQkyFVpaUUDElW4STfAzu9x5kSyxGtl+jN3ELfbM+3Ijdw825flyP34WP9aMmVimhaqesqZPtlImjcCLPoCN0EtldFpt7XzBN/VhhAREuBkaYR7Qwh6XCCk1Z/KuRtkKrIZJFyDNwBw2Fd9IDOBjpxNFgN9yjXhwJenE40oVT8fOoNMt6vPwvoZWyRTien8Ghj8fB0hpyjTxWd1LYKKWRLH5CqrShI7ObpY8lZyr0xhjELr1DLTVkfi/i9PJFbFVyeMgOoXv5AnoWenE2fBnnmCs4s3KJTkEfquIeHRvVVqjYCs2LM6gSmnJDL8PbH0E8yg0hsDmCwNpzBDIv8CQ3jJdbr9CQ6naX7cUwFDp/sEhVGqhtyv+OYpG1LgXFH+xPB2CsmBosAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Criteria for Decomposition of Modules 1.png"
         title="Criteria for Decomposition of Modules 1.png"
-        src="/static/7cc57c53645e068fa9b40a66b9321b0a/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png"
-        srcset="/static/7cc57c53645e068fa9b40a66b9321b0a/12f09/Criteria%20for%20Decomposition%20of%20Modules%201.png 148w,
-/static/7cc57c53645e068fa9b40a66b9321b0a/e4a3f/Criteria%20for%20Decomposition%20of%20Modules%201.png 295w,
-/static/7cc57c53645e068fa9b40a66b9321b0a/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png 590w,
-/static/7cc57c53645e068fa9b40a66b9321b0a/efc66/Criteria%20for%20Decomposition%20of%20Modules%201.png 885w,
-/static/7cc57c53645e068fa9b40a66b9321b0a/3fca6/Criteria%20for%20Decomposition%20of%20Modules%201.png 1112w"
+        src="/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png"
+        srcset="/static/1afa3be2a535182b9280816c458ea9a8/12f09/Criteria%20for%20Decomposition%20of%20Modules%201.png 148w,
+/static/1afa3be2a535182b9280816c458ea9a8/e4a3f/Criteria%20for%20Decomposition%20of%20Modules%201.png 295w,
+/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png 590w,
+/static/1afa3be2a535182b9280816c458ea9a8/efc66/Criteria%20for%20Decomposition%20of%20Modules%201.png 885w,
+/static/1afa3be2a535182b9280816c458ea9a8/c83ae/Criteria%20for%20Decomposition%20of%20Modules%201.png 1180w,
+/static/1afa3be2a535182b9280816c458ea9a8/dd507/Criteria%20for%20Decomposition%20of%20Modules%201.png 1528w"
         sizes="(max-width: 590px) 100vw, 590px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
       />
   </a>
     </span>
-In addition, there was a significant design decision to:</p>
-<ul>
-<li>have all modules share a common data structure for storing and accessing the input (this is not obvious from the above chart)</li>
-<li>the data structure requires all modules to have a low-level understanding of how it stores data (e.g. groups of characters in memory, with specific line breaks represented by spaces <em>and</em> a separate “line index”).</li>
-</ul>
-<p>Here’s what each module does - feel free to skip ahead to “Modularization 2” and the “Comparison: Changeability” sections if you just want the bits relevant to SRP:</p>
+It’s worth highlighting a significant design decision not obvious above, which was to have all modules share a common data structure to store the input. All modules would use this structure, which has implications that become clearer later.</p>
+<p>Here’s what each module did:</p>
 <ul>
 <li>
 <p><strong>Input</strong> </p>
 <ul>
-<li>Parses the input text file into something like an array, with 4 characters per element (explained around <a href="https://youtu.be/R7X4B3-k7g4?t=1415">23:36 in the video</a>).</li>
-<li>The above would be stored in memory.</li>
+<li>Parses the input text file and stores in memory with an array-like structure we’ll call “Characters”, with 4 characters per element (explained around <a href="https://youtu.be/R7X4B3-k7g4?t=1415">23:36 in the video</a>).</li>
 <li>
 <p>For example, given the file:</p>
 <div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># cat input.txt</span>
@@ -104,28 +108,28 @@ On The Criteria</code></pre></div>
       />
   </a>
     </span></li>
-<li>Module also outputs “Lines”, which is an array stating the start of each line (e.g. 1, 21 above)</li>
+<li>The module also outputs “Lines”, which is an array stating the start of each line (e.g. 1, 21 above)</li>
 </ul>
 </li>
 <li>
 <p><strong>Circular Shifter</strong></p>
 <ul>
-<li>Given “Characters” and “Lines”, it outputs an array of “Shifts”</li>
-<li>“Shifts” store the line number, as well as the starting index of each word</li>
+<li>Given “Characters” and “Lines”, it outputs an array of “Shifts”.</li>
+<li>Each “Shift” stored the line number, as well as the starting index of each word.</li>
 </ul>
 </li>
 <li>
 <p><strong>Alphabetizer</strong></p>
 <ul>
-<li>Given “Characters” and “Shifts”, it sorts the “Shifts” alphabetically and outputs them as “Alphabetized”</li>
+<li>Given “Characters” and “Shifts”, it sorts the “Shifts” alphabetically and outputs them as “Alphabetized”.</li>
 </ul>
 </li>
 <li>
 <p><strong>Output</strong></p>
 <ul>
 <li>
-<p>Given the “Characters” and “Alphabetized” shifts, output the KWAC index, something like:</p>
-<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># Using Diego's example</span>
+<p>Given the “Characters” and “Alphabetized” shifts, outputs the KWAC index, something like:</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># Using the golang example from the video</span>
 <span class="token comment"># go run m1/main.go input.txt</span>
 Criteria <span class="token operator">|</span> On The <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
 Development <span class="token operator">|</span> Program <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
@@ -170,7 +174,11 @@ The Criteria <span class="token operator">|</span> On <span class="token punctua
   </a>
     </span></p>
 <h2>Modularization 2: “Information Hiding”</h2>
-<p>In this modularization, Parnas abstracts how the input is stored via “Line Storage”, and changes the dependency of subsequent modules so there’s less global reliance on Line Storage:
+<p>In this modularization, Parnas uses the criteria of “Information Hiding”. The definition is worth mentioning for it’s relevance to the SRP:</p>
+<blockquote>
+<p>Every module in the second decomposition is characterized by its knowledge of a design decision which it hides from all others. Its interface or definition was chosen to reveal as little as possible about its inner workings.</p>
+</blockquote>
+<p>Practically speaking, he encapsulates (hides) how the input is stored via “Line Storage”, and changes the dependency of subsequent modules. Of note, these changes remove global reliance on the stored input:
 <span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -203,45 +211,44 @@ The Criteria <span class="token operator">|</span> On <span class="token punctua
       />
   </a>
     </span>
-The criteria for this decomposition was called “Information Hiding”:</p>
-<blockquote>
-<p>Every module in the second decomposition is characterized by its knowledge of a design decision which it hides from all others. Its interface or definition was chosen to reveal as little as possible about its inner workings.</p>
-</blockquote>
-<p>What each module does - again, feel free to skip ahead:</p>
+What each module does:</p>
 <ul>
-<li><strong>Input</strong> - parses the input, but this time inserts it into a Line Storage</li>
 <li>
-<p><strong>Line Storage</strong> - think of it like an Object that has methods for:</p>
+<p><strong>Input</strong></p>
 <ul>
-<li>inserting characters by line, word and character-in-word number (e.g. insert “A” into Line 1, Word 2, Character 5)</li>
-<li>retrieving characters by line, word and character-in-word number (e.g. get Character 5 of Line 1, Word 2)</li>
-<li>other convenience methods e.g. count of words</li>
+<li>Like Modularization 1, also parses the input, but this time inserts it into a Line Storage.</li>
+</ul>
+</li>
+<li>
+<p><strong>Line Storage</strong></p>
+<ul>
+<li>Think of it like an Object that has methods for inserting and retrieving characters by line (e.g. get Character 5 of Line 1, Word 2)</li>
+<li>Other convenience methods are also provided (e.g. counting words).</li>
 </ul>
 </li>
 <li>
 <p><strong>Circular Shifter</strong></p>
 <ul>
-<li>generates the circular shifts from Line Storage, like Modularization 1</li>
-<li>instead of outputting “Shifts”, the module itself provides an interface similar to Line Storage, but operating by <em>shifts</em> instead of lines </li>
-<li>e.g.  for retrieving characters, get Character 5 of <em>Shift</em> 1 (instead of Line), Word 2</li>
+<li>Generates the circular shifts from Line Storage.</li>
+<li>Instead of outputting “Shifts”, the module itself provides an interface (like an Object) similar to Line Storage, but allows retrieval of characters by their <em>shifts</em> instead of lines (e.g. get Character 5 of <em>Shift</em> 1, Word 2).</li>
 </ul>
 </li>
 <li>
 <p><strong>Alphabetizer</strong></p>
 <ul>
-<li>From Circular Shifter, sorts and remembers the shifts, like Modularization 1</li>
-<li>Instead of outputting the “Alphabetized” shifts, the module provides a method to get Circular Shifts in order (e.g. tell me the shift that’s in the 2nd sorted position)</li>
+<li>Retrieving the characters from Circular Shifter, this modules sorts by alphabet and remembers the shifts.</li>
+<li>Instead of outputting the “Alphabetized” shifts, the module provides a method to get Circular Shifts in order (e.g. tell me the shift that’s in the 2nd sorted position).</li>
 </ul>
 </li>
 <li>
 <p><strong>Output</strong></p>
 <ul>
-<li>Uses Alphabetizer and Circular Shifter to generate the KWAC Index</li>
+<li>Uses Alphabetizer and Circular Shifter to generate the KWAC Index.</li>
 </ul>
 </li>
 </ul>
 <h2>Comparison: Changeability</h2>
-<p>This is probably the part that interested Robert Martin the most, as it speaks directly to the Single Responsibility Principle. For Modularization 1,  Parnas suggests some “likely” scenarios which would require many modules to be updated, but much less in Modularization 2:</p>
+<p>While other comparisons were made (see the Afterword section), the section on changeability speaks most to the SRP. Parnas begins by suggesting some “likely” change scenarios. Most require many modules to be updated in Modularization 1, but have a much smaller blast radius in Modularization 2:</p>
 <table>
 <thead>
 <tr>
@@ -252,56 +259,61 @@ The criteria for this decomposition was called “Information Hiding”:</p>
 </thead>
 <tbody>
 <tr>
-<td>Deciding to store “Characters” in a different medium instead of memory</td>
+<td>Deciding to store “Characters” in a different medium (e.g. filesystem) instead of memory</td>
 <td>All modules</td>
 <td>Line Storage</td>
 </tr>
 <tr>
-<td>Deciding on a different way to store the “Characters” (e.g. instead of grouping by 4 characters, group by words)</td>
+<td>Deciding on a different way to store the “Characters” (e.g. group by words instead of every 4 characters)</td>
 <td>All Modules</td>
 <td>Line Storage</td>
 </tr>
 <tr>
-<td>Deciding to store the circular shifts as the full sentence instead of an index of “Shifts”</td>
+<td>Deciding to store the full sentences of each circular shift instead of their indexes</td>
 <td>Circular Shifter, Alphabetizer, Output</td>
 <td>Circular Shifter</td>
 </tr>
 <tr>
-<td>Deciding not to pre/fully-generate “Alphabetized”, possibly distribute computation (due to a large dataset?)</td>
+<td>Deciding to change “Alphabetized” generation to be lazy or distributed (possibly due to a large dataset?)</td>
 <td>Difficult to achieve as computation must be completed before output</td>
-<td>Achievable as Output doesn’t need pre-generation</td>
+<td>Achievable as Output doesn’t need all the shifts to be “alphabetized”</td>
 </tr>
 </tbody>
 </table>
-<p>The conclusion is that choosing to split by “information hiding” results in code that is easier to change.</p>
-<h2>Comparison: Independent Development</h2>
-<p>Because of the dependency of all modules on the data structures used for storage in Modularization 1, developing and agreeing on them would be require a joint effort. This repeats when the structures need to be changed.</p>
-<p>In Modularization 2 though, each module generally only has a dependency on 1 - 2 other modules, so changing a module’s interface would have a much smaller impact than the Modularization 1.</p>
+<p>The conclusion is that choosing to split by “information hiding” results in code that is easier to change!</p>
 <h2>Conclusion</h2>
-<p>Quoting directly from Parnas:</p>
-<blockquote>
-<p>We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. We propose instead that one begins with a list of difficult design decisions or design decisions which are likely to change. Each module is then designed to hide such a decision from the others. Since, in most cases, design decisions transcend time of execution, modules will not correspond to steps in the processing.</p>
-</blockquote>
-<p>The paper does show a more concrete example of how splitting a decomposition along lines of change, results in a system that is easier-to-change 👍. In practice though, I find the criteria of “information hiding” somewhat abstract (similar to the SRP itself). Figuring out those lines of change is still more art than science.</p>
-<h2>Afterword</h2>
-<p>There are some parts of the paper which I deliberately left out:</p>
+<p>So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of <em>why</em> it was important - it should result in code that is easier to change. However, even with the (helpful) example, it seems applying the SRP remains hyper-contextual, and more an art than science.</p>
+<p>What’s your framework for beginning “with a list of difficult design decisions or design decisions which are likely to change”?</p>
+<h2>Further Reading:</h2>
 <ul>
-<li>Comparisons: correctness and comprehensibility were deemed similar for both Modularizations, so I left it out.</li>
-<li>Efficiency: I read this as Modularization 2, if implemented poorly, could lead to a lot calls between modules and be slower. There was also bits here which I didn’t understand, please point me in the direction of somewhere that helps!</li>
-<li>An anecdotal example of building a translator was given in further support of “Information Hiding”</li>
+<li>Diego Ontaro’s <a href="https://youtu.be/R7X4B3-k7g4?t=1036">talk</a> and his example <a href="https://github.com/ongardie/kwic">code</a> in Go.</li>
+<li><a href="https://en.wikipedia.org/wiki/Key_Word_in_Context">KWIC Indexes in Wikipedia</a> - note that the original paper calls it a KWIC index, but as Diego Ontaro explains, it’s actually a KWAC index.</li>
+<li>Parnas’ Original Papers: <a href="https://www.win.tue.nl/~wstomv/edu/2ip30/references/criteria_for_modularization.pdf">1972</a> (which references an earlier paper written in <a href="https://prl.ccs.neu.edu/img/p-tr-1971.pdf">1971</a> with more implementation details).</li>
+<li>Adrian Colyer’s elegant and higher-level <a href="https://blog.acolyer.org/2016/09/05/on-the-criteria-to-be-used-in-decomposing-systems-into-modules/">summary</a> of the same paper.</li>
+</ul>
+<h2>Afterword</h2>
+<p>I apologise for the mix of American and British english 😆.</p>
+<p>The bits of the paper I deliberately left out:</p>
+<ul>
+<li>
+<p>Comparisons:</p>
+<ul>
+<li>correctness and comprehensibility were deemed similar for both Modularizations, so I left it out.</li>
+<li>independent development: Modularization 2 was deemed better, as in Modularization 1 the devs building each module would have to agree upon and develop the shared input storage.</li>
+</ul>
+</li>
+<li>
+<p>Efficiency:</p>
+<ul>
+<li>I had trouble understanding this bit, think it had more relevance to the programming systems of the time: “(Modularization 2), if implemented with the conventional assumption that a module consists of one or more subroutines, will be less efficient in most cases.”</li>
+</ul>
+</li>
+<li>An anecdotal example of building a translator was given in further support of “Information Hiding”.</li>
 <li>There’s a critique of the Modularization 2’s Circular Shifter based on a somewhat arbitrary definition - the shifts were ordered corresponding to their line numbers in the original input, which encoded that assumption into other modules that interacted with it. It felt like an arbitrarily bad decision made to illustrate a point, and felt hard to fit in the flow of this post.</li>
 <li>The critique also included some “generalisable” decomposition criteria, but they seemed somewhat low level (there’s mention of assembly) and I found it difficult to draw parallels in today’s higher-level programming languages.</li>
-<li>There’s a distinction made between a “hierarchical structure” (seems like a separate paper, which I’d need to understand) and “information hiding”.</li>
-</ul>
-<p>I apologise for the mix of American and British english.</p>
-<p>Further Reading:</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Key_Word_in_Context">KWIC Indexes in Wikipedia</a></li>
-<li>Parnas’ Original Papers: <a href="https://www.win.tue.nl/~wstomv/edu/2ip30/references/criteria_for_modularization.pdf">1972</a> (which references an earlier paper written in <a href="https://prl.ccs.neu.edu/img/p-tr-1971.pdf">1971</a> with more implementation details)</li>
-<li>Diego Ontaro’s <a href="https://youtu.be/R7X4B3-k7g4?t=1036">talk</a> and his example <a href="https://github.com/ongardie/kwic">code</a> in Go</li>
-<li>Adrian Colyer’s elegant and higher-level <a href="https://blog.acolyer.org/2016/09/05/on-the-criteria-to-be-used-in-decomposing-systems-into-modules/">summary</a> of the same paper</li>
+<li>There’s a distinction made between a “hierarchical structure” (a separate paper which I haven’t read) and “information hiding”.</li>
 </ul></section><section><h2>Comments</h2><div id="comments-container"></div></section><hr style="margin-bottom:1.45rem"/><footer><div style="display:flex;margin-bottom:3.625rem"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:50px;height:50px;margin-right:0.725rem;margin-bottom:0;min-width:50px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAC4jAAAuIwF4pT92AAADm0lEQVQ4y41UXShkcRSfuXcWMRiMb0WTHbS1JbxoaH3kYRgrRc3KA/mIonmgRTG7HiQp7QOxxXphUSvxYNdHakvaLe0DWbt42nwUSUZp5977P3vOnbljJnbbU7f7///vOb/7O+d3/kelesBCQ0NVubm58jo4ONjnGwCoKyoqOG/ff1pERIT8DgkJITCe1gEBAY/w9RQfneLnDUq+cXFxvkApKSn3QL1YvGltbQWDwfC9pKTkW3Z2djOd22w27kFWTU1NnnVQUBA58UVFRZxWq7Xq9fpParX698nJCRweHoLD4YCMjIwD9DGo/sPUXmsuKyvr8uDgAFJTU6WdnR0J6ydtbW0JaWlpYltbGyQkJIyQ4/z8PBFxRSELVWFhoQcM62b29/f/GBYWZkSn0pWVFaivrxenpqbYxcUF6+zshLGxMSeCQ3R09CzFNDQ08A+x49wFfo1AXyMjIyml5/n5+dLa2hrY7XaGe2Y0Gtn+/r5ktVohPT19Lz4+/jHFob8ru5iYGG/QJ/iYSCNU9t3MzAwRgZubG3Z8fAxLS0uwuroKZ2dn0NPTI6DSgL4v3Jm6WGJ6CpgGhfhJIFVVVVBcXAzt7e0Spsu6u7thZGSE4QMTExNMQqMflZWVOTAukYKxzi6GOp1OEULX1dV1BS6TNjc3xZycHNbc3Ex75j6HgoICqKysZH19feLs7CzwPF9OwUlJSbzSJgqgoaWlRSIRqEbDw8NsenoaRkdHZTBKc3d3F3p7e+X16empgIoDluwlBWM9XYColAwYHh6uTUxM/IJ/h/HxcbG6upohS8DmBVQXjo6OYGFhAerq6tjVlZyIgMoDx3E2H4Zkfn5+ysZCNwJVFdfX12Vmi4uLQDXs7+8nIQBrrKQvdHR0kCgW923iPX0YGBioXKH8oaEhchapblh7T+3c5gEj1haL5Qfp6jMk5ubmVNjESh3jzWazgyKcTicTRZEASF1WU1PDrq+vaS+QaI2NjcSuxH0ZfBs7MzNThddIOXy7sbFBmLfIkJiKtbW1gslkEm5vb+V2GRwcBI1G84qckQznbmzfa4KNrLDU4yz8RYNAEAQ5v/Pzc9je3pabGsH3cFhUkePl5aUn3quffdCVWqbiCPuAY+pzXl7eamlp6Xv8iR3Pn9EkIoeBgQHPIElOTvZlFxsbezct7kD/alFRUfyDzLyNAFFtzxgrLy/nMFsa+arl5WUO+1ODPcvRdFZscnLyHs4fRNbwe3bau0MAAAAASUVORK5CYII=" alt="Nick" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms;border-radius:50%"/><noscript><picture><source srcset="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png 1x,
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/f937a/wasabigeek-logo.png 1.5x,
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" /><img loading="lazy" width="50" height="50" srcset="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png 1x,
 /static/2024985cd1fb9cd6a58693ffa2e9ed8c/f937a/wasabigeek-logo.png 1.5x,
-/static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" src="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png" alt="Nick" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div><p>By <strong>Nick</strong>, a <!-- -->Business grad turned Software Engineer, living in sunny 🇸🇬. I write mostly about Ruby and Rails, not wasabi (sorry!).</p><div><a class="secondary-link" href="https://twitter.com/wasabigeek" title="Twitter"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg></a><a class="secondary-link" href="https://github.com/wasabigeek" title="GitHub"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a></div></div></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/blog/polymorphism-with-fries-please/">← <!-- -->Polymorphism, with fries please</a></li><li></li></ul></nav></main><footer>© <!-- -->2022<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.org">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/the-1972-paper-which-influenced-the-single-responsibility-principle/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-7809e1a9a2ac6c9bb722.js"],"app":["/app-e38cfc43ef3b7c75fa8c.js"],"component---src-pages-404-js":["/component---src-pages-404-js-44d135f273b01cde51a1.js"],"component---src-pages-blog-index-js":["/component---src-pages-blog-index-js-b94f2a8c6a4d848a2349.js"],"component---src-pages-index-js":["/component---src-pages-index-js-f826a46760b3d5958a20.js"],"component---src-pages-projects-js":["/component---src-pages-projects-js-c7a2b81a2ef031cf3d6c.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7e6ca54a46209395118f.js"]};/*]]>*/</script><script src="/polyfill-7809e1a9a2ac6c9bb722.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-7e6ca54a46209395118f.js" async=""></script><script src="/789f7d7b6ffc49f28e70e7c9aef0b26f21ecb947-39d4daffcc3a462077dd.js" async=""></script><script src="/commons-48a332a65198d59f1f51.js" async=""></script><script src="/a9a7754c-6dde0b8ef106210f7c4e.js" async=""></script><script src="/styles-e9d24b1846c7d6eb9685.js" async=""></script><script src="/app-e38cfc43ef3b7c75fa8c.js" async=""></script><script src="/framework-cd3e1e804d552fa282ef.js" async=""></script><script src="/webpack-runtime-9b522474d6c718721c56.js" async=""></script></body></html>
+/static/2024985cd1fb9cd6a58693ffa2e9ed8c/71eb7/wasabigeek-logo.png 2x" src="/static/2024985cd1fb9cd6a58693ffa2e9ed8c/8ba1e/wasabigeek-logo.png" alt="Nick" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div><p>By <strong>Nick</strong>, a <!-- -->Business grad turned Software Engineer, living in sunny 🇸🇬. I write mostly about Ruby and Rails, not wasabi (sorry!).</p><div><a class="secondary-link" href="https://twitter.com/wasabigeek" title="Twitter"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg></a><a class="secondary-link" href="https://github.com/wasabigeek" title="GitHub"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16 fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a></div></div></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/blog/polymorphism-with-fries-please/">← <!-- -->Polymorphism, with fries please</a></li><li></li></ul></nav></main><footer>© <!-- -->2022<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.org">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-7809e1a9a2ac6c9bb722.js"],"app":["/app-e38cfc43ef3b7c75fa8c.js"],"component---src-pages-404-js":["/component---src-pages-404-js-44d135f273b01cde51a1.js"],"component---src-pages-blog-index-js":["/component---src-pages-blog-index-js-b94f2a8c6a4d848a2349.js"],"component---src-pages-index-js":["/component---src-pages-index-js-f826a46760b3d5958a20.js"],"component---src-pages-projects-js":["/component---src-pages-projects-js-c7a2b81a2ef031cf3d6c.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7e6ca54a46209395118f.js"]};/*]]>*/</script><script src="/polyfill-7809e1a9a2ac6c9bb722.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-7e6ca54a46209395118f.js" async=""></script><script src="/789f7d7b6ffc49f28e70e7c9aef0b26f21ecb947-39d4daffcc3a462077dd.js" async=""></script><script src="/commons-48a332a65198d59f1f51.js" async=""></script><script src="/a9a7754c-6dde0b8ef106210f7c4e.js" async=""></script><script src="/styles-e9d24b1846c7d6eb9685.js" async=""></script><script src="/app-e38cfc43ef3b7c75fa8c.js" async=""></script><script src="/framework-cd3e1e804d552fa282ef.js" async=""></script><script src="/webpack-runtime-9b522474d6c718721c56.js" async=""></script></body></html>
