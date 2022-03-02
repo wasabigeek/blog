@@ -1,14 +1,14 @@
 ---
 title: What does a 1972 paper have to do with the Single Responsibility Principle?
 date: "2022-02-28"
-description: "While trying to explain the Single Responsibility Principle, it's originator calls attention to a paper written in the last decade. Why was this paper so significant? Let's find out!"
+description: "While trying to explain the Single Responsibility Principle, it's originator calls attention to the paper 'On the Criteria To Be Used in Decomposing Systems into Modules'. Why was this paper so significant? Let's find out!"
 published: true
 tags: ["object-oriented", "single responsibility principle"]
 ---
 
-"*A class should only have one reason to change*" is a mantra that Object-Oriented advocates have chanted for years. Dubbed the "Single Responsibility Principle" (SRP), it remains somewhat abstract till this day ✨. Abstract enough that Robert Martin, who coined the term, tried to explain the SRP again in a [2014 blog post](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html) - 14 years after he first wrote about it!
+"*A class should only have one reason to change*" is a mantra that Object-Oriented advocates have chanted for years. Dubbed the "Single Responsibility Principle" (SRP), it remains somewhat abstract till this day ✨. Abstract enough, in fact, that it's originator (Robert Martin) felt it worthwhile to explain again in a [blog post](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html) - 14 years after he first wrote about it!
 
-That blog post begins by referencing and quoting a 1972 paper, "**On the Criteria To Be Used in Decomposing Systems into Modules**" (what a mouthful) by David Parnas:
+That blog post begins by referencing and quoting a 1972 paper, "**On the Criteria To Be Used in Decomposing Systems into Modules**" by David Parnas:
 
 > “We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. 
 > 
@@ -17,21 +17,21 @@ That blog post begins by referencing and quoting a 1972 paper, "**On the Criteri
 The paper seemed significant, as Martin wrote that the SRP appeared "to align with Parnas’ formulation". Could it demystify the SRP? What exactly was this paper about?
 
 ## The System: KWAC Index
-In the paper, Parnas sets the stage - he would compare two approaches ("criteria") for modularizing a system, showing that one provided superior flexibility. That system was a KWAC (KeyWord Alongside Context) index.
+First, Parnas sets the stage - he would compare two approaches ("criteria") for modularizing a system, showing that one provided superior flexibility. That system was a KWAC (KeyWord Alongside Context) index.
 
-KWAC was one of many indexing systems used for technical manuals. Important words in sentences were emphasised by "rotating" or "circularly shifting" the word such that it was the first. For example, `Office 2003 Timesaving Techniques for Dummies.` would become `Dummies. Office 2003 Timesaving Techniques for`, as below:
+KWAC was one of many indexing systems used for technical manuals. Important words in sentences were emphasised by "rotating" or "circularly shifting" the word such that it was the first. For example, given the title "**Office 2003 Timesaving Techniques for Dummies.**" and the keyword "**Dummies**", we'd get "**Dummies. Office 2003 Timesaving Techniques for**", as below:
 ![KWAC Index](https://upload.wikimedia.org/wikipedia/commons/6/61/KWAC.png)
 
 The next sections explain Parnas' modularizations. This [video explanation](https://youtu.be/R7X4B3-k7g4?t=1036) (starting from 17:16) helped me visualise and understand them, and I'll borrow liberally from it 🙇‍♂️.
 
 ## Modularization 1: "Flowchart"
-In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I'm guilty of taking!):
+In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I'm guilty of applying at face value):
 ![Criteria for Decomposition of Modules 1.png](./Criteria for Decomposition of Modules 1.png)
-It's worth highlighting a significant design decision not obvious above, which was to have all modules share a common data structure to store the input. All modules would use this structure, which has implications that become clearer later.
+It's worth highlighting a significant design decision not obvious above, which was to have all modules share a common data structure to store the input. The implications of this become clearer later.
 
 Here's what each module did:
 - **Input** 
-  - Parses the input text file and stores in memory with an array-like structure we'll call "Characters", with 4 characters per element (explained around [23:36 in the video](https://youtu.be/R7X4B3-k7g4?t=1415)).
+  - Parsed the input text file and stores in memory with an array-like structure we'll call "Characters", with 4 characters per element (explained around [23:36 in the video](https://youtu.be/R7X4B3-k7g4?t=1415)).
   - For example, given the file:
   ```shell
   # cat input.txt
@@ -84,7 +84,7 @@ What each module does:
   - Uses Alphabetizer and Circular Shifter to generate the KWAC Index.
 
 ## Comparison: Changeability
-While other comparisons were made (see the Afterword section), the section on changeability speaks most to the SRP. Parnas begins by suggesting some "likely" change scenarios. Most require many modules to be updated in Modularization 1, but have a much smaller blast radius in Modularization 2:
+While other comparisons were made (listed in the Afterword), the analysis of changeability speaks most to the SRP. Parnas begins by suggesting some "likely" change scenarios. Most require many modules to be updated in Modularization 1, but have a much smaller blast radius in Modularization 2:
 
 |Scenario|Modularization 1|Modularization 2|
 |-|-|-|
@@ -93,7 +93,7 @@ While other comparisons were made (see the Afterword section), the section on ch
 |Deciding to store the full sentences of each circular shift instead of their indexes |Circular Shifter, Alphabetizer, Output |Circular Shifter|
 |Deciding to change "Alphabetized" generation to be lazy or distributed (possibly due to a large dataset?)|Difficult to achieve as computation must be completed before output|Achievable as Output doesn't need all the shifts to be "alphabetized"|
 
-The conclusion is that choosing to split by "information hiding" results in code that is easier to change!
+This shows that choosing to split by "information hiding" results in code that is easier to change.
 
 ## Conclusion
 So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of *why* it was important - it should result in code that is easier to change. However, even with the (helpful) example, it seems applying the SRP remains hyper-contextual, and more an art than science.
