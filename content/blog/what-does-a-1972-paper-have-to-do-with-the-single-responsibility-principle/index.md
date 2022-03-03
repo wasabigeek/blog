@@ -27,11 +27,11 @@ The next sections explain Parnas' modularizations. This [video explanation](http
 ## Modularization 1: "Flowchart"
 In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I'm guilty of applying at face value):
 ![Criteria for Decomposition of Modules 1.png](./Criteria for Decomposition of Modules 1.png)
-It's worth highlighting a significant design decision not obvious above, which was to have all modules share a common data structure to store the input. The implications of this become clearer later.
+(There's a design flaw that isn't obvious in the diagram - all the modules rely upon a common data structure in memory, used to store and retrieve the input. The implications will become clearer later on.)
 
 Here's what each module did:
 - **Input** 
-  - Parsed the input text file and stores in memory with an array-like structure we'll call "Characters", with 4 characters per element (explained around [23:36 in the video](https://youtu.be/R7X4B3-k7g4?t=1415)).
+  - Parses the input text file and stores in memory with an array-like structure we'll call "Characters", with 4 characters per element (explained around [23:36 in the video](https://youtu.be/R7X4B3-k7g4?t=1415)).
   - For example, given the file:
   ```shell
   # cat input.txt
@@ -66,20 +66,20 @@ In this modularization, Parnas uses the criteria of "Information Hiding". The de
 
 > Every module in the second decomposition is characterized by its knowledge of a design decision which it hides from all others. Its interface or definition was chosen to reveal as little as possible about its inner workings.
 
-Practically speaking, he encapsulates (hides) how the input is stored via "Line Storage", and changes the dependency of subsequent modules. Of note, these changes remove global reliance on the stored input:
+Practically speaking, he encapsulates (hides) how the input file is stored and how it can be accessed via a new module, "Line Storage". Next, he changes the dependency of subsequent modules, removing global reliance on "Line Storage":
 ![Criteria for Decomposing Modules 2.png](./Criteria for Decomposing Modules 2.png)
 What each module does:
 - **Input**
-  - Like Modularization 1, also parses the input, but this time inserts it into a Line Storage.
+  - Like Modularization 1, also parses the input file, but this time initializes a "Line Storage" and inserts the data.
 - **Line Storage**
-  - Think of it like an Object that has methods for inserting and retrieving characters by line (e.g. get Character 5 of Line 1, Word 2)
-  - Other convenience methods are also provided (e.g. counting words).
+  - Think of it like an Object that has methods for inserting and retrieving characters by line (e.g. get Character 5 of Line 1, Word 2).
+  - Note: Unlike Modularization 1, this means callers do not need to know the nitty-gritty details of how data is stored.
 - **Circular Shifter**
-  - Generates the circular shifts from Line Storage.
+  - Generates the circular shifts from Line Storage in an initialization step.
   - Instead of outputting "Shifts", the module itself provides an interface (like an Object) similar to Line Storage, but allows retrieval of characters by their *shifts* instead of lines (e.g. get Character 5 of *Shift* 1, Word 2).
 - **Alphabetizer**
-  - Retrieving the characters from Circular Shifter, this modules sorts by alphabet and remembers the shifts.
-  - Instead of outputting the "Alphabetized" shifts, the module provides a method to get Circular Shifts in order (e.g. tell me the shift that's in the 2nd sorted position).
+  - Retrieving the characters from Circular Shifter, this modules sorts by alphabet and remembers the shifts in an initialization step.
+  - Instead of outputting the "Alphabetized" shifts, the module also provides an interface for getting ordered Circular Shifts indexes (e.g. tell me the shift number that's in the 2nd sorted position).
 - **Output**
   - Uses Alphabetizer and Circular Shifter to generate the KWAC Index.
 
@@ -99,6 +99,8 @@ This shows that choosing to split by "information hiding" results in code that i
 So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of *why* it was important - it should result in code that is easier to change. However, even with the (helpful) example, it seems applying the SRP remains hyper-contextual, and more an art than science.
 
 What's your framework for beginning "with a list of difficult design decisions or design decisions which are likely to change"?
+
+Discuss on [Hackernews](https://news.ycombinator.com/item?id=30529854).
 
 ## Further Reading:
 - Diego Ontaro's [talk](https://youtu.be/R7X4B3-k7g4?t=1036) and his example [code](https://github.com/ongardie/kwic) in Go.
