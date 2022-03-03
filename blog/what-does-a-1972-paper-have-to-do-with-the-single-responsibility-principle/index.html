@@ -62,13 +62,13 @@
       />
   </a>
     </span>
-It’s worth highlighting a significant design decision not obvious above, which was to have all modules share a common data structure to store the input. The implications of this become clearer later.</p>
+(There’s a design flaw that isn’t obvious in the diagram - all the modules rely upon a common data structure in memory, used to store and retrieve the input. The implications will become clearer later on.)</p>
 <p>Here’s what each module did:</p>
 <ul>
 <li>
 <p><strong>Input</strong> </p>
 <ul>
-<li>Parsed the input text file and stores in memory with an array-like structure we’ll call “Characters”, with 4 characters per element (explained around <a href="https://youtu.be/R7X4B3-k7g4?t=1415">23:36 in the video</a>).</li>
+<li>Parses the input text file and stores in memory with an array-like structure we’ll call “Characters”, with 4 characters per element (explained around <a href="https://youtu.be/R7X4B3-k7g4?t=1415">23:36 in the video</a>).</li>
 <li>
 <p>For example, given the file:</p>
 <div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># cat input.txt</span>
@@ -178,7 +178,7 @@ The Criteria <span class="token operator">|</span> On <span class="token punctua
 <blockquote>
 <p>Every module in the second decomposition is characterized by its knowledge of a design decision which it hides from all others. Its interface or definition was chosen to reveal as little as possible about its inner workings.</p>
 </blockquote>
-<p>Practically speaking, he encapsulates (hides) how the input is stored via “Line Storage”, and changes the dependency of subsequent modules. Of note, these changes remove global reliance on the stored input:
+<p>Practically speaking, he encapsulates (hides) how the input file is stored and how it can be accessed via a new module, “Line Storage”. Next, he changes the dependency of subsequent modules, removing global reliance on “Line Storage”:
 <span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -216,28 +216,28 @@ What each module does:</p>
 <li>
 <p><strong>Input</strong></p>
 <ul>
-<li>Like Modularization 1, also parses the input, but this time inserts it into a Line Storage.</li>
+<li>Like Modularization 1, also parses the input file, but this time initializes a “Line Storage” and inserts the data.</li>
 </ul>
 </li>
 <li>
 <p><strong>Line Storage</strong></p>
 <ul>
-<li>Think of it like an Object that has methods for inserting and retrieving characters by line (e.g. get Character 5 of Line 1, Word 2)</li>
-<li>Other convenience methods are also provided (e.g. counting words).</li>
+<li>Think of it like an Object that has methods for inserting and retrieving characters by line (e.g. get Character 5 of Line 1, Word 2).</li>
+<li>Note: Unlike Modularization 1, this means callers do not need to know the nitty-gritty details of how data is stored.</li>
 </ul>
 </li>
 <li>
 <p><strong>Circular Shifter</strong></p>
 <ul>
-<li>Generates the circular shifts from Line Storage.</li>
+<li>Generates the circular shifts from Line Storage in an initialization step.</li>
 <li>Instead of outputting “Shifts”, the module itself provides an interface (like an Object) similar to Line Storage, but allows retrieval of characters by their <em>shifts</em> instead of lines (e.g. get Character 5 of <em>Shift</em> 1, Word 2).</li>
 </ul>
 </li>
 <li>
 <p><strong>Alphabetizer</strong></p>
 <ul>
-<li>Retrieving the characters from Circular Shifter, this modules sorts by alphabet and remembers the shifts.</li>
-<li>Instead of outputting the “Alphabetized” shifts, the module provides a method to get Circular Shifts in order (e.g. tell me the shift that’s in the 2nd sorted position).</li>
+<li>Retrieving the characters from Circular Shifter, this modules sorts by alphabet and remembers the shifts in an initialization step.</li>
+<li>Instead of outputting the “Alphabetized” shifts, the module also provides an interface for getting ordered Circular Shifts indexes (e.g. tell me the shift number that’s in the 2nd sorted position).</li>
 </ul>
 </li>
 <li>
@@ -284,6 +284,7 @@ What each module does:</p>
 <h2>Conclusion</h2>
 <p>So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of <em>why</em> it was important - it should result in code that is easier to change. However, even with the (helpful) example, it seems applying the SRP remains hyper-contextual, and more an art than science.</p>
 <p>What’s your framework for beginning “with a list of difficult design decisions or design decisions which are likely to change”?</p>
+<p>Discuss on <a href="https://news.ycombinator.com/item?id=30529854">Hackernews</a>.</p>
 <h2>Further Reading:</h2>
 <ul>
 <li>Diego Ontaro’s <a href="https://youtu.be/R7X4B3-k7g4?t=1036">talk</a> and his example <a href="https://github.com/ongardie/kwic">code</a> in Go.</li>
