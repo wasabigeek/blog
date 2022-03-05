@@ -109,7 +109,9 @@ So where does the paper leave us in relation to the SRP? Personally, I left with
 
 What's your framework for beginning "with a list of difficult design decisions or design decisions which are likely to change"?
 
-Discuss on [Hackernews](https://news.ycombinator.com/item?id=30529854).
+Discuss on [Hackernews](https://news.ycombinator.com/item?id=30529854), or continue the conversation on [Twitter](https://t.co/jKyUJIpnsR):
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tried to get a better intuition for the Single Responsibility Principle and was led to a classic 1972 paper by David Parnas. A good read! <a href="https://t.co/jKyUJIpnsR">https://t.co/jKyUJIpnsR</a></p>&mdash; @wasabigeek <a href="https://twitter.com/wasabigeek/status/1500047320443850753?ref_src=twsrc%5Etfw">March 5, 2022</a></blockquote>
 
 (I apologise for the mix of American and British english 😆.)
 
