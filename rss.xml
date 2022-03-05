@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Mar 2022 09:49:56 GMT</lastBuildDate><item><title><![CDATA[A 1972 paper and the Single Responsibility Principle]]></title><description><![CDATA[”A class should only have one reason to change” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single…]]></description><link>https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</guid><pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;”&lt;em&gt;A class should only have one reason to change&lt;/em&gt;” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough, in fact, that it’s originator (Robert Martin) felt it worthwhile to explain again in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html&quot;&gt;blog post&lt;/a&gt; - 14 years after he first wrote about it!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Mar 2022 10:00:47 GMT</lastBuildDate><item><title><![CDATA[A 1972 paper and the Single Responsibility Principle]]></title><description><![CDATA[”A class should only have one reason to change” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single…]]></description><link>https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</guid><pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;”&lt;em&gt;A class should only have one reason to change&lt;/em&gt;” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough, in fact, that it’s originator (Robert Martin) felt it worthwhile to explain again in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html&quot;&gt;blog post&lt;/a&gt; - 14 years after he first wrote about it!&lt;/p&gt;
 &lt;p&gt;That blog post begins by referencing and quoting a 1972 paper, ”&lt;strong&gt;On the Criteria To Be Used in Decomposing Systems into Modules&lt;/strong&gt;” by David Parnas:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. &lt;/p&gt;
@@ -16,14 +16,7 @@
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/1afa3be2a535182b9280816c458ea9a8/dd507/Criteria%20for%20Decomposition%20of%20Modules%201.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 53.37837837837838%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACLklEQVQoz31TS2sTURjNP3BhF0opEaWgUBOKgguxoC4UpIKCYNWFSLNRKEGookigUKwuBVeCS0kRKSa0pQ3NpC19pGkaW0gmlVjqcyYTm6TNs/O4c7zzji68cPjux3z3zPleLkVVoBAK3cq6JSZ2mkX8rHLgajx+NXlwdWqpL9QFyGasbbX3qgyXbDkmqRYgKxIIIbiW6seB2WPoiHrQPtqF9ikP2uZPwLvYg8p+GSpgxKsGNA6XroxCIhK0s1Rcw9XkbXyrfkWyvI4PXAhhYQpj2+MIcZMYEyYwLUQhKfuOQqLZFoXaB5GIOmGYn0FbuBOZchpvvr+Db90Pf+IpHiQGMRB/jPurg3j2eRh1sUbLQkyFVpaUUDElW4STfAzu9x5kSyxGtl+jN3ELfbM+3Ijdw825flyP34WP9aMmVimhaqesqZPtlImjcCLPoCN0EtldFpt7XzBN/VhhAREuBkaYR7Qwh6XCCk1Z/KuRtkKrIZJFyDNwBw2Fd9IDOBjpxNFgN9yjXhwJenE40oVT8fOoNMt6vPwvoZWyRTien8Ghj8fB0hpyjTxWd1LYKKWRLH5CqrShI7ObpY8lZyr0xhjELr1DLTVkfi/i9PJFbFVyeMgOoXv5AnoWenE2fBnnmCs4s3KJTkEfquIeHRvVVqjYCs2LM6gSmnJDL8PbH0E8yg0hsDmCwNpzBDIv8CQ3jJdbr9CQ6naX7cUwFDp/sEhVGqhtyv+OYpG1LgXFH+xPB2CsmBosAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
@@ -42,7 +35,6 @@
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;
 There’s a design flaw that isn’t obvious in the diagram - all the modules rely upon common data stored in memory using pretty low-level operations. The implications will become clearer later on.&lt;/p&gt;
 &lt;p&gt;Here’s what each module did:&lt;/p&gt;
@@ -63,14 +55,7 @@ On The Criteria &lt;span class=&quot;token comment&quot;&gt;# line 2&lt;/span&gt
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/fa60d/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 12.837837837837837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsSAAALEgHS3X78AAAAlElEQVQI1z2P2xKEIAxD/f8PlYsiVxUQzabuzj5kWk7TaZhar8gl4cGNlCPkLYop4H4GZxG1naj9/LOYf4wKyWMI46xybyp7gV0MrtFhrEbZMzKlzYx2tS87ysu1URj3BcUqLDGIsgqdu0rPL5t82LCs9k3p3IIQPTYy6eWq4TFJLlrJjnN/mfg9vc47BkiwK338zQfBU+YNLIkDVQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
@@ -89,7 +74,6 @@ On The Criteria &lt;span class=&quot;token comment&quot;&gt;# line 2&lt;/span&gt
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;We’ll call the above data “Characters”&lt;/li&gt;
 &lt;li&gt;The module also outputs “Lines”, which is an array stating the start of each line (e.g. 1, 21 above)&lt;/li&gt;
@@ -129,14 +113,7 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/97755/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 53.37837837837838%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACT0lEQVQoz3WSy2tTURDGb4Va6UqqG6sVFCKU2o0IPiLWWCRNaktVgmBEwYXgwpo0ttqFaa2KIIiopEkRJH+BKEUEFyKKS/curMU81JrHfeS+X59zTtIsROfyMWfmzP3dmeEKXUMJdAQT6Aql0Hd6HrvO3sXO2AL6ztzGjol59I6nsY3UyzX3l9JUk8b2iVv83BO5CaFzKAXh4CQCBKpKMqpinSShUhfJi2joOlTD4Gr8RwrVOK6Dpy/eQ9jIgAeuYg8Ba/UaVle/4uevMgrF7yiXC/B8B4D3T/ktub4LZtmXHwg4fB3C0QQC8XvQLROGSR1pKjSdpDW4JFmEokhQVQUyea6GTF5Gg3ISeZ8+vMiAnSemIYSSCFwgoGlwQK1W4YUqAxK4+ZKEuljjORazPMutVdZQrVd5x0uvPkLoHk6h48g17D1/hwNdz0al+humbbbH8ehhXRVLBZrAaI3qc+DKtxUUf5T4yDnW4abwDDaEbmDw4iMqAS3XgkLj6IZGY7j0AYeLdcbW0c6TdIo1ikUCt3fY0x9D9+7j2Nx/DG/evuMXbCSLOvQI5LWA6zAG8VjXJMMyOFCmemZ8h1u3DOJc7BQOHQ5iduEBv9AMHbZjcxD7HRzXhsp2SV0y73rNzhmcxQrlQfM9WybgvoFL+PylhLmHeTx+kkHT3Jb3295xDFiWBtvWsW6eb1PehEl5Zs9ff4Jwcv8V5PLLmLycQDAax+hsHtGpDCKpLNfYzBLGSWPTOUSmsggnFzFCfpTiETqHkxmEExlEqXYgfh9/AA6jzTJuFj/WAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
@@ -155,7 +132,6 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;Modularization 2: “Information Hiding”&lt;/h2&gt;
 &lt;p&gt;In this modularization, Parnas uses the criteria of “Information Hiding”. The definition is worth mentioning for it’s relevance to the SRP:&lt;/p&gt;
@@ -171,14 +147,7 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/5ec2630668bb8897c5864246f64495fe/85e74/Criteria%20for%20Decomposing%20Modules%202.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 55.4054054054054%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACYElEQVQoz4WTXUhTYRjHd91dlEEXEZRO66IgSzQE68YyizAJywsxSCWKbF4E1mUfNyOkLOimKC2sSRqKkTZMl6WopMWmiU5k6OYoJ25uOztfv95z5vogpOfw53m/+L3Px3ssqqai6AqakKrJLMdDhGJLhCQh2fAhlsQ8LK2g6yqyOCNrib+UWJOiKVg0cUjXNAzzrEyzuXcXm/qtpHVmkvZc+J4sNvRup2DwOJK0yv/Mgg43Z+5ya9pOVI7hCHTgCHbQ6u+k1Sd8sJOWxXbefX+PIiW4MdVA5dglaobrqB62UT1ko+qzjRp3HbNhrwAKK/5UQbGrlLAcwe59gH3yHnZ3I/aJRu58vc/tyQYezzUjC+A5t419rsPkvzlGXtcRDrYJOYvIHy1mYtmTBJ52VVHurGQuNk/6QC4Z3fuxvjrAzrZsMltz2Nazl9LxClD19XMVW5qurQEHqynpO2uuK6psFl4RX0SKEFNixBIxAquLzMf8zEt+FgzFxTi6QCAaMM+roheq0ZRUhCVvz5jAVNdkAY5KUXGzhi/sZ/dAARu7drC1KYu05gy2PLOKeTrW/myC8WAyGAE2gWUfazjlLP83DS2ZiuG7f/TxxNfCsxkHTbMvafY6eOp7gcPfTlSJmukqqQhPjFZycqSMpfgyte7r1HrquTJ2jQsf6rg8Xs9Fz1Uezj5at3wpmJG2Rdd1vqx4+BaZwhvxkTN0lJyRQnKdQq8LyXMVsWfoEOXj55HkVbNeCVX69ZiNEqlrMMUAGuTfN4nCqgqykmyMrMtmkxQxN9aN/VQkqvln/TE2vcpPVhTqrKDxnxgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
@@ -197,7 +166,6 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Each module in greater detail:&lt;/p&gt;
@@ -274,7 +242,8 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of &lt;em&gt;why&lt;/em&gt; it was important - it should result in code that is easier to change. However, even with the (helpful) example, we don’t get a magic formula for applying the SRP - it remains more art than science.&lt;/p&gt;
 &lt;p&gt;What’s your framework for beginning “with a list of difficult design decisions or design decisions which are likely to change”?&lt;/p&gt;
-&lt;p&gt;Discuss on &lt;a href=&quot;https://news.ycombinator.com/item?id=30529854&quot;&gt;Hackernews&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Discuss on &lt;a href=&quot;https://news.ycombinator.com/item?id=30529854&quot;&gt;Hackernews&lt;/a&gt;, or continue the conversation on &lt;a href=&quot;https://t.co/jKyUJIpnsR&quot;&gt;Twitter&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Tried to get a better intuition for the Single Responsibility Principle and was led to a classic 1972 paper by David Parnas. A good read! &lt;a href=&quot;https://t.co/jKyUJIpnsR&quot;&gt;https://t.co/jKyUJIpnsR&lt;/a&gt;&lt;/p&gt;&amp;mdash; @wasabigeek &lt;a href=&quot;https://twitter.com/wasabigeek/status/1500047320443850753?ref_src=twsrc%5Etfw&quot;&gt;March 5, 2022&lt;/a&gt;&lt;/blockquote&gt;
 &lt;p&gt;(I apologise for the mix of American and British english 😆.)&lt;/p&gt;
 &lt;h2&gt;Further Reading:&lt;/h2&gt;
 &lt;ul&gt;
