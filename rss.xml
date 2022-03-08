@@ -1,18 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Mar 2022 10:48:36 GMT</lastBuildDate><item><title><![CDATA[A 1972 paper and the Single Responsibility Principle]]></title><description><![CDATA[”A class should only have one reason to change” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single…]]></description><link>https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</guid><pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;”&lt;em&gt;A class should only have one reason to change&lt;/em&gt;” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough, in fact, that it’s originator (Robert Martin) felt it worthwhile to explain again in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html&quot;&gt;blog post&lt;/a&gt; - 14 years after he first wrote about it!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 08 Mar 2022 16:33:13 GMT</lastBuildDate><item><title><![CDATA[A 1972 paper and the Single Responsibility Principle]]></title><description><![CDATA[”A class should only have one reason to change” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single…]]></description><link>https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</guid><pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;”&lt;em&gt;A class should only have one reason to change&lt;/em&gt;” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough, in fact, that it’s originator (Robert Martin) felt it worthwhile to explain again in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html&quot;&gt;blog post&lt;/a&gt; - 14 years after he first wrote about it!&lt;/p&gt;
 &lt;p&gt;That blog post begins by referencing and quoting a 1972 paper, ”&lt;strong&gt;On the Criteria To Be Used in Decomposing Systems into Modules&lt;/strong&gt;” by David Parnas:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. &lt;/p&gt;
 &lt;p&gt;We propose instead that one begins with a list of difficult design decisions or design decisions &lt;em&gt;which are likely to change&lt;/em&gt;. Each module is then designed to hide such a decision from the others.”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The paper seemed significant, as Martin wrote that the SRP appeared “to align with Parnas’ formulation”. Could it demystify the SRP? What exactly was this paper about?&lt;/p&gt;
+&lt;p&gt;(Note: I’ve tried &lt;em&gt;not&lt;/em&gt; to abstract too much of the paper, in the hope that you’d be able to draw your own conclusions as well.)&lt;/p&gt;
 &lt;h2&gt;The System: KWAC Index&lt;/h2&gt;
-&lt;p&gt;First, Parnas sets the stage - he would compare two approaches (“criteria”) for modularizing a system, showing that one provided superior flexibility. That system was a KWAC (KeyWord Alongside Context) index.&lt;/p&gt;
-&lt;p&gt;KWAC was one of many indexing systems used for technical manuals. Important words in sentences were emphasised by “rotating” or “circularly shifting” the word such that it was the first. For example, given the title ”&lt;strong&gt;Office 2003 Timesaving Techniques for Dummies.&lt;/strong&gt;” and the keyword ”&lt;strong&gt;Dummies&lt;/strong&gt;”, we’d get ”&lt;strong&gt;Dummies. Office 2003 Timesaving Techniques for&lt;/strong&gt;”, as below:
-&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/6/61/KWAC.png&quot; alt=&quot;KWAC Index&quot;&gt;&lt;/p&gt;
-&lt;p&gt;The next sections explain Parnas’ modularizations. This &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1036&quot;&gt;video explanation&lt;/a&gt; (starting from 17:16) helped me visualise and understand them, and I’ll borrow liberally from it 🙇‍♂️.&lt;/p&gt;
+&lt;p&gt;First, Parnas sets the stage - he would compare two criteria for modularizing a system, showing that one provided superior flexibility. The system in question was a KWAC (KeyWord Alongside Context) index generator.&lt;/p&gt;
+&lt;p&gt;KWAC was an indexing system for technical manuals, allowing a reader to quickly find where in the manual a keyword was used. In addition to showing the keyword, KWAC would show the rest of the sentence as well, it’s “context”:
+&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/6/61/KWAC.png&quot; alt=&quot;Sample KWAC Index from Wikipedia&quot;&gt;&lt;/p&gt;
+&lt;p&gt;To build the KWAC index, the system would take in file of sentences. For example, given the input file:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# cat input.txt&lt;/span&gt;
+Program Development &lt;span class=&quot;token comment&quot;&gt;# line 1&lt;/span&gt;
+On The Criteria &lt;span class=&quot;token comment&quot;&gt;# line 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For each line, the system looked through every word, generating a KWAC entry. This was done by “circularly shifting” words that came before the keyword, appending them to the end. Then, it would sort the entries alphabetically. For example, given the above file, we’d get:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;Criteria. On The &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# &quot;On The Criteria&quot; is the original, &quot;Criteria&quot; was selected as the keyword here&lt;/span&gt;
+Development. Program &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+On The Criteria &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+Program Development &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The next sections explain Parnas’ modularizations. This &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1036&quot;&gt;video explanation&lt;/a&gt; (starting from 17:16) helped me visualise and understand them, and I’ve borrowed and will continue to borrow liberally from it 🙇‍♂️.&lt;/p&gt;
 &lt;h2&gt;Modularization 1: “Flowchart”&lt;/h2&gt;
-&lt;p&gt;In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I’m guilty of applying at face value):
-&lt;span
+&lt;p&gt;In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I’m guilty of applying at face value):&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
@@ -35,22 +46,16 @@
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-    &lt;/span&gt;
-There’s a design flaw that isn’t obvious in the diagram - all the modules rely upon common data stored in memory using pretty low-level operations. The implications will become clearer later on.&lt;/p&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;There’s a design flaw that isn’t obvious in the diagram - all the modules rely upon common data stored with a specific layout in memory using low-level operations. I’ll contrast this with Modularization 2 later.&lt;/p&gt;
 &lt;p&gt;Here’s what each module did:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt; &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Given an example input file like:  &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# cat input.txt&lt;/span&gt;
-Program Development &lt;span class=&quot;token comment&quot;&gt;# line 1&lt;/span&gt;
-On The Criteria &lt;span class=&quot;token comment&quot;&gt;# line 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;Parses the input text file (each line is a book title) and stores in memory using low-level operations. &lt;/li&gt;
-&lt;li&gt;There’s a section of the &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1415&quot;&gt;video (23:36)&lt;/a&gt; that explains this, which if I’ve understood right goes something like: &lt;strong&gt;(1.)&lt;/strong&gt; memory at the time was accessed in groups of 4 characters (bytes), &lt;strong&gt;(2.)&lt;/strong&gt; the input was split across these groups, with spaces in between words, &lt;strong&gt;(3.)&lt;/strong&gt; the split between lines would be stored separately.&lt;/li&gt;
-&lt;li&gt;We can visualise the parsed and stored example file as something like:
+&lt;li&gt;Parsed the input text file (see “The System: KWAC Index”) and stores in memory using low-level operations. We’ll call this the in-memory “Characters”.&lt;/li&gt;
+&lt;li&gt;There’s a section of the &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1415&quot;&gt;video (23:36)&lt;/a&gt; that explains this, which if I’ve understood right goes something like: &lt;strong&gt;(1.)&lt;/strong&gt; memory at the time was accessed in groups of 4 characters (bytes), &lt;strong&gt;(2.)&lt;/strong&gt; the input was split across these groups, with spaces in between words and lines.&lt;/li&gt;
+&lt;li&gt;We can visualise the stored in-memory “Characters” as follows (Note that line breaks are not distinguished from spaces, that’s tracked separately):
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
@@ -75,8 +80,7 @@ On The Criteria &lt;span class=&quot;token comment&quot;&gt;# line 2&lt;/span&gt
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;We’ll call the above data “Characters”&lt;/li&gt;
-&lt;li&gt;The module also outputs “Lines”, which is an array stating the start of each line (e.g. 1, 21 above)&lt;/li&gt;
+&lt;li&gt;The module also outputs “Lines”, which is an array stating the start of each line (e.g. above, Character 1 is the start of line 1, Character 21 is the start of line 2)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -95,20 +99,11 @@ On The Criteria &lt;span class=&quot;token comment&quot;&gt;# line 2&lt;/span&gt
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Accessing “Characters” and “Alphabetized” shifts, outputs the KWAC index, something like:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Using the golang example from the video, link in Further Reading&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;# go run m1/main.go input.txt&lt;/span&gt;
-Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On The &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-Development &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; Program &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-On The Criteria &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-Program Development &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
+&lt;li&gt;Accessing “Characters” and “Alphabetized” shifts, outputs the KWAC index (see “The System: KWAC Index”).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;A helpful visual summary of all the outputs and stored data:
+&lt;p&gt;A helpful visual summary of all the outputs and stored data from the video explanation:
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
@@ -138,12 +133,7 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
 &lt;blockquote&gt;
 &lt;p&gt;Every module in the second decomposition is characterized by its knowledge of a design decision which it hides from all others. Its interface or definition was chosen to reveal as little as possible about its inner workings.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Practically speaking, there were three major differences that I noticed in this modularization:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The details of how the characters were stored was encapsulated (hidden) via a new module, “Line Storage”. This meant that other modules did not have to know the low-level layout of the data. Instead, they would have a simpler interface to store and retrieve characters.&lt;/li&gt;
-&lt;li&gt;The dependencies of modules are also tweaked, such that only two modules interact directly with “Line Storage”, as opposed to every module having to access “Characters” in Modularization 1.&lt;/li&gt;
-&lt;li&gt;Modules in Modularization 1 depended on outputs or common data from previous modules. In contrast, modules in Modularization 2 depended directly on the interface of other modules (similar to calling methods on the module, a more Object-Oriented style).
-&lt;span
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
@@ -166,7 +156,12 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
+    &lt;/span&gt;
+Interestingly, what one might typically think as the general “responsibility” remains the same - modules are still mostly split along the same functionality lines. Instead, the major differences that I noticed in this modularization were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The details of how the characters were stored were encapsulated (hidden) via a new module, “Line Storage”. This meant that other modules did not have to know the low-level layout of the data. Instead, they would have a simpler interface to store and retrieve characters.&lt;/li&gt;
+&lt;li&gt;The dependencies of modules were also tweaked, such that only two modules interact directly with “Line Storage”, as opposed to every module having to access “Characters” in Modularization 1.&lt;/li&gt;
+&lt;li&gt;Modules in Modularization 1 depended on outputs from previous modules or common in-memory data. In contrast, modules in Modularization 2 depended directly on the interface of other modules (similar to calling methods on the module, a more Object-Oriented style).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Each module in greater detail:&lt;/p&gt;
 &lt;ul&gt;
@@ -205,7 +200,8 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Comparison: Changeability&lt;/h2&gt;
-&lt;p&gt;While other comparisons were made, the analysis of changeability speaks most to the SRP. Parnas begins by suggesting some “likely” change scenarios. Most require many modules to be updated in Modularization 1, but have a much smaller blast radius in Modularization 2:&lt;/p&gt;
+&lt;p&gt;While other comparisons were made, the analysis of changeability speaks most to the SRP. Parnas begins by suggesting some “likely” change scenarios. Most require many modules to be updated in Modularization 1, but have a much smaller blast radius in Modularization 2.&lt;/p&gt;
+&lt;p&gt;Let’s take Scenario B below as an example - since all the modules in Modularization 1 depended upon a specific layout of “Characters” in memory, changing that layout would require changing every module. However, in Modularization 2, this would only require a change in the implementation of “Line Storage” - the interface could stay the same, meaning other modules were shielded from this change!&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -237,10 +233,9 @@ The Criteria &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; On &lt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Let’s take Scenario B as an example - since all the modules in Modularization 1 depended upon a specific layout of “Characters” in memory, changing that layout would require changing every module. However, in Modularization 2, this would only require a change in the implementation of “Line Storage” - the interface could stay the same, meaning other modules were shielded from this change!&lt;/p&gt;
-&lt;p&gt;So the takeaway here is that good “information hiding” (a.k.a the SRP) results in a system that is easier to change. &lt;/p&gt;
+&lt;p&gt;So the takeaway here is that good “information hiding” (a.k.a the SRP) results in a system that adapts more easily to changes. &lt;/p&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of &lt;em&gt;why&lt;/em&gt; it was important - it should result in code that is easier to change. However, even with the (helpful) example, we don’t get a magic formula for applying the SRP - it remains more art than science.&lt;/p&gt;
+&lt;p&gt;So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of &lt;em&gt;why&lt;/em&gt; it was important - it should result in a system that is easier to evolve with changes in requirements. However, even with the (helpful) example, we don’t get a magic formula for applying the SRP - it remains more art than science.&lt;/p&gt;
 &lt;p&gt;What’s your framework for beginning “with a list of difficult design decisions or design decisions which are likely to change”?&lt;/p&gt;
 &lt;p&gt;Discuss on &lt;a href=&quot;https://news.ycombinator.com/item?id=30529854&quot;&gt;Hackernews&lt;/a&gt;, or continue the conversation on &lt;a href=&quot;https://t.co/jKyUJIpnsR&quot;&gt;Twitter&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Tried to get a better intuition for the Single Responsibility Principle and was led to a classic 1972 paper by David Parnas. A good read! &lt;a href=&quot;https://t.co/jKyUJIpnsR&quot;&gt;https://t.co/jKyUJIpnsR&lt;/a&gt;&lt;/p&gt;&amp;mdash; @wasabigeek &lt;a href=&quot;https://twitter.com/wasabigeek/status/1500047320443850753?ref_src=twsrc%5Etfw&quot;&gt;March 5, 2022&lt;/a&gt;&lt;/blockquote&gt;
