@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { rhythm } from "../utils/typography"
 import WasabiQuiz from "../components/WasabiQuiz"
 
@@ -16,7 +16,7 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <Seo title="All posts" />
       <section
         style={{
           marginBottom: rhythm(2),

@@ -1,9 +1,9 @@
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React from "react"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { rhythm } from "../utils/typography"
 
 const ProjectListing = ({ title, link, children }) => (
@@ -32,7 +32,7 @@ const ProjectsPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Projects" />
+      <Seo title="Projects" />
       <section
         style={{
           marginBottom: rhythm(2),
