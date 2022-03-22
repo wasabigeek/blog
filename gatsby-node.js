@@ -20,6 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                tags
               }
             }
           }
@@ -38,6 +39,10 @@ exports.createPages = async ({ graphql, actions }) => {
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
+    const currentTags = post.node.frontmatter.tags || []
+    const relatedPosts = posts.filter((_post) => {
+      return (_post.node.frontmatter.tags || []).some((tag) => currentTags.includes(tag))
+    })
 
     createPage({
       path: post.node.fields.slug,
@@ -46,6 +51,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: post.node.fields.slug,
         previous,
         next,
+        relatedPosts
       },
     })
   })
