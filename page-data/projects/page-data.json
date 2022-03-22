@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-pages-projects-js","path":"/projects/","result":{"data":{"site":{"siteMetadata":{"title":"wasabigeek"}}},"pageContext":{}},"staticQueryHashes":["1003244115","2841359383"]}
+{
+    "componentChunkName": "component---src-pages-projects-js",
+    "path": "/projects/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"wasabigeek"}}},"pageContext":{}},
+    "staticQueryHashes": ["2744205926","2841359383"]}
