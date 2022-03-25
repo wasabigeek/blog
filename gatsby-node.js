@@ -35,14 +35,30 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const posts = result.data.allMarkdownRemark.edges
+  const postsByTag = posts.reduce((acc, post) => {
+    tags = post.node.frontmatter.tags || []
+    tags.forEach(tag => {
+      if (tag in acc) {
+        acc[tag].push(post)
+      } else {
+        acc[tag] = [post]
+      }
+    })
+    return acc
+  }, {})
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
+
     const currentTags = post.node.frontmatter.tags || []
-    const relatedPosts = posts.filter((_post) => {
-      return (_post.node.frontmatter.tags || []).some((tag) => currentTags.includes(tag))
-    })
+    const relatedPosts = currentTags
+      .reduce((acc, tag) => {
+        const postsForTag = postsByTag[tag] || []
+        return acc.concat(postsForTag)
+      }, [])
+      .filter(relatedPost => relatedPost.node.fields.slug != post.node.fields.slug)
+      .slice(0, 3)
 
     createPage({
       path: post.node.fields.slug,

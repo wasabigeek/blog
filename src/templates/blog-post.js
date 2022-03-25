@@ -9,9 +9,8 @@ import Comments from "../components/Comments"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
-  const relatedPosts = data.allMarkdownRemark.edges
   const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pageContext
+  const { previous, next, relatedPosts } = pageContext
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -41,8 +40,18 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <section>
-          <h2>Related Articles</h2>
-          {relatedPosts.map(({ node }) => <p>{node.frontmatter.title}</p>)}
+          <h2>Related Posts</h2>
+          {
+            relatedPosts.map(({ node }) => {
+              return (
+                <p>
+                  <Link to={node.fields.slug}>
+                    {node.frontmatter.title}
+                  </Link>
+                </p>
+              )
+            })
+          }
         </section>
         <section>
           <h2>Comments</h2>
