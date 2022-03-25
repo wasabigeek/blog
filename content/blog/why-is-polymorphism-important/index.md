@@ -1,7 +1,7 @@
 ---
-title: "Why is Polymorphism important?"
+title: "Why use Polymorphism in OOP?"
 date: "2022-03-20"
-description: "Robert C. Martin has said 'the thing that truly differentiates OO programs from non-OO programs is polymorphism.' Let's investigate why polymorphism is so important!"
+description: "Polymorphism in Object-Oriented Programming, while abstract, is still somewhat easy to understand. Why we should use it, though, is less obvious. Let's investigate polymorphism's benefits!"
 published: true
 tags: ["object-oriented", "software-design", "dependency-inversion-principle"]
 ---
@@ -23,12 +23,12 @@ some_object.do_the_right_thing(input)
 ```
 We don't actually know what `some_object` is! Nor does it actually matter. Many different implementations could replace `some_object`, and so long as they have the same interface (i.e. have the method `#do_the_right_thing`), the program would still run.
 
-## Why polymorphism?
+## Why use polymorphism?
 In another [blog post](https://blog.cleancoder.com/uncle-bob/2014/11/24/FPvsOO.html), Martin says:
 
 > There really is only one benefit to Polymorphism; but it’s a big one. It is the inversion of source code and run time dependencies.
 
-Let's concretise this benefit with an example: caching in a web framework like Rails. There are multiple options out there for caches - for example, Rails supports a `FileStore`, a `MemCacheStore` and a `RedisCacheStore`. For the sake of illustration, imagine that the caches all had their own interfaces:
+It wasn't initially obvious to me what that meant, so let's concretise this with an example: caching in a web framework like Rails. There are multiple options out there for caches - for example, Rails supports a `FileStore`, a `MemCacheStore` and a `RedisCacheStore`. For the sake of illustration, imagine that the caches all had their own interfaces:
 ```ruby
 def example_method
   # do stuff
@@ -68,7 +68,9 @@ With the new setup, the polymorphic cache stores can be swapped for each other w
 In short, polymorphism makes it easier to extend or change aspects of our programs, without a rippling of changes throughout the entire program. (How do we determine the "aspects" to split our programs by? A good read would be [Parnas' classic 1972 paper](https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/).)
 
 ## Afterword
-Note that polymorphism means other things outside the context of OOP (see [Wikipedia](https://en.m.wikipedia.org/wiki/Polymorphism_(computer_science))). The definition we used aligns quite closely to "duck-typing".
+Note that polymorphism means other things outside the context of OOP (see [Wikipedia](https://en.m.wikipedia.org/wiki/Polymorphism_(computer_science))).  Also, while our cache example does rely on inheritance to make the polymorphic group explicit, we could also make use of ["duck-typing"](https://en.wikipedia.org/wiki/Duck_typing) e.g. caches could be completely different classes, as long as they had a `#fetch` method.
+
+You may have spotted that Martin talks about inversion of "source code" in addition to runtime dependencies. I understand this has greater implications in compiled programs, but am not familiar enough to expound on it. Do leave a comment if you have an example!
 
 There are many other neat examples relating to polymorphism. Here's some I thought of:
 - Martin Fowler's [refactoring](https://martinfowler.com/books/refactoring.html) book has a "Replace Conditional with Polymorphism" refactoring, which I think was neatly illustrated in this [Sandi Metz talk](https://youtu.be/8bZh5LMaSmE).
