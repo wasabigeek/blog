@@ -39,20 +39,22 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <section>
-          <h2>Related Posts</h2>
-          {
-            relatedPosts.map(({ node }) => {
-              return (
-                <p>
-                  <Link to={node.fields.slug}>
-                    {node.frontmatter.title}
-                  </Link>
-                </p>
-              )
-            })
-          }
-        </section>
+        {relatedPosts.length > 0 && (
+          <section>
+            <h2>Related Posts</h2>
+            {
+              relatedPosts.map(({ node }) => {
+                return (
+                  <p>
+                    <Link to={node.fields.slug}>
+                      {node.frontmatter.title}
+                    </Link>
+                  </p>
+                )
+              })
+            }
+          </section>
+        )}
         <section>
           <h2>Comments</h2>
           <Comments />
