@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import Comments from "../components/Comments"
+import "./blog-post.css"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
