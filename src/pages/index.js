@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons"
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import "./fa-styles.css"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
