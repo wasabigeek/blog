@@ -10,7 +10,7 @@ import Comments from "../components/Comments"
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pageContext
+  const { previous, next, relatedPosts } = pageContext
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -39,6 +39,22 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        {relatedPosts.length > 0 && (
+          <section>
+            <h2>Related Posts</h2>
+            {
+              relatedPosts.map(({ node }) => {
+                return (
+                  <p>
+                    <Link to={node.fields.slug}>
+                      {node.frontmatter.title}
+                    </Link>
+                  </p>
+                )
+              })
+            }
+          </section>
+        )}
         <section>
           <h2>Comments</h2>
           <Comments />
@@ -100,6 +116,25 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC },
+      filter: { frontmatter: { published: { eq: true } } },
+      limit: 3
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
       }
     }
   }

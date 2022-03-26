@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { filterRelatedPosts } = require("./gatsby_node_utils/filterRelatedPosts")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -20,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                tags
               }
             }
           }
@@ -35,17 +37,18 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.allMarkdownRemark.edges
 
-  posts.forEach((post, index) => {
+  posts.forEach((currentPost, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
     createPage({
-      path: post.node.fields.slug,
+      path: currentPost.node.fields.slug,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug,
+        slug: currentPost.node.fields.slug,
         previous,
         next,
+        relatedPosts: filterRelatedPosts(posts, currentPost)
       },
     })
   })
