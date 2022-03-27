@@ -17,11 +17,13 @@ Whoa! Now he didn't mean that encapsulation and other "OOP concepts" were unimpo
 If polymorphism is such a defining aspect of OOP, could we build a stronger intuition for _why_ it's important?
 
 ## What is polymorphism?
-Let's first align on what "Polymorphism in OOP" is in the context of this article. In the earlier blog post, Martin explains Polymorphism as different objects being able to accept the same message, implementing their own behaviour. I'll paraphase his example:
+Since polymorphism has different meanings depending on context[^1], let's align on what I meant by "Polymorphism in OOP". In the earlier blog post, Martin explains it as different objects being able to accept the same message, implementing their own behaviour. I'll paraphase his example:
 ```
 some_object.do_the_right_thing(input)
 ```
 We don't actually know what `some_object` is! Nor does it actually matter. Many different implementations could replace `some_object`, and so long as they have the same interface (i.e. have the method `#do_the_right_thing`), the program would still run.
+
+[^1]: The definition I used for polymorphism is actually somewhat narrow, but seemed like a relatively common understanding in the context of OOP. The [Wikipedia article](https://en.m.wikipedia.org/wiki/Polymorphism_(computer_science)) on polymorphism shows a lot more breadth in the topic, and I think what is described above is known as [single, dynamic dispatch](https://en.wikipedia.org/wiki/Dynamic_dispatch). There's some really good discussion on this in the [Reddit thread](https://www.reddit.com/r/ruby/comments/tooyby/why_use_polymorphism_in_oop_blog_post/) for this post.
 
 ## Why use polymorphism?
 In another [blog post](https://blog.cleancoder.com/uncle-bob/2014/11/24/FPvsOO.html), Martin says:
@@ -55,7 +57,7 @@ end
 
 The code in `example_method` is more concise now, but that's a side benefit; what's important is it's shielded from knowing which cache store is used, and how the store works. It just knows that _some_ cache store exists (`Rails.cache`), and the cache store has agreed to implement a `#fetch` method.
 
-We can visualise the change in "dependency directions" (the arrows) below:
+We can visualise this "inversion" below - the arrows can be thought of as "dependency directions":
 ![polymorphic.png](./polymorphic.png)
 
 Martin describes this as a "plugin architecture":
@@ -68,18 +70,12 @@ With the new setup, the polymorphic cache stores can be swapped for each other w
 In short, polymorphism makes it easier to extend or change aspects of our programs, without a rippling of changes throughout the entire program. (How do we determine the "aspects" to split our programs by? A good read would be [Parnas' classic 1972 paper](https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/).)
 
 ## Afterword
-Note that polymorphism means other things outside the context of OOP (see [Wikipedia](https://en.m.wikipedia.org/wiki/Polymorphism_(computer_science))).  Also, while our cache example does rely on inheritance to make the polymorphic group explicit, we could also make use of ["duck-typing"](https://en.wikipedia.org/wiki/Duck_typing) e.g. caches could be completely different classes, as long as they had a `#fetch` method.
+While our cache example does rely on inheritance to make the polymorphic group explicit, inheritance is not a prerequisite. For example, each cache could be a completely unrelated class, and it still would work in Ruby as long as they had a `#fetch` method (this is also called ["duck-typing"](https://en.wikipedia.org/wiki/Subtyping#Relationship_with_inheritance)).
 
 You may have spotted that Martin talks about inversion of "source code" in addition to runtime dependencies. I understand this has greater implications in compiled programs, but am not familiar enough to expound on it. Do leave a comment if you have an example!
 
 There are many other neat examples relating to polymorphism. Here's some I thought of:
 - Martin Fowler's [refactoring](https://martinfowler.com/books/refactoring.html) book has a "Replace Conditional with Polymorphism" refactoring, which I think was neatly illustrated in this [Sandi Metz talk](https://youtu.be/8bZh5LMaSmE).
 - Many [Behavioural Design Patterns](https://refactoring.guru/design-patterns/behavioral-patterns) rely on polymorphism, for example the Strategy, Command, Visitor etc.
-- The [NullObject](https://refactoring.guru/introduce-null-object) is a neat way to support no-ops when your code relies on a Polymorphic interface.
+- The [NullObject](https://refactoring.guru/introduce-null-object) is a neat way to support a null value or no-ops when your code relies on a Polymorphic interface. (Note that while Rails has a [NullCache](https://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-nullstore), it doesn't solve the same issue that the pattern is meant to.)
 - Ruby-specific example of a "Plugin Architecture": Rubocop allows you to add your own [custom cops](https://docs.rubocop.org/rubocop/1.26/extensions.html#writing-your-own-cops) without changing the library's source code, because all cops are polymorphic!
-
-For more musings on software design (with a Ruby/Rails slant), follow me on Twitter:
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">“…the thing that truly differentiates OO programs from non-OO programs is polymorphism.”<br>- <a href="https://twitter.com/unclebobmartin?ref_src=twsrc%5Etfw">@unclebobmartin</a><a href="https://t.co/PTmFdySst7">https://t.co/PTmFdySst7</a></p>&mdash; Nick (@wasabigeek) <a href="https://twitter.com/wasabigeek/status/1505554975404949505?ref_src=twsrc%5Etfw">March 20, 2022</a></blockquote>
-
-
-
