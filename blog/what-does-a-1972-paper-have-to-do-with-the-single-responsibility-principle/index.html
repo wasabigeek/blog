@@ -97,7 +97,7 @@
   </script><link rel="alternate" type="application/rss+xml" title="wasabigeek&#x27;s blog" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2024985cd1fb9cd6a58693ffa2e9ed8c"/><title data-react-helmet="true">A 1972 paper and the Single Responsibility Principle | wasabigeek</title><link href="//fonts.googleapis.com/css?family=Arvo:700|Cabin:400,400i,700" rel="stylesheet" type="text/css"/><link as="script" rel="preload" href="/webpack-runtime-c9994fbb680eb19b6b6f.js"/><link as="script" rel="preload" href="/framework-2f1bb0a7f52c344d3ae3.js"/><link as="script" rel="preload" href="/app-98b4b141361695085efe.js"/><link as="script" rel="preload" href="/a9a7754c-fd708a4b56a7540148ed.js"/><link as="script" rel="preload" href="/commons-54de20a7f53efccffaf6.js"/><link as="script" rel="preload" href="/789f7d7b6ffc49f28e70e7c9aef0b26f21ecb947-2a715c18d2ef65f9913f.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-850983fc2fd918503030.js"/><link as="fetch" rel="preload" href="/page-data/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2744205926.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:34.8rem;padding:2.175rem 1.0875rem"><header><h3 style="margin-top:0"><a style="box-shadow:none;color:inherit" href="/blog">wasabigeek</a></h3></header><main><article><header><h1 style="margin-top:1.45rem;margin-bottom:0">A 1972 paper and the Single Responsibility Principle</h1><p style="font-size:0.87055rem;line-height:1.45rem;display:block;margin-bottom:1.45rem">February 28, 2022</p></header><section><p>”<em>A class should only have one reason to change</em>” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough, in fact, that it’s originator (Robert Martin) felt it worthwhile to explain again in a <a href="https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html">blog post</a> - 14 years after he first wrote about it!</p>
 <p>That blog post begins by referencing and quoting a 1972 paper, ”<strong>On the Criteria To Be Used in Decomposing Systems into Modules</strong>” by David Parnas:</p>
 <blockquote>
-<p>“We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. </p>
+<p>“We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart.</p>
 <p>We propose instead that one begins with a list of difficult design decisions or design decisions <em>which are likely to change</em>. Each module is then designed to hide such a decision from the others.”</p>
 </blockquote>
 <p>The paper seemed significant, as Martin wrote that the SRP appeared “to align with Parnas’ formulation”. Could it demystify the SRP? What exactly was this paper about?</p>
@@ -131,13 +131,13 @@ The Criteria. On <span class="token punctuation">[</span><span class="token numb
         class="gatsby-resp-image-image"
         alt="Criteria for Decomposition of Modules 1.png"
         title="Criteria for Decomposition of Modules 1.png"
-        src="/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png"
-        srcset="/static/1afa3be2a535182b9280816c458ea9a8/12f09/Criteria%20for%20Decomposition%20of%20Modules%201.png 148w,
-/static/1afa3be2a535182b9280816c458ea9a8/e4a3f/Criteria%20for%20Decomposition%20of%20Modules%201.png 295w,
-/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png 590w,
-/static/1afa3be2a535182b9280816c458ea9a8/efc66/Criteria%20for%20Decomposition%20of%20Modules%201.png 885w,
-/static/1afa3be2a535182b9280816c458ea9a8/c83ae/Criteria%20for%20Decomposition%20of%20Modules%201.png 1180w,
-/static/1afa3be2a535182b9280816c458ea9a8/dd507/Criteria%20for%20Decomposition%20of%20Modules%201.png 1528w"
+        src="/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria_for_Decomposition_of_Modules_1.png"
+        srcset="/static/1afa3be2a535182b9280816c458ea9a8/12f09/Criteria_for_Decomposition_of_Modules_1.png 148w,
+/static/1afa3be2a535182b9280816c458ea9a8/e4a3f/Criteria_for_Decomposition_of_Modules_1.png 295w,
+/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria_for_Decomposition_of_Modules_1.png 590w,
+/static/1afa3be2a535182b9280816c458ea9a8/efc66/Criteria_for_Decomposition_of_Modules_1.png 885w,
+/static/1afa3be2a535182b9280816c458ea9a8/c83ae/Criteria_for_Decomposition_of_Modules_1.png 1180w,
+/static/1afa3be2a535182b9280816c458ea9a8/dd507/Criteria_for_Decomposition_of_Modules_1.png 1528w"
         sizes="(max-width: 590px) 100vw, 590px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -147,8 +147,7 @@ The Criteria. On <span class="token punctuation">[</span><span class="token numb
 <p>There’s a design flaw that isn’t obvious in the diagram - all the modules rely upon common data stored with a specific layout in memory using low-level operations. I’ll contrast this with Modularization 2 later.</p>
 <p>Here’s what each module did:</p>
 <ul>
-<li>
-<p><strong>Input</strong> </p>
+<li><strong>Input</strong>
 <ul>
 <li>Parsed the input text file (see “The System: KWAC Index”) and stores in memory using low-level operations. We’ll call this the in-memory “Characters”.</li>
 <li>There’s a section of the <a href="https://youtu.be/R7X4B3-k7g4?t=1415">video (23:36)</a> that explains this, which if I’ve understood right goes something like: <strong>(1.)</strong> memory at the time was accessed in groups of 4 characters (bytes), <strong>(2.)</strong> the input was split across these groups, with spaces in between words and lines.</li>
@@ -165,13 +164,13 @@ The Criteria. On <span class="token punctuation">[</span><span class="token numb
         class="gatsby-resp-image-image"
         alt="Criteria for Modularization - Approach 1 Input Storage.png"
         title="Criteria for Modularization - Approach 1 Input Storage.png"
-        src="/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png"
-        srcset="/static/d8bd433f4cb51feb4e5a1fab55bbb828/12f09/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 148w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/e4a3f/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 295w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 590w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/efc66/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 885w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/c83ae/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 1180w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/fa60d/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 1792w"
+        src="/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria_for_Modularization_-_Approach_1_Input_Storage.png"
+        srcset="/static/d8bd433f4cb51feb4e5a1fab55bbb828/12f09/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 148w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/e4a3f/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 295w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 590w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/efc66/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 885w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/c83ae/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 1180w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/fa60d/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 1792w"
         sizes="(max-width: 590px) 100vw, 590px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -181,21 +180,18 @@ The Criteria. On <span class="token punctuation">[</span><span class="token numb
 <li>The module also outputs “Lines”, which is an array stating the start of each line (e.g. above, Character 1 is the start of line 1, Character 21 is the start of line 2)</li>
 </ul>
 </li>
-<li>
-<p><strong>Circular Shifter</strong></p>
+<li><strong>Circular Shifter</strong>
 <ul>
 <li>Accessing “Characters” and “Lines”, it outputs an array of “Shifts”.</li>
 <li>Each “Shift” stored the line number, as well as the starting index of each word.</li>
 </ul>
 </li>
-<li>
-<p><strong>Alphabetizer</strong></p>
+<li><strong>Alphabetizer</strong>
 <ul>
 <li>Accessing “Characters” and “Shifts”, it sorts the “Shifts” alphabetically and outputs them as “Alphabetized”.</li>
 </ul>
 </li>
-<li>
-<p><strong>Output</strong></p>
+<li><strong>Output</strong>
 <ul>
 <li>Accessing “Characters” and “Alphabetized” shifts, outputs the KWAC index (see “The System: KWAC Index”).</li>
 </ul>
@@ -214,13 +210,13 @@ The Criteria. On <span class="token punctuation">[</span><span class="token numb
         class="gatsby-resp-image-image"
         alt="Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png"
         title="Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png"
-        src="/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png"
-        srcset="/static/a0b3077f3d649c4e682b3f66972f78c4/12f09/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 148w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/e4a3f/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 295w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 590w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/efc66/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 885w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/c83ae/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 1180w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/97755/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 2536w"
+        src="/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png"
+        srcset="/static/a0b3077f3d649c4e682b3f66972f78c4/12f09/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 148w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/e4a3f/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 295w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 590w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/efc66/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 885w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/c83ae/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 1180w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/97755/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 2536w"
         sizes="(max-width: 590px) 100vw, 590px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -244,13 +240,13 @@ The Criteria. On <span class="token punctuation">[</span><span class="token numb
         class="gatsby-resp-image-image"
         alt="Criteria for Decomposing Modules 2.png"
         title="Criteria for Decomposing Modules 2.png"
-        src="/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria%20for%20Decomposing%20Modules%202.png"
-        srcset="/static/5ec2630668bb8897c5864246f64495fe/12f09/Criteria%20for%20Decomposing%20Modules%202.png 148w,
-/static/5ec2630668bb8897c5864246f64495fe/e4a3f/Criteria%20for%20Decomposing%20Modules%202.png 295w,
-/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria%20for%20Decomposing%20Modules%202.png 590w,
-/static/5ec2630668bb8897c5864246f64495fe/efc66/Criteria%20for%20Decomposing%20Modules%202.png 885w,
-/static/5ec2630668bb8897c5864246f64495fe/c83ae/Criteria%20for%20Decomposing%20Modules%202.png 1180w,
-/static/5ec2630668bb8897c5864246f64495fe/85e74/Criteria%20for%20Decomposing%20Modules%202.png 1436w"
+        src="/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria_for_Decomposing_Modules_2.png"
+        srcset="/static/5ec2630668bb8897c5864246f64495fe/12f09/Criteria_for_Decomposing_Modules_2.png 148w,
+/static/5ec2630668bb8897c5864246f64495fe/e4a3f/Criteria_for_Decomposing_Modules_2.png 295w,
+/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria_for_Decomposing_Modules_2.png 590w,
+/static/5ec2630668bb8897c5864246f64495fe/efc66/Criteria_for_Decomposing_Modules_2.png 885w,
+/static/5ec2630668bb8897c5864246f64495fe/c83ae/Criteria_for_Decomposing_Modules_2.png 1180w,
+/static/5ec2630668bb8897c5864246f64495fe/85e74/Criteria_for_Decomposing_Modules_2.png 1436w"
         sizes="(max-width: 590px) 100vw, 590px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -265,35 +261,30 @@ Interestingly, what one might typically think as the general “responsibility�
 </ul>
 <p>Each module in greater detail:</p>
 <ul>
-<li>
-<p><strong>Input</strong></p>
+<li><strong>Input</strong>
 <ul>
 <li>Like Modularization 1, also parses the input file, but this time initializes a “Line Storage” and inserts the data.</li>
 </ul>
 </li>
-<li>
-<p><strong>Line Storage</strong></p>
+<li><strong>Line Storage</strong>
 <ul>
 <li>Think of it like an Object that has methods for inserting and retrieving characters by line (e.g. get Character 5 of Line 1, Word 2).</li>
 <li>Note: Unlike Modularization 1, this means callers do not need to know the nitty-gritty details of how data is stored.</li>
 </ul>
 </li>
-<li>
-<p><strong>Circular Shifter</strong></p>
+<li><strong>Circular Shifter</strong>
 <ul>
 <li>Generates the circular shifts from Line Storage in an initialization step.</li>
 <li>Instead of outputting “Shifts”, the module itself provides an interface (like an Object) similar to Line Storage, but allows retrieval of characters by their <em>shifts</em> instead of lines (e.g. get Character 5 of <em>Shift</em> 1, Word 2).</li>
 </ul>
 </li>
-<li>
-<p><strong>Alphabetizer</strong></p>
+<li><strong>Alphabetizer</strong>
 <ul>
 <li>Retrieving the characters from Circular Shifter, this modules sorts by alphabet and remembers the shifts in an initialization step.</li>
 <li>Instead of outputting the “Alphabetized” shifts, the module also provides an interface for getting ordered Circular Shifts indexes (e.g. tell me the shift number that’s in the 2nd sorted position).</li>
 </ul>
 </li>
-<li>
-<p><strong>Output</strong></p>
+<li><strong>Output</strong>
 <ul>
 <li>Uses Alphabetizer and Circular Shifter to generate the KWAC Index.</li>
 </ul>
@@ -333,7 +324,7 @@ Interestingly, what one might typically think as the general “responsibility�
 </tr>
 </tbody>
 </table>
-<p>So the takeaway here is that good “information hiding” (a.k.a the SRP) results in a system that adapts more easily to changes. </p>
+<p>So the takeaway here is that good “information hiding” (a.k.a the SRP) results in a system that adapts more easily to changes.</p>
 <h2 id="conclusion" style="position:relative;"><a href="#conclusion" aria-label="conclusion permalink" class="autolink-anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion</h2>
 <p>So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of <em>why</em> it was important - it should result in a system that is easier to evolve with changes in requirements. However, even with the (helpful) example, we don’t get a magic formula for applying the SRP - it remains more art than science.</p>
 <p>What’s your framework for beginning “with a list of difficult design decisions or design decisions which are likely to change”?</p>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek's blog]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 27 Mar 2022 15:12:08 GMT</lastBuildDate><item><title><![CDATA[Why use Polymorphism in OOP?]]></title><description><![CDATA[When I first came across the concept of Polymorphism in Object-Oriented Programming (OOP), it wasn’t obvious to me why it was important. The…]]></description><link>https://www.wasabigeek.com/blog/why-is-polymorphism-important/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/why-is-polymorphism-important/</guid><pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;When I first came across the concept of Polymorphism in Object-Oriented Programming (OOP), it wasn’t obvious to me &lt;em&gt;why&lt;/em&gt; it was important. The top search results generally explain &lt;em&gt;what&lt;/em&gt; it is and &lt;em&gt;how&lt;/em&gt; to use it, but handwave the &lt;em&gt;why&lt;/em&gt; and treat it as yet-another-language-feature.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek's blog]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 28 Mar 2022 14:11:21 GMT</lastBuildDate><item><title><![CDATA[Why use Polymorphism in OOP?]]></title><description><![CDATA[When I first came across the concept of Polymorphism in Object-Oriented Programming (OOP), it wasn’t obvious to me why it was important. The…]]></description><link>https://www.wasabigeek.com/blog/why-is-polymorphism-important/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/why-is-polymorphism-important/</guid><pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;When I first came across the concept of Polymorphism in Object-Oriented Programming (OOP), it wasn’t obvious to me &lt;em&gt;why&lt;/em&gt; it was important. The top search results generally explain &lt;em&gt;what&lt;/em&gt; it is and &lt;em&gt;how&lt;/em&gt; to use it, but handwave the &lt;em&gt;why&lt;/em&gt; and treat it as yet-another-language-feature.&lt;/p&gt;
 &lt;p&gt;Then I came across this statement in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2018/04/13/FPvsOO.html&quot;&gt;blog post&lt;/a&gt; by Robert C. Martin:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;…the thing that truly differentiates OO programs from non-OO programs is polymorphism.&lt;/p&gt;
@@ -68,7 +68,7 @@
 &lt;p&gt;This inversion allows the called module to act like a plugin. Indeed, this is how all plugins work…
 Plugin architectures are very robust because stable high value business rules can be kept from depending upon volatile low value modules such as user interfaces and databases.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;With the new setup, the polymorphic cache stores can be swapped for each other without changing the code in &lt;code class=&quot;language-text&quot;&gt;example_method&lt;/code&gt;. New kinds of cache stores can also be supported by creating classes that implement  &lt;code class=&quot;language-text&quot;&gt;#fetch&lt;/code&gt; and other methods as specified by &lt;a href=&quot;https://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-store&quot;&gt;ActiveSupport::Cache::Store&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;With the new setup, the polymorphic cache stores can be swapped for each other without changing the code in &lt;code class=&quot;language-text&quot;&gt;example_method&lt;/code&gt;. New kinds of cache stores can also be supported by creating classes that implement  &lt;code class=&quot;language-text&quot;&gt;#fetch&lt;/code&gt; and other methods as specified by &lt;a href=&quot;https://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-store&quot;&gt;ActiveSupport::Cache::Store&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In short, polymorphism makes it easier to extend or change aspects of our programs, without a rippling of changes throughout the entire program. (How do we determine the “aspects” to split our programs by? A good read would be &lt;a href=&quot;https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/&quot;&gt;Parnas’ classic 1972 paper&lt;/a&gt;.)&lt;/p&gt;
 &lt;h2 id=&quot;afterword&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#afterword&quot; aria-label=&quot;afterword permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Afterword&lt;/h2&gt;
 &lt;p&gt;While our cache example does rely on inheritance to make the polymorphic group explicit, inheritance is not a prerequisite. For example, each cache could be a completely unrelated class, and it still would work in Ruby as long as they had a &lt;code class=&quot;language-text&quot;&gt;#fetch&lt;/code&gt; method (this is also called &lt;a href=&quot;https://en.wikipedia.org/wiki/Subtyping#Relationship_with_inheritance&quot;&gt;“duck-typing”&lt;/a&gt;).&lt;/p&gt;
@@ -83,15 +83,12 @@ Plugin architectures are very robust because stable high value business rules ca
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&quot;fn-1&quot;&gt;
-&lt;p&gt;The definition I used for polymorphism is actually somewhat narrow, but seemed like a relatively common understanding in the context of OOP. The &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Polymorphism_(computer_science)&quot;&gt;Wikipedia article&lt;/a&gt; on polymorphism shows a lot more breadth in the topic, and I think what is described above is known as &lt;a href=&quot;https://en.wikipedia.org/wiki/Dynamic_dispatch&quot;&gt;single, dynamic dispatch&lt;/a&gt;. There’s some really good discussion on this in the &lt;a href=&quot;https://www.reddit.com/r/ruby/comments/tooyby/why_use_polymorphism_in_oop_blog_post/&quot;&gt;Reddit thread&lt;/a&gt; for this post.&lt;/p&gt;
-&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
-&lt;/li&gt;
+&lt;li id=&quot;fn-1&quot;&gt;The definition I used for polymorphism is actually somewhat narrow, but seemed like a relatively common understanding in the context of OOP. The &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Polymorphism_(computer_science)&quot;&gt;Wikipedia article&lt;/a&gt; on polymorphism shows a lot more breadth in the topic, and I think what is described above is known as &lt;a href=&quot;https://en.wikipedia.org/wiki/Dynamic_dispatch&quot;&gt;single, dynamic dispatch&lt;/a&gt;. There’s some really good discussion on this in the &lt;a href=&quot;https://www.reddit.com/r/ruby/comments/tooyby/why_use_polymorphism_in_oop_blog_post/&quot;&gt;Reddit thread&lt;/a&gt; for this post.&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[A 1972 paper and the Single Responsibility Principle]]></title><description><![CDATA[”A class should only have one reason to change” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single…]]></description><link>https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/what-does-a-1972-paper-have-to-do-with-the-single-responsibility-principle/</guid><pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;”&lt;em&gt;A class should only have one reason to change&lt;/em&gt;” is a mantra that Object-Oriented advocates have chanted for years. Dubbed the “Single Responsibility Principle” (SRP), it remains somewhat abstract till this day ✨. Abstract enough, in fact, that it’s originator (Robert Martin) felt it worthwhile to explain again in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html&quot;&gt;blog post&lt;/a&gt; - 14 years after he first wrote about it!&lt;/p&gt;
 &lt;p&gt;That blog post begins by referencing and quoting a 1972 paper, ”&lt;strong&gt;On the Criteria To Be Used in Decomposing Systems into Modules&lt;/strong&gt;” by David Parnas:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. &lt;/p&gt;
+&lt;p&gt;“We have tried to demonstrate by these examples that it is almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart.&lt;/p&gt;
 &lt;p&gt;We propose instead that one begins with a list of difficult design decisions or design decisions &lt;em&gt;which are likely to change&lt;/em&gt;. Each module is then designed to hide such a decision from the others.”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The paper seemed significant, as Martin wrote that the SRP appeared “to align with Parnas’ formulation”. Could it demystify the SRP? What exactly was this paper about?&lt;/p&gt;
@@ -125,13 +122,13 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Criteria for Decomposition of Modules 1.png&quot;
         title=&quot;Criteria for Decomposition of Modules 1.png&quot;
-        src=&quot;/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png&quot;
-        srcset=&quot;/static/1afa3be2a535182b9280816c458ea9a8/12f09/Criteria%20for%20Decomposition%20of%20Modules%201.png 148w,
-/static/1afa3be2a535182b9280816c458ea9a8/e4a3f/Criteria%20for%20Decomposition%20of%20Modules%201.png 295w,
-/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria%20for%20Decomposition%20of%20Modules%201.png 590w,
-/static/1afa3be2a535182b9280816c458ea9a8/efc66/Criteria%20for%20Decomposition%20of%20Modules%201.png 885w,
-/static/1afa3be2a535182b9280816c458ea9a8/c83ae/Criteria%20for%20Decomposition%20of%20Modules%201.png 1180w,
-/static/1afa3be2a535182b9280816c458ea9a8/dd507/Criteria%20for%20Decomposition%20of%20Modules%201.png 1528w&quot;
+        src=&quot;/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria_for_Decomposition_of_Modules_1.png&quot;
+        srcset=&quot;/static/1afa3be2a535182b9280816c458ea9a8/12f09/Criteria_for_Decomposition_of_Modules_1.png 148w,
+/static/1afa3be2a535182b9280816c458ea9a8/e4a3f/Criteria_for_Decomposition_of_Modules_1.png 295w,
+/static/1afa3be2a535182b9280816c458ea9a8/fcda8/Criteria_for_Decomposition_of_Modules_1.png 590w,
+/static/1afa3be2a535182b9280816c458ea9a8/efc66/Criteria_for_Decomposition_of_Modules_1.png 885w,
+/static/1afa3be2a535182b9280816c458ea9a8/c83ae/Criteria_for_Decomposition_of_Modules_1.png 1180w,
+/static/1afa3be2a535182b9280816c458ea9a8/dd507/Criteria_for_Decomposition_of_Modules_1.png 1528w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -141,8 +138,7 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
 &lt;p&gt;There’s a design flaw that isn’t obvious in the diagram - all the modules rely upon common data stored with a specific layout in memory using low-level operations. I’ll contrast this with Modularization 2 later.&lt;/p&gt;
 &lt;p&gt;Here’s what each module did:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt; &lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Input&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Parsed the input text file (see “The System: KWAC Index”) and stores in memory using low-level operations. We’ll call this the in-memory “Characters”.&lt;/li&gt;
 &lt;li&gt;There’s a section of the &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1415&quot;&gt;video (23:36)&lt;/a&gt; that explains this, which if I’ve understood right goes something like: &lt;strong&gt;(1.)&lt;/strong&gt; memory at the time was accessed in groups of 4 characters (bytes), &lt;strong&gt;(2.)&lt;/strong&gt; the input was split across these groups, with spaces in between words and lines.&lt;/li&gt;
@@ -159,13 +155,13 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Criteria for Modularization - Approach 1 Input Storage.png&quot;
         title=&quot;Criteria for Modularization - Approach 1 Input Storage.png&quot;
-        src=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png&quot;
-        srcset=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/12f09/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 148w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/e4a3f/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 295w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 590w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/efc66/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 885w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/c83ae/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 1180w,
-/static/d8bd433f4cb51feb4e5a1fab55bbb828/fa60d/Criteria%20for%20Modularization%20-%20Approach%201%20Input%20Storage.png 1792w&quot;
+        src=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria_for_Modularization_-_Approach_1_Input_Storage.png&quot;
+        srcset=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/12f09/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 148w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/e4a3f/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 295w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/fcda8/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 590w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/efc66/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 885w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/c83ae/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 1180w,
+/static/d8bd433f4cb51feb4e5a1fab55bbb828/fa60d/Criteria_for_Modularization_-_Approach_1_Input_Storage.png 1792w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -175,21 +171,18 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
 &lt;li&gt;The module also outputs “Lines”, which is an array stating the start of each line (e.g. above, Character 1 is the start of line 1, Character 21 is the start of line 2)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Circular Shifter&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Circular Shifter&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Accessing “Characters” and “Lines”, it outputs an array of “Shifts”.&lt;/li&gt;
 &lt;li&gt;Each “Shift” stored the line number, as well as the starting index of each word.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Alphabetizer&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Alphabetizer&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Accessing “Characters” and “Shifts”, it sorts the “Shifts” alphabetically and outputs them as “Alphabetized”.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Output&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Accessing “Characters” and “Alphabetized” shifts, outputs the KWAC index (see “The System: KWAC Index”).&lt;/li&gt;
 &lt;/ul&gt;
@@ -208,13 +201,13 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png&quot;
         title=&quot;Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png&quot;
-        src=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png&quot;
-        srcset=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/12f09/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 148w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/e4a3f/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 295w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 590w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/efc66/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 885w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/c83ae/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 1180w,
-/static/a0b3077f3d649c4e682b3f66972f78c4/97755/Data%20Structures%20-%20On%20The%20Criteria%20for%20Decomposing%20Systems%20-%20Diego%20Ongaro.png 2536w&quot;
+        src=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png&quot;
+        srcset=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/12f09/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 148w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/e4a3f/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 295w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/fcda8/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 590w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/efc66/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 885w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/c83ae/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 1180w,
+/static/a0b3077f3d649c4e682b3f66972f78c4/97755/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png 2536w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -238,13 +231,13 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Criteria for Decomposing Modules 2.png&quot;
         title=&quot;Criteria for Decomposing Modules 2.png&quot;
-        src=&quot;/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria%20for%20Decomposing%20Modules%202.png&quot;
-        srcset=&quot;/static/5ec2630668bb8897c5864246f64495fe/12f09/Criteria%20for%20Decomposing%20Modules%202.png 148w,
-/static/5ec2630668bb8897c5864246f64495fe/e4a3f/Criteria%20for%20Decomposing%20Modules%202.png 295w,
-/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria%20for%20Decomposing%20Modules%202.png 590w,
-/static/5ec2630668bb8897c5864246f64495fe/efc66/Criteria%20for%20Decomposing%20Modules%202.png 885w,
-/static/5ec2630668bb8897c5864246f64495fe/c83ae/Criteria%20for%20Decomposing%20Modules%202.png 1180w,
-/static/5ec2630668bb8897c5864246f64495fe/85e74/Criteria%20for%20Decomposing%20Modules%202.png 1436w&quot;
+        src=&quot;/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria_for_Decomposing_Modules_2.png&quot;
+        srcset=&quot;/static/5ec2630668bb8897c5864246f64495fe/12f09/Criteria_for_Decomposing_Modules_2.png 148w,
+/static/5ec2630668bb8897c5864246f64495fe/e4a3f/Criteria_for_Decomposing_Modules_2.png 295w,
+/static/5ec2630668bb8897c5864246f64495fe/fcda8/Criteria_for_Decomposing_Modules_2.png 590w,
+/static/5ec2630668bb8897c5864246f64495fe/efc66/Criteria_for_Decomposing_Modules_2.png 885w,
+/static/5ec2630668bb8897c5864246f64495fe/c83ae/Criteria_for_Decomposing_Modules_2.png 1180w,
+/static/5ec2630668bb8897c5864246f64495fe/85e74/Criteria_for_Decomposing_Modules_2.png 1436w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -259,35 +252,30 @@ Interestingly, what one might typically think as the general “responsibility�
 &lt;/ul&gt;
 &lt;p&gt;Each module in greater detail:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Input&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Like Modularization 1, also parses the input file, but this time initializes a “Line Storage” and inserts the data.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Line Storage&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Line Storage&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Think of it like an Object that has methods for inserting and retrieving characters by line (e.g. get Character 5 of Line 1, Word 2).&lt;/li&gt;
 &lt;li&gt;Note: Unlike Modularization 1, this means callers do not need to know the nitty-gritty details of how data is stored.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Circular Shifter&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Circular Shifter&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Generates the circular shifts from Line Storage in an initialization step.&lt;/li&gt;
 &lt;li&gt;Instead of outputting “Shifts”, the module itself provides an interface (like an Object) similar to Line Storage, but allows retrieval of characters by their &lt;em&gt;shifts&lt;/em&gt; instead of lines (e.g. get Character 5 of &lt;em&gt;Shift&lt;/em&gt; 1, Word 2).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Alphabetizer&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Alphabetizer&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Retrieving the characters from Circular Shifter, this modules sorts by alphabet and remembers the shifts in an initialization step.&lt;/li&gt;
 &lt;li&gt;Instead of outputting the “Alphabetized” shifts, the module also provides an interface for getting ordered Circular Shifts indexes (e.g. tell me the shift number that’s in the 2nd sorted position).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;Output&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Uses Alphabetizer and Circular Shifter to generate the KWAC Index.&lt;/li&gt;
 &lt;/ul&gt;
@@ -327,7 +315,7 @@ Interestingly, what one might typically think as the general “responsibility�
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;So the takeaway here is that good “information hiding” (a.k.a the SRP) results in a system that adapts more easily to changes. &lt;/p&gt;
+&lt;p&gt;So the takeaway here is that good “information hiding” (a.k.a the SRP) results in a system that adapts more easily to changes.&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#conclusion&quot; aria-label=&quot;conclusion permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of &lt;em&gt;why&lt;/em&gt; it was important - it should result in a system that is easier to evolve with changes in requirements. However, even with the (helpful) example, we don’t get a magic formula for applying the SRP - it remains more art than science.&lt;/p&gt;
 &lt;p&gt;What’s your framework for beginning “with a list of difficult design decisions or design decisions which are likely to change”?&lt;/p&gt;
@@ -357,7 +345,7 @@ Interestingly, what one might typically think as the general “responsibility�
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/69d6b/Mocha%20opened%20in%20VSCode.png&quot;
+    href=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/69d6b/Mocha_opened_in_VSCode.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -370,13 +358,13 @@ Interestingly, what one might typically think as the general “responsibility�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Mocha opened in VSCode.png&quot;
         title=&quot;Mocha opened in VSCode.png&quot;
-        src=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/fcda8/Mocha%20opened%20in%20VSCode.png&quot;
-        srcset=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/12f09/Mocha%20opened%20in%20VSCode.png 148w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/e4a3f/Mocha%20opened%20in%20VSCode.png 295w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/fcda8/Mocha%20opened%20in%20VSCode.png 590w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/efc66/Mocha%20opened%20in%20VSCode.png 885w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/c83ae/Mocha%20opened%20in%20VSCode.png 1180w,
-/static/c55ef4a8be41a2d8f8603a57ddde1b4d/69d6b/Mocha%20opened%20in%20VSCode.png 1912w&quot;
+        src=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/fcda8/Mocha_opened_in_VSCode.png&quot;
+        srcset=&quot;/static/c55ef4a8be41a2d8f8603a57ddde1b4d/12f09/Mocha_opened_in_VSCode.png 148w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/e4a3f/Mocha_opened_in_VSCode.png 295w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/fcda8/Mocha_opened_in_VSCode.png 590w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/efc66/Mocha_opened_in_VSCode.png 885w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/c83ae/Mocha_opened_in_VSCode.png 1180w,
+/static/c55ef4a8be41a2d8f8603a57ddde1b4d/69d6b/Mocha_opened_in_VSCode.png 1912w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -398,7 +386,7 @@ Interestingly, what one might typically think as the general “responsibility�
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/486ed4d7639cc618d193928c541391cc/dcb79/Searching%20Mocha%20in%20VSCode.png&quot;
+    href=&quot;/static/486ed4d7639cc618d193928c541391cc/dcb79/Searching_Mocha_in_VSCode.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -411,13 +399,13 @@ Interestingly, what one might typically think as the general “responsibility�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Searching Mocha in VSCode.png&quot;
         title=&quot;Searching Mocha in VSCode.png&quot;
-        src=&quot;/static/486ed4d7639cc618d193928c541391cc/fcda8/Searching%20Mocha%20in%20VSCode.png&quot;
-        srcset=&quot;/static/486ed4d7639cc618d193928c541391cc/12f09/Searching%20Mocha%20in%20VSCode.png 148w,
-/static/486ed4d7639cc618d193928c541391cc/e4a3f/Searching%20Mocha%20in%20VSCode.png 295w,
-/static/486ed4d7639cc618d193928c541391cc/fcda8/Searching%20Mocha%20in%20VSCode.png 590w,
-/static/486ed4d7639cc618d193928c541391cc/efc66/Searching%20Mocha%20in%20VSCode.png 885w,
-/static/486ed4d7639cc618d193928c541391cc/c83ae/Searching%20Mocha%20in%20VSCode.png 1180w,
-/static/486ed4d7639cc618d193928c541391cc/dcb79/Searching%20Mocha%20in%20VSCode.png 1700w&quot;
+        src=&quot;/static/486ed4d7639cc618d193928c541391cc/fcda8/Searching_Mocha_in_VSCode.png&quot;
+        srcset=&quot;/static/486ed4d7639cc618d193928c541391cc/12f09/Searching_Mocha_in_VSCode.png 148w,
+/static/486ed4d7639cc618d193928c541391cc/e4a3f/Searching_Mocha_in_VSCode.png 295w,
+/static/486ed4d7639cc618d193928c541391cc/fcda8/Searching_Mocha_in_VSCode.png 590w,
+/static/486ed4d7639cc618d193928c541391cc/efc66/Searching_Mocha_in_VSCode.png 885w,
+/static/486ed4d7639cc618d193928c541391cc/c83ae/Searching_Mocha_in_VSCode.png 1180w,
+/static/486ed4d7639cc618d193928c541391cc/dcb79/Searching_Mocha_in_VSCode.png 1700w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -440,7 +428,7 @@ Interestingly, what one might typically think as the general “responsibility�
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/034c60797b097c8776c230f2742c0a7b/bb543/VSCode%20Go%20To%20References%20in%20Mocha.png&quot;
+    href=&quot;/static/034c60797b097c8776c230f2742c0a7b/bb543/VSCode_Go_To_References_in_Mocha.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -453,13 +441,13 @@ Interestingly, what one might typically think as the general “responsibility�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;VSCode Go To References in Mocha.png&quot;
         title=&quot;VSCode Go To References in Mocha.png&quot;
-        src=&quot;/static/034c60797b097c8776c230f2742c0a7b/fcda8/VSCode%20Go%20To%20References%20in%20Mocha.png&quot;
-        srcset=&quot;/static/034c60797b097c8776c230f2742c0a7b/12f09/VSCode%20Go%20To%20References%20in%20Mocha.png 148w,
-/static/034c60797b097c8776c230f2742c0a7b/e4a3f/VSCode%20Go%20To%20References%20in%20Mocha.png 295w,
-/static/034c60797b097c8776c230f2742c0a7b/fcda8/VSCode%20Go%20To%20References%20in%20Mocha.png 590w,
-/static/034c60797b097c8776c230f2742c0a7b/efc66/VSCode%20Go%20To%20References%20in%20Mocha.png 885w,
-/static/034c60797b097c8776c230f2742c0a7b/c83ae/VSCode%20Go%20To%20References%20in%20Mocha.png 1180w,
-/static/034c60797b097c8776c230f2742c0a7b/bb543/VSCode%20Go%20To%20References%20in%20Mocha.png 1418w&quot;
+        src=&quot;/static/034c60797b097c8776c230f2742c0a7b/fcda8/VSCode_Go_To_References_in_Mocha.png&quot;
+        srcset=&quot;/static/034c60797b097c8776c230f2742c0a7b/12f09/VSCode_Go_To_References_in_Mocha.png 148w,
+/static/034c60797b097c8776c230f2742c0a7b/e4a3f/VSCode_Go_To_References_in_Mocha.png 295w,
+/static/034c60797b097c8776c230f2742c0a7b/fcda8/VSCode_Go_To_References_in_Mocha.png 590w,
+/static/034c60797b097c8776c230f2742c0a7b/efc66/VSCode_Go_To_References_in_Mocha.png 885w,
+/static/034c60797b097c8776c230f2742c0a7b/c83ae/VSCode_Go_To_References_in_Mocha.png 1180w,
+/static/034c60797b097c8776c230f2742c0a7b/bb543/VSCode_Go_To_References_in_Mocha.png 1418w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -608,8 +596,7 @@ metaclass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;send &lt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://martinfowler.com/articles/mocksArentStubs.html&quot;&gt;Mocks aren’t Stubs&lt;/a&gt; by Martin Fowler&lt;/li&gt;
 &lt;li&gt;Notes on &lt;a href=&quot;https://cs.lmu.edu/~ray/notes/metaprogramming/&quot;&gt;Metaprogramming&lt;/a&gt; by Ray Toal&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Ruby metaclasses:&lt;/p&gt;
+&lt;li&gt;Ruby metaclasses:
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.toptal.com/ruby/ruby-metaprogramming-cooler-than-it-sounds&quot;&gt;Ruby Metaprogramming Is Even Cooler Than It Sounds&lt;/a&gt; by Nikola Todorovic&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://medium.com/@leo_hetsch/demystifying-singleton-classes-in-ruby-caf3fa4c9d91&quot;&gt;Diving into Ruby Singleton Classes&lt;/a&gt; by Léonard Hetsch&lt;/li&gt;
@@ -1185,9 +1172,15 @@ describe &lt;span class=&quot;token string-literal&quot;&gt;&lt;span class=&quot
 &lt;h2 id=&quot;bonus-how-did-i-find-it&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#bonus-how-did-i-find-it&quot; aria-label=&quot;bonus how did i find it permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Bonus: How did I find it?&lt;/h2&gt;
 &lt;p&gt;It took me quite a while to figure this out, I’m sharing my abridged (because I was flailing around a &lt;em&gt;lot&lt;/em&gt;) methodology in hopes that it might be helpful to you when debugging - if you know a better way, do share!&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Did a GitHub search in the Rails repo for the UnknownPrimaryKey error. There were a few results that were in the form &lt;code class=&quot;language-text&quot;&gt;finder_class.primary_key&lt;/code&gt;, so I assumed it was a method on the model (and confirmed that by playing around in the rails console).&lt;/li&gt;
-&lt;li&gt;Did another search for &lt;code class=&quot;language-text&quot;&gt;&quot;def primary_key&quot;&lt;/code&gt; (“primary_key” alone gave too many results), this led to &lt;code class=&quot;language-text&quot;&gt;ActiveRecord::AttributeMethods::PrimaryKey&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Wasn’t sure that this was the correct method but I attempted to follow the code through (GitHub’s &lt;a href=&quot;https://docs.github.com/en/github/managing-files-in-a-repository/navigating-code-on-github#jumping-to-the-definition-of-a-function-or-method&quot;&gt;jump to definition&lt;/a&gt; was a godsend) and got a little stuck/distracted by trying to figure out what class &lt;code class=&quot;language-text&quot;&gt;connection&lt;/code&gt; referred to.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Did a GitHub search in the Rails repo for the UnknownPrimaryKey error. There were a few results that were in the form &lt;code class=&quot;language-text&quot;&gt;finder_class.primary_key&lt;/code&gt;, so I assumed it was a method on the model (and confirmed that by playing around in the rails console).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Did another search for &lt;code class=&quot;language-text&quot;&gt;&quot;def primary_key&quot;&lt;/code&gt; (“primary_key” alone gave too many results), this led to &lt;code class=&quot;language-text&quot;&gt;ActiveRecord::AttributeMethods::PrimaryKey&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wasn’t sure that this was the correct method but I attempted to follow the code through (GitHub’s &lt;a href=&quot;https://docs.github.com/en/github/managing-files-in-a-repository/navigating-code-on-github#jumping-to-the-definition-of-a-function-or-method&quot;&gt;jump to definition&lt;/a&gt; was a godsend) and got a little stuck/distracted by trying to figure out what class &lt;code class=&quot;language-text&quot;&gt;connection&lt;/code&gt; referred to.&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;After a bit of poking around in the console, I recalled seeing this class called &lt;a href=&quot;https://ruby-doc.org/core-2.7.2/TracePoint.html&quot;&gt;TracePoint&lt;/a&gt;, and decided to give it a try:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;trace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; TracePoint&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;new&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;:raise&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;tp&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
@@ -1198,12 +1191,12 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;This gave an extremely long trace 🤯  good thing I could search in my terminal, after grepping for &lt;code class=&quot;language-text&quot;&gt;primary_keys&lt;/code&gt; I came across this set of calls, which confirmed that the method was in &lt;code class=&quot;language-text&quot;&gt;PostgreSQL::SchemaStatements&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;48&lt;/span&gt;, ActiveRecord::ConnectionAdapters::SchemaCache, :primary_keys, :call&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;53&lt;/span&gt;, ActiveRecord::ConnectionAdapters::SchemaCache, :data_source_exists?, :call&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;146&lt;/span&gt;, ActiveRecord::ConnectionAdapters::SchemaStatements, :primary_key, :call&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;355&lt;/span&gt;, ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements, :primary_keys, :call&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Window Functions, Visualised - Rankings]]></title><description><![CDATA[Leading from an introduction to Window Function Calls, let’s dive deeper into the different Window Functions that are available. Today, we…]]></description><link>https://www.wasabigeek.com/blog/window-functions-visualised-rankings/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/window-functions-visualised-rankings/</guid><pubDate>Mon, 04 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Leading from an &lt;a href=&quot;/blog/window-function-calls-an-introduction/&quot;&gt;introduction to Window Function Calls&lt;/a&gt;, let’s dive deeper into the different Window Functions that are available. Today, we’ll look at &lt;code class=&quot;language-text&quot;&gt;row_number&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;rank&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;dense_rank&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;percent_rank&lt;/code&gt;. We’ll be using the same expenses table from the previous post, which had entries like:&lt;/p&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;355&lt;/span&gt;, ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements, :primary_keys, :call&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Window Functions, Visualised - Rankings]]></title><description><![CDATA[Leading from an introduction to Window Function Calls, let’s dive deeper into the different Window Functions that are available. Today, we…]]></description><link>https://www.wasabigeek.com/blog/window-functions-visualised-rankings/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/window-functions-visualised-rankings/</guid><pubDate>Mon, 04 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Leading from an &lt;a href=&quot;/blog/window-function-calls-an-introduction/&quot;&gt;introduction to Window Function Calls&lt;/a&gt;, let’s dive deeper into the different Window Functions that are available. Today, we’ll look at &lt;code class=&quot;language-text&quot;&gt;row_number&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;rank&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;dense_rank&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;percent_rank&lt;/code&gt;. We’ll be using the same expenses table from the previous post, which had entries like:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2145,8 +2138,7 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;In March, I helped out at a church event where we found out Kahoot had unexpectedly restricted the free plan. I thought it’d be cool if there could be a “self-hosted” version for non-profits, and made a really non-user-friendly-but-free prototype with GitHub Pages / React / Airtable&lt;/li&gt;
 &lt;li&gt;It had some real UX deficiencies to make it free for me to host, so I wanted to have some testers to see if the tradeoffs were ok before deciding to promote it&lt;/li&gt;
 &lt;li&gt;I asked a friend to try it but didn’t really follow-up, and also made a post on Reddit (r/react), more a technical post (not much interaction there though)&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reflections:&lt;/p&gt;
+&lt;li&gt;Reflections:
 &lt;ul&gt;
 &lt;li&gt;it was fun to give the Airtable API a try, also a good opportunity to get a little more familiar with Promises&lt;/li&gt;
 &lt;li&gt;I definitely didn’t feel comfortable promoting the initial version of the project, there were so many hoops someone had to jump through just to even try it (setting up a throwaway Airtable account for example). In hindsight, this was probably a mistake - these are all guesses &gt;_&amp;#x3C;&lt;/li&gt;
@@ -2193,8 +2185,7 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;Spent a week or two repurposing an old project and started scraping the web archives of Hackernewsletter. (I later found out that Hackernewsletter had stopped publishing their archives, so that wouldn’t really work)&lt;/li&gt;
 &lt;li&gt;Showed the idea to a friend, who gave some really useful feedback (being able to retrieve the knowledge when it would be useful was a bigger problem than consuming it)&lt;/li&gt;
 &lt;li&gt;Also, I couldn’t think of a way to give due credit back to the newsletter creators, unless I worked directly with them (feels like a chicken and egg thing) and I didn’t want to disrupt their income source.&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reflections:&lt;/p&gt;
+&lt;li&gt;Reflections:
 &lt;ul&gt;
 &lt;li&gt;The turnaround time was pretty OK (2 weeks) so not a huge loss&lt;/li&gt;
 &lt;li&gt;However, I probably should have led by talking to more people instead of building the backend first - since it was mostly repurposing I didn’t really learn anything new from the technical standpoint&lt;/li&gt;
@@ -2211,15 +2202,13 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;ul&gt;
 &lt;li&gt;I thought it would be an interesting technical exercise to try and make the previous project real-time. Wanted to try something more DIY like socket.io, ended up using Firebase.&lt;/li&gt;
 &lt;li&gt;I didn’t really do much validation except showing it to 2 friends, with a lukewarm response&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;I also decided against pursuing it further in it’s current form:&lt;/p&gt;
+&lt;li&gt;I also decided against pursuing it further in it’s current form:
 &lt;ul&gt;
 &lt;li&gt;Competing with Kahoot! on price was probably not going to work, their plans were still pretty affordable (and it seems, even cheaper now)&lt;/li&gt;
 &lt;li&gt;They were focusing on education, so I thought another angle was a casual party game, which incidentally was how I was introduced to Kahoot. Something like an &lt;a href=&quot;https://en.wikipedia.org/wiki/Bishi_Bashi&quot;&gt;MMO bishi-bashi&lt;/a&gt;. I shelved this for a future date because I felt like I didn’t have the expertise for building web games, so it would be a long-build.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reflections&lt;/p&gt;
+&lt;li&gt;Reflections
 &lt;ul&gt;
 &lt;li&gt;Even if it wasn’t exactly what I initially wanted to learn (Firebase abstracted a lot of the real-time aspects), I did walk away with some more knowledge of NoSQL databases, plus some Firebase-specific knowledge (e.g. security rules), which was great.&lt;/li&gt;
 &lt;li&gt;Again, didn’t really push on the validation front, possibly because I felt it needed more polish, plus I wasn’t sure if I was going to stick with Firebase if moving to the variety-game idea&lt;/li&gt;
@@ -2235,16 +2224,14 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Me being a very lazy drummer, just want to be given some licks to practice instead of having to orchestrate and build patterns up to speed myself&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Built a small, limited prototype (only 4/4, only 16th notes 1 bar fill) then tried to do some validation&lt;/p&gt;
+&lt;li&gt;Built a small, limited prototype (only 4/4, only 16th notes 1 bar fill) then tried to do some validation
 &lt;ul&gt;
 &lt;li&gt;Posted on Reddit r/drums, relatively speaking there was very little interest (few upvotes and comments compared to what seems to usually trend there)&lt;/li&gt;
 &lt;li&gt;Pinged 3 musician friends - feedback was more in the “oh this is cool” sorta vein (I need to dig up those messages)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Made some upgrades (the biggest being multiple usages: part-bar, 1-bar, 1-bar 16th note triplets variations)&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reflections:&lt;/p&gt;
+&lt;li&gt;Reflections:
 &lt;ul&gt;
 &lt;li&gt;I used Vexflow and WebAudio, which was really interesting&lt;/li&gt;
 &lt;li&gt;r/drums might not be the right subreddit, given the focus there seems to be showing off 😋  maybe I should try r/drumming (which has less people but seems more educational) or see if there are some groups / chats I can join to talk with people&lt;/li&gt;
@@ -2264,8 +2251,7 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;Got a little bogged down trying to (i.) make a design I liked; (ii.) figure out the gamification mechanics (which I wanted to have in order to differentiate it). My lack of experience around mobile development and React Native (data storage, testing and debugging) made the experience slow and frustrating at times as well.&lt;/li&gt;
 &lt;li&gt;At one point I was wondering whether to set the gamification part aside for a bit to just focus on getting the app out. But I thought the gamification was part of the charm, and didn’t want to release without it (the $99 developer fee also was a small discourager)&lt;/li&gt;
 &lt;li&gt;In the end, I just drifted to something else…&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reflections:&lt;/p&gt;
+&lt;li&gt;Reflections:
 &lt;ul&gt;
 &lt;li&gt;The design part especially seemed to bog me down mentally (“I wish it looked better”). Maybe I shouldn’t let myself get too discouraged with a sub-standard design. Or maybe I should try to get more comfortable with design?&lt;/li&gt;
 &lt;li&gt;I’m sure the “slow and frustrating” feeling contributed to me drifting away - but I should actually try to get used to being in that zone more, because it probably means I’m doing something way out of my comfort zone and learning something new.&lt;/li&gt;
@@ -2280,8 +2266,7 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Discussed a few ideas with a friend before we decided to give a Tuition scheduling app a try, based on some earlier conversations he had while validating a different idea. For me, I was also curious about whether we could work together, since he had some experiences starting more traditional businesses, and seemed to be stronger in the sales aspect.&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In terms of validating the idea:&lt;/p&gt;
+&lt;li&gt;In terms of validating the idea:
 &lt;ul&gt;
 &lt;li&gt;my friend did some demos with existing solutions in the market - we thought a possible angle was to try to do something more affordable and SaaS-like, since the incumbent solutions in the market were positioned more as custom solutions, with prices to match (though they could qualify for the govt. grants)&lt;/li&gt;
 &lt;li&gt;we spoke with 2 of his contacts in the industry, the second one was positive but also seemed to have a non-traditional approach to the business, managing it more like a gym with online bookings and payments&lt;/li&gt;
@@ -2291,8 +2276,7 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;We agreed not to build anything beyond a Figma prototype until we had more validation, but I had itchy fingers by October and went to start on the app. It was a nice chance for me to figure out how to build a SaaS in Rails as well (I had tried some out-of-the-box template with the newsletter idea but it was not well-documented and I didn’t know enough / need all of the bells and whistles)&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reflections:&lt;/p&gt;
+&lt;li&gt;Reflections:
 &lt;ul&gt;
 &lt;li&gt;I think it’s worth spending time aligning with a partner on approaches and beliefs. Personally,  I realised I didn’t really know how to explain processes I had taken for granted, such as user story mapping.&lt;/li&gt;
 &lt;li&gt;It was helpful having the second brain, we weren’t always on the same wavelength but it did push me to have a different perspective and read up stuff I’ve been putting off e.g. on validation&lt;/li&gt;
@@ -2312,8 +2296,7 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;In terms of validation, I did a half-hearted post on Makerlog and another on IndieHackers, again, very little feedback or interest.&lt;/li&gt;
 &lt;li&gt;Also thought that the target might be so niche it didn’t exist: If I’m a dev that wasn’t good with design, I’d probably purchase some theme instead.&lt;/li&gt;
 &lt;li&gt;I do think there’s some opportunity in this market, but this probably wouldn’t cut it as a standalone product&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reflections:&lt;/p&gt;
+&lt;li&gt;Reflections:
 &lt;ul&gt;
 &lt;li&gt;I did enjoy working on the hero section, got to try out a rainbow CSS gradient I saw on another blog&lt;/li&gt;
 &lt;li&gt;I didn’t enjoy trying to figure out the design of the UI on the interactive element, and also figuring out the marketing copy. That’s also probably the point when I started to realise the idea didn’t have legs. In this case, might have been helpful to validate more first before building, but I think I did ok here, didn’t “waste” too much time.&lt;/li&gt;
@@ -2324,8 +2307,7 @@ trace&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;h2 id=&quot;dec-2020&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dec-2020&quot; aria-label=&quot;dec 2020 permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dec 2020&lt;/h2&gt;
 &lt;h3 id=&quot;baseui-working-title&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#baseui-working-title&quot; aria-label=&quot;baseui working title permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;BaseUI (working title)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Continuing the theme of “I wish there was an easier way to do a nice design”, I’m currently trying to validate whether my problem of getting a decent but still unique design done quickly applies to other IH devs:&lt;/p&gt;
+&lt;li&gt;Continuing the theme of “I wish there was an easier way to do a nice design”, I’m currently trying to validate whether my problem of getting a decent but still unique design done quickly applies to other IH devs:
 &lt;ul&gt;
 &lt;li&gt;Inspired by the Mom Test, I tried not to rush into building, but tried to understand the target’s (IH devs) current workflow a bit more with a post on IH &lt;a href=&quot;https://www.indiehackers.com/post/serial-saas-devs-whats-your-workflow-when-starting-a-new-project-7d4c43a2a3&quot;&gt;https://www.indiehackers.com/post/serial-saas-devs-whats-your-workflow-when-starting-a-new-project-7d4c43a2a3&lt;/a&gt; (it was also useful for me)&lt;/li&gt;
 &lt;li&gt;I looked at other solutions in the market: full-app templates like JumpstartPro and pure UI component libraries like TailwindUI, thought there might be an opportunity to do something in the middle.&lt;/li&gt;
