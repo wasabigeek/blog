@@ -1,3 +1,5 @@
+require 'fileutils'
+
 class GatsbyBlogPost
   class << self
     attr_writer :directory

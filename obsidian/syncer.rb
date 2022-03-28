@@ -1,6 +1,5 @@
 require 'active_support/inflector/methods'
 require 'active_support/inflector/transliterate'
-require 'fileutils'
 
 require_relative './obsidian_blog_post'
 require_relative './gatsby_blog_post'
