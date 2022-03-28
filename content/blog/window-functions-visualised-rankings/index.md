@@ -3,6 +3,7 @@ title: Window Functions, Visualised - Rankings
 date: "2021-01-04"
 description: "Picturing the differences between row_number, rank, dense_rank and percent_rank."
 published: true
+tags: ["postgres", "window-functions"]
 ---
 
 Leading from an [introduction to Window Function Calls](/blog/window-function-calls-an-introduction/), let's dive deeper into the different Window Functions that are available. Today, we'll look at `row_number`, `rank`, `dense_rank` and `percent_rank`. We'll be using the same expenses table from the previous post, which had entries like:
@@ -14,6 +15,7 @@ Leading from an [introduction to Window Function Calls](/blog/window-function-ca
 | ...         |      |
 
 In the following examples, our **window frame** will be the whole expenses table, ordered by highest to lowest cost:
+
 ```sql
 SELECT
   [ window function ] OVER(ORDER BY cost DESC),
@@ -24,9 +26,10 @@ FROM expenses
 
 ![Original table to window frame](./window_frame.png)
 
-
 ## row_number
+
 Let's start with `row_number`:
+
 ```sql
 ... ROW_NUMBER() OVER(ORDER BY cost DESC), ...
 ```
@@ -46,13 +49,14 @@ All `row_number` does is add a running number for each row in the frame, startin
 | 9          | bus ride    | 3    |
 | 10         | bus ride    | 3    |
 
-
 ## dense_rank
+
 `dense_rank` is more interesting. Reviewing the previous example, we can see that there were a few entries that have the same cost. The Postgres documentation refers to these as **peer groups**, and `dense_rank` adds a running number counting by the groups instead of rows:
 
 ![Dense Rank Peer Groups](./dense_rank.png)
 
 So changing the SQL to this:
+
 ```sql
 ... DENSE_RANK() OVER(ORDER BY cost DESC), ...
 ```
@@ -74,8 +78,8 @@ Gives us this:
 
 **Note**: I'm actually not sure how Postgres orders the rows _within_ a peer group - in my small example, it looks like an implicit `ORDER BY ID DESC` was added, but the Postgres [docs](https://www.postgresql.org/docs/current/queries-order.html) also say for general ordering, _if sorting is not chosen, the rows will be returned in an unspecified order_ 🤷‍♂️.
 
-
 ## rank
+
 `rank` has one big difference from `dense_rank` - it counts the "gaps" in the previous peer group:
 
 ![Rank Peer Groups](./rank.png)
@@ -95,10 +99,10 @@ Let's compare the results of each function to show the difference:
 | 7          | 9    | ...         | ...  |
 | 7          | 9    | ...         | ...  |
 
-
 ## percent_rank
 
 This is an interesting one - how it's derived is a bit of a mouthful, so let's show by example, starting with the query:
+
 ```sql
 ... PERCENT_RANK() OVER(ORDER BY cost DESC), ...
 ```
@@ -137,8 +141,6 @@ Finally, let's look at results side by side:
 | 9          | 7          | 9    | 0.88...      | bus ride    | 3    |
 | 10         | 7          | 9    | 0.88...      | bus ride    | 3    |
 
-
 I hope that helped! Here's an [sqlfiddle](http://sqlfiddle.com/#!17/d3ff0a/8) you can play around with.
 
 In future articles, we'll look into more window functions. Follow me on Twitter to be informed of the next one!
-

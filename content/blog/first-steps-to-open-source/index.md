@@ -3,9 +3,11 @@ title: First Steps into Open Source
 date: "2020-05-06T22:12:03.284Z"
 description: "Charting my first few open source contributions. If you're looking to contribute, I hope this helps!"
 published: true
+tags: ["open-source"]
 ---
 
 At start of the year, I set a rather nebulous goal:
+
 > "become a regular open source contributor"
 
 The motivation was to experience different codebases to gain more experience and (hopefully) improve my employability. 5 months on, I feel reasonably comfortable stating that I'm an open source contributor, and hope to continue doing so.
@@ -52,7 +54,6 @@ A few days later, my [first merge](https://github.com/slack-ruby/slack-ruby-bot/
 
 Huge props to [dblock](https://github.com/dblock), who somehow manages to turnaround and reply quickly, often within a day or two. Rubyists, if you would love to contribute but don’t know where to, might I humbly suggest anyone of dblock’s projects - it’s a great place to start.
 
-
 ## Closing Thoughts
 
 For "first timers" looking to contribute, my takeaways (sample size of 1, take with a pinch of salt):
@@ -63,5 +64,3 @@ For "first timers" looking to contribute, my takeaways (sample size of 1, take w
 - Make life as easy for maintainers as possible - try to figure out as much as you can first, whether it's looking at previous PRs, making GitHub checks pass.
 
 I hope that was helpful! Feel free to drop a note on Twitter to discuss / disagree :)
-
-
