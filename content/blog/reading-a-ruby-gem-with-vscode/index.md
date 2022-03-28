@@ -24,7 +24,7 @@ Assuming the gem is installed, `gem open <gemname>` (or `bundle open <gemname>` 
 
 For example `EDITOR=code bundle open mocha` from my project opens the gem in VSCode:
 
-![Mocha opened in VSCode.png](./Mocha opened in VSCode.png)
+![Mocha opened in VSCode.png](./Mocha_opened_in_VSCode.png)
 
 If the gem isn't installed, you could also look up the source code online ([rubygems.org](https://rubygems.org/)) and if the code is on GitHub, there's a handy [shortcut](https://twitter.com/github/status/1425505817827151872?s=21) to open it in a browser version of VSCode.
 
@@ -41,7 +41,7 @@ Object.method(:any_instance).source_location
 
 In case that doesn't work, since we have the source code open, we can make use of VSCode's search:
 
-![Searching Mocha in VSCode.png](./Searching Mocha in VSCode.png)
+![Searching Mocha in VSCode.png](./Searching_Mocha_in_VSCode.png)
 
 Some ideas to try if the results list is really long:
 
@@ -55,7 +55,7 @@ While we found the method, it didn't answer our initial question, which was how 
 
 For **"bottom-up" search**, since this is plain Ruby as opposed to Rails, we could try to follow the `require` trail. But if we have an extension like [solargraph](https://marketplace.visualstudio.com/items?itemName=castwide.solargraph), a simpler way is to make use of VSCode's **Go to References**:
 
-![VSCode Go To References in Mocha.png](./VSCode Go To References in Mocha.png)
+![VSCode Go To References in Mocha.png](./VSCode_Go_To_References_in_Mocha.png)
 
 Above, we find that `Mocha::ClassMethods` is included into Class in `Mocha::API`:
 

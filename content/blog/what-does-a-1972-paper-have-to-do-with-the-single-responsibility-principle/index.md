@@ -46,7 +46,7 @@ The next sections explain Parnas' modularizations. This [video explanation](http
 ## Modularization 1: "Flowchart"
 In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I'm guilty of applying at face value):
 
-![Criteria for Decomposition of Modules 1.png](./Criteria for Decomposition of Modules 1.png)
+![Criteria for Decomposition of Modules 1.png](./Criteria_for_Decomposition_of_Modules_1.png)
 
 There's a design flaw that isn't obvious in the diagram - all the modules rely upon common data stored with a specific layout in memory using low-level operations. I'll contrast this with Modularization 2 later.
 
@@ -55,7 +55,7 @@ Here's what each module did:
   - Parsed the input text file (see "The System: KWAC Index") and stores in memory using low-level operations. We'll call this the in-memory "Characters".
   - There's a section of the [video (23:36)](https://youtu.be/R7X4B3-k7g4?t=1415) that explains this, which if I've understood right goes something like: **(1.)** memory at the time was accessed in groups of 4 characters (bytes), **(2.)** the input was split across these groups, with spaces in between words and lines.
   - We can visualise the stored in-memory "Characters" as follows (Note that line breaks are not distinguished from spaces, that's tracked separately):
-     ![Criteria for Modularization - Approach 1 Input Storage.png](./Criteria for Modularization - Approach 1 Input Storage.png)
+     ![Criteria for Modularization - Approach 1 Input Storage.png](./Criteria_for_Modularization_-_Approach_1_Input_Storage.png)
   - The module also outputs "Lines", which is an array stating the start of each line (e.g. above, Character 1 is the start of line 1, Character 21 is the start of line 2)
 - **Circular Shifter**
   - Accessing "Characters" and "Lines", it outputs an array of "Shifts".
@@ -66,14 +66,14 @@ Here's what each module did:
   - Accessing "Characters" and "Alphabetized" shifts, outputs the KWAC index (see "The System: KWAC Index").
 
 A helpful visual summary of all the outputs and stored data from the video explanation: 
-![Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png](./Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png)
+![Data Structures - On The Criteria for Decomposing Systems - Diego Ongaro.png](./Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png)
 
 ## Modularization 2: "Information Hiding"
 In this modularization, Parnas uses the criteria of "Information Hiding". The definition is worth mentioning for it's relevance to the SRP:
 
 > Every module in the second decomposition is characterized by its knowledge of a design decision which it hides from all others. Its interface or definition was chosen to reveal as little as possible about its inner workings.
 
-![Criteria for Decomposing Modules 2.png](./Criteria for Decomposing Modules 2.png)
+![Criteria for Decomposing Modules 2.png](./Criteria_for_Decomposing_Modules_2.png)
 Interestingly, what one might typically think as the general "responsibility" remains the same - modules are still mostly split along the same functionality lines. Instead, the major differences that I noticed in this modularization were:
 - The details of how the characters were stored were encapsulated (hidden) via a new module, "Line Storage". This meant that other modules did not have to know the low-level layout of the data. Instead, they would have a simpler interface to store and retrieve characters.
 - The dependencies of modules were also tweaked, such that only two modules interact directly with "Line Storage", as opposed to every module having to access "Characters" in Modularization 1.
