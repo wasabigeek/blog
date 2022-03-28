@@ -3,11 +3,13 @@ title: How does ActiveRecord know the primary_key?
 date: "2021-02-13"
 description: "A tiny excursion into the world of ActiveRecord, prompted by trying to debug an UnknownPrimaryKey error."
 published: true
+tags: ["rails"]
 ---
 
 While trying to help someone debug an `ActiveRecord::UnknownPrimaryKey` error, I went down a rabbit-hole trying to figure out how Rails determines the primary key. Hopefully this provides a tiny bit more insight on how Rails works!
 
 ## TL;DR
+
 If you're using Postgres, ActiveRecord searches for a primary key index on the table. If you're using a different database, the answer probably lies in the respective `SchemaStatements` of the adapter, e.g. `ActiveRecord::ConnectionAdapters::MySQL::SchemaStatements` ([source](https://github.com/rails/rails/blob/main/activerecord/lib/active_record/connection_adapters/mysql/schema_statements.rb)).
 
 ## Finding the Primary Key
@@ -70,6 +72,7 @@ end
 ```
 
 The subquery in particular is crucial - basically, Rails looks for a primary key index belonging to the table. Let's focus on the important bits:
+
 ```sql
 SELECT ...
 /* from all the indexes */
@@ -81,28 +84,27 @@ WHERE indrelid = table_name::regclass
 AND indisprimary
 ```
 
-
-
 This is usually automatically created during a migration - Rails will add an `id` column and make it a primary key. If you have a `structure.sql` file, you'd find statements like `ADD CONSTRAINT table_name_pkey PRIMARY KEY (id)` which do exactly that.
 
 ## Bonus: How did I find it?
 
-It took me quite a while to figure this out, I'm sharing my abridged (because I was flailing around a *lot*) methodology in hopes that it might be helpful to you when debugging - if you know a better way, do share!
+It took me quite a while to figure this out, I'm sharing my abridged (because I was flailing around a _lot_) methodology in hopes that it might be helpful to you when debugging - if you know a better way, do share!
 
 - Did a GitHub search in the Rails repo for the UnknownPrimaryKey error. There were a few results that were in the form `finder_class.primary_key`, so I assumed it was a method on the model (and confirmed that by playing around in the rails console).
 - Did another search for `"def primary_key"` ("primary_key" alone gave too many results), this led to `ActiveRecord::AttributeMethods::PrimaryKey`.
 - Wasn't sure that this was the correct method but I attempted to follow the code through (GitHub's [jump to definition](https://docs.github.com/en/github/managing-files-in-a-repository/navigating-code-on-github#jumping-to-the-definition-of-a-function-or-method) was a godsend) and got a little stuck/distracted by trying to figure out what class `connection` referred to.
 - After a bit of poking around in the console, I recalled seeing this class called [TracePoint](https://ruby-doc.org/core-2.7.2/TracePoint.html), and decided to give it a try:
 
-    ```sql
-    trace = TracePoint.new(:raise) do |tp|
-        p [tp.lineno, tp.event, tp.raised_exception]
-    end
+  ```sql
+  trace = TracePoint.new(:raise) do |tp|
+      p [tp.lineno, tp.event, tp.raised_exception]
+  end
 
-    trace.enable { ExampleModel.first }
-    ```
+  trace.enable { ExampleModel.first }
+  ```
 
-- This gave an extremely long trace 🤯  good thing I could search in my terminal, after grepping for `primary_keys` I came across this set of calls, which confirmed that the method was in `PostgreSQL::SchemaStatements`
+- This gave an extremely long trace 🤯 good thing I could search in my terminal, after grepping for `primary_keys` I came across this set of calls, which confirmed that the method was in `PostgreSQL::SchemaStatements`
+
 ```bash
 [48, ActiveRecord::ConnectionAdapters::SchemaCache, :primary_keys, :call]
 [53, ActiveRecord::ConnectionAdapters::SchemaCache, :data_source_exists?, :call]

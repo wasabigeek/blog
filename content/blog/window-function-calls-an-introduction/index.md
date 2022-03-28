@@ -3,6 +3,7 @@ title: Window Function Calls in Postgres - A Visual Introduction
 date: "2020-12-31T21:56:03.284Z"
 description: "What is a Window Function Calls? The why and the how, explained with pictures for maximum grok-ability."
 published: true
+tags: ["postgres", "window-functions"]
 ---
 
 What is a **window function call**? My explanation:
@@ -25,8 +26,7 @@ Now, say you wanted to see how much each expense compares to the average:
 | lunch       | ...      | ...        | 15   | 17.5 |
 | ...         |          |            |      |      |
 
-
-You *could* use a subquery to calculate the average:
+You _could_ use a subquery to calculate the average:
 
 ```sql
 select *, (select avg(cost) from expenses)
@@ -73,7 +73,6 @@ Our result now looks something like:
 | bus ride home | transport     | ...        | 3    | 7.5             |
 | ...           |               |            |      |                 |
 
-
 That's a bit more helpful! Let's visualise this:
 
 ![Calculating average cost over each category](./avg_cost_category.png)
@@ -87,10 +86,10 @@ This is also a good time to take a brief look at the syntax we've used so far:
 ```
 
 In the above:
+
 - `avg(cost)` is the aggregation function that we want to execute over the window frame - we could use other functions such as `max` or `min`
 - `OVER` is the keyword which tells Postgres we were using a window function call. Everything in parentheses specifies how our table will be divided into different window frames
 - in this case, we are using `PARTITION BY category`, which means we are dividing the table into different window frames based on their category
-
 
 ## Window Functions
 
@@ -138,8 +137,6 @@ The query gives us a result like:
 | bus ride    | transport     | 2020-01-02 | 4    | 1    |
 | ...         |               |            |      |      |
 
-
-
 Now that we have a ranking, we could use it as a subquery and filter out expenses that are rank 2 or higher.
 
 ```sql
@@ -160,7 +157,6 @@ Which leaves us with exactly what we want - nice!
 | taxi to home  | transport     | 2020-01-01 | 20   | 1    |
 | bus ride home | transport     | 2020-01-02 | 4    | 1    |
 | ...           |               |            |      |      |
-
 
 I hoped that helped you grok window functions! If you want to play around with the data in this example, there's an [sqlfiddle](http://sqlfiddle.com/#!17/f33e78/3) - in case that doesn't exist at the time of reading, you can also get the SQL to create the table and query the data from this [gist](https://gist.github.com/wasabigeek/2b9fb05eba5c26928bab85bcf408511f).
 

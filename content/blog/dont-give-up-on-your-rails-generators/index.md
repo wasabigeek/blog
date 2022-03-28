@@ -3,6 +3,7 @@ title: Don’t give up on your Rails Generators!
 date: "2021-03-14"
 description: "Most devs quickly stop using Rail's built-in generators. This is a pity, as generators can help improve team productivity - we just need to tweak them. In this post, we'll explore customising the rake task generator."
 published: true
+tags: ["rails-generators"]
 ---
 
 Many Rails devs I've spoken to quickly stop using the built-in generators - the common reason is that the generated files no longer suit the project, so it’s easier to start from scratch rather generate and then modify them. What a pity! To paraphrase DHH, generators can help **improve team productivity** and **encourage consistency** - we just need to tweak them.
@@ -11,8 +12,8 @@ Many Rails devs I've spoken to quickly stop using the built-in generators - the 
 
 In this post, I look at one approach for customising generators, based on one we customised recently at work: the rake task generator.
 
-
 ## TL;DR on Overriding a Generator
+
 - Copy over the Generator classes to `/lib/generators/...` and modify
 - Copy over the template file to `/lib/templates/...` and modify
 - Bonus: Use `hook_for` to generate a test file if the generator doesn’t do it automatically
