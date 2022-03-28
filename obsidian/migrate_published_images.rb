@@ -1,21 +1,31 @@
+require 'fileutils'
+
 # Dir.pwd is based on running this from /obsidian folder
-directory = File.join(Dir.pwd, '../content/blog/')
+blog_dir = Dir.new(File.expand_path('../content/blog/'))
+blog_dir.each_child do |post_dirname|
+  post_dirpath = File.join(blog_dir.path, post_dirname)
+  images = []
+  next if Dir.new(post_dirpath).children.empty?
 
-# renamed_files_mapping = {}
-# obsidian_blog_post.files.each do |obsidian_blog_file|
-#   original_filename = obsidian_blog_file.filename
-#   new_filename = original_filename.gsub(' ', '_')
-#   FileUtils.copy(
-#     obsidian_blog_file.absolute_path,
-#     File.join(directory, new_filename)
-#   )
-#   renamed_files_mapping[original_filename] = new_filename
-# end
+  Dir.new(post_dirpath).each_child do |post_itemname|
+    next if post_itemname == 'index.md'
 
-# File.open("#{directory}/index.md", 'w+') do |file|
-#   gatsby_markdown = obsidian_blog_post.github_markdown_string
-#   renamed_files_mapping.each do |original, renamed|
-#     gatsby_markdown.gsub!(original, renamed)
-#   end
-#   file.write(gatsby_markdown)
-# end
+    images << post_itemname
+  end
+
+  markdown_filepath = File.join(post_dirpath, 'index.md')
+  markdown = File.read(markdown_filepath)
+  File.open(markdown_filepath, 'w') do |file|
+    images.each do |original_imagename|
+      new_imagename = original_imagename.gsub(' ', '_')
+      next if original_imagename == new_imagename
+
+      FileUtils.mv(
+        File.join(post_dirpath, original_imagename),
+        File.join(post_dirpath, new_imagename)
+      )
+      markdown.gsub!("(./#{original_imagename})", "(./#{new_imagename})")
+    end
+    file.write(markdown)
+  end
+end
