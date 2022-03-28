@@ -22,7 +22,7 @@ class GatsbyBlogPost
       File.open("#{directory}/index.md", 'w+') do |file|
         gatsby_markdown = obsidian_blog_post.github_markdown_string
         renamed_files_mapping.each do |original, renamed|
-          gatsby_markdown.gsub!(original, renamed)
+          gatsby_markdown.gsub!("(./#{original})", "(./#{renamed})")
         end
         file.write(gatsby_markdown)
       end

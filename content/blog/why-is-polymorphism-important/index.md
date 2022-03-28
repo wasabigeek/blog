@@ -19,9 +19,9 @@ If polymorphism is such a defining aspect of OOP, could we build a stronger intu
 ## What is polymorphism?
 Since polymorphism has different meanings depending on context[^1], let's align on what I meant by "Polymorphism in OOP". In the earlier blog post, Martin explains it as different objects being able to accept the same message, implementing their own behaviour. I'll paraphase his example:
 ```
-some_object.do_the_right_thing(input)
+some_object.do_something()
 ```
-We don't actually know what `some_object` is! Nor does it actually matter. Many different implementations could replace `some_object`, and so long as they have the same interface (i.e. have the method `#do_the_right_thing`), the program would still run.
+We don't actually know what `some_object` is! Nor does it actually matter. Many different implementations could replace `some_object`, and so long as they have the same interface (i.e. have the method `#do_something`), the program would still run.
 
 [^1]: The definition I used for polymorphism is actually somewhat narrow, but seemed like a relatively common understanding in the context of OOP. The [Wikipedia article](https://en.m.wikipedia.org/wiki/Polymorphism_(computer_science)) on polymorphism shows a lot more breadth in the topic, and I think what is described above is known as [single, dynamic dispatch](https://en.wikipedia.org/wiki/Dynamic_dispatch). There's some really good discussion on this in the [Reddit thread](https://www.reddit.com/r/ruby/comments/tooyby/why_use_polymorphism_in_oop_blog_post/) for this post.
 
