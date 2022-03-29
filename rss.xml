@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek's blog]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 28 Mar 2022 14:20:54 GMT</lastBuildDate><item><title><![CDATA[Why use Polymorphism in OOP?]]></title><description><![CDATA[When I first came across the concept of Polymorphism in Object-Oriented Programming (OOP), it wasn’t obvious to me why it was important. The…]]></description><link>https://www.wasabigeek.com/blog/why-is-polymorphism-important/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/why-is-polymorphism-important/</guid><pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;When I first came across the concept of Polymorphism in Object-Oriented Programming (OOP), it wasn’t obvious to me &lt;em&gt;why&lt;/em&gt; it was important. The top search results generally explain &lt;em&gt;what&lt;/em&gt; it is and &lt;em&gt;how&lt;/em&gt; to use it, but handwave the &lt;em&gt;why&lt;/em&gt; and treat it as yet-another-language-feature.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek's blog]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 29 Mar 2022 14:16:34 GMT</lastBuildDate><item><title><![CDATA[Why use Polymorphism in OOP?]]></title><description><![CDATA[When I first came across the concept of Polymorphism in Object-Oriented Programming (OOP), it wasn’t obvious to me why it was important. The…]]></description><link>https://www.wasabigeek.com/blog/why-is-polymorphism-important/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/why-is-polymorphism-important/</guid><pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;When I first came across the concept of Polymorphism in Object-Oriented Programming (OOP), it wasn’t obvious to me &lt;em&gt;why&lt;/em&gt; it was important. The top search results generally explain &lt;em&gt;what&lt;/em&gt; it is and &lt;em&gt;how&lt;/em&gt; to use it, but handwave the &lt;em&gt;why&lt;/em&gt; and treat it as yet-another-language-feature.&lt;/p&gt;
 &lt;p&gt;Then I came across this statement in a &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2018/04/13/FPvsOO.html&quot;&gt;blog post&lt;/a&gt; by Robert C. Martin:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;…the thing that truly differentiates OO programs from non-OO programs is polymorphism.&lt;/p&gt;
@@ -114,7 +114,14 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;span
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1afa3be2a535182b9280816c458ea9a8/dd507/Criteria_for_Decomposition_of_Modules_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 53.37837837837838%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACLUlEQVQoz32S3UtTYRzHz58Q3UQ36k1BQrWKjIiohPRiES0wgiChoJuCBhatFwQTsUuzIoKom0J2oRKCvWCLrVKb21SUZb6Qgc5tbvMldS/nOecTz3nRZdADh9/znOf7+5zvl99RhC4QmsCsKkJX0ax9ai1NfCVBYi1JIpckKetKgoXsgqFXpd7oEaiyR1dRVPugyaoaInSIZ1Mc6KtmW6Cc0g8OSrx7KfXtZ4t/BzWRWkNT0AqGXvZJmGQoJlkYl3K9mung0vBVlnKLvEv48MY6aY914Z3qpD3eRVusg8D8V9B1E6aZIFUrcihf5LW8AWwYa6H8/SHmVmM0TT7k+tBtboTqcYfucPNbPdcGb/F0+rnlULUc2ilVFGFZzgsT+CD6hINvjjOzOsvlaB3OvvO4ei5y+uMFzvpqOdlfw93xRtA2gMKKLF0qYpPD5rHH7Ht7lMVchlB6mE/Jz/jne/HNBQikeo3zSGYU3YosLIf2UNcjFyyHzdFHVHSe4OfvaSqCTrZ376LstYOStj2UeR1s7dlJzWCt6VAvWA7/iSyHYgKbxlrZ3X2YpXyG78sTDKQiRNLDBFNhwukhBtJhJpYnNw1lw6liT8eO3Dr9gqqQi9mVWc4NXuFI0Eml/wzHuk5R+cVFRX8V7lHPX7+NKI5sb+yLnMiSFWssFZZpmmqhbrwez8h9PMEGPNFG3D/u8ezXSwO44U6sQxVR9AUp0HQN3Xr+t1S9CGRVGfkPs68HBSSIJdkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
@@ -134,20 +141,28 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
       /&gt;
+  &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;There’s a design flaw that isn’t obvious in the diagram - all the modules rely upon common data stored with a specific layout in memory using low-level operations. I’ll contrast this with Modularization 2 later.&lt;/p&gt;
+&lt;p&gt;There’s a design flaw that isn’t obvious in the diagram - there’s some common data in memory that all modules access, each module needing to know the low-level layout of the data. I’ll contrast this with Modularization 2 later.&lt;/p&gt;
 &lt;p&gt;Here’s what each module did:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Input&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Parsed the input text file (see “The System: KWAC Index”) and stores in memory using low-level operations. We’ll call this the in-memory “Characters”.&lt;/li&gt;
-&lt;li&gt;There’s a section of the &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1415&quot;&gt;video (23:36)&lt;/a&gt; that explains this, which if I’ve understood right goes something like: &lt;strong&gt;(1.)&lt;/strong&gt; memory at the time was accessed in groups of 4 characters (bytes), &lt;strong&gt;(2.)&lt;/strong&gt; the input was split across these groups, with spaces in between words and lines.&lt;/li&gt;
-&lt;li&gt;We can visualise the stored in-memory “Characters” as follows (Note that line breaks are not distinguished from spaces, that’s tracked separately):
+&lt;li&gt;Parsed the input text file and stores in memory. We’ll call this “Characters”.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&quot;https://youtu.be/R7X4B3-k7g4?t=1415&quot;&gt;video (23:36)&lt;/a&gt; that explains this as &lt;strong&gt;(1.)&lt;/strong&gt; memory at the time was accessed in groups of 4 characters (bytes), &lt;strong&gt;(2.)&lt;/strong&gt; the input was split across these groups, with spaces in between words and lines.&lt;/li&gt;
+&lt;li&gt;The “Characters” could be visualised as follows:
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;span
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d8bd433f4cb51feb4e5a1fab55bbb828/fa60d/Criteria_for_Modularization_-_Approach_1_Input_Storage.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 12.837837837837837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkUlEQVQI1z3PWQ4CQQgE0Ln/PXWm9+mV3rQMaPwieRQQDuoNpWa83hsx3Vh7ovWGVNLf5h5oVJF/drOtgUoVqURsthgw98TBA84ZrDVwqRPUSZraKIzZxfr4mrFaDj7PB/ok+NvDOCM5NhqEw3krC/m6tRoxR7D54BBigDIKuSZZ6IJFbQWXvqS6X4ZntNXy1Qe+8OYMejNJWwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
@@ -167,13 +182,14 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
       /&gt;
+  &lt;/a&gt;
     &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;The module also outputs “Lines”, which is an array stating the start of each line (e.g. above, Character 1 is the start of line 1, Character 21 is the start of line 2)&lt;/li&gt;
+&lt;li&gt;Note that in the above, line breaks are not distinguished from spaces. The module outputs a separate “Lines” structure for this, which is an array of “starting positions” for each line (e.g. above, Character 1 is the start of line 1, Character 21 is the start of line 2)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Circular Shifter&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Accessing “Characters” and “Lines”, it outputs an array of “Shifts”.&lt;/li&gt;
+&lt;li&gt;Accessing “Characters” in memory and “Lines”, it outputs an array of “Shifts”.&lt;/li&gt;
 &lt;li&gt;Each “Shift” stored the line number, as well as the starting index of each word.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -193,7 +209,14 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;span
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a0b3077f3d649c4e682b3f66972f78c4/97755/Data_Structures_-_On_The_Criteria_for_Decomposing_Systems_-_Diego_Ongaro.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 53.37837837837838%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACX0lEQVQoz3WRS0hUYRiGT16yoMCRpKh1bmrRMhJvac6UiJGZumkXuLSxYmYcRwjbtqhNkJMRVBYUhLQr2xQEugiipdnojDk3z5z7zJzLE+efICH84eHje7/zv3zvf6Smrknq2idp7AoTuBjj6FCC1sEZjgzEaQnFaA5GaO6P1GowSnMwtosoLSGfCIH+CIcv3EFq6Aizr32SQCjKj/UM2eIO6WxBkMkVyMoKuZJKTv6fbKk225YVdMsi+f4LUmNnGOncJC3BKKmtbdIb6/zezpBOb5DeTOG6VWrH2xMPV3zxankVqbFnirruKQIDMTIFGdsuoxkahqmj6SqmaVBSZFRNQdc1FLUk8HtFVVB1lZKqADYvPqwg1ffdor5visDlGFsFmUrFpFDMo6qKMPSNa5dLyKUdofkmuqGhaCXyxTz5YgFwaxse7A3T0HmTY4MRMvkdESGXz2KWTRHF8RxcXGG0sZnCMA2h+0H9JGs/1/i1kRKRFz+uIjX132Z/X4TjQ3PIhgU4qFptA89zcFxb4PemZYiNfd31HKyKhW7q7CjyP8PA6XEOtV3iwMkeFt8uiYG/Tbli4bq2wDe0yqbANxW651CuljEsA0VTxb2X/hu2tpwh2Huens4Ork+ExUC3DCrVCrZjU3WqouriJ2mohiZ6H7NioRk6il4zfP1pBantxBjLX7/z8NkS04k59jxeBdcp49jWLtHF86rYf7V3n78h9Z+a4MGjN8Qj9+gOjTB69znX4vOMxJOC8dkFxmefMpZYYGQ6yXAsydXpJKOJBVGHY/NciT5mbOYJZ2/c5w81UcsnQ6/GvwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
@@ -213,6 +236,7 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
       /&gt;
+  &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;modularization-2-information-hiding&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#modularization-2-information-hiding&quot; aria-label=&quot;modularization 2 information hiding permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Modularization 2: “Information Hiding”&lt;/h2&gt;
 &lt;p&gt;In this modularization, Parnas uses the criteria of “Information Hiding”. The definition is worth mentioning for it’s relevance to the SRP:&lt;/p&gt;
@@ -223,7 +247,14 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
-      &lt;span
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5ec2630668bb8897c5864246f64495fe/85e74/Criteria_for_Decomposing_Modules_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
     style=&quot;padding-bottom: 55.4054054054054%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACRklEQVQoz42S30uTYRTHdyvrogi6ylp132UIkndKNDfZ1HSsNYV5UyuI/HHhRRTRTX9E+B8E/bBInTq36abzZ+m2CEVBk9z25vR99/54PvG+mxZZ0AOHc57zcD7P4XuOTTc0DKEDBoomk5W+kJWyZH/kyO7nLL9WzLCxv4EQOprQ0IyTpgrV8jYTJquHJo+lYoaajw5qxmqxv7qAfaiWU8MObCPnqIs1osglEFTsz2OAEAKb+di79pTez4OoukosnyRWTBIrpIjtpYhLKaKFaRalZTRFJbwySGOiFfe4n+aIj+YRH86YD1faT6a4hs2EO2MB3BO3+K7kubsywL25PsKJfsLJfu7HB+iZe8izzAvKssyjzBNuznTQGgniGQvgfR/AOxWkfambnJStANsmQ/hGgmzK29QnXVyfcNIw7KT+3Q0a3jZzbbKJ8Gof/3MqwEQPnoivkvlNH6EZlUAT5KSvpAuLzBYWmM3PW5bKp1nILyFrh6hGdSgWcCKEZ7jTqi3rCoqhUNbLlJQSQhisS1tcidZhf32esy8vc3rIwZmhS9jfXMQxfpVd+VvlX0OtAuMhPKOdJ/vXBJgbpcO8tMzo7iSR7ShjO1EiO1HrPrWXQNFlDGGgH3XoTYfoSN9h52AX71w33nSQtngX7vc+Wqe7rAk+Xn3+T93M1TNhutDNPTRYP9hkR95mvbSFK30b14If95Sflg9+WmYCNKXbefCpn3JVK1MO1fhlRzDNBJpCHg9BGH9f3GrOKqoW60I7Blmx5XV+AorZ6g87A8PsAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
@@ -243,8 +274,9 @@ The Criteria. On &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
       /&gt;
+  &lt;/a&gt;
     &lt;/span&gt;
-Interestingly, what one might typically think as the general “responsibility” remains the same - modules are still mostly split along the same functionality lines. Instead, the major differences that I noticed in this modularization were:&lt;/p&gt;
+Interestingly, what one might typically think as the general “responsibility” &lt;em&gt;remains the same&lt;/em&gt; - modules are still mostly split along the same functionality lines. Instead, the major differences that I noticed in this modularization were:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The details of how the characters were stored were encapsulated (hidden) via a new module, “Line Storage”. This meant that other modules did not have to know the low-level layout of the data. Instead, they would have a simpler interface to store and retrieve characters.&lt;/li&gt;
 &lt;li&gt;The dependencies of modules were also tweaked, such that only two modules interact directly with “Line Storage”, as opposed to every module having to access “Characters” in Modularization 1.&lt;/li&gt;
@@ -317,10 +349,9 @@ Interestingly, what one might typically think as the general “responsibility�
 &lt;/table&gt;
 &lt;p&gt;So the takeaway here is that good “information hiding” (a.k.a the SRP) results in a system that adapts more easily to changes.&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#conclusion&quot; aria-label=&quot;conclusion permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of &lt;em&gt;why&lt;/em&gt; it was important - it should result in a system that is easier to evolve with changes in requirements. However, even with the (helpful) example, we don’t get a magic formula for applying the SRP - it remains more art than science.&lt;/p&gt;
-&lt;p&gt;What’s your framework for beginning “with a list of difficult design decisions or design decisions which are likely to change”?&lt;/p&gt;
-&lt;p&gt;Discuss on &lt;a href=&quot;https://news.ycombinator.com/item?id=30529854&quot;&gt;Hackernews&lt;/a&gt;, or continue the conversation on &lt;a href=&quot;https://t.co/jKyUJIpnsR&quot;&gt;Twitter&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Tried to get a better intuition for the Single Responsibility Principle and was led to a classic 1972 paper by David Parnas. A good read! &lt;a href=&quot;https://t.co/jKyUJIpnsR&quot;&gt;https://t.co/jKyUJIpnsR&lt;/a&gt;&lt;/p&gt;&amp;mdash; @wasabigeek &lt;a href=&quot;https://twitter.com/wasabigeek/status/1500047320443850753?ref_src=twsrc%5Etfw&quot;&gt;March 5, 2022&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;So where does the paper leave us in relation to the SRP? Personally, I left with a better understanding of &lt;em&gt;why&lt;/em&gt; it was important - it should result in a system that is easier to evolve with changes in requirements.&lt;/p&gt;
+&lt;p&gt;However, even with the (helpful) example, we are left with an abstract criterion of “information-hiding” and starting with a “list of difficult design decisions” or “design decisions which are likely to change”. The SRP, it seems, remains more art than science.&lt;/p&gt;
+&lt;p&gt;Discuss on &lt;a href=&quot;https://news.ycombinator.com/item?id=30529854&quot;&gt;Hackernews&lt;/a&gt;, or continue the conversation on &lt;a href=&quot;https://twitter.com/wasabigeek/status/1500047320443850753?ref_src=twsrc%5Etfw&quot;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;(I apologise for the mix of American and British english 😆.)&lt;/p&gt;
 &lt;h2 id=&quot;further-reading&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#further-reading&quot; aria-label=&quot;further reading permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Further Reading:&lt;/h2&gt;
 &lt;ul&gt;
@@ -537,11 +568,11 @@ instance_methods&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&l
 &lt;p&gt;In the code above, we saw that not all &lt;code class=&quot;language-text&quot;&gt;instance_methods&lt;/code&gt; were removed, there are some &lt;code class=&quot;language-text&quot;&gt;overridden_methods&lt;/code&gt; (e.g. &lt;code class=&quot;language-text&quot;&gt;inspect&lt;/code&gt;) where the library opts to keep the default implementation &lt;em&gt;unless&lt;/em&gt; the user has explicitly set an expectation. This is done by re-defining them via &lt;code class=&quot;language-text&quot;&gt;define_method&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# lib/minitest/mock.rb#L30&lt;/span&gt;
 overridden_methods&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;map&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;token symbol&quot;&gt;:to_sym&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;method_id&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;define_method&lt;/span&gt; method_id &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;b&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;define_method&lt;/span&gt; method_id &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;b&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;	
     &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;@expected_calls&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;key&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; method_id &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
-      method_missing&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;method_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  	  method_missing&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;method_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  	  &lt;span class=&quot;token keyword&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -563,15 +594,15 @@ overridden_methods&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Object&lt;/span&gt;
   &lt;span class=&quot;token comment&quot;&gt;# lib/minitest/mock.rb#L214&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token method-definition&quot;&gt;&lt;span class=&quot;token function&quot;&gt;stub&lt;/span&gt;&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; val_or_callable&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;block_args
-    new_name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string-literal&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;__minitest_stub__&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;token content&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
-
-    metaclass &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;# ...&lt;/span&gt;
+  	new_name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string-literal&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;__minitest_stub__&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;token content&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+	
+  	metaclass &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+  	&lt;span class=&quot;token comment&quot;&gt;# ...&lt;/span&gt;
     metaclass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;send &lt;span class=&quot;token symbol&quot;&gt;:alias_method&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; new_name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; name
 
-    metaclass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;send &lt;span class=&quot;token symbol&quot;&gt;:define_method&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; name &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;blk&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;# return or execute val_or_callable&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+  	metaclass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;send &lt;span class=&quot;token symbol&quot;&gt;:define_method&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; name &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;blk&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+	  &lt;span class=&quot;token comment&quot;&gt;# return or execute val_or_callable&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
 
     &lt;span class=&quot;token comment&quot;&gt;# ...&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;self&lt;/span&gt;
