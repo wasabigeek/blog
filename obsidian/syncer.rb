@@ -10,6 +10,7 @@ OBSIDIAN_DIRECTORY = ENV['OBSIDIAN_DIRECTORY']
 post_title = 'Why is Polymorphism important?'
 
 Obsidian.directory = OBSIDIAN_DIRECTORY
-obsidian_blog_post = ObsidianBlogPost.from_filename(post_title)
-
-GatsbyBlogPost.create_from(obsidian_blog_post)
+Dir.new(Obsidian.blog_directory).each_child do |post_filename|
+  obsidian_blog_post = ObsidianBlogPost.from_filename(post_filename)
+  GatsbyBlogPost.create_from(obsidian_blog_post)
+end

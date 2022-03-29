@@ -5,6 +5,10 @@ require 'erb'
 module Obsidian
   class << self
     attr_accessor :directory
+
+    def blog_directory
+      File.join(Obsidian.directory, 'Blog/Published')
+    end
   end
 end
 
@@ -26,7 +30,8 @@ class ObsidianBlogPost
 
   class << self
     def from_filename(filename)
-      filepath = File.join(Obsidian.directory, 'Blog/Published', "#{filename}.md")
+      filename = "#{filename}.md" unless filename.end_with?('.md')
+      filepath = File.join(Obsidian.directory, 'Blog/Published', filename)
       new(
         File.open(filepath, 'r').read,
         original_filename: filename
@@ -41,13 +46,17 @@ class ObsidianBlogPost
     @original_filename = original_filename
   end
 
+  def original_filename_without_ext
+    original_filename.sub('.md', '')
+  end
+
   def asset_filenames
     @original_markdown.scan(FILE_REGEX).flatten
   end
 
   def files
     asset_filenames.map do |filename_with_ext|
-      blog_file = ObsidianBlogFile.new(filename_with_ext)
+      ObsidianBlogFile.new(filename_with_ext)
     end
   end
 

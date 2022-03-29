@@ -5,7 +5,7 @@ class GatsbyBlogPost
     attr_writer :directory
 
     def create_from(obsidian_blog_post)
-      directory = "../content/blog/#{parameterize(obsidian_blog_post.original_filename)}/"
+      directory = "../content/blog/#{parameterize(obsidian_blog_post.original_filename_without_ext)}/"
       FileUtils.mkdir_p(directory)
       # copy files
       renamed_files_mapping = {}
