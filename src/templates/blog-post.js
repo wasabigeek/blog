@@ -39,6 +39,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             {post.frontmatter.date}
           </p>
         </header>
+        <section dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         {relatedPosts.length > 0 && (
           <section>
@@ -113,6 +114,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      tableOfContents
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
