@@ -74,7 +74,7 @@ class ObsidianBlogPost
 
   def github_markdown_string
     @original_markdown
-      .split('<!--REJECTED IDEAS-->')
+      .split('<!--SCRATCHPAD-->')
       .first
       .gsub(/(?<!\!)\[\[(?<linktitle>.+)\]\]/, '\k<linktitle>')
       .gsub(FILE_REGEX, '![\k<file>](./\k<file>)')
@@ -82,7 +82,7 @@ class ObsidianBlogPost
 
   def to_devto_markdown
     @original_markdown
-      .split('<!--REJECTED IDEAS-->')
+      .split('<!--SCRATCHPAD-->')
       .first
       .gsub(/(?<!\!)\[\[(?<linktitle>.+)\]\]/, '\k<linktitle>')
       .gsub(FILE_REGEX) do |match|
