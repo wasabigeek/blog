@@ -24,14 +24,14 @@ First, Parnas sets the stage - he would compare two criteria for modularizing a 
 KWAC was an indexing system for technical manuals, allowing a reader to quickly find where in the manual a keyword was used. In addition to showing the keyword, KWAC would show the rest of the sentence as well, it's "context":
 ![Sample KWAC Index from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/6/61/KWAC.png)
 
-To build the KWAC index, the system would take in file of sentences. For example, given the input file:
+To build the KWAC index, the system would take in file of sentences. Say the input file looks like this:
 ```shell
 # cat input.txt
 Program Development # line 1
 On The Criteria # line 2
 ```
 
-For each line, the system looked through every word, generating a KWAC entry. This was done by "circularly shifting" words that came before the keyword, appending them to the end. Then, it would sort the entries alphabetically. For example, given the above file, we'd get:
+For each line, the system looked through every word (the "keyword"), generating a KWAC entry. This was done by "circularly shifting" words that came before the keyword, appending them to the end. Then, it would sort the entries alphabetically. For example, given the above file, we'd get:
 
 ```shell
 Criteria. On The [2] # "On The Criteria" is the original, "Criteria" was selected as the keyword here
@@ -41,14 +41,14 @@ Program Development [1]
 The Criteria. On [2]
 ```
 
-The next sections explain Parnas' modularizations. This [video explanation](https://youtu.be/R7X4B3-k7g4?t=1036) (starting from 17:16) helped me visualise and understand them, and I've borrowed and will continue to borrow liberally from it 🙇‍♂️.
+The next sections explain Parnas' modularizations. This [video explanation](https://youtu.be/R7X4B3-k7g4?t=1036) (starting from 17:16) helped me visualise and understand them, and I'm borrowing liberally from it 🙇‍♂️.
 
 ## Modularization 1: "Flowchart"
 In the first modularization, Parnas modelled the problem as a flowchart, using the individual steps to break apart the modules (an approach which I'm guilty of applying at face value):
 
 ![Criteria for Decomposition of Modules 1.png](./Criteria_for_Decomposition_of_Modules_1.png)
 
-There's a design flaw that isn't obvious in the diagram - there's some common data in memory that all modules access, each module needing to know the low-level layout of the data. I'll contrast this with Modularization 2 later.
+There's a design flaw that isn't obvious in the diagram - some common data that all modules need is stored in memory (a modern parallel might be a datastore), each module needing to know the low-level layout of the data. We'll contrast this with Modularization 2 later.
 
 Here's what each module did:
 - **Input**
