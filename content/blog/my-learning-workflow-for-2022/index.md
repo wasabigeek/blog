@@ -3,7 +3,7 @@ title: "My Learning Workflow for 2022"
 date: "2021-12-31"
 description: "A walk through my current learning workflow before diving into the thinking and frameworks behind it."
 published: true
-tags: ["learning"]
+tags: ["knowledge-management"]
 ---
 
 I've been working through a course on Coursera recently, and it's been a great opportunity to reflect on where I am in the "meta" of learning. This post walk throughs my current workflow before diving into the context behind it.
