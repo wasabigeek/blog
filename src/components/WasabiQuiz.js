@@ -68,6 +68,16 @@ const QUESTIONS = [
       "Fruit",
     ],
     correctAnswer: "Stem"
+  },
+  {
+    text: "How long does grated wasabi hold it's flavour?",
+    answers: [
+      "1 minute",
+      "5 minutes",
+      "15 minutes",
+      "30 minutes",
+    ],
+    correctAnswer: "15 minutes"
   }
 ]
 
