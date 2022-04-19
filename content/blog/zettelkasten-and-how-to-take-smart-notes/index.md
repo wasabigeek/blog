@@ -5,10 +5,10 @@ description: "A review and summary of 'How to take Smart Notes' and the Zettelka
 published: true
 tags: ["knowledge-management"]
 ---
-"Zettelkasten" is a system of note-taking and personal knowledge management geared towards productive writing and content creation. Having read briefly about the system before, I didn't expect much going into [How to take Smart Notes](https://takesmartnotes.com/), a book by Soenke Ahrens. Surprise! I left with a few new perspectives and things to ponder about, though I think a more precise book title would be _**"Note-taking to generate ideas for Writing"**_.
+If you're trying to get more productive at writing or content creation (especially long-form), I highly recommend checking out [How to take Smart Notes](https://takesmartnotes.com/). It's a book by Soenke Ahrens which describes "Zettelkasten", a system of note-taking and personal knowledge management geared towards writing. Here's a review and summary of the book, which I think would be more accurately titled _**"Note-taking to generate ideas for Writing"**_.
 
 ## Key Takeaway: Purposeful Note-taking
-To date, I had focused too much on the mechanics of Zettelkasten, without really understanding it's goals and philosophies. My [note-taking](https://wasabigeek.com/blog/my-learning-workflow-for-2022/) was an attempt to make it easier to find and retain information - in effect, trying to create a personal wiki. So this passage from the book caught my eye:
+To date, I'd been focused on the mechanics of Zettelkasten without understanding it's goals and philosophies. My [note-taking](https://wasabigeek.com/blog/my-learning-workflow-for-2022/) was an attempt to make it easier to find and retain information - in effect, creating a personal wiki. So this passage from the book caught my eye:
 
 > ...it would be rather misleading to think of his slip-box as a personal Wikipedia or a database on paper. The similarities are obviously there, but the subtle differences are what makes this system unique.
 
@@ -20,9 +20,9 @@ Eventually, you should be able to get a "critical mass" of notes, such that they
 
 > There is one reliable sign if you managed to structure your workflow according to the fact that writing is not a linear process, but a circular one: the problem of finding a topic is replaced by the problem of having too many topics to write about.
 
-How can our notes achieve this? I like to think of it as building an "idea bank" 🏦, where notes are already processed, potential ideas for future writing. They should also be connected to other relevant notes - this allows us to follow the chain of notes to find related ideas (I like to imagine this as creating literal "trains of thought" 🚂). I've done my best to summarise the process below.
+How can our notes achieve this? I like to think of it as building an "idea bank" 🏦, where notes are already processed, potential ideas for future writing. They should also be connected to other relevant notes - this allows us to follow the chain of notes to find related ideas (I like to imagine this as creating literal "trains of thought" 🚂).
 
-(Important: The process, while a little abstract, is surprisingly simple. The catch is it depends a lot on you actually processing what you read e.g. rephrasing to develop understanding, connecting the ideas to existing ideas.)
+I've attempted to summarise the process below. Important: The process, while a little abstract, is surprisingly simple. The catch is it depends a lot on you actually processing what you read e.g. rephrasing to develop understanding, connecting the ideas to existing ideas.
 
 ## Summarising Zettelkasten
 "Zettelkasten" means "slip-box" in German. This is in reference to the physical approach of writing on index cards and filing them in a box. Despite the physical roots, it's still very applicable in today's digital environment, and can be summarised as follows:
@@ -58,17 +58,17 @@ Another suggested approach for writing Permanent Notes is to write about _why so
 Still pretty vague? Unfortunately, yes (at least to me). There is a further example in the book's appendix which I'll attempt to break down in a future post.
 
 ### 3. Connect and Index Permanent Notes
-The next step is to file / store your Permanent Notes, making sure to add links to and/or from other relevant notes. This will help us find related ideas later when writing. 
+The next step is to file/store your Permanent Notes, making sure to add links to and/or from other relevant notes. This will help us find related ideas later when writing. 
 
 To further aid discoverability, keep an "index" of topics or keywords, and make sure the new Permanent Note can be reached from the index. This can be done by adding a link to the note directly next to the topic, or linking it from another note that can be reached through the index.
 
-The above index might seem irrelevant given the searching functionality in digital solutions, but Ahrens suggests our keywords be more situational ("In which circumstances will I want to stumble upon this note, even if I forget about it?") instead of purely for categorisation. His example was the following note:
+The above index might seem irrelevant given the searching functionality in digital solutions, but Ahrens suggests our keywords be more situational instead of purely for categorisation ("In which circumstances will I want to stumble upon this note, even if I forget about it?"). His example was the following note:
 
 > “Tversky/Kahneman (1973) showed in an experiment that people are more likely to overestimate the likelihood of an event to happen if they are able to conceive it well and in detail than if it were abstract.”
 
 If we took a categorisational approach, the keyword could be "misjudgements" or "experimental psychology", which he doubts could be turned into a structured argument. Instead, we should look through existing notes and think about trains of thought and questions. 
 
-If the writer was an economist working on decision-making, he or she might be thinking about how management prefers projects with easily-visible outcomes even if they're less profitable. A good keyword could then be "capital allocation problems".
+If the writer was an economist working on decision-making, he or she might be thinking about how management prefers projects with easily-visible outcomes, even if they're less profitable. A good keyword could then be "capital allocation problems".
 
 As a topic develops, you may want to add an "Overview Note" - a note which links which starts to structure thoughts and links to relevant Permanent Notes. Unfortunately the book doesn't give a clearer example of this, though Ahrens says it could be an in-between step to the development of a manuscript (e.g. laying out the arguments for the topic).
 
