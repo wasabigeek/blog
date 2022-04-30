@@ -34,19 +34,15 @@ And the workflow for this course was:
 Next I'll go deeper into my influences.
 
 ### Zettelkasten
-This is a [system of note-taking](https://en.wikipedia.org/wiki/Zettelkasten) that is often mentioned together with Niklas Luhmann, who had a massive knowledge base ([90,000 index cards](<https://en.wikipedia.org/wiki/Niklas_Luhmann#Note-taking_system_(Zettelkasten)>)) and credited the system for helping him write prolifically. He wrote more than 70 books and nearly 400 scholarly articles!
+This is a system of note-taking often mentioned together with Niklas Luhmann, who had a massive knowledge base (some say [90,000 index cards](<https://en.wikipedia.org/wiki/Niklas_Luhmann#Note-taking_system_(Zettelkasten)>)) and credited the system for helping him write prolifically. He wrote more than 70 academic books and nearly 400 scholarly articles! (Update: I did a deeper dive on Zettelkasten [here](https://wasabigeek.com/blog/zettelkasten-and-how-to-take-smart-notes/).)
 
-After multiple failed attempts at starting a hierarchical knowledge base, I've found this approach _freeing_. Previously, I often got stymied by categorisation - what title should I give this note so it's searchable? Which folder should it go into? Should I be using a tag instead?
+After multiple failed attempts at starting a hierarchical knowledge base, I've found elements of this approach _freeing_. Previously, I often got stymied by categorisation - what title should I give this note so it's searchable? Which folder should it go into? Should I be using a tag instead?
 
-Zettelkasten obviates much of that pain by eschewing hierarchical knowledge bases, favouring small, "atomic" notes with connections between them i.e. think graphs, not folders. When I need to reference something, it's often easier to find because each note is generally a cohesive topic ("atomic"), and the trail of connections make it possible to find related information or unusual connections. I think this maps a lot closer to the brain - after all, we draw metaphors or parallels from other disciplines, and may find ourselves often having to recategorise information (especially when learning something new).
+Now much of this pain is gone, as I eschew traditional hierarchy (deeply nested folders), favouring smaller, "atomic" notes with connections between them (graphs). I think this maps a lot closer to the brain - after all, we draw metaphors or parallels from other disciplines, and may find ourselves often having to recategorise information (especially when learning something new).
 
 ![ObsidianGraphView.png](./ObsidianGraphView.png)
 
-A related workflow I've adopted is a "pre-processing" step of first taking "literature notes" before converting to "permanent" notes. I think this is from [How to take Smart Notes](https://takesmartnotes.com/), though I first heard of this while watching a video by [Shu Omi](https://www.youtube.com/watch?v=rOSZOCoqOo8).
-
-Resources:
-- Shu Omi has good [introduction](https://www.youtube.com/watch?v=rOSZOCoqOo8) videos
-- [Luhmann's writeup](http://luhmann.surge.sh/communicating-with-slip-boxes) on Zettelkasten
+A related workflow I've adopted is a "pre-processing" step of first taking "literature notes" before converting to "permanent" notes.
 
 ### Tool of Choice: Obsidian
 I first attempted to maintain a Zettelkasten knowledge base in [Notion](https://www.notion.com), because:

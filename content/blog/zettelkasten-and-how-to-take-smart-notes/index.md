@@ -70,7 +70,7 @@ If we took a categorisational approach, the keyword could be "misjudgements" or 
 
 If the writer was an economist working on decision-making, he or she might be thinking about how management prefers projects with easily-visible outcomes, even if they're less profitable. A good keyword could then be "capital allocation problems".
 
-As a topic develops, you may want to add an "Overview Note" - a note which links which starts to structure thoughts and links to relevant Permanent Notes. Unfortunately the book doesn't give a clearer example of this, though Ahrens says it could be an in-between step to the development of a manuscript (e.g. laying out the arguments for the topic).
+As a topic develops, you may want to add an "Overview Note" - a note which starts to structure thoughts and links to relevant Permanent Notes. Unfortunately the book doesn't give a clearer example of this, though Ahrens says it could be an in-between step to the development of a manuscript (e.g. laying out the arguments for the topic).
 
 ### 4. Develop ideas in Permanent Notes
 Ahrens talks about developing topics, questions and projects "bottom up" from the system. To my understanding, this is more about mindset than a mechanical difference from Step 3 - instead of starting "top down" like brainstorming topics to write about, look into your notes and expand upon what looks promising (e.g. where clusters of notes form). 
