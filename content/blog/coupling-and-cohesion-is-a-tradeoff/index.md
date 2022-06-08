@@ -1,9 +1,9 @@
 ---
 title: Coupling (and Cohesion) is a Tradeoff
-date: "2022-06-04"
+date: "2022-06-08"
 description: "Coupling is usually described as something intrinsic: code is either coupled or not. But Kent Beck argues that it is always with respect to a particular change. What does that mean for us?"
-published: false
-tags: ["software-design"]
+published: true
+tags: ["software-design", "coupling-and-cohesion"]
 ---
 
 >Coupling is always with respect to a particular change
@@ -22,7 +22,7 @@ To illustrate, let's assume multiple microservices are involved in determining a
 
 In daily work, a dev working on Service A would have been able to make modifications without touching other services. From that perspective, the services were loosely coupled.
 
-However, to extract out the "Algorithm", all the services would need to be modified i.e. from this perspective, they are coupled.
+However, to extract out "the algorithm", all the services would need to be modified i.e. from this perspective, they are coupled.
 
 What I took away from this:
 - not all coupling is discernible from the code - observe what needs to be modified to satisfy new changes or requirements.
@@ -45,12 +45,26 @@ Even if we break our logic into small, composable parts, those parts need to be 
 
 The Twitter example shows that a choice was made to decouple a certain "axis", spreading the generation of a user's feed across multiple services. This allowed the company to iterate and evolve quickly, with the tradeoff that it was difficult to extract and isolate the algorithm as a whole.
 
-So perhaps it's worth thinking of coupling as a tradeoff, rather than a fixed property. We decide certain changes are more important to enable, and decouple along those axes.
+So perhaps it's worth thinking of coupling as a tradeoff, rather than a fixed property. We decide certain changes are more important to enable today and decouple along those axes, knowing the result could still be coupled from certain perspectives.
 
 ## Refactoring is important
-Given that the degree of coupling depends on the specific change, and given that coupling is not always discernible or we make conscious tradeoffs, we should be prepared to revise our design as new changes are required. So getting good at refactoring should be an essential part of our toolbox for attaining "low coupling, high cohesion".
+Earlier, I chose to emphasise observation of changes over speculation, because it's very easy to get it wrong and cause more harm than good. It's more important to be able to adapt, and that's why it's important to get good at refactoring. To quote Kent Beck from [elsewhere](https://tidyfirst.substack.com/p/tldr-coupling-and-later-cohesion/comment/4965495?s=r):
+
+> You might be able to guess that I care less about predicting the future than in doing a good job with the present and adapting flexibly to learning and surprises.
+
+ I'll lean on Beth Andres-Beck's example again, where he too invokes YAGNI (you ain't gonna need it):
+
+> Imagine that Twitter had guessed that a billionaire would get mad about an ad they showed him. They might have spent a similar amount of time & effort as this project will take today making the ad targeting logic cohesive & decoupled. The code still wouldn't be any more cohesive or loosely coupled with regards to the change that \[Elon Musk\] actually wants. It would have cost a bunch of money to do, making all the other work over the years harder, and it still wouldn't make this change any easier.
+>
+> Attempting to anticipate the future doesn't help us build systems that can adapt to it.
+
+So, prioritise getting good at (1) observing the system to identify coupling and (2) knowing how to refactor safely, rather than getting better at speculating future requirements. Refactoring should be seen as an essential part of our toolbox for attaining "low coupling and high cohesion".
+
+(Note that the above refers to _guessing future requirements_, as opposed to the requirements themselves being speculative. I think the latter is somewhat true most of the time - you don't truly know if a feature is going to be a success until it's out in the wild.)
 
 ## Afterword
-This was pretty abstract. I hope to revisit this with more concrete, personal examples. In the meantime, I'd love to hear your thoughts and discuss further - feel free to tweet or leave a comment!
+This was pretty abstract. I hope to revisit this with more concrete, personal examples. Also, few things are truly black-and-white in software design - let's see if I still agree with these takeaways or develop more nuance as time progresses.
+
+In the meantime, I'd love to hear your thoughts and discuss further - feel free to tweet or leave a comment!
 
 
