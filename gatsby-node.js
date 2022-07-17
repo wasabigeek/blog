@@ -22,6 +22,8 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 tags
+                date
+                updated_date
               }
             }
           }
@@ -48,7 +50,8 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: currentPost.node.fields.slug,
         previous,
         next,
-        relatedPosts: filterRelatedPosts(posts, currentPost)
+        relatedPosts: filterRelatedPosts(posts, currentPost),
+        updatedDate: currentPost.node.frontmatter.updated_date || currentPost.node.frontmatter.date,
       },
     })
   })

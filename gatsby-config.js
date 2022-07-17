@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const siteUrl = process.env.URL || `https://www.wasabigeek.com`
+
 module.exports = {
   siteMetadata: {
     title: `wasabigeek`,
@@ -10,7 +12,7 @@ module.exports = {
       summary: `Business grad turned Software Engineer, living in sunny 🇸🇬. I write mostly about Ruby and Rails, not wasabi (sorry!).`,
     },
     description: `A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.`,
-    siteUrl: `https://www.wasabigeek.com`,
+    siteUrl,
     social: {
       twitter: `wasabigeek`,
     },
@@ -154,5 +156,34 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `{
+          allSitePage {
+            nodes {
+              path
+              pageContext
+            }
+          }
+        }`,
+        // not sure why including siteUrl in the query sometimes fails
+        resolveSiteUrl: () => siteUrl,
+        excludes: [{}], // need at least one item in array for filterPages to work
+        filterPages: (page, _excludedRoute) => {
+          // return true to exclude
+          return !page.path.includes("/blog/");
+        },
+        serialize: (page, { resolvePagePath }) => {
+          return {
+            url: `${resolvePagePath(page)}`,
+            // NOTE: Google ignores changefreq and priority, see https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap#general-guidelines
+            changefreq: `monthly`,
+            priority: 0.7,
+            lastmod: page.pageContext.updatedDate,
+          }
+        }
+      },
+    },
   ],
 }
