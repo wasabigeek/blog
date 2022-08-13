@@ -5,9 +5,9 @@ description: "The visitor design pattern separates the operation to be performed
 published: true
 tags: ["design-patterns", "software-design"]
 ---
- In this post, we'll learn about the Visitor design pattern and it's tradeoffs by looking at a real world example: Rubocop, a Ruby linting[^2] and formatting library.
+ In this post, we'll learn about the Visitor design pattern and it's tradeoffs by looking at a real world example: Rubocop, a Ruby linting and formatting library.
  
-[^2]: A tool that checks raw source code against a set of rules e.g. for common errors or conformance to a style guide. See [Wikipedia](https://en.m.wikipedia.org/wiki/Lint_(software)).
+
 
 ## What is the Visitor design pattern?
 The visitor design pattern separates the operation to be performed from a complex object structure (e.g. a tree whose nodes have many types).
@@ -17,15 +17,12 @@ The visitor design pattern separates the operation to be performed from a comple
 This makes it easier to introduce new operations ("visitors") for the same structure, at the cost that changing the object structure requires all visitors to be changed. So this pattern works best when changes to the underlying structure are rare, and we expect many different operations to be introduced.
 
 ## What is Rubocop?
-In Rubocop, each linting rule is called a "cop" and follows a visitor-inspired pattern. In particular, the pattern enables these features[^3]:
+Rubocop is a linter[^2] and formatter, which is a fancy way of saying that it checks the raw source code against a set of rules (e.g. for common errors or conformance to a style guide) and can autocorrect it. Each rule in Rubocop is called a "cop" and follows a visitor-inspired pattern.
+[^2]: See [Wikipedia](https://en.m.wikipedia.org/wiki/Lint_(software)).
 
-[^3]: Taken from Rubocop's [feature list](https://docs.rubocop.org/rubocop/1.33/index.html)
-- "Ability to disable certain cops only for specific files or parts of files"
-- "It’s easy to extend RuboCop with custom cops and formatters"
+Note that Rubocop doesn't follow the classical visitor implementation[^3] exactly, but separates concerns similarly. We'll look at how the pattern is implemented, before looking at how it powers each of the above features.
 
-Note that Rubocop doesn't follow the classical visitor implementation[^4] exactly, but separates concerns similarly. We'll look at how the pattern is implemented, before looking at how it powers each of the above features.
-
-[^4]: See class diagram in [Design Patterns book](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8), or on [refactoring.guru](https://refactoring.guru/design-patterns/visitor#structure).
+[^3]: See class diagram in Visitor chapter of [Design Patterns book](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8), or on [refactoring.guru](https://refactoring.guru/design-patterns/visitor#structure).
 
 ## Object Structure: Abstract Syntax Tree (AST)
 Before running any cops, Rubocop first uses the [parser](https://github.com/whitequark/parser) library to create an Abstract Syntax Tree representing your Ruby code. This makes the responsibility of cops much simpler: they don't have to worry about syntax correctness, and because code is pre-grouped and categorised in the tree, it's easier to know when a linting rule should be triggered.
@@ -111,9 +108,9 @@ The actual implementation is a little convoluted, with a fair amount of metaprog
 - the "original" `on_#{node_type}` methods will also execute `super`, which calls an "inherited" `on_#{node_type}` method (again defined in `Rubocop::AST::Traversal` via metaprogramming, see an example for [on_send](https://github.com/rubocop/rubocop-ast/blob/5b53037d322275cdd5082e4164f976146cc6c014/lib/rubocop/ast/traversal.rb#L154-L160)).
 - the "inherited" method loops through child nodes, again invoking the original `on_#{node_type}` methods in Commissioner, this time with the child nodes.
 
-I haven't dug up the *why* behind this particular design, my guess so far it (1) metaprogramming makes it easier to support new node types, and (2) this was a way to separate the traversal logic from the cop execution logic.
+I haven't dug up the *why* behind this particular design, my guess so far is (1) metaprogramming makes it easier to support new node types, and (2) this was a way to separate the traversal logic from the cop execution logic.
 
-Note that the classical visitor implementation doesn't dictate where traversal logic should go. In Rubocop, the main traversal is separate from both object structure and visitors, but in other situations it might work better to put the logic in the object structure (or some parts of it, e.g. composite elements) or in the visitor itself (e.g. if different visitors need to traverse in a different order)[^5].
+Note that the classical visitor implementation doesn't dictate where traversal logic should go. In Rubocop, the main traversal is separate from both object structure and visitors, but in other situations it might work better to put the logic in the object structure (or some parts of it, e.g. composite elements might encapsulate their traversal) or in the visitor itself (e.g. if different visitors need to traverse in a different order)[^5].
 
 [^5]: See "Who is responsible for traversing the object structure?" in Visitor chapter,  [Design Patterns book](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8)
 
@@ -121,26 +118,18 @@ Note that the classical visitor implementation doesn't dictate where traversal l
 Now that we know how Rubocop implements a visitor-inspired pattern, let's briefly examine the benefits and cost of the design.
 
 ### Benefit: Encapsulation of each Linting Rule in a Visitor
-From the aforementioned Rubocop feature list:
-
-> Ability to disable certain cops only for specific files or parts of files
-
-Since each linting and formatting rule is encapsulated in a cop, it's easy to turn off or restrict the scope of a particular cop by excluding that cop during `#investigate`. In Rubocop, you can disable cops with a [small config change](https://docs.rubocop.org/rubocop/1.34/configuration.html#enabled).
+Each cop encapsulates the linting and formatting logic for a single rule, making it simple to disable or restrict the scope of that cop, without affecting other cops. In Rubocop, you can disable cops via a [small config change](https://docs.rubocop.org/rubocop/1.34/configuration.html#enabled). The traversal logic will then ignore those cops.
 
 ### Benefit: Ease of extension by adding new Visitors
-Again, from the aforementioned Rubocop feature list:
-
-> It’s easy to extend RuboCop with custom cops and formatters
-
-Because the object structure and traversal logic is separate from the visitor logic, it's easy to add and enable new [custom cops](https://docs.rubocop.org/rubocop/1.33/development.html), without needing to touch the object structure or traversal code.
+The object structure and traversal logic is separate from the visitor logic - this makes it easy for a user of the gem (us!) to add and enable new [custom cops](https://docs.rubocop.org/rubocop/1.33/development.html), without needing to touch the object structure or traversal code.
 
 ### Cost: Coupling to Object Structure
 Changes to the underlying object structure may ripple through all visitors. For example:
 - If node categorisation changes, cops may no longer be checking correctly for those types e.g. in Ruby 3, how pattern matching was parsed [changed slightly](https://github.com/rubocop/rubocop/pull/9873).
-- If the hierarchy changes (e.g. new node types are introduced), it could break traversal. Arguably, this can be mitigated through more abstract traversal (e.g. [node pattern](https://docs.rubocop.org/rubocop-ast/node_pattern.html), which reminds me a lot of CSS selectors).
+- If the hierarchy changes and ordering of nodes change, it could break traversal. We saw this coupling earlier in `DefEndAlignment#on_send`, which expects that `def` nodes are children of `send`. If that changes, the cop wouldn't work properly. Arguably, this is rare in Ruby's case, and can also be mitigated through more abstract traversal (e.g. [node pattern](https://docs.rubocop.org/rubocop-ast/node_pattern.html), which reminds me a lot of CSS selectors).
 
 ### Cost: Reduced encapsulation of Object Structure
-Additionally, depending on the needs of visitors, objects in the structure may need to expose more information, potentially breaking encapsulation. In our example, Rubocop cops need to know about positions in the actual source code through methods like `#loc`, whereas a program that is just emulating the Ruby interpreter and wants to execute the nodes does not.
+Depending on the needs of visitors, objects in the structure may need to expose more information, potentially breaking encapsulation. In our example, Rubocop cops need to know about positions in the actual source code through methods like `#loc`, which is less useful for a program emulating the Ruby interpreter - it only needs to execute the logic represented by the node types.
 
 ## Afterword
 I hope this helped concretise when and why you might want to use the visitor pattern. Here are some other examples you may want to look into:
