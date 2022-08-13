@@ -2,7 +2,7 @@
 title: "Visitor Pattern in Ruby: Examples from Rubocop"
 date: "2022-08-09"
 description: "The visitor design pattern separates the operation to be performed from the object structure. We look at a concrete implementation in Rubocop, a Ruby linting and formatting library."
-published: false
+published: true
 tags: ["design-patterns", "software-design"]
 ---
  In this post, we'll learn about the Visitor design pattern and it's tradeoffs by looking at a real world example: Rubocop, a Ruby linting[^2] and formatting library.
