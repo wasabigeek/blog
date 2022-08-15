@@ -10,19 +10,19 @@ tags: ["design-patterns", "software-design"]
 
 
 ## What is the Visitor design pattern?
-The visitor design pattern separates the operation to be performed from a complex object structure (e.g. a tree whose nodes have many types).
+The visitor design pattern separates the operation to be performed from a complex object structure (e.g. a graph whose nodes have many types).
 
 ![visitor.png](./visitor.png)
 
-This makes it easier to introduce new operations ("visitors") for the same structure, at the cost that changing the object structure requires all visitors to be changed. So this pattern works best when changes to the underlying structure are rare, and we expect many different operations to be introduced.
+This makes it easy to introduce new operations ("visitors") for the same structure, but comes at a cost - changing the object structure requires all visitors to be changed. So this pattern works best when changes to the underlying structure are rare, and we expect many different operations to be introduced.
 
 ## What is Rubocop?
-Rubocop is a linter[^2] and formatter, which is a fancy way of saying that it checks the raw source code against a set of rules (e.g. for common errors or conformance to a style guide) and can autocorrect it. Each rule in Rubocop is called a "cop" and follows a visitor-inspired pattern.
-[^2]: See [Wikipedia](https://en.m.wikipedia.org/wiki/Lint_(software)).
+Rubocop is a linter[^1] and formatter, which is a fancy way of saying that it checks the raw source code against a set of rules (e.g. for common errors or conformance to a style guide) and can autocorrect it. Each rule in Rubocop is called a "cop" and follows a visitor-inspired pattern.
+[^1]: See [Wikipedia](https://en.m.wikipedia.org/wiki/Lint_(software)).
 
-Note that Rubocop doesn't follow the classical visitor implementation[^3] exactly, but separates concerns similarly. We'll look at how the pattern is implemented, before looking at how it powers each of the above features.
+Note that Rubocop doesn't follow the classical visitor implementation[^2] exactly, but separates concerns similarly. We'll look at how the pattern is implemented, before looking at how it powers each of the above features.
 
-[^3]: See class diagram in Visitor chapter of [Design Patterns book](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8), or on [refactoring.guru](https://refactoring.guru/design-patterns/visitor#structure).
+[^2]: See class diagram in Visitor chapter of [Design Patterns book](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8), or on [refactoring.guru](https://refactoring.guru/design-patterns/visitor#structure).
 
 ## Object Structure: Abstract Syntax Tree (AST)
 Before running any cops, Rubocop first uses the [parser](https://github.com/whitequark/parser) library to create an Abstract Syntax Tree representing your Ruby code. This makes the responsibility of cops much simpler: they don't have to worry about syntax correctness, and because code is pre-grouped and categorised in the tree, it's easier to know when a linting rule should be triggered.
@@ -110,9 +110,9 @@ The actual implementation is a little convoluted, with a fair amount of metaprog
 
 I haven't dug up the *why* behind this particular design, my guess so far is (1) metaprogramming makes it easier to support new node types, and (2) this was a way to separate the traversal logic from the cop execution logic.
 
-Note that the classical visitor implementation doesn't dictate where traversal logic should go. In Rubocop, the main traversal is separate from both object structure and visitors, but in other situations it might work better to put the logic in the object structure (or some parts of it, e.g. composite elements might encapsulate their traversal) or in the visitor itself (e.g. if different visitors need to traverse in a different order)[^5].
+Note that the classical visitor implementation doesn't dictate where traversal logic should go. In Rubocop, the main traversal is separate from both object structure and visitors, but in other situations it might work better to put the logic in the object structure (or some parts of it, e.g. composite elements might encapsulate their traversal) or in the visitor itself (e.g. if different visitors need to traverse in a different order)[^3].
 
-[^5]: See "Who is responsible for traversing the object structure?" in Visitor chapter,  [Design Patterns book](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8)
+[^3]: See "Who is responsible for traversing the object structure?" in Visitor chapter,  [Design Patterns book](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8)
 
 ## Tradeoffs
 Now that we know how Rubocop implements a visitor-inspired pattern, let's briefly examine the benefits and cost of the design.
