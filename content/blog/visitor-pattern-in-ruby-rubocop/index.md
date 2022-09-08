@@ -1,13 +1,13 @@
 ---
 title: "Visitor Pattern in Ruby: Examples from Rubocop"
 date: "2022-08-09"
+updated_date: "2022-09-08"
 description: "The visitor design pattern separates the operation to be performed from the object structure. We look at a concrete implementation in Rubocop, a Ruby linting and formatting library."
 published: true
 tags: ["design-patterns", "software-design"]
 ---
  In this post, we'll learn about the Visitor design pattern and it's tradeoffs by looking at a real world example: Rubocop, a Ruby linting and formatting library.
  
-
 
 ## What is the Visitor design pattern?
 The visitor design pattern separates the operation to be performed from a complex object structure (e.g. a graph whose nodes have many types).
@@ -20,16 +20,16 @@ This makes it easy to introduce new operations ("visitors") for the same structu
 Rubocop is a linter[^1] and formatter, which is a fancy way of saying that it checks the raw source code against a set of rules (e.g. for common errors or conformance to a style guide) and can autocorrect it. Each rule in Rubocop is called a "cop" and follows a visitor-inspired pattern.
 [^1]: See [Wikipedia](https://en.m.wikipedia.org/wiki/Lint_(software)).
 
-Note that Rubocop doesn't follow the classical visitor implementation[^2] exactly, but separates concerns similarly. We'll look at how the pattern is implemented, before looking at how it powers each of the above features.
+Note that Rubocop doesn't follow the classical visitor implementation[^2] exactly, but separates concerns similarly. We'll look at how it tweaks the pattern, before describing the tradeoffs with real-life examples.
 
 [^2]: See class diagram in Visitor chapter of [Design Patterns book](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8), or on [refactoring.guru](https://refactoring.guru/design-patterns/visitor#structure).
 
 ## Object Structure: Abstract Syntax Tree (AST)
-Before running any cops, Rubocop first uses the [parser](https://github.com/whitequark/parser) library to create an Abstract Syntax Tree representing your Ruby code. This makes the responsibility of cops much simpler: they don't have to worry about syntax correctness, and because code is pre-grouped and categorised in the tree, it's easier to know when a linting rule should be triggered.
+Before running any cops, Rubocop first uses the [rubocop-ast](https://github.com/rubocop/rubocop-ast) library to create an Abstract Syntax Tree representing your Ruby code. This makes the responsibility of cops much simpler: they don't have to worry about syntax correctness, and because code is pre-grouped and categorised in the tree, it's easier to know when a linting rule should be triggered.
 
-Let's look at a simple example (try it in `irb`!):
+Let's look at a simple example:
 ```ruby
-require 'parser/current'
+require 'rubocop-ast'
 
 code_string = <<~CODE
   private def sum(a, b)
@@ -40,7 +40,8 @@ code_string = <<~CODE
 CODE
 # => "private def sum(a, b)\n a + b\nend\n\nsum(1, 2)\n"
 
-Parser::CurrentRuby.parse(code_string)
+processed_source = RuboCop::AST::ProcessedSource.new(code_string, 3.1)
+processed_source.ast
 # =>
 # s(:begin,
 #   s(:send, nil, :private,
@@ -136,4 +137,7 @@ I hope this helped concretise when and why you might want to use the visitor pat
 - `nokogiri`, a XML/HTML parsing library, has a [CSS::XPathVisitor](https://github.com/sparklemotion/nokogiri/blob/148bdf5edc1f9963274b57ae899b4f651b53315b/lib/nokogiri/css/xpath_visitor.rb).
 - `syntax-tree`, another Ruby parser, has [visitor support](https://github.com/ruby-syntax-tree/syntax_tree/blob/main/lib/syntax_tree/visitor.rb) (see [PR](https://github.com/ruby-syntax-tree/syntax_tree/pull/40/files))
 - `graphql-ruby`, a GraphQL parser, also has an [AST Visitor](https://graphql-ruby.org/language_tools/visitor.html)
+
+I was invited to share about this at RubySG, here's a video with some cold jokes:
+`youtube: [Talk: How Rubocop uses the Visitor Pattern](https://www.youtube.com/watch?v=psOz2Lgp6KU)`
 
