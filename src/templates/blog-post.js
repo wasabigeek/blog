@@ -37,6 +37,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             }}
           >
             {post.frontmatter.date}
+            {post.frontmatter.updated_date ? ` (Updated: ${post.frontmatter.updated_date})` : null}
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -116,6 +117,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        updated_date(formatString: "MMMM DD, YYYY")
         description
       }
     }
