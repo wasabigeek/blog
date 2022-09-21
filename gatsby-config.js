@@ -198,5 +198,11 @@ module.exports = {
         }
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://wasabigeek.com`,
+      },
+    },
   ],
 }
