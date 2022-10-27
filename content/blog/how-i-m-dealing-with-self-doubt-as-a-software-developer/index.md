@@ -2,7 +2,7 @@
 title: "How I'm dealing with Self-Doubt as a Software Developer"
 date: "2022-10-24"
 description: "A collection of resources and thought processes which I've found helpful for dealing with self-doubt."
-published: false
+published: true
 tags: ["imposter-syndrome","self-doubt"]
 ---
 
