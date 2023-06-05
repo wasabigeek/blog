@@ -39,7 +39,7 @@ const ProjectsPage = ({ data, location }) => {
         }}
       >
         <ProjectListing
-          link={'https://rails.help/'}
+          link={'https://wasabigeek.github.io/railshelp/'}
           title='rails.help'
         >
           A GUI for Rails generators, ironically built in React.
@@ -51,7 +51,7 @@ const ProjectsPage = ({ data, location }) => {
           Drum-kit sticking orchestration, using Vexflow and WebAudio.
         </ProjectListing>
         <ProjectListing
-          link={'https://github.com/wasabigeek/cahoots'}
+          link={'https://github.com/wasabigeek/cahoots/'}
           title='Cahoots'
         >
           A "kahoot!" clone, built in React and Firebase.
