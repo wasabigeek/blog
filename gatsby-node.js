@@ -3,7 +3,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const { filterRelatedPosts } = require("./gatsby_node_utils/filterRelatedPosts")
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const result = await graphql(
@@ -55,6 +55,9 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  // some random site is sending traffic here :/
+  createRedirect({ fromPath: '/blog/dont-give-up-on-your-rails-generators/null', toPath: '/blog/dont-give-up-on-your-rails-generators/', isPermanent: true })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
