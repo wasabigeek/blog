@@ -39,6 +39,12 @@ const ProjectsPage = ({ data, location }) => {
         }}
       >
         <ProjectListing
+          link={'https://t.me/parkcheep_bot'}
+          title='Parkcheep'
+        >
+          A telegram bot for finding cheap parking in Singapore.
+        </ProjectListing>
+        <ProjectListing
           link={'https://wasabigeek.github.io/railshelp/'}
           title='rails.help'
         >
