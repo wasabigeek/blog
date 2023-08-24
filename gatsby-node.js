@@ -54,10 +54,9 @@ exports.createPages = async ({ graphql, actions }) => {
         updatedDate: currentPost.node.frontmatter.updated_date || currentPost.node.frontmatter.date,
       },
     })
+    // some random site is sending traffic here :/
+    createRedirect({ fromPath: `${currentPost.node.fields.slug}/null`, toPath: currentPost.node.fields.slug, isPermanent: true })
   })
-
-  // some random site is sending traffic here :/
-  createRedirect({ fromPath: '/blog/dont-give-up-on-your-rails-generators/null', toPath: '/blog/dont-give-up-on-your-rails-generators/', isPermanent: true })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
