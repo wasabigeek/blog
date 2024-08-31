@@ -42,7 +42,7 @@ class ObsidianBlogPost
   attr_reader :original_filename
 
   def initialize(original_markdown, original_filename:)
-    @original_markdown = original_markdown
+    @original_markdown = original_markdown.force_encoding(Encoding::UTF_8)
     @original_filename = original_filename
   end
 
