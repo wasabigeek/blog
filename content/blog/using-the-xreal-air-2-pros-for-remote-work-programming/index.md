@@ -1,8 +1,8 @@
 ---
 title: Using the XReal AIR 2 Pros for Remote Work (Programming)
 date: 2024-08-31
-description: I'd been pondering adding a pair of AR glasses to my remote work setup, as an alternative to a portable monitor. Having seen good reviews and physically trying the XREAL Airs in Japan, I picked up a pair when they went on sale - just in time for a two week trip, where I'd be working remotely. The verdict after two weeks? I'll keep using them for my travel work setup, but I’m not giving up my 27-inch monitor at home.
-published: false
+description: I'd been pondering adding a pair of AR glasses to my remote work setup, as an alternative to a portable monitor. Having seen good reviews and physically trying the XREAL Airs in Japan, I picked up a pair recently. Here's how it went...
+published: true
 tags:
   - gear
 ---
@@ -28,7 +28,7 @@ One of the reasons I went for the Pro, instead of the base model, was the chroma
 
 With prescription lenses, that use case kinda works, but one oddity is the displays cover half of the vertical area of the glasses, so you get this horizontal line across your field of view, with different tints on both sides. The glasses also remain in the “middle” tint setting while unplugged, so it's still like wearing sunglasses. In general, I still found myself taking off the XREALs and putting on my own glasses about 50% of the time. ![XREAL Airs displays in field of view.jpeg](./XREAL_Airs_displays_in_field_of_view.jpeg)
 For the above reasons, they're not something I would wear outside.
-## Using the XREAL without the Beam
+## Using the XREALs without the Beam
 
 When plugging the XREAL directly into a compatible USB-C device like a Macbook or iPhone 15, the glasses act as an external display, mirroring or extending your device’s screen. The image is sharp and text is very readable, but it can be quite hard to see the edges since they stay in your peripheral vision. The screen moves with your head, so if you want to focus on a corner you have to keep your head still and move just your eyes. As such, it’s great for watching video, but for doing work you’ll have to keep what you’re reading in the center of the screen.
 
