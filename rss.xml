@@ -1,4 +1,220 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek's blog]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 31 Aug 2024 07:22:25 GMT</lastBuildDate><item><title><![CDATA[How I'm dealing with Self-Doubt as a Software Developer]]></title><description><![CDATA[As a software developer, I’ve found self-doubt tends to intensify when: comparing oneself with others e.g. can I really be as good as person…]]></description><link>https://www.wasabigeek.com/blog/how-i-m-dealing-with-self-doubt-as-a-software-developer/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/how-i-m-dealing-with-self-doubt-as-a-software-developer/</guid><pubDate>Mon, 24 Oct 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;As a software developer, I’ve found self-doubt tends to intensify when:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[wasabigeek's blog]]></title><description><![CDATA[A blog by a Business grad turned Software Engineer, mostly relating to Ruby and Rails. Nothing to do with actual wasabi.]]></description><link>https://www.wasabigeek.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 31 Aug 2024 07:30:33 GMT</lastBuildDate><item><title><![CDATA[Using the XReal AIR 2 Pros for Remote Work (Programming)]]></title><description><![CDATA[I’d been pondering adding a pair of AR glasses to my remote work setup, as an alternative to a portable monitor. Having seen good reviews…]]></description><link>https://www.wasabigeek.com/blog/using-the-xreal-air-2-pros-for-remote-work-programming/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/using-the-xreal-air-2-pros-for-remote-work-programming/</guid><pubDate>Sat, 31 Aug 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I’d been pondering adding a pair of AR glasses to my remote work setup, as an alternative to a portable monitor. Having seen good reviews and physically trying the XREAL Airs in Japan, I picked up a pair when they went on sale - just in time for a two week trip, where I’d be working remotely. The verdict after two weeks? I’ll keep using them for my travel work setup, but I’m not giving up my 27-inch monitor at home.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f16d227f9aa71964ec1d91be037ced22/afb4a/XREAL_Air_2_Pros_plugged_in_without_the_nosepads.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEDAgT/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAGckyuYyI//xAAYEAACAwAAAAAAAAAAAAAAAAAAAhESE//aAAgBAQABBQJlzaWYsNNbLnnJ/8QAFREBAQAAAAAAAAAAAAAAAAAAERD/2gAIAQMBAT8BSf/EABYRAQEBAAAAAAAAAAAAAAAAAAEQEv/aAAgBAgEBPwHIz//EAB0QAAICAQUAAAAAAAAAAAAAAAABAhEiECEyYYH/2gAIAQEABj8C5Iar29LcnJ9meVmzP//EABsQAQADAAMBAAAAAAAAAAAAAAEAESExQVGR/9oACAEBAAE/IX0FfCCQGFw4lPUoIg2PD5FLhseq2X1i+z//2gAMAwEAAgADAAAAEPAf/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAwEBPxC8JkZ//8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxDY0Q//xAAcEAEBAAMBAAMAAAAAAAAAAAABEQAhMUGBkfD/2gAIAQEAAT8QVm+WgF5+8x2Edw4fJM2eJ4vMYkBtg6pXmH6nCCZKganPrEAxDURz/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;XREAL Air 2 Pros plugged in without the nosepads.jpeg&quot;
+        title=&quot;XREAL Air 2 Pros plugged in without the nosepads.jpeg&quot;
+        src=&quot;/static/f16d227f9aa71964ec1d91be037ced22/1c72d/XREAL_Air_2_Pros_plugged_in_without_the_nosepads.jpg&quot;
+        srcset=&quot;/static/f16d227f9aa71964ec1d91be037ced22/a80bd/XREAL_Air_2_Pros_plugged_in_without_the_nosepads.jpg 148w,
+/static/f16d227f9aa71964ec1d91be037ced22/1c91a/XREAL_Air_2_Pros_plugged_in_without_the_nosepads.jpg 295w,
+/static/f16d227f9aa71964ec1d91be037ced22/1c72d/XREAL_Air_2_Pros_plugged_in_without_the_nosepads.jpg 590w,
+/static/f16d227f9aa71964ec1d91be037ced22/a8a14/XREAL_Air_2_Pros_plugged_in_without_the_nosepads.jpg 885w,
+/static/f16d227f9aa71964ec1d91be037ced22/fbd2c/XREAL_Air_2_Pros_plugged_in_without_the_nosepads.jpg 1180w,
+/static/f16d227f9aa71964ec1d91be037ced22/afb4a/XREAL_Air_2_Pros_plugged_in_without_the_nosepads.jpg 4284w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;the-setup&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#the-setup&quot; aria-label=&quot;the setup permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;The setup&lt;/h2&gt;
+&lt;p&gt;I got the XREAL Air 2 Pros. The key difference from the base model is that this comes with chromatic lenses, allowing you to change the tint with the press of a button, and allowing the lenses to get dark enough that you can skip using the lens cover.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/9fefee3ccdcdc5fdb1fc49f49018137e/XREAL_Air_chromatic_lenses.gif&quot; alt=&quot;XREAL Air chromatic lenses.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;In addition, I got:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;the Beam device&lt;/strong&gt; - I’m not cleared to install the Nebula software on my work laptop. That would have allowed for screen anchoring, which the wisdom of Reddit said was important. So I got the Beam just for anchoring 😑.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;prescription lenses from &lt;a href=&quot;https://honsvr.com/product/oculus-quest-2-prescription-lens-adapter/?gad_source=1&amp;#x26;gclid=Cj0KCQjw28W2BhC7ARIsAPerrcLYM1RZBwfY9rxZkdQlTJuISora-S-vfdDIpMx0emgGkGgoRquoPhMaAhSvEALw_wcB&quot;&gt;HonsVR&lt;/a&gt;&lt;/strong&gt; (~US$76 with SPH prescription and a blue light filter). I’m not a fan of contact lens, so this was the only way for me to comfortably use the glasses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/45612179facb1265fe0c08f7d7190404/9568a/xreal_air2_pros_with_prescription_lenses.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAFajyTNAf/EABoQAQACAwEAAAAAAAAAAAAAAAIBBAADEiH/2gAIAQEAAQUCNv2bQjIsdZOkpPUVIjg//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAgIDAQAAAAAAAAAAAAAAAAECEQMiMVH/2gAIAQEABj8CanFnGa45sv0vjKR//8QAGxABAAMBAAMAAAAAAAAAAAAAAQARMUEhUYH/2gAIAQEAAT8hAAEamUvypWsTPBHjXpJWnoy4e11Wf//aAAwDAQACAAMAAAAQ7/8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAQADAQADAAAAAAAAAAAAAREAITFRQXGx/9oACAEBAAE/ENXLQCk6d3vDSmgx+b7ysFNIIPn5h2Io5G93KXB3KEgCBDT5lcNKBtXP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;xreal_air2_pros_with_prescription_lenses.jpeg&quot;
+        title=&quot;xreal_air2_pros_with_prescription_lenses.jpeg&quot;
+        src=&quot;/static/45612179facb1265fe0c08f7d7190404/1c72d/xreal_air2_pros_with_prescription_lenses.jpg&quot;
+        srcset=&quot;/static/45612179facb1265fe0c08f7d7190404/a80bd/xreal_air2_pros_with_prescription_lenses.jpg 148w,
+/static/45612179facb1265fe0c08f7d7190404/1c91a/xreal_air2_pros_with_prescription_lenses.jpg 295w,
+/static/45612179facb1265fe0c08f7d7190404/1c72d/xreal_air2_pros_with_prescription_lenses.jpg 590w,
+/static/45612179facb1265fe0c08f7d7190404/a8a14/xreal_air2_pros_with_prescription_lenses.jpg 885w,
+/static/45612179facb1265fe0c08f7d7190404/fbd2c/xreal_air2_pros_with_prescription_lenses.jpg 1180w,
+/static/45612179facb1265fe0c08f7d7190404/9568a/xreal_air2_pros_with_prescription_lenses.jpg 3024w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;using-the-xreals-unplugged&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#using-the-xreals-unplugged&quot; aria-label=&quot;using the xreals unplugged permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using the XREALs unplugged&lt;/h2&gt;
+&lt;p&gt;The glasses are noticeably larger than regular glasses or sunglasses. They also sit much further from your face, enough far that Face ID didn’t work for me. Despite the RayBan-esque styling, it’s pretty obvious they’re not typical sunglasses. That said, at 75g, they were lightweight - I never felt like they weighed on my nose too much.&lt;/p&gt;
+&lt;p&gt;One of the reasons I went for the Pro, instead of the base model, was the chromatic lenses. These would allow me to control the darkness of the glasses without needing the provided cover. In theory, I could then unplug and wear the glasses to go bathroom or grab a drink, instead of taking them off and wearing my glasses each time.&lt;/p&gt;
+&lt;p&gt;With prescription lenses, that use case kinda works, but one oddity is the displays cover half of the vertical area of the glasses, so you get this horizontal line across your field of view, with different tints on both sides. The glasses also remain in the “middle” tint setting while unplugged, so it’s still like wearing sunglasses. In general, I still found myself taking off the XREALs and putting on my own glasses about 50% of the time. &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/30b84abcd739ed8d520acc11974db8e5/4239e/XREAL_Airs_displays_in_field_of_view.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEA//EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHCxKJFKQ//xAAZEAACAwEAAAAAAAAAAAAAAAABAgADBCH/2gAIAQEAAQUCq0isHUghtaLn69Su0//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EAB8QAAEDAwUAAAAAAAAAAAAAAAACERIBAxAhIjGBkf/aAAgBAQAGPwJoHCvDS0upubolj//EABwQAAICAgMAAAAAAAAAAAAAAAERACExUUFhcf/aAAgBAQABPyERMxtGHl6NFGK7aUpElfDMalE57jn/2gAMAwEAAgADAAAAEOw//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAQABBAMAAAAAAAAAAAAAAREAITFBcWGBof/aAAgBAQABPxAaKtbL3rcCIWwUdhzyiRCvS4FFAUSxxrtjVUMkH62xBn//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;XREAL Airs displays in field of view.jpeg&quot;
+        title=&quot;XREAL Airs displays in field of view.jpeg&quot;
+        src=&quot;/static/30b84abcd739ed8d520acc11974db8e5/1c72d/XREAL_Airs_displays_in_field_of_view.jpg&quot;
+        srcset=&quot;/static/30b84abcd739ed8d520acc11974db8e5/a80bd/XREAL_Airs_displays_in_field_of_view.jpg 148w,
+/static/30b84abcd739ed8d520acc11974db8e5/1c91a/XREAL_Airs_displays_in_field_of_view.jpg 295w,
+/static/30b84abcd739ed8d520acc11974db8e5/1c72d/XREAL_Airs_displays_in_field_of_view.jpg 590w,
+/static/30b84abcd739ed8d520acc11974db8e5/a8a14/XREAL_Airs_displays_in_field_of_view.jpg 885w,
+/static/30b84abcd739ed8d520acc11974db8e5/fbd2c/XREAL_Airs_displays_in_field_of_view.jpg 1180w,
+/static/30b84abcd739ed8d520acc11974db8e5/4239e/XREAL_Airs_displays_in_field_of_view.jpg 2193w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+For the above reasons, they’re not something I would wear outside.&lt;/p&gt;
+&lt;h2 id=&quot;using-the-xreals-without-the-beam&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#using-the-xreals-without-the-beam&quot; aria-label=&quot;using the xreals without the beam permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using the XREALs without the Beam&lt;/h2&gt;
+&lt;p&gt;When plugging the XREAL directly into a compatible USB-C device like a Macbook or iPhone 15, the glasses act as an external display, mirroring or extending your device’s screen. The image is sharp and text is very readable, but it can be quite hard to see the edges since they stay in your peripheral vision. The screen moves with your head, so if you want to focus on a corner you have to keep your head still and move just your eyes. As such, it’s great for watching video, but for doing work you’ll have to keep what you’re reading in the center of the screen.&lt;/p&gt;
+&lt;p&gt;I also learnt my head moves a lot when working, especially when typing. Because the screen follows your movements, it’s a bit disorienting, bordering on nauseating. Because of this, I rarely used the XREALs without the Beam, just the occasional video in bed or a long bus ride. Admittedly, the latter was cool, because with the chromatic lenses I could keep an eye out for when the scenery was nice and increase the transparency of the glasses accordingly. The caveat is that “horizontal line” still remains in the way.&lt;/p&gt;
+&lt;h2 id=&quot;using-the-xreals-with-the-beam&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#using-the-xreals-with-the-beam&quot; aria-label=&quot;using the xreals with the beam permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using the XREALs with the Beam&lt;/h2&gt;
+&lt;p&gt;The Beam allows you to mirror the display of your USB-C device and do screen without installing additional software. This sounds great and works, but there are tradeoffs 😞. &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/202c9874738a6b75b9eddf514f4148b1/b89ae/XREAL_Airs_with_Beam.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABpHbE1hzJ/wD/xAAZEAACAwEAAAAAAAAAAAAAAAABAgAREgP/2gAIAQEAAQUCylHuxioWDJKgbI//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8BqY//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQIBAT8Bi6//xAAbEAADAAIDAAAAAAAAAAAAAAAAARECURJhcf/aAAgBAQAGPwJ72iPJYzovKlpv0SP/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhQVH/2gAIAQEAAT8hvIa8FxZY9MgSA9mqEDqEvTzeMaYBWXP/2gAMAwEAAgADAAAAEEA//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAwEBPxAijH//xAAXEQADAQAAAAAAAAAAAAAAAAAAASER/9oACAECAQE/EJHrGf/EACAQAQACAQIHAAAAAAAAAAAAAAEAETEhQVFhcYGRscH/2gAIAQEAAT8QCKQGxR+YPE5FgK7Z6wLG2FW+8QVWKbm8FvB0UcZv3CJE0AqnHQn/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;XREAL Airs with Beam.jpeg&quot;
+        title=&quot;XREAL Airs with Beam.jpeg&quot;
+        src=&quot;/static/202c9874738a6b75b9eddf514f4148b1/1c72d/XREAL_Airs_with_Beam.jpg&quot;
+        srcset=&quot;/static/202c9874738a6b75b9eddf514f4148b1/a80bd/XREAL_Airs_with_Beam.jpg 148w,
+/static/202c9874738a6b75b9eddf514f4148b1/1c91a/XREAL_Airs_with_Beam.jpg 295w,
+/static/202c9874738a6b75b9eddf514f4148b1/1c72d/XREAL_Airs_with_Beam.jpg 590w,
+/static/202c9874738a6b75b9eddf514f4148b1/a8a14/XREAL_Airs_with_Beam.jpg 885w,
+/static/202c9874738a6b75b9eddf514f4148b1/fbd2c/XREAL_Airs_with_Beam.jpg 1180w,
+/static/202c9874738a6b75b9eddf514f4148b1/b89ae/XREAL_Airs_with_Beam.jpg 5126w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+Compared with directly plugging into a device, the image is noticeably blurrier, though still usable. There’s some sort of flickering, which is especially noticeable in dark backgrounds on lower brightness levels.&lt;/p&gt;
+&lt;p&gt;In most modes, you’re given the option to change the screen size. I mostly stuck with the default “120-inch”. In practice, this looked about the same size as my 27-inch monitor about 1m away from my head, which is actually pretty good. Larger screen sizes are possible, but there’s a limited field of view so your screens get cropped and you need to move your head to see the edges of your screen.&lt;/p&gt;
+&lt;p&gt;The resolution is 1080p “only”. I realised my home monitor (Dell) had been on 1080p for the last two years and I was quite happy with it, so this wasn’t a big problem for me. There are three display modes, but I only really used “Body Anchor” - “Smooth Follow” doesn’t let you see the edges well, and “Sideview” mode seems to be for watching something while doing something else, which doesn’t feel… safe?&lt;/p&gt;
+&lt;p&gt;It didn’t seem like the Beam could mirror and charge at the same time. In practice, this wasn’t too big a concern as the Beam lasts a good few hours on battery. As long as I remembered to charge it in between sessions, it was fine.&lt;/p&gt;
+&lt;p&gt;With anchoring, you can &lt;em&gt;mostly&lt;/em&gt; still use your Mac’s display as a secondary display. If your wall / background is a flat colour, you can reduce the dimming on the lenses, so the physical display is still readable. All the caveats above still apply - there’s the horizontal line, and the lens are still slightly tinted.&lt;/p&gt;
+&lt;p&gt;Sometimes, I’d encounter a subtle “drifting” of the screen when anchoring. Not too sure what was wrong, restarting the Beam didn’t seem to help. I’d have to occasionally re-anchor the screen till the problem went away.&lt;/p&gt;
+&lt;h2 id=&quot;other-notes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#other-notes&quot; aria-label=&quot;other notes permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Other Notes&lt;/h2&gt;
+&lt;p&gt;Because you don’t have to physically position an external monitor, the setup takes up a lot less space, and it’s more ergonomic since you can look forward at a floating screen, instead of hunching over a desk. My remote setup is currently:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a 14-inch Macbook Pro&lt;/li&gt;
+&lt;li&gt;a Roost laptop stand&lt;/li&gt;
+&lt;li&gt;Logitech mouse&lt;/li&gt;
+&lt;li&gt;random folding split keyboard&lt;/li&gt;
+&lt;li&gt;It’s on the left below, in contrast to my wife’s setup: &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0c7d4f926b217ea66a73d0b9ae290516/b7c1f/XREAL_Air_setup.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwAE/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAARANorZaX//EABoQAAMAAwEAAAAAAAAAAAAAAAECAwAEERL/2gAIAQEAAQUCr5ejCeJtyCklHW6MCeH/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAdEAACAQUBAQAAAAAAAAAAAAAAAQIREiFRcQMi/9oACAEBAAY/AotUe2SbjPAlbLA1op6Y4j5tpw//xAAcEAACAgIDAAAAAAAAAAAAAAABEQAxIUFRYYH/2gAIAQEAAT8hwrKAYee5CbzANAAWpdll5EkIaMGi8Lj/2gAMAwEAAgADAAAAEKA//8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAwEBPxCJumn/xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QFDCwv//EAB0QAQADAAEFAAAAAAAAAAAAAAEAESExQVFhcfD/2gAIAQEAAT8QKTYNCN5W9phk1ahgY+buGakSlwe4TV+AMWYIDZlb1lbYm1es/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;XREAL Air setup.jpeg&quot;
+        title=&quot;XREAL Air setup.jpeg&quot;
+        src=&quot;/static/0c7d4f926b217ea66a73d0b9ae290516/1c72d/XREAL_Air_setup.jpg&quot;
+        srcset=&quot;/static/0c7d4f926b217ea66a73d0b9ae290516/a80bd/XREAL_Air_setup.jpg 148w,
+/static/0c7d4f926b217ea66a73d0b9ae290516/1c91a/XREAL_Air_setup.jpg 295w,
+/static/0c7d4f926b217ea66a73d0b9ae290516/1c72d/XREAL_Air_setup.jpg 590w,
+/static/0c7d4f926b217ea66a73d0b9ae290516/a8a14/XREAL_Air_setup.jpg 885w,
+/static/0c7d4f926b217ea66a73d0b9ae290516/fbd2c/XREAL_Air_setup.jpg 1180w,
+/static/0c7d4f926b217ea66a73d0b9ae290516/b7c1f/XREAL_Air_setup.jpg 5712w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With the case and Beam, the setup was probably only a few hundred grams lighter than a portable monitor, but it’s significantly easier to pack and bring around. Plus you do technically get a larger display (most portable monitors are 16 inches).&lt;/p&gt;
+&lt;p&gt;I still took them the glasses off for video calls, though I think they could be a fun conversation starter.&lt;/p&gt;
+&lt;p&gt;I haven’t tested Nebula much. Tried a little on my personal laptop, multiple screens seemed cool, but otherwise the quality of individual displays seemed to be a similar to the BEAM&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#summary&quot; aria-label=&quot;summary permalink&quot; class=&quot;autolink-anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I couldn’t work a full day in them, but think I got enough benefit out of half a day that I could see myself continuing to use this setup when travelling.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The good&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Compact and easy to bring around&lt;/li&gt;
+&lt;li&gt;A relatively big screen (though 120 inch is a bit misleading, in practice it was like using a 27-inch monitor on a desk)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;The meh&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Still can’t beat an actual desktop monitor in terms of field of view, comfort and clarity&lt;/li&gt;
+&lt;li&gt;Beam is kinda annoying to manage&lt;/li&gt;
+&lt;li&gt;Pricier than a portable monitor, especially if you need the Beam and prescription lenses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you found this useful and are considering a purchasing the XREAL Air 2s, consider supporting my blog by using one of the following affiliate links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://s.lazada.sg/s.1WjQN?cc&quot;&gt;Lazada Singapore&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://amzn.to/3MlbT1c&quot;&gt;Amazon US&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[How I'm dealing with Self-Doubt as a Software Developer]]></title><description><![CDATA[As a software developer, I’ve found self-doubt tends to intensify when: comparing oneself with others e.g. can I really be as good as person…]]></description><link>https://www.wasabigeek.com/blog/how-i-m-dealing-with-self-doubt-as-a-software-developer/</link><guid isPermaLink="false">https://www.wasabigeek.com/blog/how-i-m-dealing-with-self-doubt-as-a-software-developer/</guid><pubDate>Mon, 24 Oct 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;As a software developer, I’ve found self-doubt tends to intensify when:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;comparing oneself with others e.g. can I really be as good as person X?&lt;/li&gt;
 &lt;li&gt;getting some negative feedback, especially from people I’m unfamiliar with (I think this is close to imposter syndrome, where I’m worrying about being judged)&lt;/li&gt;
