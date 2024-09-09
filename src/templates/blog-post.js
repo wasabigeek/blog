@@ -7,6 +7,7 @@ import Seo from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import Comments from "../components/Comments"
 import "./blog-post.css"
+import kofi_button from "../../content/assets/kofi_button_red.png"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -41,6 +42,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section>
+          <hr />
+          <p>Psst - if this was useful, consider sponsoring a coffee (or sushi) for me 🙇‍♂️:</p>
+          <Link to={"https://ko-fi.com/wasabigeek"} target="_blank" style={{ backgroundImage: "none" }}>
+            <img src={kofi_button} alt="Support me on Ko-Fi" style={{ maxWidth: 250 }} />
+          </Link>
+        </section>
         {relatedPosts.length > 0 && (
           <section>
             <h2>Related Posts</h2>
